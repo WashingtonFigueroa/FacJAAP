@@ -79,15 +79,14 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Servidor JAAP
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a target="_blank" href="https://laravel.com/docs">Documentation Laravel</a>
+                    <a target="_blank" href="https://laracasts.com">Laracasts</a>
+                    <a target="_blank" href="https://laravel-news.com">News</a>
+                    <a target="_blank" href="https://www.facebook.com/washington.figueroa.3">Washington Figueroa</a>
                 </div>
             </div>
         </div>
