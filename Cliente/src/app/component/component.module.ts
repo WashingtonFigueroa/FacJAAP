@@ -22,6 +22,10 @@ import { NgbdtimepickerBasic } from './timepicker/timepicker.component';
 import { NgbdtypeheadBasic } from './typehead/typehead.component';
 import { CardsComponent } from './card/card.component';
 import { ButtonsComponent } from './buttons/buttons.component';
+import {ProveedorComponent} from "./proveedor/proveedor.component";
+import {ProveedorIndexComponent} from "./proveedor/proveedor-index/proveedor-index.component";
+import {ProveedorEditComponent} from "./proveedor/proveedor-edit/proveedor-edit.component";
+import {ProveedorCreateComponent} from "./proveedor/proveedor-create/proveedor-create.component";
 
 @NgModule({
   imports: [
@@ -47,7 +51,11 @@ import { ButtonsComponent } from './buttons/buttons.component';
     NgbdtimepickerBasic,
     NgbdtypeheadBasic,
     CardsComponent,
-    ButtonsComponent
+    ButtonsComponent,
+    ProveedorComponent,
+    ProveedorIndexComponent,
+    ProveedorEditComponent,
+    ProveedorCreateComponent
   ],
   providers: [
   ]

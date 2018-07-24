@@ -16,6 +16,9 @@ import { NgbdtypeheadBasic } from './typehead/typehead.component';
 import { CardsComponent } from './card/card.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import {ProveedorComponent} from "./proveedor/proveedor.component";
+import {ProveedorCreateComponent} from "./proveedor/proveedor-create/proveedor-create.component";
+import {ProveedorIndexComponent} from "./proveedor/proveedor-index/proveedor-index.component";
+import {ProveedorEditComponent} from "./proveedor/proveedor-edit/proveedor-edit.component";
 
 export const ComponentsRoutes: Routes = [
   {
@@ -28,7 +31,17 @@ export const ComponentsRoutes: Routes = [
         title: 'Progressbar',
         urls: [{title: 'Dashboard',url: '/dashboard'},{title: 'ngComponent'},{title: 'Progressbar'}]
       }
-    }, 
+    },
+    {
+      path: 'proveedores',
+      component: ProveedorComponent,
+      children: [
+          { path: '', redirectTo: 'listar', pathMatch: 'full' },
+          { path: 'listar', component: ProveedorIndexComponent },
+          { path: 'crear', component: ProveedorCreateComponent },
+          { path: 'editar/:id', component: ProveedorEditComponent }
+      ]
+    },
     {
       path: 'pagination',
       component: NgbdpaginationBasic,
