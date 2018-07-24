@@ -28,8 +28,8 @@ Route::resource('multa', 'MultaController');
 Route::resource('movimientos', 'MovimientoController');
 Route::resource('factura_ventas', 'FacturaVentaController');
 Route::resource('pago_medidor', 'PagoMedidorController');
-// Route::resource('tipoUsuario', 'TipoUsuaarioController');
-// Route::resource('usuarios', 'UserController');
+Route::resource('tipo_usuarios', 'TipoUsuarioController');
+Route::resource('usuarios', 'UserController');
 
 /*recuperacion de documentos, archivos e imagenes*/
 Route::get('factura_compras_documento/{id}', 'FacturaCompraController@getDocumento');

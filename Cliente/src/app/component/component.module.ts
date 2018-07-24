@@ -48,7 +48,10 @@ import { ButtonsComponent } from './buttons/buttons.component';
     NgbdtypeheadBasic,
     CardsComponent,
     ButtonsComponent
+  ],
+  providers: [
   ]
+
 })
 
 export class ComponentsModule {}

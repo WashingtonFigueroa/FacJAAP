@@ -15,6 +15,7 @@ import { NgbdtimepickerBasic } from './timepicker/timepicker.component';
 import { NgbdtypeheadBasic } from './typehead/typehead.component';
 import { CardsComponent } from './card/card.component';
 import { ButtonsComponent } from './buttons/buttons.component';
+import {ProveedorComponent} from "./proveedor/proveedor.component";
 
 export const ComponentsRoutes: Routes = [
   {
