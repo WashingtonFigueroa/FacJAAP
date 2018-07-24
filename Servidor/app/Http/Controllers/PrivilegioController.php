@@ -7,79 +7,37 @@ use Illuminate\Http\Request;
 
 class PrivilegioController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        return response()->json(Privilegio::orderBy('idprivilegio', 'asc')->get(),
+            200);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $Privilegio = Privilegio::create($request->all());
+        return response()->json($Privilegio, 201);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Privilegio  $privilegio
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Privilegio $privilegio)
+    public function show($id)
     {
-        //
+        return response()->json(Privilegio::find($id), 200);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Privilegio  $privilegio
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Privilegio $privilegio)
+    public function update(Request $request, $id)
     {
-        //
+        $Privilegio = Privilegio::find($id);
+        $Privilegio->update($request->all());
+        return response()->json($Privilegio, 200);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Privilegio  $privilegio
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Privilegio $privilegio)
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Privilegio  $privilegio
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Privilegio $privilegio)
-    {
-        //
+        $Privilegio = Privilegio::find($id);
+        $Privilegio->delete();
+        return response()->json([
+            'eliminado' => 'Privilegio ' . $Privilegio->idprivilegio
+                . ' eliminado exitosamente'
+        ], 200);
     }
 }
