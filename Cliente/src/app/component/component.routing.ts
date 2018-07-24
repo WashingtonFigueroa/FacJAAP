@@ -15,26 +15,12 @@ import { NgbdtimepickerBasic } from './timepicker/timepicker.component';
 import { NgbdtypeheadBasic } from './typehead/typehead.component';
 import { CardsComponent } from './card/card.component';
 import { ButtonsComponent } from './buttons/buttons.component';
-import { ProveedorComponent } from './proveedor/proveedor.component';
-import { ProveedorIndexComponent } from './proveedor/proveedor-index/proveedor-index.component';
-import { ProveedorCreateComponent } from './proveedor/proveedor-create/proveedor-create.component';
-import { ProveedorEditComponent } from './proveedor/proveedor-edit/proveedor-edit.component';
 
 export const ComponentsRoutes: Routes = [
   {
     path: '',
     children: [
-      { path: 'proveedores', component:  ProveedorComponent, children: [
-        { path: 'listar', component: ProveedorIndexComponent},
-        { path: 'crear', component: ProveedorCreateComponent },
-        { path: 'editar/:id', component: ProveedorEditComponent },
-        {
-            path: '',
-            redirectTo: 'listar',
-            pathMatch: 'full'
-        }
-    ]},
-      {
+    {
       path: 'progressbar',
       component: NgbdpregressbarBasic,
       data: {
@@ -54,8 +40,8 @@ export const ComponentsRoutes: Routes = [
       path: 'accordion',
       component: NgbdAccordionBasic,
       data: {
-        title: 'Accordion',
-        urls: [{title: 'Dashboard',url: '/dashboard'},{title: 'ngComponent'},{title: 'Accordion'}]
+        title: 'Registro Datos XD',
+        urls: [{title: 'Inicio',url: '/dashboard'},{title: 'Registro'},{title: 'Acordion'}]
       }
     }, 
     {
