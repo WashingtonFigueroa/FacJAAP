@@ -24,7 +24,7 @@ export class ProveedorCreateComponent implements OnInit {
             'nombre' : new FormControl('',
                 [Validators.required, Validators.pattern(/^[A-Za-z ]{10,100}$/)]),
             'direccion' : new FormControl('',
-                [Validators.required, Validators.pattern(/^[A-Za-z ]{10,150}$/)]),
+                [Validators.required]),
             'telefono' : new FormControl('',
                 [Validators.required, Validators.pattern(/^\d{10}$/)])
         });

@@ -41,9 +41,21 @@ export const ComponentsRoutes: Routes = [
       component: ProveedorComponent,
       children: [
           { path: '', redirectTo: 'listar', pathMatch: 'full' },
-          { path: 'listar', component: ProveedorIndexComponent },
-          { path: 'crear', component: ProveedorCreateComponent },
-          { path: 'editar/:id', component: ProveedorEditComponent }
+          { path: 'listar', component: ProveedorIndexComponent,
+          data: {
+            title: 'Lista Proveedores',
+            urls: [{title: 'Inicio',url: '/dashboard'},{title: 'Registro',url: '/component/proveedores/crear'},{title: 'Proveedores'}]
+          } },
+          { path: 'crear', component: ProveedorCreateComponent,
+          data: {
+            title: 'Registrar Proveedor',
+            urls: [{title: 'Inicio',url: '/dashboard'},{title: 'Proveedores',url: '/component/proveedores/listar'},{title: 'Registro'}]
+          } },
+          { path: 'editar/:id', component: ProveedorEditComponent,
+          data: {
+            title: 'Editar Proveedor',
+            urls: [{title: 'Inicio',url: '/dashboard'},{title: 'Proveedores',url: '/component/proveedores/listar'},{title: 'Edición'}]
+          } }
       ]
     },
     {
@@ -51,9 +63,21 @@ export const ComponentsRoutes: Routes = [
         component: MaterialComponent,
         children: [
             { path: '', redirectTo: 'listar', pathMatch: 'full' },
-            { path: 'listar', component: MaterialIndexComponent },
-            { path: 'crear', component: MaterialCreateComponent },
-            { path: 'editar/:id', component: MaterialEditComponent }
+            { path: 'listar', component: MaterialIndexComponent,
+            data: {
+              title: 'Lista Materiales',
+              urls: [{title: 'Inicio',url: '/dashboard'},{title: 'Registro',url: '/component/materiales/crear'},{title: 'materiales'}]
+            } },
+            { path: 'crear', component: MaterialCreateComponent,
+            data: {
+              title: 'Registrar Materiale',
+              urls: [{title: 'Inicio',url: '/dashboard'},{title: 'materiales',url: '/component/materiales/listar'},{title: 'Registro'}]
+            }  },
+            { path: 'editar/:id', component: MaterialEditComponent,
+            data: {
+              title: 'Editar Materiale',
+              urls: [{title: 'Inicio',url: '/dashboard'},{title: 'materiales',url: '/component/materiales/listar'},{title: 'Edición'}]
+            } }
         ]
     },
     {

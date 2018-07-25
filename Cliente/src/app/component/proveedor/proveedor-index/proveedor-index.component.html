@@ -1,80 +1,88 @@
 <ng-template #confirmModal let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title">Confirmar eliminacion</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <p>Esta seguro de confirmar la eliminacion? &hellip;</p>
-  </div>
-  <div class="modal-footer">
-    <button class="btn btn-default" (click)="c('cerrar')">No</button>
-    <button class="btn btn-danger" (click)="c('si')">Esta bien</button>
-    <!--<button type="button" class="btn btn-secondary" >Close</button>-->
-  </div>
-</ng-template>
-{{ search }}
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-12">
-      <input type="search" class="form-control" [(ngModel)]="search">
+    <div class="modal-header">
+      <h4 class="modal-title">Confirmar eliminación</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>Esta seguro de confirmar la eliminacion? &hellip;</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-default" (click)="c('cerrar')">No</button>
+      <button class="btn btn-danger" (click)="c('si')">Esta bien</button>
+      <!--<button type="button" class="btn btn-secondary" >Close</button>-->
+    </div>
+  </ng-template>
+  
+  <!-- {{ search }} --> 
+  
+  <div class="card">
+    <div class="card-body">
+      <div class="container-fluid">
+        <!-- <div class="row">
+            <div class="col-md-12">
+              <input type="search" class="form-control" [(ngModel)]="search">
+            </div>
+          </div> -->
+  
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>
+                    #
+                  </th>
+                  <th>
+                    RUC
+                  </th>
+                  <th>
+                    Nombre
+                  </th>
+                  <th>
+                    Dirección
+                  </th>
+                  <th>
+                    Teléfono
+                  </th>
+                  <th>
+                    Acciones
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let proveedor of proveedores; let i = index">
+                  <td>
+                    {{ i + 1 }}
+                  </td>
+                  <td>
+                    {{ proveedor.ruc }}
+                  </td>
+                  <td>
+                    {{ proveedor.nombre }}
+                  </td>
+                  <td>
+                    {{ proveedor.direccion}}
+                  </td>
+                  <td>
+                    {{ proveedor.telefono }}
+                  </td>
+                  <td>
+                    <button (click)="edit(proveedor.idproveedor)" type="button" class="btn btn-info">
+                        <i class="fa fa-pencil-square" aria-hidden="true"></i>                      
+                    </button>
+                    &nbsp;&nbsp;
+                    <button type="button" class="btn btn-danger" (click)="confirm(i, proveedor.idproveedor,confirmModal)">
+                        <i class="fa fa-eraser" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+  
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-12">
-      <table class="table">
-        <thead>
-        <tr>
-          <th>
-            #
-          </th>
-          <th>
-            RUC
-          </th>
-          <th>
-            Nombre
-          </th>
-          <th>
-            Direccion
-          </th>
-          <th>
-            Telefono
-          </th>
-          <th>
-            Acciones
-          </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let proveedor of proveedores; let i = index" >
-            <td>
-              {{ i + 1 }}
-            </td>
-            <td>
-              {{ proveedor.ruc }}
-            </td>
-            <td>
-              {{ proveedor.nombre }}
-            </td>
-            <td>
-              {{ proveedor.direccion}}
-            </td>
-            <td>
-              {{ proveedor.telefono }}
-            </td>
-            <td>
-              <button (click)="edit(proveedor.idproveedor)" type="button" class="btn btn-info">
-                Editar
-              </button>
-              <button type="button" class="btn btn-danger"
-                      (click)="confirm(i, proveedor.idproveedor,confirmModal)">Eliminar</button>
-            </td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-

@@ -1,38 +1,66 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12">
-            <form (submit)="update()" role="form" [formGroup]="proveedorGroup"
-                  *ngIf="proveedor !== null">
-                <legend>Edicion de proveedores</legend>
-                <div class="form-group">
-                    <label for="ruc">
-                        RUC
-                    </label>
-                    <input type="text" class="form-control" id="ruc" name="ruc" formControlName="ruc" autofocus/>
+<div class="card">
+        <div class="card-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-8">
+                        <form (submit)="update()" role="form" [formGroup]="proveedorGroup"
+                        *ngIf="proveedor !== null">
+                      <div class="form-group">
+                          <label for="ruc">
+                              RUC
+                          </label>
+                          <input type="number" class="form-control" id="ruc" name="ruc" formControlName="ruc" autofocus/>
+                      </div>
+                      <div class="form-group">
+      
+                          <label for="nombre">
+                              Nombre
+                          </label>
+                          <input type="text" class="form-control" id="nombre" name="nombre" formControlName="nombre" />
+                      </div>
+                      <div class="form-group">
+                          <label for="direccion">
+                              Direccion
+                          </label>
+                          <input type="text" class="form-control" id="direccion" name="direccion" formControlName="direccion"/>
+                      </div>
+                      <div class="form-group">
+                          <label for="telefono">
+                              Telefono
+                          </label>
+                          <input type="number" class="form-control" id="telefono" name="telefono" formControlName="telefono" />
+                      </div>
+                      <button type="submit" class="btn btn-success">
+                          Actualizar
+                      </button>
+                  </form>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card">
+                      <h5 class="card-header">
+                                Reglamento
+                              </h5>
+                      <div class="card-body">
+                        <p class="card-text">
+                          Tiene que tener facturero
+                        </p>
+                        <p class="card-text">
+                          reglas 2
+                        </p>
+                        <p class="card-text">
+                          reglas 3
+                        </p>
+                      </div>
+                      <div class="card-footer">
+                        La Directiva
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="form-group">
-
-                    <label for="nombre">
-                        Nombre
-                    </label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" formControlName="nombre" />
-                </div>
-                <div class="form-group">
-                    <label for="direccion">
-                        Direccion
-                    </label>
-                    <input type="text" class="form-control" id="direccion" name="direccion" formControlName="direccion"/>
-                </div>
-                <div class="form-group">
-                    <label for="telefono">
-                        Telefono
-                    </label>
-                    <input type="text" class="form-control" id="telefono" name="telefono" formControlName="telefono" />
-                </div>
-                <button type="submit" class="btn btn-success">
-                    Actualizar
-                </button>
-            </form>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
