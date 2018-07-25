@@ -19,6 +19,10 @@ import {ProveedorComponent} from "./proveedor/proveedor.component";
 import {ProveedorCreateComponent} from "./proveedor/proveedor-create/proveedor-create.component";
 import {ProveedorIndexComponent} from "./proveedor/proveedor-index/proveedor-index.component";
 import {ProveedorEditComponent} from "./proveedor/proveedor-edit/proveedor-edit.component";
+import {MaterialComponent} from "./material/material.component";
+import {MaterialIndexComponent} from "./material/material-index/material-index.component";
+import {MaterialCreateComponent} from "./material/material-create/material-create.component";
+import {MaterialEditComponent} from "./material/material-edit/material-edit.component";
 
 export const ComponentsRoutes: Routes = [
   {
@@ -41,6 +45,16 @@ export const ComponentsRoutes: Routes = [
           { path: 'crear', component: ProveedorCreateComponent },
           { path: 'editar/:id', component: ProveedorEditComponent }
       ]
+    },
+    {
+        path: 'materiales',
+        component: MaterialComponent,
+        children: [
+            { path: '', redirectTo: 'listar', pathMatch: 'full' },
+            { path: 'listar', component: MaterialIndexComponent },
+            { path: 'crear', component: MaterialCreateComponent },
+            { path: 'editar/:id', component: MaterialEditComponent }
+        ]
     },
     {
       path: 'pagination',

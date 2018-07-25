@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-// import { environment } from  'environments/environment.prod';
-
+import { environment } from '../../../environments/environment.prod';
 @Injectable()
 export class ProveedorService {
 
-  base = 'http://localhost:8000/api/';
+  base = environment.base;
   constructor(protected http: HttpClient) { }
 
   index() {
@@ -23,5 +22,4 @@ export class ProveedorService {
   destroy(id) {
       return this.http.delete(this.base + 'proveedores/' + id );
   }
-
 }

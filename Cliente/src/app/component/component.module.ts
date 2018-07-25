@@ -26,10 +26,15 @@ import {ProveedorComponent} from "./proveedor/proveedor.component";
 import {ProveedorIndexComponent} from "./proveedor/proveedor-index/proveedor-index.component";
 import {ProveedorEditComponent} from "./proveedor/proveedor-edit/proveedor-edit.component";
 import {ProveedorCreateComponent} from "./proveedor/proveedor-create/proveedor-create.component";
+import {ProveedorService} from "./proveedor/proveedor.service";
+import { MaterialComponent } from './material/material.component';
+import { MaterialIndexComponent } from './material/material-index/material-index.component';
+import { MaterialEditComponent } from './material/material-edit/material-edit.component';
+import { MaterialCreateComponent } from './material/material-create/material-create.component';
+import {MaterialService} from "./material/material.service";
 
 @NgModule({
-  imports: [
-    CommonModule,
+  imports: [CommonModule,
     RouterModule.forChild(ComponentsRoutes),
     FormsModule,
     ReactiveFormsModule,
@@ -55,9 +60,15 @@ import {ProveedorCreateComponent} from "./proveedor/proveedor-create/proveedor-c
     ProveedorComponent,
     ProveedorIndexComponent,
     ProveedorEditComponent,
-    ProveedorCreateComponent
+    ProveedorCreateComponent,
+    MaterialComponent,
+    MaterialIndexComponent,
+    MaterialEditComponent,
+    MaterialCreateComponent
   ],
   providers: [
+      ProveedorService,
+      MaterialService
   ]
 
 })
