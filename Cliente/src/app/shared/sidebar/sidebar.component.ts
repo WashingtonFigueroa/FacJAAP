@@ -7,7 +7,6 @@ declare var $: any;
 @Component({
   selector: 'ap-sidebar',
   templateUrl: './sidebar.component.html'
-  
 })
 export class SidebarComponent implements OnInit {
 	
@@ -33,8 +32,9 @@ export class SidebarComponent implements OnInit {
         }
     }
     
-    constructor(private modalService: NgbModal, private router: Router,
-        private route: ActivatedRoute) {
+    constructor(private modalService: NgbModal,
+                protected router: Router,
+                private route: ActivatedRoute) {
         
     } 
     // End open close
@@ -54,5 +54,9 @@ export class SidebarComponent implements OnInit {
 
         });
         
+    }
+    logout() {
+        localStorage.removeItem('token');
+        this.router.navigate(['/login']);
     }
 }

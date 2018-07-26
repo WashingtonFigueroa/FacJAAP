@@ -9,7 +9,9 @@ class MaterialController extends Controller
 {    
     public function index()
     {
-        return response()->json(Material::orderBy('nombre', 'asc')->get(),
+        return response()->json(Material::with('proveedor')
+            ->orderBy('nombre', 'asc')
+            ->paginate(7),
             200);
     }
 

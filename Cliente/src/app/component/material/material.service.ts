@@ -13,6 +13,9 @@ export class MaterialService {
     index() {
         return this.http.get(this.base + 'materiales');
     }
+    indexPerPage(url) {
+        return this.http.get( url );
+    }
     show(id) {
         return this.http.get(this.base + 'materiales/' + id);
     }

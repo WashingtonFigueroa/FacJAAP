@@ -46,11 +46,11 @@ export class MaterialEditComponent implements OnInit {
     });
   }
   ngOnInit() {}
-  createForm(proveedor) {
+  createForm(material) {
     this.materialGroup = this.fb.group({
-      'idproveedor': new FormControl(proveedor.ruc, [Validators.required]),
-      'nombre': new FormControl(proveedor.nombre, [Validators.required]),
-      'descripcion': new FormControl(proveedor.descripcion, [Validators.required])
+      'idproveedor': new FormControl(material.idproveedor, [Validators.required]),
+      'nombre': new FormControl(material.nombre, [Validators.required]),
+      'descripcion': new FormControl(material.descripcion, [Validators.required])
     });
   }
   update() {

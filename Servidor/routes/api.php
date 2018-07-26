@@ -16,7 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+Route::post('login', 'AuthenticationController@login');
+Route::post('logout', 'AuthenticationController@logout');
 Route::resource('proveedores', 'ProveedorController', ['except' => ['create', 'edit']]);
 Route::resource('materiales', 'MaterialController', ['except' => ['create', 'edit']]);
 Route::resource('factura_compras', 'FacturaCompraController', ['except' => ['create', 'edit']]);

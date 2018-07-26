@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MaterialService } from '../material.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
+import { environment } from '../../../../environments/environment.prod';
 
 @Component({
   selector: 'app-material-index',
@@ -14,15 +15,56 @@ export class MaterialIndexComponent implements OnInit {
   idmaterial: number = null;
   closeResult: string;
   search = '';
+  pages: any = [];
+  prev_page: any = null;
+  next_page: any = null;
+  environment = environment;
   constructor(protected materialService: MaterialService,
               protected modalService: NgbModal,
               protected router: Router) { }
 
   ngOnInit() {
-    this.materialService.index().subscribe(res => {
-      this.materiales = res;
+    this.materialService.index().subscribe((res: any) => {
+      this.materiales = res.data;
+      this.getPages(res.last_page);
+      this.prev_page = res.prev_page_url;
+      this.next_page = res.next_page_url;
     });
-  } 
+  }
+  getPages(last_page) {
+    for (let i=1; i<=last_page; i++ ) {
+      this.pages.push(
+          {
+              url: this.environment.base + 'materiales?page=' + i ,
+              item: i
+          }
+      );
+    }
+  }
+  loadPagination(url) {
+    this.materialService.indexPerPage(url)
+        .subscribe((res: any)=> {
+          this.materiales = res.data;
+          this.prev_page = res.prev_page_url;
+          this.next_page = res.next_page_url;
+        });
+  }
+  prevPage() {
+    this.materialService.indexPerPage(this.prev_page)
+        .subscribe( (res : any)=> {
+          this.materiales = res.data;
+          this.prev_page = res.prev_page_url;
+          this.next_page = res.next_page_url;
+        });
+  }
+  nextPage() {
+      this.materialService.indexPerPage(this.next_page)
+          .subscribe( (res : any)=> {
+              this.materiales = res.data;
+              this.prev_page = res.prev_page_url;
+              this.next_page = res.next_page_url;
+          });
+  }
   destroy(index, id) {
     this.materialService.destroy(id)
       .subscribe(res => {
