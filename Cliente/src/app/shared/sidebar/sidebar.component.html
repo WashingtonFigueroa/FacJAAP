@@ -4,11 +4,9 @@
           <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" (click)="addExpandClass('user')" aria-expanded="false">
             <span class="hide-menu">SAN JOSÉ DE CHORLAVÍ</span></a>
           <ul aria-expanded="false" class="collapse" [class.in]="showMenu === 'user'">
-            <li><a href="javascript:void()">Mi perfil </a></li>
-            <!-- <li><a href="javascript:void()">My Ba</a></li> -->
-            <!-- <li><a href="javascript:void()">Inbox</a></li> -->
-            <li><a href="javascript:void()">Configuración cuenta</a></li>
-            <li><a (click)="logout()">Cerrar sesión</a></li>
+            <li><a href="javascript:void()">  <i class="ti-user"></i> &nbsp;&nbsp;Mi perfil </a></li>
+            <li><a href="javascript:void()"> <i class="mdi mdi-settings"></i> &nbsp;&nbsp; Configuración cuenta</a></li>
+            <li><a (click)="logout()"> <i class="ti-wallet"></i> &nbsp;&nbsp; Cerrar sesión</a></li> 
           </ul>  
         </li>
         <li class="nav-devider"></li>
@@ -40,8 +38,5 @@
                     </li>
                 </ul>
         </li>
-        <!-- <li class="m-t-40 p-20 upgrade-btn">
-            <a href="Https://wrappixel.com/templates/adminpro-angular-dashboard/" target="_blank" class="btn btn-danger text-white">Upgrade To Pro</a>
-        </li> -->
     </ul>
 </nav> 

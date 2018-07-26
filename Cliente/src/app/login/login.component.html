@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
       <form (submit)="login()" [formGroup]="loginGroup">
@@ -19,5 +19,49 @@
         </button>
       </form>
     </div>
+  </div> 
+</div> -->
+
+
+  
+  <h1 class="text-center mt-5">JAAP SAN JOSÉ DE CHORLAVÍ</h1>
+  <hr>
+  <div class="container pt-3">
+    <div class="row justify-content-sm-center">
+      <div class="col-sm-10 col-md-6">
+        <div class="card border-info">
+          <div class="card-header">Inicia sesión para continuar</div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4 text-center">
+                <hr>
+                <br>
+                <img src="assets/images/logo-icon.png">
+                <h4 class="text-center">LA SIRENA</h4>
+              </div>
+              <div class="col-md-8">
+                  <form (submit)="login()" [formGroup]="loginGroup">
+                      <div class="form-group">
+                        <label for="correo">
+                          Correo electronico
+                        </label>
+                        <input type="email" class="form-control" id="correo" formControlName="correo"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="password">
+                          Password
+                        </label>
+                        <input type="password" class="form-control" id="password" formControlName="password"/>
+                      </div>
+                      <button type="submit" class="btn btn-primary">
+                        Iniciar Sesion
+                      </button>
+                    </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="https://www.facebook.com/washington.figueroa.3" target="_blank" class="float-right"> UTN - Washington Figueroa </a>
+      </div>
+    </div>
   </div>
-</div>
