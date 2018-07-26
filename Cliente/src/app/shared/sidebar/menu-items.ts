@@ -9,20 +9,20 @@ export const ROUTES: RouteInfo[] = [
         submenu: [
             { path: '/component/proveedores', title: 'Proveedor', icon: 'mdi mdi-account-plus', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
             { path: '/component/materiales', title: 'Material', icon: 'mdi mdi-buffer', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
-            { path: '/component/carousel', title: 'Factura Compra', icon: 'mdi mdi-cart', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
-            { path: '/component/dropdown', title: 'Egresos', icon: '', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
-            { path: '/component/modal', title: 'Inventario', icon: 'mdi-contrast-box', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
+            { path: '/component/facturacompras', title: 'Factura Compra', icon: 'mdi mdi-cart', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
+            { path: '/component/dropdown', title: 'Egresos', icon: 'mdi mdi-poll', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
+            { path: '/component/modal', title: 'Inventario', icon: 'mdi mdi-buffer', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
         ]
     },
     {
-        path: '', title: 'Ingresos', icon: 'mdi mdi-bullseye', class: 'has-arrow', label: '', labelClass: '', extralink: false,
+        path: '', title: 'Ingresos', icon: 'mdi mdi-account-settings', class: 'has-arrow', label: '', labelClass: '', extralink: false,
         submenu: [
-            { path: '/component/modal', title: 'Parametros', icon: '', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
+            { path: '/component/modal', title: 'Parametros', icon: '', class: 'mdi mdi-settings', label: '', labelClass: '', extralink: false, submenu: [] },
             { path: '/component/accordion', title: 'Cliente', icon: 'mdi mdi-account-plus', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
-            { path: '/component/alert', title: 'Medidores', icon: '', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
-            { path: '/component/carousel', title: 'Servicio', icon: '', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
-            { path: '/component/carousel', title: 'Pago Servicio', icon: '', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
-            { path: '/component/dropdown', title: 'multas', icon: 'mdi-book-plus', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
+            { path: '/component/alert', title: 'Medidores', icon: 'mdi mdi-cup-water', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
+            { path: '/component/carousel', title: 'Servicio', icon: 'mdi mdi-sitemap', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
+            { path: '/component/carousel', title: 'Pago Servicio', icon: 'mdi mdi-format-color-fill', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
+            { path: '/component/dropdown', title: 'multas', icon: 'mdi mdi-currency-usd', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
         ]
     },
     {

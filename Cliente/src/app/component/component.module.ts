@@ -32,6 +32,11 @@ import { MaterialIndexComponent } from './material/material-index/material-index
 import { MaterialEditComponent } from './material/material-edit/material-edit.component';
 import { MaterialCreateComponent } from './material/material-create/material-create.component';
 import {MaterialService} from "./material/material.service";
+import { FacturacompraIndexComponent } from './facturacompra/facturacompra-index/facturacompra-index.component';
+import { FacturacompraEditComponent } from './facturacompra/facturacompra-edit/facturacompra-edit.component';
+import { FacturacompraCrearComponent } from './facturacompra/facturacompra-crear/facturacompra-crear.component';
+import { FacturacompraService } from './facturacompra/facturacompra.service';
+import { FacturacompraComponent } from './facturacompra/facturacompra.component';
 
 @NgModule({
   imports: [CommonModule,
@@ -64,11 +69,16 @@ import {MaterialService} from "./material/material.service";
     MaterialComponent,
     MaterialIndexComponent,
     MaterialEditComponent,
-    MaterialCreateComponent
+    MaterialCreateComponent,
+    FacturacompraComponent,
+    FacturacompraIndexComponent,
+    FacturacompraEditComponent,
+    FacturacompraCrearComponent
   ],
   providers: [
       ProveedorService,
-      MaterialService
+      MaterialService,
+      FacturacompraService
   ]
 
 })

@@ -23,6 +23,10 @@ import {MaterialComponent} from "./material/material.component";
 import {MaterialIndexComponent} from "./material/material-index/material-index.component";
 import {MaterialCreateComponent} from "./material/material-create/material-create.component";
 import {MaterialEditComponent} from "./material/material-edit/material-edit.component";
+import { FacturacompraComponent } from './facturacompra/facturacompra.component';
+import { FacturacompraIndexComponent } from './facturacompra/facturacompra-index/facturacompra-index.component';
+import { FacturacompraCrearComponent } from './facturacompra/facturacompra-crear/facturacompra-crear.component';
+import { FacturacompraEditComponent } from './facturacompra/facturacompra-edit/facturacompra-edit.component';
 
 export const ComponentsRoutes: Routes = [
   {
@@ -80,6 +84,28 @@ export const ComponentsRoutes: Routes = [
             } }
         ]
     },
+    {
+      path: 'facturacompras',
+      component: FacturacompraComponent,
+      children: [
+          { path: '', redirectTo: 'listar', pathMatch: 'full' },
+          { path: 'listar', component: FacturacompraIndexComponent,
+          data: {
+            title: 'Listar facturas de compra',
+            urls: [{title: 'Inicio',url: '/dashboard'},{title: 'Registro',url: '/component/facturacompras/crear'},{title: 'facturacompras'}]
+          } },
+          { path: 'crear', component: FacturacompraCrearComponent,
+          data: {
+            title: 'Registrar factura compra',
+            urls: [{title: 'Inicio',url: '/dashboard'},{title: 'facturacompras',url: '/component/facturacompras/listar'},{title: 'Registro'}]
+          }  },
+          { path: 'editar/:id', component: FacturacompraEditComponent,
+          data: {
+            title: 'Editar factura compra',
+            urls: [{title: 'Inicio',url: '/dashboard'},{title: 'facturacompras',url: '/component/facturacompras/listar'},{title: 'Edición'}]
+          } }
+      ]
+  },
     {
       path: 'pagination',
       component: NgbdpaginationBasic,
