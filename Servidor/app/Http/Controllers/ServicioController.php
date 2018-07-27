@@ -9,9 +9,13 @@ class ServicioController extends Controller
 {
     public function index()
     {
-    return response()->json(Servicio::orderBy('idservicio', 'asc')->get(),
-                                200);
+    return response()->json(Servicio::with('Contribuyente','Medidor')
+                    ->orderBy('idservicio', 'asc')
+                    ->paginate(7),
+                    200); 
     }
+
+    
 
     public function store(Request $request)
     {

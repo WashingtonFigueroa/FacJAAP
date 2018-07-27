@@ -36,7 +36,7 @@ class ContribuyenteController extends Controller
         $Contribuyente = Contribuyente::find($id);
         $Contribuyente->delete();
         return response()->json([
-            'eliminado' => 'Contribuyente ' . $Contribuyente->nombres
+            'eliminado' => 'Cliente ' . $Contribuyente->nombres
                         . ' eliminado exitosamente'
         ], 200);
     }

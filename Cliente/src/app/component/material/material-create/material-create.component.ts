@@ -37,7 +37,7 @@ export class MaterialCreateComponent implements OnInit {
                 nombre: '',
                 descripcion: ''
             });
-            console.log(res);
+           
         });
   }
 

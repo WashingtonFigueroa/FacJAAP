@@ -13,8 +13,8 @@ class CreateContribuyentesTable extends Migration
      */
     public function up()
     {
-        Schema::create('contribuyentes', function (Blueprint $table) {
-            $table->increments('idcontribuyente');
+        Schema::create('clientes', function (Blueprint $table) {
+            $table->increments('idcliente');
             $table->string('cedula', 13);
             $table->string('nombres', 100);
             $table->string('direccion', 150);
@@ -34,6 +34,6 @@ class CreateContribuyentesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contribuyentes');
+        Schema::dropIfExists('clientes');
     }
 }

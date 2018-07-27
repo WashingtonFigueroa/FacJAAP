@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Contribuyente extends Model
 {
     use SoftDeletes;
-    protected $table = 'contribuyentes';
-    protected $primaryKey = 'idcontribuyente';
+    protected $table = 'clientes';
+    protected $primaryKey = 'idcliente';
     protected $fillable = [
         'cedula',
         'nombres',

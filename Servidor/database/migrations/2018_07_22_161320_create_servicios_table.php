@@ -10,10 +10,10 @@ class CreateServiciosTable extends Migration
     {
         Schema::create('servicios', function (Blueprint $table) {
             $table->increments('idservicio');
-            $table->integer('idcontribuyente')->unsigned();
-                $table->foreign('idcontribuyente')
-                    ->references('idcontribuyente')
-                    ->on('contribuyentes')
+            $table->integer('idcliente')->unsigned();
+                $table->foreign('idcliente')
+                    ->references('idcliente')
+                    ->on('clientes')
                     ->onDelete('cascade');
                  $table->integer('idmedidor')->unsigned();
                  $table->foreign('idmedidor')
@@ -22,6 +22,7 @@ class CreateServiciosTable extends Migration
                       ->onDelete('cascade');
             $table->date('fecha')->nullable();;
             $table->string('observacion', 250);
+            $table->double('saldo');
             $table->string('estado', 100);
             $table->softDeletes();
             $table->timestamps();

@@ -1,0 +1,83 @@
+<div class="card">
+  <div class="card-body">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-8">
+                  <form (submit)="update()" role="form" [formGroup]="clienteGroup"
+                  *ngIf="cliente !== null">
+                  <div class="form-group">
+                    <label for="cedula">
+                      Cedula
+                    </label>
+                    <input type="number" class="form-control" id="cedula" name="cedula" formControlName="cedula" autofocus/>
+                  </div>
+                  <div class="form-group">
+                    <label for="nombres">
+                      Nombres
+                    </label>
+                    <input type="text" class="form-control" id="nombres" name="nombres" formControlName="nombres" />
+                  </div>
+                  <div class="form-group">
+                    <label for="direccion">
+                      Dirección
+                    </label>
+                    <input type="text" class="form-control" id="direccion" name="direccion" formControlName="direccion" />
+                  </div>
+                  <div class="form-group">
+                    <label for="email">
+                      Correo
+                    </label>
+                    <input type="email" class="form-control" id="email" name="email" formControlName="email" />
+                  </div>
+                  <div class="form-group">
+                    <label for="telefono">
+                      Teléfono
+                    </label>
+                    <input type="number" class="form-control" id="telefono" name="telefono" formControlName="telefono" />
+                  </div>
+                  <div class="form-group">
+                    <label for="referencia">
+                      Referencia
+                    </label>
+                    <input type="text" class="form-control" id="referencia" name="referencia" formControlName="referencia" />
+                  </div>
+                  <div class="form-group">
+                    <label for="observacion">
+                      Observación
+                    </label>
+                    <input type="text" class="form-control" id="observacion" name="observacion" formControlName="observacion" />
+                  </div>
+                <button type="submit" class="btn btn-success">
+                    Actualizar
+                </button>
+            </form>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <h5 class="card-header">
+                          Reglamento
+                        </h5>
+                <div class="card-body">
+                  <p class="card-text">
+                    Tiene que tener facturero
+                  </p>
+                  <p class="card-text">
+                    reglas 2
+                  </p>
+                  <p class="card-text">
+                    reglas 3
+                  </p>
+                </div>
+                <div class="card-footer">
+                  La Directiva
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

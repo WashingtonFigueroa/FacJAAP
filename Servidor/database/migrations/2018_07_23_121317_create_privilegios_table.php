@@ -21,7 +21,7 @@ class CreatePrivilegiosTable extends Migration
                   ->on('users')
                   ->onDelete('cascade');
             $table->string('nombre',100);
-            $table->double('estado');
+            $table->boolean('estado');
             $table->softDeletes();
             $table->timestamps();
         });

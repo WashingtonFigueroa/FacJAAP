@@ -11,7 +11,7 @@ class Parametro extends Model
     protected $table = 'parametros';
     protected $primaryKey = 'idparametro';
     protected $fillable = [
-        'decripcion',
+        'descripcion',
         'valor',
         'detalle',
         'estado'

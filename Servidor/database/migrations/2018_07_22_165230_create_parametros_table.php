@@ -15,10 +15,10 @@ class CreateParametrosTable extends Migration
     {
         Schema::create('parametros', function (Blueprint $table) {
             $table->increments('idparametro');
-            $table->string('decripcion', 100);
-            $table->string('valor', 250);
+            $table->string('descripcion', 100);
+            $table->decimal('valor');
             $table->string('detalle', 250);
-            $table->double('estado');
+            $table->string('estado',10);
             $table->softDeletes();
             $table->timestamps();
         });

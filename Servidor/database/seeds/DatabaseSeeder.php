@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         $tipo_usuario = \App\TipoUsuario::create([
             'nombre' => 'Administrador',
-            'estado' => true,
+            'estado' => 'activo',
         ]);
 
         \App\User::create([

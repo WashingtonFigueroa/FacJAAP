@@ -1,0 +1,70 @@
+<div class="card">
+  <div class="card-body">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-8">
+              <form (submit)="store()" role="form" [formGroup]="parametroGroup">
+                <div class="form-group">
+                  <label for="descripcion">
+                    * Ingrese descripción
+                  </label>
+                  <input type="text" class="form-control" id="descripcion" name="descripcion" formControlName="descripcion" autofocus/>
+                </div>
+                <div class="form-group">
+
+                  <label for="valor">
+                    * Ingrese valor
+                  </label>
+                  <input type="text" class="form-control" id="valor" name="valor" formControlName="valor" placeholder="$0.00"/>
+                </div>
+                <div class="form-group">
+                  <label for="detalle">
+                      Ingrese Detalle
+                  </label>
+                  <input type="text" class="form-control" id="detalle" name="detalle" formControlName="detalle" />
+                </div>
+                <div class="form-group">
+                  <label for="estado">
+                      * Seleccione estado
+                  </label>
+                  <select class="form-control" id="estado" formControlName="estado" name="estado" required>
+                      <option>Activo</option>
+                      <option>Pasivo</option>
+                    </select>
+                </div>  
+                <button type="submit" class="btn btn-primary">
+                  Guardar
+                </button>
+              </form>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card">
+                <h5 class="card-header">
+                          Reglamento
+                        </h5>
+                <div class="card-body">
+                  <p class="card-text">
+                    Tiene que tener facturero
+                  </p>
+                  <p class="card-text">
+                    reglas 2
+                  </p>
+                  <p class="card-text">
+                    reglas 3
+                  </p>
+                </div>
+                <div class="card-footer">
+                  La Directiva
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

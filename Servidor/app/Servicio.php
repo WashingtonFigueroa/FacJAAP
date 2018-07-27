@@ -3,23 +3,25 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\SoftDeletes; 
 
 class Servicio extends Model
 {
+    use SoftDeletes;
     protected $table = 'servicios';
     protected $primaryKey = 'idservicio';
     protected $fillable =  [
-        'idcontribuyente',
+        'idcliente',
         'idmedidor',
         'fecha',
         'observacion',
+        'saldo',
         'estado'
     ];
     protected $dates = ['deleted_at'];
 
     public function Contribuyente() {
-        return $this->belongsTo('App\Contribuyente', 'idcontribuyente');
+        return $this->belongsTo('App\Contribuyente', 'idcliente');
     }
 
     public function Medidor() {

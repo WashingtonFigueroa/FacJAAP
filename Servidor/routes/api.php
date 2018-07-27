@@ -22,17 +22,18 @@ Route::resource('proveedores', 'ProveedorController', ['except' => ['create', 'e
 Route::resource('materiales', 'MaterialController', ['except' => ['create', 'edit']]);
 Route::resource('factura_compras', 'FacturaCompraController', ['except' => ['create', 'edit']]);
 Route::resource('detalleFacturaCompra', 'DetalleFacturaCompraController', ['except' => ['create', 'edit']]);
-Route::resource('contribuyente', 'ContribuyenteController');
-Route::resource('medidor', 'MedidorController');
-Route::resource('servicio', 'ServicioController');
-Route::resource('multa', 'MultaController');
+Route::resource('clientes', 'ContribuyenteController');
+Route::resource('medidores', 'MedidorController');
+Route::resource('servicios', 'ServicioController');
+Route::resource('multas', 'MultaController');
 Route::resource('movimientos', 'MovimientoController');
 Route::resource('factura_ventas', 'FacturaVentaController');
 Route::resource('pago_medidor', 'PagoMedidorController');
-Route::resource('tipo_usuarios', 'TipoUsuarioController');
+Route::resource('tipousuarios', 'TipoUsuarioController');
 Route::resource('usuarios', 'UserController');
 Route::resource('parametros', 'ParametroController');
 Route::resource('privilegios', 'PrivilegioController');
+Route::resource('lecturas', 'LecturaController');
 
 /*recuperacion de documentos, archivos e imagenes*/
 Route::get('factura_compras_documento/{id}', 'FacturaCompraController@getDocumento');
