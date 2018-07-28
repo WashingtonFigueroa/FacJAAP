@@ -38,4 +38,8 @@ class MedidorController extends Controller
             'eliminado' => 'Medidor ' . $Medidor->idmedidor. ' eliminado exitosamente'
         ], 200);
     }
+    public function medidoresActivos() {
+        $medidores = Medidor::where('estado', 'Activo')->get();
+        return response()->json($medidores, 200);
+    }
 }

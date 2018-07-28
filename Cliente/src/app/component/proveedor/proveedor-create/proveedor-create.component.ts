@@ -9,6 +9,13 @@ import {ProveedorService} from "../proveedor.service";
 })
 export class ProveedorCreateComponent implements OnInit {
     proveedorGroup: FormGroup;
+    successStatus = false;
+    proveedor = {
+        ruc: '',
+        nombre: '',
+        direccion: '',
+        telefono: '',
+    };
     constructor(protected fb: FormBuilder,
                 protected proveedorService: ProveedorService) {
         this.createForm();
@@ -35,6 +42,8 @@ export class ProveedorCreateComponent implements OnInit {
             .subscribe(res => {
                 console.log('proveedor guardado');
                 this.proveedorGroup.reset();
+                this.successStatus = true;
             });
     }
+
 }

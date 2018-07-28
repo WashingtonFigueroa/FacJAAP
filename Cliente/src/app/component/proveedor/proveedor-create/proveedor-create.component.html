@@ -5,12 +5,25 @@
           <div class="col-md-12">
             <div class="row">
               <div class="col-md-8">
+                <div class="alert alert-success" role="alert"
+                     *ngIf="successStatus == true">
+                  <strong>Proveedor registrado exitosamente! :D</strong>
+                </div>
                 <form (submit)="store()" role="form" [formGroup]="proveedorGroup">
                   <div class="form-group">
                     <label for="ruc">
                       RUC
                     </label>
-                    <input type="number" class="form-control" id="ruc" name="ruc" formControlName="ruc" autofocus/>
+                    <input type="text"
+                           class="form-control"
+                           id="ruc" name="ruc"
+                           [(ngModel)] = "proveedor.ruc"
+                           formControlName="ruc"
+                           autofocus/>
+                    <div class="alert alert-danger" role="alert"
+                         *ngIf="proveedorGroup.get('ruc').status === 'INVALID'">
+                      <strong>El ruc es obligatorio y debe tener 13 caracteres</strong>
+                    </div>
                   </div>
                   <div class="form-group">
   
@@ -18,6 +31,7 @@
                       Nombre
                     </label>
                     <input type="text" class="form-control" id="nombre" name="nombre" formControlName="nombre" />
+
                   </div>
                   <div class="form-group">
                     <label for="direccion">

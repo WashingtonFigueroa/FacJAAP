@@ -20,7 +20,7 @@ export class ServicioCreateComponent implements OnInit {
               protected medidorService: MedidorService,              
               protected fb: FormBuilder) {
     this.clienteService.index().subscribe(res => this.clientes = res);
-    this.medidorService.index().subscribe(res => this.medidores = res);
+    this.medidorService.medidoresActivos().subscribe(res => this.medidores = res);
     this.createForm();
   }
 

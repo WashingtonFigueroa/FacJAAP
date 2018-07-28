@@ -24,4 +24,7 @@ export class MedidorService {
   destroy(id) {
       return this.http.delete(this.base + 'medidores/' + id );
   }
+  medidoresActivos(){
+      return this.http.get( this.base + 'medidores_activos');
+  }
 }

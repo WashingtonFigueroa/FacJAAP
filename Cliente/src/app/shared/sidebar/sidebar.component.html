@@ -4,21 +4,21 @@
           <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" (click)="addExpandClass('user')" aria-expanded="false">
             <span class="hide-menu">SAN JOSÉ DE CHORLAVÍ</span></a>
           <ul aria-expanded="false" class="collapse" [class.in]="showMenu === 'user'">
-            <li><a href="javascript:void()">  <i class="ti-user"></i> &nbsp;&nbsp; Tipo Usuarios</a></li>
+            <li><a (click)="goToTipoUsuarios()">  <i class="ti-user"></i> &nbsp;&nbsp; Tipo Usuarios</a></li>
             <li><a href="javascript:void()">  <i class="mdi mdi-account-multiple"></i> &nbsp;&nbsp; Usuarios</a></li>
             <li><a href="javascript:void()"> <i class="mdi mdi-settings"></i> &nbsp;&nbsp; Privilegios</a></li>
             <li><a (click)="logout()"> <i class="mdi mdi-wallet"></i> &nbsp;&nbsp; Cerrar sesión</a></li>
-          </ul>  
+          </ul>
         </li>
         <li class="nav-devider"></li>
-        <!-- First level menu --> 
+        <!-- First level menu -->
         <li [class.active]="showMenu === sidebarnavItem.title" *ngFor="let sidebarnavItem of sidebarnavItems" [routerLinkActive]="sidebarnavItem.submenu.length != 0 ? '' : 'active'" >
                 <div class="nav-small-cap" *ngIf="sidebarnavItem.extralink === true">{{sidebarnavItem.title}}</div>
                 <a [routerLink]="sidebarnavItem.class === '' ? [sidebarnavItem.path] : null" [ngClass]="[sidebarnavItem.class]" *ngIf="!sidebarnavItem.extralink;" (click)="addExpandClass(sidebarnavItem.title)">
                     <i [ngClass]="[sidebarnavItem.icon]"></i>
                     <span class="hide-menu">{{sidebarnavItem.title}}
                     <span *ngIf="sidebarnavItem.label != '' " [ngClass]="[sidebarnavItem.labelClass]">{{sidebarnavItem.label}}</span>
-                    </span>    
+                    </span>
                 </a>
                 <!-- Second level menu -->
                 <ul class="collapse" *ngIf="sidebarnavItem.submenu.length > 0" [ngClass]="{'in' : showMenu === sidebarnavItem.title }">
@@ -40,4 +40,4 @@
                 </ul>
         </li>
     </ul>
-</nav> 
+</nav>

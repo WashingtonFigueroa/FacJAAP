@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Medidor;
+use App\Parametro;
 use App\Servicio;
 use Illuminate\Http\Request;
 
@@ -19,8 +21,21 @@ class ServicioController extends Controller
 
     public function store(Request $request)
     {
-        $Servicio = Servicio::create($request->all());
-        return response()->json($Servicio, 201);
+        $parametro = Parametro::where('descripcion', 'like', '%' . 'Instalacion servicio' . '%' )
+                              ->first();
+
+        $servicio = new Servicio();
+        $servicio->idcliente = $request->input('idcliente');
+        $servicio->idmedidor = $request->input('idmedidor');
+        $servicio->fecha = $request->input('fecha');
+        $servicio->observacion = $request->input('observacion');
+        $servicio->estado = $request->input('estado');
+        $servicio->saldo = $parametro->valor;
+        $servicio->save();
+        $medidor = Medidor::find($servicio->idmedidor);
+        $medidor->estado = 'Pasivo';
+        $medidor->save();
+        return response()->json($servicio, 201);
     }
 
     public function show($id)

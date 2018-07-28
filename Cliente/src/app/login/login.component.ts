@@ -18,6 +18,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+      if (localStorage.getItem('token')) {
+          this.router.navigate(['/starter']);
+      }
   }
   createForm() {
       this.loginGroup = this.fb.group({

@@ -23,6 +23,7 @@ import { SpinnerComponent } from './shared/spinner.component';
 import {ComponentsModule} from "./component/component.module";
 import { LoginComponent } from './login/login.component';
 import {LoginService} from "./login/login.service";
+import {AuthGuard} from "./component/auth.guard";
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -57,6 +58,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   ],
   providers: [
       LoginService,
+      AuthGuard,
       {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
