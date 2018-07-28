@@ -87,6 +87,7 @@ import { ParametroService } from './parametro/parametro.service';
 import { ServicioService } from './servicio/servicio.service';
 import { TipousuarioService } from './tipousuario/tipousuario.service';
 import { UsuarioService } from './usuario/usuario.service';
+import { OnlyNumberDirective } from './only-number.directive';
 
 @NgModule({
   imports: [CommonModule,
@@ -163,7 +164,8 @@ import { UsuarioService } from './usuario/usuario.service';
     FacturaComponent,
     FacturaIndexComponent,
     FacturaEditComponent,
-    FacturaCreateComponent
+    FacturaCreateComponent,
+    OnlyNumberDirective
   ],
   providers: [
       ProveedorService,

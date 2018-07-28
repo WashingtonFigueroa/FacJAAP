@@ -86,8 +86,8 @@
       <file leaf-file-name="proveedor-create.component.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Cliente/src/app/component/proveedor/proveedor-create/proveedor-create.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="264">
+              <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -121,7 +121,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Cliente/src/app/component/modal/modal.component.html" />
         <option value="$PROJECT_DIR$/Cliente/src/app/component/proveedor/proveedor-edit/proveedor-edit.component.ts" />
         <option value="$PROJECT_DIR$/Cliente/src/app/component/proveedor/proveedor-index/proveedor-index.component.ts" />
         <option value="$PROJECT_DIR$/Cliente/src/app/component/proveedor/proveedor-index/proveedor-index.component.html" />
@@ -171,6 +170,7 @@
         <option value="$PROJECT_DIR$/Servidor/app/Http/Controllers/ServicioController.php" />
         <option value="$PROJECT_DIR$/Servidor/app/Http/Controllers/LecturaController.php" />
         <option value="$PROJECT_DIR$/Cliente/src/app/component/proveedor/proveedor-create/proveedor-create.component.ts" />
+        <option value="$PROJECT_DIR$/Cliente/src/app/component/only-number.directive.ts" />
         <option value="$PROJECT_DIR$/Cliente/src/app/component/proveedor/proveedor-create/proveedor-create.component.html" />
       </list>
     </option>
@@ -353,7 +353,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/proveedor/proveedor-create/proveedor-create.component.html&#10;prove&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/proveedor/proveedor-create/proveedor-create.component.ts&#10;proveedorcrea&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/proveedor/proveedor-create/proveedor-create.component.html&#10;lecturas&#9;null&#9;null&#10;lectura&#9;null&#9;null&#10;Lectura&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/LecturaController.php&#10;servicio&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Servicio.php&#10;lecturacontro&#9;null&#9;null&#10;servi&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/ServicioController.php&#10;paramecon&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/ParametroController.php&#10;ServicioContro&#9;null&#9;null&#10;serviciocreat&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/servicio/servicio-create/servicio-create.component.ts&#10;serviciocre&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/servicio/servicio-create/servicio-create.component.html&#10;medidorser&#9;null&#9;null&#10;api.php&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/routes/api.php&#10;medi&#9;null&#9;null&#10;medidorstabl&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/database/migrations/2018_07_22_154922_create_medidors_table.php&#10;medid&#9;null&#9;null&#10;login&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/login/login.component.ts&#10;authgu&#9;null&#9;null&#10;databa&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/database/seeds/DatabaseSeeder.php&#10;approu&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/app-routing.module.ts&#10;app&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/app.module.ts&#10;app.compo&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/app.component.ts&#10;app.mo&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/app-routing.module.ts&#10;logi&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/login/login.component.html&#10;component&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/component.routing.ts&#10;start&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/starter/starter.component.html&#10;app.com&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/app.component.html&#10;app.&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/app.component.html&#10;loginser&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/login/login.service.ts&#10;app.modu&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/app.module.ts&#10;logincom&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/login/login.component.ts&#10;logincompo&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/login/login.component.html&#10;data&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/database/seeds/DatabaseSeeder.php&#10;api&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/routes/api.php&#10;authe&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/AuthenticacionController.php&#10;user.php&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/User.php&#10;users&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/database/migrations/2014_10_12_000000_create_users_table.php&#10;tipo_usu&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/database/migrations/2013_07_23_121251_create_tipo_usuaarios_table.php&#10;tipousuarios&#9;null&#9;null&#10;user&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/User.php&#10;tipo&#9;null&#9;null&#10;User.&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/User.php&#10;jwt.php&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/config/jwt.php&#10;app.php&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/config/app.php&#10;composer.json&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/composer.json&#10;mate&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/MaterialController.php&#10;materialinde&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/material/material-index/material-index.component.ts&#10;materi&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/MaterialController.php" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/proveedor/proveedor-create/proveedor-create.component.html&#10;componentmo&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/component.module.ts&#10;only&#9;null&#9;null&#10;provee&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/proveedor/proveedor-create/proveedor-create.component.html&#10;prove&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/proveedor/proveedor-create/proveedor-create.component.ts&#10;proveedorcrea&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/proveedor/proveedor-create/proveedor-create.component.html&#10;lecturas&#9;null&#9;null&#10;lectura&#9;null&#9;null&#10;Lectura&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/LecturaController.php&#10;servicio&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Servicio.php&#10;lecturacontro&#9;null&#9;null&#10;servi&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/ServicioController.php&#10;paramecon&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/ParametroController.php&#10;ServicioContro&#9;null&#9;null&#10;serviciocreat&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/servicio/servicio-create/servicio-create.component.ts&#10;serviciocre&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/servicio/servicio-create/servicio-create.component.html&#10;medidorser&#9;null&#9;null&#10;api.php&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/routes/api.php&#10;medi&#9;null&#9;null&#10;medidorstabl&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/database/migrations/2018_07_22_154922_create_medidors_table.php&#10;medid&#9;null&#9;null&#10;login&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/login/login.component.ts&#10;authgu&#9;null&#9;null&#10;databa&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/database/seeds/DatabaseSeeder.php&#10;approu&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/app-routing.module.ts&#10;app&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/app.module.ts&#10;app.compo&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/app.component.ts&#10;app.mo&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/app-routing.module.ts&#10;logi&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/login/login.component.html&#10;component&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/component.routing.ts&#10;start&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/starter/starter.component.html&#10;app.com&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/app.component.html&#10;app.&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/app.component.html&#10;loginser&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/login/login.service.ts&#10;app.modu&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/app.module.ts&#10;logincom&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/login/login.component.ts&#10;logincompo&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/login/login.component.html&#10;data&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/database/seeds/DatabaseSeeder.php&#10;api&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/routes/api.php&#10;authe&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/AuthenticacionController.php&#10;user.php&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/User.php&#10;users&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/database/migrations/2014_10_12_000000_create_users_table.php&#10;tipo_usu&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/database/migrations/2013_07_23_121251_create_tipo_usuaarios_table.php&#10;tipousuarios&#9;null&#9;null&#10;user&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/User.php&#10;tipo&#9;null&#9;null&#10;User.&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/User.php&#10;jwt.php&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/config/jwt.php&#10;app.php&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/config/app.php&#10;composer.json&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/composer.json" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="database.console.LAST_STATE" value="false" />
@@ -388,12 +388,12 @@
       <workItem from="1532391416888" duration="8397000" />
       <workItem from="1532482233828" duration="9081000" />
       <workItem from="1532564221208" duration="8317000" />
-      <workItem from="1532736454208" duration="9405000" />
+      <workItem from="1532736454208" duration="12033000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35200000" />
+    <option name="totallyTimeSpent" value="37828000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1536" height="864" extended-state="0" />
@@ -458,20 +458,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Servidor/app/TipoUsuaario.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="15" selection-start-line="13" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://2f615766-664a-4aa4-8c47-7116dcdebb29/schema/jaap/table/tipo_usuarios">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Servidor/database/migrations/2013_07_23_121251_create_tipo_usuaarios_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="412">
@@ -842,10 +828,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Cliente/src/app/component/component.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="167" lean-forward="true" selection-start-line="167" selection-end-line="167" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cliente/src/app/component/only-number.directive.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Cliente/src/app/component/proveedor/proveedor-create/proveedor-create.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="264">
+          <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
         </state>
       </provider>
     </entry>

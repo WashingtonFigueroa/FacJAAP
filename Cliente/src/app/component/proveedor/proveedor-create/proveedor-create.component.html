@@ -18,6 +18,8 @@
                            class="form-control"
                            id="ruc" name="ruc"
                            [(ngModel)] = "proveedor.ruc"
+                           OnlyNumber="true"
+                           maxlength="13"
                            formControlName="ruc"
                            autofocus/>
                     <div class="alert alert-danger" role="alert"
