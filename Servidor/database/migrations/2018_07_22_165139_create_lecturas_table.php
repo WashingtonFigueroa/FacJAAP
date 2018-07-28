@@ -20,7 +20,7 @@ class CreateLecturasTable extends Migration
                   ->references('idservicio') 
                   ->on('servicios')
                   ->onDelete('cascade');
-            $table->string('observacion'->nullable);
+            $table->string('observacion')->nullable;
             $table->date('fecha')->nullable;
             $table->integer('anterior')->nullable;
             $table->integer('actual')->nullable;

@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\TipoUsuaario;
+use App\TipoUsuario;
 use Illuminate\Http\Request;
 
 class TipoUsuarioController extends Controller
 {
     public function index()
     {
-    return response()->json(TipoUsuario::orderBy('nombre', 'asc')->get(), 200);
+        return response()->json(TipoUsuario::orderBy('nombre', 'asc')->get(),
+        200);
     }
 
     public function store(Request $request)
@@ -35,7 +36,7 @@ class TipoUsuarioController extends Controller
         $tipo_usuario = TipoUsuario::find($id);
         $tipo_usuario->delete();
         return response()->json([
-            'eliminado' => 'TipoUsuaario ' . $tipo_usuario->nombre
+            'eliminado' => 'TipoUsuario ' . $tipo_usuario->nombre
                             . ' eliminado exitosamente'
         ], 200);
     }
