@@ -386,7 +386,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'listar',
         component: ClienteIndexComponent,
         data: {
-          title: 'Listar contribuyentes',
+          title: 'LISTA CLIENTES',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -401,7 +401,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'crear',
         component: ClienteCreateComponent,
         data: {
-          title: 'Registrar contribuyentes',
+          title: 'CREAR CLIENTE',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -416,7 +416,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'editar/:id',
         component: ClienteEditComponent,
         data: {
-          title: 'Editar contribuyente',
+          title: 'EDITAR CLIENTE',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -439,7 +439,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'listar',
         component: FacturaIndexComponent,
         data: {
-          title: 'Lista facturas',
+          title: 'LISTADO FACTURAS DEL SERVICIO',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -454,7 +454,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'crear',
         component: FacturaCreateComponent,
         data: {
-          title: 'Emisión de facturas',
+          title: 'EMISIÓN DE FACTURAS',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -469,7 +469,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'editar/:id',
         component: FacturaEditComponent,
         data: {
-          title: 'Editar factura',
+          title: 'EDITAR FACTURAS',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -492,7 +492,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'listar',
         component: LecturaIndexComponent,
         data: {
-          title: 'Lista lecturas',
+          title: 'LISTADO LECTURAS',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -507,7 +507,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'crear',
         component: LecturaCreateComponent,
         data: {
-          title: 'Ingreso lecturas',
+          title: 'INGRESO lECTURA',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -522,7 +522,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'editar/:id',
         component: LecturaEditComponent,
         data: {
-          title: 'Editar lecturas',
+          title: 'EDITAR LECTURAS',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -545,7 +545,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'listar',
         component: MedidorIndexComponent,
         data: {
-          title: 'Lista medidores',
+          title: 'LISTADO MEDIDORES',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -560,7 +560,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'crear',
         component: MedidorCreateComponent,
         data: {
-          title: 'Ingreso medidor',
+          title: 'CREAR MEDIDORES',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -575,7 +575,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'editar/:id',
         component: MedidorEditComponent,
         data: {
-          title: 'Editar medidore',
+          title: 'EDITAR MEDIDORES',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -598,7 +598,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'listar',
         component: MultaIndexComponent,
         data: {
-          title: 'Lista multas',
+          title: 'LISTA MULTAS',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -613,7 +613,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'crear',
         component: MultaCreateComponent,
         data: {
-          title: 'Ingreso medidor',
+          title: 'REGISTRO MULTA',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -704,7 +704,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'listar',
         component: ParametroIndexComponent,
         data: {
-          title: 'Lista parametros',
+          title: 'LISTA PARAMETROS',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -719,7 +719,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'crear',
         component: ParametroCreateComponent,
         data: {
-          title: 'Creación parametro',
+          title: 'INGRESO DE PARAMETROS',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -734,7 +734,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'editar/:id',
         component: ParametroEditComponent,
         data: {
-          title: 'Editar parametro',
+          title: 'EDITAR PARAMETROS',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -757,7 +757,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'listar',
         component: ServicioIndexComponent,
         data: {
-          title: 'Lista servicios',
+          title: 'LISTADO SERVICIOS',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -772,7 +772,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'crear',
         component: ServicioCreateComponent,
         data: {
-          title: 'Habilitar Servicio',
+          title: 'HABILITAR SERVICIOS',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -787,7 +787,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'editar/:id',
         component: ServicioEditComponent,
         data: {
-          title: 'Editar Servicio',
+          title: 'EDITAR SERVICIOS',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -810,7 +810,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'listar',
         component: TipousuarioIndexComponent,
         data: {
-          title: 'Lista tipo de usuario',
+          title: 'LISTA DE CARGOS',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -825,7 +825,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'crear',
         component: TipousuarioCreateComponent,
         data: {
-          title: 'Crear tipo usuario',
+          title: 'CREAR CARGO',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -840,7 +840,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'editar/:id',
         component: TipousuarioEditComponent,
         data: {
-          title: 'Editar tipo usuario',
+          title: 'EDITAR CARGO',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -863,7 +863,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'listar',
         component: UsuarioIndexComponent,
         data: {
-          title: 'Lista usuarios',
+          title: 'LISTA USUARIOS',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -878,7 +878,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'crear',
         component: UsuarioCreateComponent,
         data: {
-          title: 'Crear usuario',
+          title: 'CREAR USUARIO',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -893,7 +893,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'editar/:id',
         component: UsuarioEditComponent,
         data: {
-          title: 'Editar usuario',
+          title: 'EDITAR USUARIOS',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -917,7 +917,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'listar',
         component: PrivilegioIndexComponent,
         data: {
-          title: 'Lista privilegios',
+          title: 'LISTADO PRIVILEGIOS',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -932,7 +932,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'crear',
         component: PrivilegioCreateComponent,
         data: {
-          title: 'Crear privilegio',
+          title: 'CREAR PRIVILEGIO',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
@@ -947,7 +947,7 @@ export const ComponentsRoutes: Routes = [{
         path: 'editar/:id',
         component: PrivilegioEditComponent,
         data: {
-          title: 'Editar privilegio',
+          title: 'EDITAR PRIVILEGIO',
           urls: [{
             title: 'Inicio',
             url: '/dashboard'
