@@ -13,12 +13,14 @@ export class MaterialIndexComponent implements OnInit {
   materiales: any = [];
   index: number = null;
   idmaterial: number = null;
-  closeResult: string;
+  closeResult: string;  
   search = '';
+
   pages: any = [];
   prev_page: any = null;
-  next_page: any = null;
+  next_page: any = null; 
   environment = environment;
+
   constructor(protected materialService: MaterialService,
               protected modalService: NgbModal,
               protected router: Router) { }
@@ -31,6 +33,7 @@ export class MaterialIndexComponent implements OnInit {
       this.next_page = res.next_page_url;
     });
   }
+
   getPages(last_page) {
     for (let i=1; i<=last_page; i++ ) {
       this.pages.push(
@@ -65,6 +68,7 @@ export class MaterialIndexComponent implements OnInit {
               this.next_page = res.next_page_url;
           });
   }
+  
   destroy(index, id) {
     this.materialService.destroy(id)
       .subscribe(res => {

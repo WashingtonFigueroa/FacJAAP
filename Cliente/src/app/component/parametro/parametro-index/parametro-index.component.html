@@ -28,58 +28,62 @@
 
       <div class="row">
         <div class="col-md-12">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>
-                  #
-                </th>
-                <th>
-                  Descripción
-                </th>
-                <th>
-                  valor
-                </th>
-                <th>
-                  Detalle
-                </th>
-                <th>
-                  Estado
-                </th>
-                <th>
-                  Acciones
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let parametro of parametros; let i = index">
-                <td>
-                  {{ i + 1 }}
-                </td>
-                <td>
-                  {{ parametro.descripcion }}
-                </td>
-                <td>
-                  {{ parametro.valor }}
-                </td>
-                <td>
-                  {{ parametro.detalle}}
-                </td>
-                <td>
-                  {{ parametro.estado}}
-                </td>
-                <td>
-                  <button (click)="edit(parametro.idparametro)" type="button" class="btn btn-info">
-                      <i class="fa fa-pencil-square" aria-hidden="true"></i>                      
-                  </button>
-                  &nbsp;&nbsp;
-                  <button type="button" class="btn btn-danger" (click)="confirm(i, parametro.idparametro,confirmModal)">
-                      <i class="fa fa-eraser" aria-hidden="true"></i>
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+            <div style="overflow-x:auto;">
+                <table class="width200">
+                  <thead style="color:rgb(255, 255, 255)">
+                  <tr>
+                    <th>
+                      #
+                    </th>
+                    <th>
+                      Descripción
+                    </th>
+                    <th>
+                      valor
+                    </th>
+                    <th>
+                      Detalle
+                    </th>
+                    <th>
+                      Estado
+                    </th>
+                    <th>
+                      Acciones
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let parametro of parametros; let i = index">
+                    <td>
+                      {{ i + 1 }}
+                    </td>
+                    <td>
+                      {{ parametro.descripcion }}
+                    </td>
+                    <td>
+                      {{ parametro.valor }}
+                    </td>
+                    <td>
+                      {{ parametro.detalle}}
+                    </td>
+                    <td>
+                      {{ parametro.estado}}
+                    </td>
+                    <td>
+                      <button (click)="edit(parametro.idparametro)" type="button" class="btn btn-info">
+                          <i class="fa fa-pencil-square" aria-hidden="true"></i>                      
+                      </button>
+                      &nbsp;&nbsp;
+                      <button type="button" class="btn btn-danger" (click)="confirm(i, parametro.idparametro,confirmModal)">
+                          <i class="fa fa-eraser" aria-hidden="true"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+              
+
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClienteService } from '../cliente.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
+import { environment } from '../../../../environments/environment.prod';
 
 @Component({
   selector: 'app-cliente-index',
@@ -16,14 +17,57 @@ export class ClienteIndexComponent implements OnInit {
   closeResult: string;
   search = '';
 
+  pages: any = [];
+  prev_page: any = null;
+  next_page: any = null; 
+  environment = environment;
+
   constructor(protected clienteService: ClienteService,
               protected modalService: NgbModal,
               protected router: Router) {}
 
   ngOnInit() {
-    this.clienteService.index().subscribe(res => {
-      this.clientes = res;
+    this.clienteService.index().subscribe((res: any) => {
+      this.clientes = res.data;
+      this.getPages(res.last_page);
+      this.prev_page = res.prev_page_url;
+      this.next_page = res.next_page_url;
     });
+  }
+
+  getPages(last_page) {
+    for (let i=1; i<=last_page; i++ ) {
+      this.pages.push(
+          {
+              url: this.environment.base + 'clientes?page=' + i ,
+              item: i
+          }
+      );
+    }
+  }
+  loadPagination(url) {
+    this.clienteService.indexPerPage(url)
+        .subscribe((res: any)=> {
+          this.clientes = res.data;
+          this.prev_page = res.prev_page_url;
+          this.next_page = res.next_page_url;
+        });
+  }
+  prevPage() {
+    this.clienteService.indexPerPage(this.prev_page)
+        .subscribe( (res : any)=> {
+          this.clientes = res.data;
+          this.prev_page = res.prev_page_url;
+          this.next_page = res.next_page_url;
+        });
+  }
+  nextPage() {
+      this.clienteService.indexPerPage(this.next_page)
+          .subscribe( (res : any)=> {
+              this.clientes = res.data;
+              this.prev_page = res.prev_page_url;
+              this.next_page = res.next_page_url;
+          });
   }
 
   destroy(index, id) {

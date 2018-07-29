@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { MedidorService } from '../medidor.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
+import { environment } from '../../../../environments/environment.prod';
 
 @Component({
   selector: 'app-medidor-index',
@@ -17,15 +18,57 @@ export class MedidorIndexComponent implements OnInit {
   closeResult: string;
   search = '';
 
+  pages: any = [];
+  prev_page: any = null;
+  next_page: any = null; 
+  environment = environment;
+
   constructor(protected medidorService: MedidorService,
               protected modalService: NgbModal,
               protected router: Router) {}
 
   ngOnInit() {
-    //modificar para paginacion xD
-    this.medidorService.listaMedidores().subscribe(res => {
-      this.medidores = res;
+    this.medidorService.index().subscribe((res: any) => {
+      this.medidores = res.data;
+      this.getPages(res.last_page);
+      this.prev_page = res.prev_page_url;
+      this.next_page = res.next_page_url;
     });
+  }
+
+  getPages(last_page) {
+    for (let i=1; i<=last_page; i++ ) {
+      this.pages.push(
+          {
+              url: this.environment.base + 'medidores?page=' + i ,
+              item: i
+          }
+      );
+    }
+  }
+  loadPagination(url) {
+    this.medidorService.indexPerPage(url)
+        .subscribe((res: any)=> {
+          this.medidores = res.data;
+          this.prev_page = res.prev_page_url;
+          this.next_page = res.next_page_url;
+        });
+  }
+  prevPage() {
+    this.medidorService.indexPerPage(this.prev_page)
+        .subscribe( (res : any)=> {
+          this.medidores = res.data;
+          this.prev_page = res.prev_page_url;
+          this.next_page = res.next_page_url;
+        });
+  }
+  nextPage() {
+      this.medidorService.indexPerPage(this.next_page)
+          .subscribe( (res : any)=> {
+              this.medidores = res.data;
+              this.prev_page = res.prev_page_url;
+              this.next_page = res.next_page_url;
+          });
   }
 
   destroy(index, id) {

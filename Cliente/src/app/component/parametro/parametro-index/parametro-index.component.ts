@@ -12,7 +12,7 @@ export class ParametroIndexComponent implements OnInit {
 
   parametros: any = [];
   index: number = null;
-  idparametro: number = null;
+  idparametro: number = null; 
   closeResult: string;
   search = '';
 

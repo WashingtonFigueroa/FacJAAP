@@ -12,6 +12,9 @@ export class MedidorService {
   index() {
     return this.http.get(this.base + 'medidores');
   }
+  indexPerPage(url) {
+    return this.http.get( url );
+  }
   show(id) {
       return this.http.get(this.base + 'medidores/' + id);
   }
