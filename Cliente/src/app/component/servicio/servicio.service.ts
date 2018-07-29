@@ -14,7 +14,10 @@ export class ServicioService {
   }
   indexPerPage(url) {
     return this.http.get( url );
-}
+  }
+  listaServicios() {
+    return this.http.get(this.base + 'lista_servicios');
+  }
   show(id) {
       return this.http.get(this.base + 'servicios/' + id);
   }

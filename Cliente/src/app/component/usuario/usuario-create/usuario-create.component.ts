@@ -28,21 +28,24 @@ export class UsuarioCreateComponent implements OnInit {
       'idtipo' : new FormControl(0, [Validators.required]),
       'nombre' : new FormControl('', [Validators.required]),
       'correo' : new FormControl('', [Validators.required]),
-      'password' : new FormControl('', [Validators.required])
-
+      'password' : new FormControl('', [Validators.required]),
+      'password_confirmation' : new FormControl('', [Validators.required])
     });
   }
 
   store() {
     this.usuarioService.store(this.usuarioGroup.value)
-        .subscribe(res => {
-            this.usuarioGroup.patchValue({
-                nombre: '',
-                correo: '',
-                password: ''
-                // preguntar como funciona
-            });
-           
+        .subscribe((res: any) => {
+            if (res.error) {
+                    console.log(res.error);
+            } else {
+                this.usuarioGroup.patchValue({
+                    nombre: '',
+                    correo: '',
+                    password: '',
+                    password_confirmation: ''
+                });
+            }
         });
   }
 

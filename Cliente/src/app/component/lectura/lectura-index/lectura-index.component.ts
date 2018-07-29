@@ -3,6 +3,7 @@ import { environment } from '../../../../environments/environment.prod';
 import { LecturaService } from '../lectura.service';
 import { NgbModal, ModalDismissReasons } from '../../../../../node_modules/@ng-bootstrap/ng-bootstrap';
 import { Router } from '../../../../../node_modules/@angular/router';
+import {ServicioService} from "../../servicio/servicio.service";
 
 @Component({
   selector: 'app-lectura-index',
@@ -22,6 +23,7 @@ export class LecturaIndexComponent implements OnInit {
 
   constructor(protected lecturaService: LecturaService,
               protected modalService: NgbModal,
+              protected servicioService: ServicioService,
               protected router: Router) { }
 
   ngOnInit() {

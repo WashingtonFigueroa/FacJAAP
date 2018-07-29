@@ -59,4 +59,7 @@ class ServicioController extends Controller
                             . ' eliminado exitosamente'
         ], 200);
     }
+    public function listaServicios() {
+        return response()->json(Servicio::orderBy('idservicio')->get(), 200);
+    }
 }

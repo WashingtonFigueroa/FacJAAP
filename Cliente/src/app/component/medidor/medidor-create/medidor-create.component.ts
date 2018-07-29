@@ -31,9 +31,13 @@ export class MedidorCreateComponent implements OnInit {
 
   store() {
       this.medidorService.store(this.medidorGroup.value)
-          .subscribe(res => {
-              console.log('medidor guardado');
-              this.medidorGroup.reset();
+          .subscribe((res: any)=> {
+              if (res.error) {
+                  console.log(res.error);
+              } else {
+                  console.log('medidor guardado');
+                  this.medidorGroup.reset();
+              }
           });
   }
 }

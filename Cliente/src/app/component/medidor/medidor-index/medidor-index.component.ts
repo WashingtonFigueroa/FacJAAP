@@ -22,7 +22,8 @@ export class MedidorIndexComponent implements OnInit {
               protected router: Router) {}
 
   ngOnInit() {
-    this.medidorService.index().subscribe(res => {
+    //modificar para paginacion xD
+    this.medidorService.listaMedidores().subscribe(res => {
       this.medidores = res;
     });
   }

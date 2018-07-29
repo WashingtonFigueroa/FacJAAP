@@ -38,3 +38,7 @@ Route::resource('lecturas', 'LecturaController');
 /*recuperacion de documentos, archivos e imagenes*/
 Route::get('factura_compras_documento/{id}', 'FacturaCompraController@getDocumento');
 Route::get('medidores_activos', 'MedidorController@medidoresActivos');
+Route::get('lista_servicios', 'ServicioController@listaServicios');
+Route::get('lista_clientes', 'ContribuyenteController@listaContribuyentes');
+Route::get('lista_medidores', 'MedidorController@listaMedidores');
+Route::get('lista_medidores_cliente/{idcliente}', 'MedidorController@listaMedidoresContribuyente');

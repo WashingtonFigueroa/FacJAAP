@@ -10,7 +10,7 @@ class ContribuyenteController extends Controller
 
     public function index()
     {
-    return response()->json(Contribuyente::orderBy('nombres', 'asc')->get(), 200);
+        return response()->json(Contribuyente::orderBy('nombres', 'asc')->paginate(7), 200);
     }
 
     public function store(Request $request)
@@ -39,5 +39,8 @@ class ContribuyenteController extends Controller
             'eliminado' => 'Cliente ' . $Contribuyente->nombres
                         . ' eliminado exitosamente'
         ], 200);
+    }
+    public function listaContribuyentes() {
+        return response()->json(Contribuyente::orderBy('nombres', 'asc')->get(), 200);
     }
 }

@@ -24,4 +24,8 @@ export class ClienteService {
   destroy(id) {
       return this.http.delete(this.base + 'clientes/' + id );
   }
+  listaClientes() {
+      return this.http.get(this.base + 'lista_clientes');
+  }
+
 }

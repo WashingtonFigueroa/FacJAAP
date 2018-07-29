@@ -2,19 +2,38 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Validator;
 
 class UserController extends Controller
 {
     public function index()
     {
-    return response()->json(UserController::orderBy('nombre', 'asc')->get(), 200);
+        return response()->json(User::with('tipoUsuario')
+                                    ->orderBy('nombre', 'asc')
+                                    ->paginate(7), 200);
     }
 
     public function store(Request $request)
     {
-        $UserController = UserController::create($request->all());
-        return response()->json($UserController, 201);
+        $validator = Validator::make($request->all(), [
+            'password' => 'required|min:6|confirmed'
+        ]);
+        if ($validator->fails()){
+            return response()->json([
+                'error' => 'La confirmacion de password no coincide'
+            ], 500);
+        } else {
+            $user = new User();
+            $user->idtipo = $request->input('idtipo');
+            $user->nombre = $request->input('nombre');
+            $user->correo = $request->input('correo');
+            $user->password = Hash::make($request->input('password'));
+            $user->save();
+            return response()->json($user, 201);
+        }
     }
 
     public function show($id)

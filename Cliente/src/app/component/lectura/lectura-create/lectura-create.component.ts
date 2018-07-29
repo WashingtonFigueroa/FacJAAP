@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { LecturaService } from '../lectura.service';
 import { ServicioService } from '../../servicio/servicio.service';
+import {ClienteService} from "../../cliente/cliente.service";
+import {MedidorService} from "../../medidor/medidor.service";
 
 @Component({
   selector: 'app-lectura-create',
@@ -10,15 +12,19 @@ import { ServicioService } from '../../servicio/servicio.service';
 })
 export class LecturaCreateComponent implements OnInit {
 
+  clientes: any = null;
+  medidores: any = null;
   servicios: any = null;
   lecturaGroup: FormGroup;
 
   constructor(protected lecturaService: LecturaService,
               protected servicioService: ServicioService,
+              protected clienteService: ClienteService,
+              protected medidorService: MedidorService,
               protected fb: FormBuilder) {
-    this.servicioService.index().subscribe(res => this.servicios = res);
+    this.clienteService.listaClientes().subscribe(res => this.clientes = res);
+    this.servicioService.listaServicios().subscribe(res => this.servicios = res);
 
-    
     this.createForm();
   }
 
@@ -27,7 +33,8 @@ export class LecturaCreateComponent implements OnInit {
 
   createForm() {
     this.lecturaGroup = this.fb.group({
-      'idservicio' : new FormControl(0, [Validators.required]),
+      'idcliente' : new FormControl(0, [Validators.required]),
+      'idmedidor' : new FormControl(0, [Validators.required]),
       'observacion' : new FormControl('', [Validators.required]),
       'fecha' : new FormControl('', [Validators.required]),
       'actual' : new FormControl('', [Validators.required]),
@@ -46,6 +53,12 @@ export class LecturaCreateComponent implements OnInit {
             });
            
         });
+  }
+  listaMedidoresCliente() {
+      console.log('lectura');
+      const idcliente = this.lecturaGroup.value.idcliente;
+      this.medidorService.listaMedidoresCliente(idcliente)
+          .subscribe(res => this.medidores = res);
   }
 
 }

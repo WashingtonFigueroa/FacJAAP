@@ -36,7 +36,7 @@ class Servicio extends Model
         return $this->hasMany('App\PagoMedidor', 'idpagomedidor');
     }
 
-    public function Lecturas() {
+    public function lecturas() {
         return $this->hasMany('App\Lectura', 'idlectura');
     }
 

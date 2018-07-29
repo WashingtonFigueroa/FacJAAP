@@ -27,4 +27,10 @@ export class MedidorService {
   medidoresActivos(){
       return this.http.get( this.base + 'medidores_activos');
   }
+  listaMedidores(){
+      return this.http.get( this.base + 'lista_medidores');
+  }
+  listaMedidoresCliente(idcliente){
+      return this.http.get(this.base + 'lista_medidores_cliente/' + idcliente);
+  }
 }
