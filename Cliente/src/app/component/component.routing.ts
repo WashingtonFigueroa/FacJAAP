@@ -270,6 +270,10 @@ import {
   UsuarioEditComponent
 }
 from './usuario/usuario-edit/usuario-edit.component';
+import { PrivilegioComponent } from './privilegio/privilegio.component';
+import { PrivilegioIndexComponent } from './privilegio/privilegio-index/privilegio-index.component';
+import { PrivilegioCreateComponent } from './privilegio/privilegio-create/privilegio-create.component';
+import { PrivilegioEditComponent } from './privilegio/privilegio-edit/privilegio-edit.component';
 export const ComponentsRoutes: Routes = [{
   path: '',
   children: [{
@@ -962,15 +966,60 @@ export const ComponentsRoutes: Routes = [{
         }
       }]
     },
-
-
- 
-
-
-
-
-
-
+    {
+      path: 'privilegios',
+      component: PrivilegioComponent,
+      children: [{
+        path: '',
+        redirectTo: 'listar',
+        pathMatch: 'full'
+      }, {
+        path: 'listar',
+        component: PrivilegioIndexComponent,
+        data: {
+          title: 'Lista privilegios',
+          urls: [{
+            title: 'Inicio',
+            url: '/dashboard'
+          }, {
+            title: 'registro',
+            url: '/component/privilegios/crear'
+          }, {
+            title: 'privilegios'
+          }]
+        }
+      }, {
+        path: 'crear',
+        component: PrivilegioCreateComponent,
+        data: {
+          title: 'Crear privilegio',
+          urls: [{
+            title: 'Inicio',
+            url: '/dashboard'
+          }, {
+            title: 'privilegio',
+            url: '/component/privilegios/listar'
+          }, {
+            title: 'registro'
+          }]
+        }
+      }, {
+        path: 'editar/:id',
+        component: PrivilegioEditComponent,
+        data: {
+          title: 'Editar privilegio',
+          urls: [{
+            title: 'Inicio',
+            url: '/dashboard'
+          }, {
+            title: 'privilegios',
+            url: '/component/privilegios/listar'
+          }, {
+            title: 'edición'
+          }]
+        }
+      }]
+    },
     {
       path: 'progressbar',
       component: NgbdpregressbarBasic,

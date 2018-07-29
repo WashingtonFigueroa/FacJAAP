@@ -59,7 +59,16 @@ export class SidebarComponent implements OnInit {
         localStorage.removeItem('token');
         this.router.navigate(['/login']);
     }
+
     goToTipoUsuarios() {
         this.router.navigate(['/component/tipousuarios/listar']);
+    }
+
+    goToUsuarios() {
+        this.router.navigate(['/component/usuarios/listar']);
+    }
+
+    goToPrivilegios() {
+        this.router.navigate(['/component/privilegios/listar']);
     }
 }

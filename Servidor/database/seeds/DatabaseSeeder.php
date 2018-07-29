@@ -17,10 +17,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\User::create([
+            'idtipo' => $tipo_usuario->idtipo,
             'nombre' => 'Washington',
             'correo' => 'washington@gmail.com',
             'password' => bcrypt('washington'),
-            'idtipo' => $tipo_usuario->idtipo,
         ]);
         // $this->call(UsersTableSeeder::class);
     }

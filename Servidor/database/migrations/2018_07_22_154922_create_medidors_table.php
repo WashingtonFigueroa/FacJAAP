@@ -16,7 +16,7 @@ class CreateMedidorsTable extends Migration
         Schema::create('medidores', function (Blueprint $table) {
             $table->increments('idmedidor');
             $table->string('codigo',100);
-            $table->string('observacion',100);
+            $table->string('observacion',100)->nullable();;
             $table->string('estado',100);
             $table->softDeletes();
             $table->timestamps();

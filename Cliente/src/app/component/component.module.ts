@@ -88,6 +88,11 @@ import { ServicioService } from './servicio/servicio.service';
 import { TipousuarioService } from './tipousuario/tipousuario.service';
 import { UsuarioService } from './usuario/usuario.service';
 import { OnlyNumberDirective } from './only-number.directive';
+import { PrivilegioComponent } from './privilegio/privilegio.component';
+import { PrivilegioIndexComponent } from './privilegio/privilegio-index/privilegio-index.component';
+import { PrivilegioEditComponent } from './privilegio/privilegio-edit/privilegio-edit.component';
+import { PrivilegioCreateComponent } from './privilegio/privilegio-create/privilegio-create.component';
+import { PrivilegioService } from './privilegio/privilegio.service';
 
 @NgModule({
   imports: [CommonModule,
@@ -165,7 +170,11 @@ import { OnlyNumberDirective } from './only-number.directive';
     FacturaIndexComponent,
     FacturaEditComponent,
     FacturaCreateComponent,
-    OnlyNumberDirective
+    OnlyNumberDirective,
+    PrivilegioComponent,
+    PrivilegioIndexComponent,
+    PrivilegioEditComponent,
+    PrivilegioCreateComponent
   ],
   providers: [
       ProveedorService,
@@ -180,7 +189,8 @@ import { OnlyNumberDirective } from './only-number.directive';
       ParametroService,
       ServicioService,
       TipousuarioService,
-      UsuarioService
+      UsuarioService,
+      PrivilegioService
   ]
 
 })

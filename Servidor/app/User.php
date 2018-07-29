@@ -13,10 +13,10 @@ class User extends Authenticatable
     protected $table = 'users';
     protected $primaryKey = 'iduser';
     protected $fillable = [
+        'idtipo',
         'nombre',
         'correo',
-        'password',
-        'idtipo',
+        'password'
     ];
     protected $dates = ['deleted_at'];
 

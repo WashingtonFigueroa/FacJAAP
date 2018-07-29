@@ -6,9 +6,10 @@
             <div class="row">
               <div class="col-md-8">
                 <form (submit)="store()" role="form" [formGroup]="tipoGroup">
+                  
                   <div class="form-group">
                     <label for="nombre">
-                      Nombre
+                      * Ingrese tipo usuario
                     </label>
                     <input type="text" class="form-control" id="nombre" name="nombre" formControlName="nombre" autofocus/>
                   </div>

@@ -18,11 +18,9 @@
                             </option>
                           </select>
                         </div> -->
-
-
                         <div class="form-group">
                           <label for="cliente">
-                            Cliente
+                            * Seleccione cliente
                           </label>
                           <select name="idcliente" id="cliente" class="form-control" formControlName="idcliente">
                             <option [value]="cliente.idcliente" *ngFor="let cliente of clientes" 
@@ -32,9 +30,9 @@
                         </div>
                         <div class="form-group">
                           <label for="medidor">
-                            Medidor
+                            * Seleccione código medidor
                           </label>
-                          <select name="idmedidor" id="medidor" class="form-control" formControlName="idmedidor">
+                          <select name="idmedidor" id="medidor" class="form-control" formControlName="idmedidor" disabled>
                             <option [value]="medidor.idmedidor" *ngFor="let medidor of medidores"
                                     [selected]="medidor.idmedidor === servicioGroup.value.idmedidor">
                              {{ medidor.codigo }}</option>
@@ -42,13 +40,13 @@
                         </div>
                         <div class="form-group">
                           <label for="fecha">
-                            Fecha
+                            * Ingrese fecha de adquisición
                           </label>
                           <input type="date" class="form-control" id="fecha" formControlName="fecha" name="fecha"/>
                         </div>
                         <div class="form-group">
                           <label for="observacion">
-                            Observación
+                            Ingrese Observación
                           </label>
                           <input type="text" class="form-control" id="observacion" formControlName="observacion" name="observacion"/>
                         </div>

@@ -21,9 +21,9 @@ class ServicioController extends Controller
 
     public function store(Request $request)
     {
-        $parametro = Parametro::where('descripcion', 'like', '%' . 'Instalacion servicio' . '%' )
+        $parametro = Parametro::where('descripcion', 'like', '%' . 'Servicio' . '%' )
                               ->first();
-
+        
         $servicio = new Servicio();
         $servicio->idcliente = $request->input('idcliente');
         $servicio->idmedidor = $request->input('idmedidor');

@@ -11,6 +11,9 @@ export class LecturaService {
   index() {
     return this.http.get(this.base + 'lecturas');
   }
+  indexPerPage(url) {
+    return this.http.get( url );
+}
   show(id) {
       return this.http.get(this.base + 'lecturas/' + id);
   }

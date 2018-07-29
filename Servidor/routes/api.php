@@ -30,7 +30,7 @@ Route::resource('movimientos', 'MovimientoController');
 Route::resource('factura_ventas', 'FacturaVentaController');
 Route::resource('pago_medidor', 'PagoMedidorController');
 Route::resource('tipousuarios', 'TipoUsuarioController');
-Route::resource('usuarios', 'UserController');
+Route::resource('usuarios', 'UserController', ['except' => ['create', 'edit']]);
 Route::resource('parametros', 'ParametroController');
 Route::resource('privilegios', 'PrivilegioController');
 Route::resource('lecturas', 'LecturaController');

@@ -11,7 +11,7 @@
                     <form (submit)="store()" role="form"   [formGroup]="servicioGroup">
                         <div class="form-group">
                           <label for="cliente">
-                            Seleccione cliente
+                            * Seleccione cliente
                           </label>
                           <select name="idcliente" id="cliente" class="form-control" formControlName="idcliente">
                             <option [value]="cliente.idcliente" *ngFor="let cliente of clientes"> {{ cliente.nombres }}</option>
@@ -19,7 +19,7 @@
                         </div>
                         <div class="form-group">
                           <label for="medidor">
-                              Seleccione código medidor
+                            * Seleccione código medidor
                           </label>
                           <select name="idmedidor" id="medidor" class="form-control" formControlName="idmedidor">
                             <option [value]="medidor.idmedidor" *ngFor="let medidor of medidores"> {{ medidor.codigo }}</option>
@@ -27,7 +27,7 @@
                         </div>
                         <div class="form-group">
                           <label for="fecha">
-                            Ingrese fecha de adquisición
+                            * Ingrese fecha de adquisición
                           </label>
                           <input type="date" class="form-control" id="fecha" formControlName="fecha" name="fecha"/>
                         </div>
@@ -39,7 +39,7 @@
                         </div>
                         <div class="form-group">
                           <label for="estado">
-                            Seleccione estado
+                            * Seleccione estado
                           </label>
                           <select class="form-control" id="estado" formControlName="estado" name="estado">
                               <option>Activo</option>

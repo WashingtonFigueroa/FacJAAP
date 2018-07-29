@@ -18,10 +18,10 @@ class CreateContribuyentesTable extends Migration
             $table->string('cedula', 13);
             $table->string('nombres', 100);
             $table->string('direccion', 150);
-            $table->string('email', 100);
-            $table->string('telefono', 10);
-            $table->string('referencia', 10);
-            $table->string('observacion', 100);
+            $table->string('email', 100)->nullable();;
+            $table->string('telefono', 10)->nullable();;
+            $table->string('referencia', 10)->nullable();;
+            $table->string('observacion', 100)->nullable();;
             $table->softDeletes();
             $table->timestamps();
         });

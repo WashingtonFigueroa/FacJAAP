@@ -12,26 +12,23 @@ class LecturaController extends Controller
     public function index()
     {
         return response()->json(Lectura::with('servicio')
-            ->orderBy('idlectura', 'asc')->get(),200);
-
-            // return response()->json(Servicio::with('Contribuyente','Medidor')
-            // ->orderBy('idservicio', 'asc')
-            // ->paginate(7),
-            // 200); 
+            ->orderBy('idlectura', 'asc')
+            ->paginate(7),
+            200);
     }
 
     public function store(Request $request)
     {
-        /*
-         * anterior
-         * consumo
-         * tarifa
-         * excedente
-         * */
+        echo "hioa";
+        var_dump($request);
+        
         $idservicio = $request->input('idservicio');
         $lecturas = Servicio::find('idservicio')->Lecturas()->count();
-        $metroCubicoAgua = Parametro::where('descripcion', 'like', '%'.'Metro cubico de agua'.'%')->first();
-        $base = Parametro::where('descripcion', 'like', '%'.'base'.'%')->first();
+        
+        $baseM3 = Parametro::where('descripcion', 'like', '%'.'Base M3'.'%')->first();
+        $valorbase = Parametro::where('descripcion', 'like', '%'.'Base M3 Chorlavi'.'%')->first();
+        $metroCubicoAgua = Parametro::where('descripcion', 'like', '%'.'M3 Agua Chorlavi'.'%')->first();
+        
         $lectura = new Lectura();
         if ($lecturas === 0) {
             $lectura->idservicio = $idservicio;
@@ -39,10 +36,16 @@ class LecturaController extends Controller
             $lectura->fecha = $request->input('fecha');
             $lectura->actual = $request->input('actual');
             $lectura->anterior = $request->input('actual');
-            $lectura->consumo = 0;
-            $lectura->excedente = ($lectura->consumo - $base->valor) * $metroCubicoAgua->valor;
-            $lectura->tarifa = $lectura->excedente + $metroCubicoAgua->valor;
-            $lectura->estado = $request->input('estado');
+            $lectura->consumo = $request->input('actual');
+            if ($lectura->consumo > $baseM3)
+            {
+                $lectura->excedente = $lectura->consumo - $baseM3;
+                $lectura->tarifa = ($lectura->excedente *  $metroCubicoAgua) + $valorbase;
+            }else{
+                $lectura->excedente = 0;
+                $lectura->tarifa = $valorbase;
+            }
+            $lectura->estado = $request->input('Deber');
             $lectura->save();
         } else {
             $ultimaLectura = Servicio::find('idservicio')->Lecturas()->orderBy('idlectura', 'desc')->first();
@@ -52,8 +55,14 @@ class LecturaController extends Controller
             $lectura->actual = $request->input('actual');
             $lectura->anterior = $ultimaLectura->actual;
             $lectura->consumo = $lectura->actual - $lectura->anterior;
-            $lectura->excedente = ($lectura->consumo - $base->valor) * $metroCubicoAgua->valor;
-            $lectura->tarifa = $lectura->excedente + $metroCubicoAgua->valor;
+            if ($lectura->consumo > $baseM3)
+            {
+                $lectura->excedente = $lectura->consumo - $baseM3;
+                $lectura->tarifa = ($lectura->excedente *  $metroCubicoAgua) + $valorbase;
+            }else{
+                $lectura->excedente = 0;
+                $lectura->tarifa = $valorbase;
+            }
             $lectura->estado = $request->input('estado');
             $lectura->save();
         }

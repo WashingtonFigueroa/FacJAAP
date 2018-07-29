@@ -8,8 +8,7 @@ class UserController extends Controller
 {
     public function index()
     {
-    return response()->json(UserController::orderBy('nombre', 'asc')->get(),
-                                200);
+    return response()->json(UserController::orderBy('nombre', 'asc')->get(), 200);
     }
 
     public function store(Request $request)

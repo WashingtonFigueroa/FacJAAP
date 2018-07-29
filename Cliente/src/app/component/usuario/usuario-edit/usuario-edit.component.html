@@ -1,3 +1,71 @@
-<p>
-  usuario-edit works!
-</p>
+<div class="card">
+  <div class="card-body">
+      <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-8">
+                    <form (submit)="update()" role="form" *ngIf="usuario !== null" [formGroup]="usuarioGroup">
+                        
+                      <div class="form-group">
+                          <label for="tipo">
+                            * Seleccione tipo usuario
+                          </label>
+                          <select name="idtipo" id="tipo" class="form-control" formControlName="idtipo">
+                            <option [value]="tipo.idtipo" *ngFor="let tipo of tipos"
+                                    [selected]="tipo.idtipo === usuarioGroup.value.idtipo">
+                                {{ tipo.nombre }}
+                            </option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="nombre">
+                            * Nombre usuario
+                          </label>
+                          <input type="text" class="form-control" id="nombre" formControlName="nombre" name="nombre"/>
+                        </div>
+                        <label for="">Ingrese Nuevas Credenciales</label>
+                        <div class="form-group">
+                          <label for="correo">
+                            * Ingrese correo
+                          </label>
+                          <input type="email" class="form-control" id="correo" formControlName="correo" name="correo"/>
+                        </div>
+                        <div class="form-group">
+                          <label for="password">
+                            * Ingrese contraseña
+                          </label>
+                          <input type="password" class="form-control" id="password" formControlName="password" name="password"/>
+                        </div>
+                        <div class="form-group">
+                          <label for="password2">
+                            * Verifique contraseña
+                          </label>
+                          <input type="password" class="form-control" id="password2" formControlName="password2" name="password2"/>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                          Guardar
+                        </button>
+                      </form>
+                </div>
+                <div class="col-md-4">
+                  <div class="card">
+                    <h5 class="card-header">
+                      Card title
+                    </h5>
+                    <div class="card-body">
+                      <p class="card-text">
+                        Card content
+                      </p>
+                    </div>
+                    <div class="card-footer">
+                      Card footer
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>   
+  </div>
+</div>

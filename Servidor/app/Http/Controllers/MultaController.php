@@ -9,9 +9,10 @@ class MultaController extends Controller
 {
     public function index()
     {
-        return response()->json(Multa::orderBy('idservicio', 'asc')->get(),
-            200);
-    }
+        return response()->json(Multa::with('servicio')
+            ->orderBy('idlectura', 'asc')
+            ->paginate(7), 200);
+   }
 
     public function store(Request $request)
     {

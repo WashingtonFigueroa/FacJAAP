@@ -20,9 +20,9 @@ class CreateServiciosTable extends Migration
                       ->references('idmedidor')
                       ->on('medidores')
                       ->onDelete('cascade');
-            $table->date('fecha')->nullable();;
-            $table->string('observacion', 250);
-            $table->double('saldo');
+            $table->date('fecha')->nullable();
+            $table->string('observacion', 250)->nullable();
+            $table->double('saldo', 8, 2);
             $table->string('estado', 100);
             $table->softDeletes();
             $table->timestamps();
