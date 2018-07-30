@@ -10,12 +10,13 @@
                    
                     <form (submit)="store()" role="form"   [formGroup]="servicioGroup">
                         <div class="form-group">
-                          <label for="cliente">
-                            * Seleccione cliente
-                          </label>
-                          <select name="idcliente" id="cliente" class="form-control" formControlName="idcliente">
+                            <div class="col" *ngIf="clientesSearch !== null">
+                                <label for="servicio">* Seleccione servicio </label>
+                                  <ng-autocomplete class="col-sm-2 col-form-label" (selected)="Selected($event)" [classes]="['']" [group]="clientesSearch" ></ng-autocomplete>
+                              </div>
+                          <!-- <select name="idcliente" id="cliente" class="form-control" formControlName="idcliente">
                             <option [value]="cliente.idcliente" *ngFor="let cliente of clientes"> {{ cliente.nombres }}</option>
-                          </select>
+                          </select> -->
                         </div>
                         <div class="form-group">
                           <label for="medidor">
@@ -37,16 +38,6 @@
                           </label>
                           <input type="text" class="form-control" id="observacion" formControlName="observacion" name="observacion"/>
                         </div>
-                        <div class="form-group">
-                          <label for="estado">
-                            * Seleccione estado
-                          </label>
-                          <select class="form-control" id="estado" formControlName="estado" name="estado">
-                              <option>Activo</option>
-                              <option>Pasivo</option>
-                            </select>
-                        </div>
-
                         <button type="submit" class="btn btn-primary">
                           Guardar
                         </button>

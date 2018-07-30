@@ -20,8 +20,8 @@ class CreateMultasTable extends Migration
                   ->references('idservicio') 
                   ->on('servicios')
                   ->onDelete('cascade');
-            $table->string('descripcion');
-            $table->double('valor');
+            $table->string('descripcion',200);
+            $table->double('valor', 8, 2);
             $table->date('fecha');
             $table->string('estado');
             $table->softDeletes();

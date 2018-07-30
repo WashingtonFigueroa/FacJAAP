@@ -26,10 +26,16 @@ body {margin:0;padding:50px}
 		.width200 td:before {  position: absolute; top: 6px; left: 6px; width: 45%; padding-right: 10px; white-space: nowrap;}
 		
 		.width200 td:nth-of-type(1):before { content: "#"; }
-		.width200 td:nth-of-type(2):before { content: "Código"; }
+		.width200 td:nth-of-type(2):before { content: "Cliente"; }
 		.width200 td:nth-of-type(3):before { content: "Observación"; }
-		.width200 td:nth-of-type(4):before { content: "Estado"; }
-		.width200 td:nth-of-type(5):before { content: "Acciones"; }
+		.width200 td:nth-of-type(4):before { content: "Fecha"; }
+		.width200 td:nth-of-type(5):before { content: "Lectura Anterior"; }
+		.width200 td:nth-of-type(6):before { content: "Lectura Actualón"; }
+		.width200 td:nth-of-type(7):before { content: "Consumo"; }
+		.width200 td:nth-of-type(8):before { content: "Excedente"; }
+		.width200 td:nth-of-type(9):before { content: "Tarifa"; }
+		.width200 td:nth-of-type(10):before { content: "Estado"; }
+		.width200 td:nth-of-type(11):before { content: "Acciones"; }
 		
 		.descarto {display:none;}
 		.fontsize {font-size:10px}

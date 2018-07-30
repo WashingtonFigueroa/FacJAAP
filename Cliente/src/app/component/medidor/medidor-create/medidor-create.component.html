@@ -14,9 +14,13 @@
                 </div>
                 <div class="form-group">
                   <label for="observacion">
-                      Ingrese Observación
+                    * Seleccione Observación
                   </label>
-                  <input type="text" class="form-control" id="observacion" name="observacion" formControlName="observacion" />
+                  <select class="form-control" id="observacion" formControlName="observacion" name="observacion" required>
+                      <option>Instalado</option>
+                      <option>Bodega</option>
+                      <option>Baja</option>
+                  </select>
                 </div>
                 <div class="form-group">
                   <label for="estado">

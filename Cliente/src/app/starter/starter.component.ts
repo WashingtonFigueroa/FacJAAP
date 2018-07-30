@@ -5,7 +5,7 @@ import { Component, AfterViewInit } from '@angular/core';
 export class StarterComponent implements AfterViewInit {
 	subtitle:string;	
 	constructor() {
-		this.subtitle = "JUNTA ADMINISTRADORA DE AGUA POTABLE"
+		this.subtitle = "JAAP SAN JOSÉ DE CHORLAVÍ"
 	}
 
 	ngAfterViewInit(){}

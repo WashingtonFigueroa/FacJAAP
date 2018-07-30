@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {CreateNewAutocompleteGroup, NgAutocompleteComponent, SelectedAutocompleteItem} from "ng-auto-complete";
+
 import { FormGroup, FormBuilder, FormControl, Validators } from '../../../../../node_modules/@angular/forms';
 import { MultaService } from '../multa.service';
-import { ServicioService } from '../../servicio/servicio.service';
 import { ClienteService } from '../../cliente/cliente.service';
 import { MedidorService } from '../../medidor/medidor.service';
 
@@ -12,21 +13,41 @@ import { MedidorService } from '../../medidor/medidor.service';
 })
 export class MultaCreateComponent implements OnInit {
 
+  @ViewChild(NgAutocompleteComponent) public completer: NgAutocompleteComponent;
+  clientesSearch: any = null;
+
   clientes: any = null;
   medidores: any = null;
-  servicios: any = null;
   multaGroup: FormGroup;
 
   constructor(protected multaService: MultaService,
-              protected servicioService: ServicioService,
               protected clienteService: ClienteService,
               protected medidorService: MedidorService,
               protected fb: FormBuilder) {
-    this.clienteService.listaClientes().subscribe(res => this.clientes = res);
-    this.servicioService.listaServicios().subscribe(res => this.servicios = res);
-
-    this.createForm();
+                this.createForm();
+ 
+    this.clienteService.listaClientes().subscribe(res => {
+      this.clientes = res;
+      this.load(res);
+    });   
   }
+
+  Selected(item: SelectedAutocompleteItem) {
+    this.medidorService.listaMedidoresCliente(item.item.original.idcliente)
+        .subscribe(res => {
+            this.medidores = res;
+        });
+}
+load(clientes) {
+  this.clientesSearch = [
+        CreateNewAutocompleteGroup(
+            'Buscar cliente',
+            'completer',
+            clientes,
+            {titleKey: 'nombres', childrenKey: null}
+        ),
+    ];
+}
 
   ngOnInit() {  
   }
@@ -38,7 +59,7 @@ export class MultaCreateComponent implements OnInit {
       'descripcion' : new FormControl('', [Validators.required]),
       'valor' : new FormControl('', [Validators.required]),
       'fecha' : new FormControl('', [Validators.required]),
-      'estado' : new FormControl('', [Validators.required])
+      'estado' : "Deber"
     });
   }
 
@@ -54,11 +75,14 @@ export class MultaCreateComponent implements OnInit {
            
         });
   }
-  listaMedidoresCliente() {
-      console.log('multas');
-      const idcliente = this.multaGroup.value.idcliente;
-      this.medidorService.listaMedidoresCliente(idcliente)
-          .subscribe(res => this.medidores = res);
-  }
+
+
+
+  // listaMedidoresCliente() {
+  //     console.log('multas');
+  //     const idcliente = this.multaGroup.value.idcliente;
+  //     this.medidorService.listaMedidoresCliente(idcliente)
+  //         .subscribe(res => this.medidores = res);
+  // }
 
 }

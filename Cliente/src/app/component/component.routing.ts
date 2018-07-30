@@ -1,219 +1,61 @@
-import {
-  Routes
-}
-from '@angular/router';
-import {
-  ProveedorComponent
-}
-from "./proveedor/proveedor.component";
-import {
-  ProveedorCreateComponent
-}
-from "./proveedor/proveedor-create/proveedor-create.component";
-import {
-  ProveedorIndexComponent
-}
-from "./proveedor/proveedor-index/proveedor-index.component";
-import {
-  ProveedorEditComponent
-}
-from "./proveedor/proveedor-edit/proveedor-edit.component";
-import {
-  MaterialComponent
-}
-from "./material/material.component";
-import {
-  MaterialIndexComponent
-}
-from "./material/material-index/material-index.component";
-import {
-  MaterialCreateComponent
-}
-from "./material/material-create/material-create.component";
-import {
-  MaterialEditComponent
-}
-from "./material/material-edit/material-edit.component";
-import {
-  FacturacompraComponent
-}
-from './facturacompra/facturacompra.component';
-import {
-  FacturacompraIndexComponent
-}
-from './facturacompra/facturacompra-index/facturacompra-index.component';
-import {
-  FacturacompraCrearComponent
-}
-from './facturacompra/facturacompra-crear/facturacompra-crear.component';
-import {
-  FacturacompraEditComponent
-}
-from './facturacompra/facturacompra-edit/facturacompra-edit.component';
-import {
-  ClienteComponent
-}
-from './cliente/cliente.component';
-import {
-  ClienteIndexComponent
-}
-from './cliente/cliente-index/cliente-index.component';
-import {
-  ClienteCreateComponent
-}
-from './cliente/cliente-create/cliente-create.component';
-import {
-  ClienteEditComponent
-}
-from './cliente/cliente-edit/cliente-edit.component';
-import {
-  FacturaComponent
-}
-from './factura/factura.component';
-import {
-  FacturaIndexComponent
-}
-from './factura/factura-index/factura-index.component';
-import {
-  FacturaEditComponent
-}
-from './factura/factura-edit/factura-edit.component';
-import {
-  FacturaCreateComponent
-}
-from './factura/factura-create/factura-create.component';
-import {
-  LecturaComponent
-}
-from './lectura/lectura.component';
-import {
-  LecturaIndexComponent
-}
-from './lectura/lectura-index/lectura-index.component';
-import {
-  LecturaCreateComponent
-}
-from './lectura/lectura-create/lectura-create.component';
-import {
-  LecturaEditComponent
-}
-from './lectura/lectura-edit/lectura-edit.component';
-import {
-  MedidorComponent
-}
-from './medidor/medidor.component';
-import {
-  MedidorIndexComponent
-}
-from './medidor/medidor-index/medidor-index.component';
-import {
-  MedidorCreateComponent
-}
-from './medidor/medidor-create/medidor-create.component';
-import {
-  MedidorEditComponent
-}
-from './medidor/medidor-edit/medidor-edit.component';
-import {
-  MultaComponent
-}
-from './multa/multa.component';
-import {
-  MultaIndexComponent
-}
-from './multa/multa-index/multa-index.component';
-import {
-  MultaCreateComponent
-}
-from './multa/multa-create/multa-create.component';
-import {
-  MultaEditComponent
-}
-from './multa/multa-edit/multa-edit.component';
-import {
-  PagoComponent
-}
-from './pago/pago.component';
-import {
-  PagoIndexComponent
-}
-from './pago/pago-index/pago-index.component';
-import {
-  PagoCreateComponent
-}
-from './pago/pago-create/pago-create.component';
-import {
-  PagoEditComponent
-}
-from './pago/pago-edit/pago-edit.component';
-import {
-  ParametroComponent
-}
-from './parametro/parametro.component';
-import {
-  ParametroIndexComponent
-}
-from './parametro/parametro-index/parametro-index.component';
-import {
-  ParametroCreateComponent
-}
-from './parametro/parametro-create/parametro-create.component';
-import {
-  ParametroEditComponent
-}
-from './parametro/parametro-edit/parametro-edit.component';
-import {
-  ServicioComponent
-}
-from './servicio/servicio.component';
-import {
-  ServicioIndexComponent
-}
-from './servicio/servicio-index/servicio-index.component';
-import {
-  ServicioCreateComponent
-}
-from './servicio/servicio-create/servicio-create.component';
-import {
-  ServicioEditComponent
-}
-from './servicio/servicio-edit/servicio-edit.component';
-import {
-  TipousuarioComponent
-}
-from './tipousuario/tipousuario.component';
-import {
-  TipousuarioIndexComponent
-}
-from './tipousuario/tipousuario-index/tipousuario-index.component';
-import {
-  TipousuarioCreateComponent
-}
-from './tipousuario/tipousuario-create/tipousuario-create.component';
-import {
-  TipousuarioEditComponent
-}
-from './tipousuario/tipousuario-edit/tipousuario-edit.component';
-import {
-  UsuarioComponent
-}
-from './usuario/usuario.component';
-import {
-  UsuarioIndexComponent
-}
-from './usuario/usuario-index/usuario-index.component';
-import {
-  UsuarioCreateComponent
-}
-from './usuario/usuario-create/usuario-create.component';
-import {
-  UsuarioEditComponent
-}
-from './usuario/usuario-edit/usuario-edit.component';
+import { Routes}from '@angular/router';
+import { ProveedorComponent}from "./proveedor/proveedor.component";
+import { ProveedorCreateComponent}from "./proveedor/proveedor-create/proveedor-create.component";
+import { ProveedorIndexComponent}from "./proveedor/proveedor-index/proveedor-index.component";
+import { ProveedorEditComponent}from "./proveedor/proveedor-edit/proveedor-edit.component";
+import { MaterialComponent}from "./material/material.component";
+import { MaterialIndexComponent } from "./material/material-index/material-index.component";
+import { MaterialCreateComponent } from "./material/material-create/material-create.component";
+import { MaterialEditComponent } from "./material/material-edit/material-edit.component";
+import { FacturacompraComponent } from './facturacompra/facturacompra.component';
+import { FacturacompraIndexComponent } from './facturacompra/facturacompra-index/facturacompra-index.component';
+import { FacturacompraCrearComponent } from './facturacompra/facturacompra-crear/facturacompra-crear.component';
+import { FacturacompraEditComponent } from './facturacompra/facturacompra-edit/facturacompra-edit.component';
+import { ClienteComponent } from './cliente/cliente.component';
+import { ClienteIndexComponent } from './cliente/cliente-index/cliente-index.component';
+import { ClienteCreateComponent } from './cliente/cliente-create/cliente-create.component';
+import { ClienteEditComponent } from './cliente/cliente-edit/cliente-edit.component';
+import { FacturaComponent } from './factura/factura.component';
+import { FacturaIndexComponent } from './factura/factura-index/factura-index.component';
+import { FacturaEditComponent } from './factura/factura-edit/factura-edit.component';
+import { FacturaCreateComponent } from './factura/factura-create/factura-create.component';
+import { LecturaComponent } from './lectura/lectura.component';
+import { LecturaIndexComponent } from './lectura/lectura-index/lectura-index.component';
+import { LecturaCreateComponent } from './lectura/lectura-create/lectura-create.component';
+import { LecturaEditComponent } from './lectura/lectura-edit/lectura-edit.component';
+import { MedidorComponent } from './medidor/medidor.component';
+import { MedidorIndexComponent } from './medidor/medidor-index/medidor-index.component';
+import { MedidorCreateComponent } from './medidor/medidor-create/medidor-create.component';
+import { MedidorEditComponent } from './medidor/medidor-edit/medidor-edit.component';
+import { MultaComponent } from './multa/multa.component';
+import { MultaIndexComponent } from './multa/multa-index/multa-index.component';
+import { MultaCreateComponent } from './multa/multa-create/multa-create.component';
+import { MultaEditComponent } from './multa/multa-edit/multa-edit.component';
+import { PagoComponent } from './pago/pago.component';
+import { PagoIndexComponent } from './pago/pago-index/pago-index.component';
+import { PagoCreateComponent } from './pago/pago-create/pago-create.component';
+import { PagoEditComponent } from './pago/pago-edit/pago-edit.component';
+import { ParametroComponent } from './parametro/parametro.component';
+import { ParametroIndexComponent } from './parametro/parametro-index/parametro-index.component';
+import { ParametroCreateComponent } from './parametro/parametro-create/parametro-create.component';
+import { ParametroEditComponent } from './parametro/parametro-edit/parametro-edit.component';
+import { ServicioComponent } from './servicio/servicio.component';
+import { ServicioIndexComponent } from './servicio/servicio-index/servicio-index.component';
+import { ServicioCreateComponent } from './servicio/servicio-create/servicio-create.component';
+import { ServicioEditComponent } from './servicio/servicio-edit/servicio-edit.component';
+import { TipousuarioComponent } from './tipousuario/tipousuario.component';
+import { TipousuarioIndexComponent } from './tipousuario/tipousuario-index/tipousuario-index.component';
+import { TipousuarioCreateComponent } from './tipousuario/tipousuario-create/tipousuario-create.component';
+import { TipousuarioEditComponent } from './tipousuario/tipousuario-edit/tipousuario-edit.component';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { UsuarioIndexComponent } from './usuario/usuario-index/usuario-index.component';
+import { UsuarioCreateComponent } from './usuario/usuario-create/usuario-create.component';
+import { UsuarioEditComponent } from './usuario/usuario-edit/usuario-edit.component';
 import { PrivilegioComponent } from './privilegio/privilegio.component';
 import { PrivilegioIndexComponent } from './privilegio/privilegio-index/privilegio-index.component';
 import { PrivilegioCreateComponent } from './privilegio/privilegio-create/privilegio-create.component';
 import { PrivilegioEditComponent } from './privilegio/privilegio-edit/privilegio-edit.component';
+
 export const ComponentsRoutes: Routes = [{
   path: '',
   children: [{
@@ -229,10 +71,10 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'Lista Proveedores',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'registro',
+            title: 'NUEVO REGISTRO',
             url: '/component/proveedores/crear'
           }, {
             title: 'proveedores'
@@ -244,13 +86,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'Registrar Proveedor',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
             title: 'Proveedores',
             url: '/component/proveedores/listar'
           }, {
-            title: 'registro'
+            title: 'NUEVO REGISTRO'
           }]
         }
       }, {
@@ -259,13 +101,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'Editar Proveedor',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
             title: 'Proveedores',
             url: '/component/proveedores/listar'
           }, {
-            title: 'edición'
+            title: 'MODIFICACIÓN'
           }]
         }
       }]
@@ -282,10 +124,10 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'Lista Materiales',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'registro',
+            title: 'NUEVO REGISTRO',
             url: '/component/materiales/crear'
           }, {
             title: 'materiales'
@@ -297,13 +139,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'Registrar Materiale',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
             title: 'materiales',
             url: '/component/materiales/listar'
           }, {
-            title: 'registro'
+            title: 'NUEVO REGISTRO'
           }]
         }
       }, {
@@ -312,13 +154,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'Editar Materiale',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
             title: 'materiales',
             url: '/component/materiales/listar'
           }, {
-            title: 'edición'
+            title: 'MODIFICACIÓN'
           }]
         }
       }]
@@ -335,10 +177,10 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'Listar facturas de compra',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'registro',
+            title: 'NUEVO REGISTRO',
             url: '/component/facturacompras/crear'
           }, {
             title: 'facturacompras'
@@ -350,13 +192,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'Registrar factura compra',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
             title: 'facturacompras',
             url: '/component/facturacompras/listar'
           }, {
-            title: 'registro'
+            title: 'NUEVO REGISTRO'
           }]
         }
       }, {
@@ -365,17 +207,20 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'Editar factura compra',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
             title: 'facturacompras',
             url: '/component/facturacompras/listar'
           }, {
-            title: 'edición'
+            title: 'MODIFICACIÓN'
           }]
         }
       }]
-    }, {
+    }, 
+    
+    
+    {
       path: 'clientes',
       component: ClienteComponent,
       children: [{
@@ -388,13 +233,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'LISTA CLIENTES',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'registro',
+            title: 'NUEVO REGISTRO',
             url: '/component/clientes/crear'
           }, {
-            title: 'clientes'
+            title: 'CLIENTES'
           }]
         }
       }, {
@@ -403,13 +248,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'CREAR CLIENTE',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'clientes',
+            title: 'LISTADO',
             url: '/component/clientes/listar'
           }, {
-            title: 'registro'
+            title: 'NUEVO REGISTRO'
           }]
         }
       }, {
@@ -418,13 +263,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'EDITAR CLIENTE',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'clientes',
+            title: 'LISTADO',
             url: '/component/clientes/listar'
           }, {
-            title: 'edición'
+            title: 'MODIFICACIÓN'
           }]
         }
       }]
@@ -439,15 +284,15 @@ export const ComponentsRoutes: Routes = [{
         path: 'listar',
         component: FacturaIndexComponent,
         data: {
-          title: 'LISTADO FACTURAS DEL SERVICIO',
+          title: 'LISTADO FACTURAS EMITIDAS',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'registro',
+            title: 'NUEVO REGISTRO',
             url: '/component/facturas/crear'
           }, {
-            title: 'facturas'
+            title: 'FACTURAS'
           }]
         }
       }, {
@@ -456,13 +301,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'EMISIÓN DE FACTURAS',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'facturas',
+            title: 'LISTADO',
             url: '/component/facturas/listar'
           }, {
-            title: 'registro'
+            title: 'NUEVO REGISTRO'
           }]
         }
       }, {
@@ -471,13 +316,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'EDITAR FACTURAS',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'facturas',
+            title: 'LISTADO',
             url: '/component/facturas/listar'
           }, {
-            title: 'edición'
+            title: 'MODIFICACIÓN'
           }]
         }
       }]
@@ -494,13 +339,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'LISTADO LECTURAS',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'registro',
+            title: 'NUEVO REGISTRO',
             url: '/component/lecturas/crear'
           }, {
-            title: 'lecturas'
+            title: 'LECTURAS'
           }]
         }
       }, {
@@ -509,13 +354,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'INGRESO lECTURA',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'lecturas',
+            title: 'LISTADO',
             url: '/component/lecturas/listar'
           }, {
-            title: 'registro'
+            title: 'NUEVO REGISTRO'
           }]
         }
       }, {
@@ -524,13 +369,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'EDITAR LECTURAS',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'lecturas',
+            title: 'LISTADO',
             url: '/component/lecturas/listar'
           }, {
-            title: 'edición'
+            title: 'MODIFICACIÓN'
           }]
         }
       }]
@@ -547,13 +392,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'LISTADO MEDIDORES',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'registro',
+            title: 'NUEVO REGISTRO',
             url: '/component/medidores/crear'
           }, {
-            title: 'medidores'
+            title: 'MEDIDOR'
           }]
         }
       }, {
@@ -562,28 +407,28 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'CREAR MEDIDORES',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'medidores',
+            title: 'LISTADO',
             url: '/component/medidores/listar'
           }, {
-            title: 'registro'
+            title: 'NUEVO REGISTRO'
           }]
         }
       }, {
         path: 'editar/:id',
         component: MedidorEditComponent,
         data: {
-          title: 'EDITAR MEDIDORES',
+          title: 'EDITAR MEDIDORE',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'medidores',
+            title: 'LISTADO',
             url: '/component/medidores/listar'
           }, {
-            title: 'edición'
+            title: 'MODIFICACIÓN'
           }]
         }
       }]
@@ -600,13 +445,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'LISTA MULTAS',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'registro',
+            title: 'NUEVO REGISTRO',
             url: '/component/multas/crear'
           }, {
-            title: 'multas'
+            title: 'MULTA'
           }]
         }
       }, {
@@ -615,28 +460,28 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'REGISTRO MULTA',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'multas',
+            title: 'LISTADO',
             url: '/component/multas/listar'
           }, {
-            title: 'registro'
+            title: 'NUEVO REGISTRO'
           }]
         }
       }, {
         path: 'editar/:id',
         component: MultaEditComponent,
         data: {
-          title: 'Editar medidore',
+          title: 'EDITAR MULTA',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'multas',
+            title: 'LISTADO',
             url: '/component/multas/listar'
           }, {
-            title: 'edición'
+            title: 'MODIFICACIÓN'
           }]
         }
       }]
@@ -651,30 +496,30 @@ export const ComponentsRoutes: Routes = [{
         path: 'listar',
         component: PagoIndexComponent,
         data: {
-          title: 'Lista pagos',
+          title: 'LISTA PAGO SERVICIO',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'registro',
+            title: 'NUEVO REGISTRO',
             url: '/component/pagos/crear'
           }, {
-            title: 'pagos'
+            title: 'PAGO INSTALACIÓN'
           }]
         }
       }, {
         path: 'crear',
         component: PagoCreateComponent,
         data: {
-          title: 'Cancelación servicio',
+          title: 'CANCELACIÓN SERVICIO',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'pagos',
+            title: 'LISTADO',
             url: '/component/pagos/listar'
           }, {
-            title: 'registro'
+            title: 'NUEVO REGISTRO'
           }]
         }
       }, {
@@ -683,13 +528,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'Editar pago',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
             title: 'pagos',
             url: '/component/pagos/listar'
           }, {
-            title: 'edición'
+            title: 'MODIFICACIÓN'
           }]
         }
       }]
@@ -706,13 +551,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'LISTA PARAMETROS',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'registro',
+            title: 'NUEVO REGISTRO',
             url: '/component/parametros/crear'
           }, {
-            title: 'parametros'
+            title: 'PARAMETROS'
           }]
         }
       }, {
@@ -721,13 +566,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'INGRESO DE PARAMETROS',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'parametros',
+            title: 'LISTADO',
             url: '/component/parametros/listar'
           }, {
-            title: 'registro'
+            title: 'NUEVO REGISTRO'
           }]
         }
       }, {
@@ -736,13 +581,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'EDITAR PARAMETROS',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'parametros',
+            title: 'LISTADO',
             url: '/component/parametros/listar'
           }, {
-            title: 'edición'
+            title: 'MODIFICACIÓN'
           }]
         }
       }]
@@ -759,13 +604,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'LISTADO SERVICIOS',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'registro',
+            title: 'NUEVO REGISTRO',
             url: '/component/servicios/crear'
           }, {
-            title: 'servicios'
+            title: 'SERVICIOS'
           }]
         }
       }, {
@@ -774,13 +619,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'HABILITAR SERVICIOS',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'servicios',
+            title: 'LISTADO',
             url: '/component/servicios/listar'
           }, {
-            title: 'registro'
+            title: 'NUEVO REGISTRO'
           }]
         }
       }, {
@@ -789,13 +634,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'EDITAR SERVICIOS',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'servicios',
+            title: 'LISTADO',
             url: '/component/servicios/listar'
           }, {
-            title: 'edición'
+            title: 'MODIFICACIÓN'
           }]
         }
       }]
@@ -812,13 +657,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'LISTA DE CARGOS',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'registro',
+            title: 'NUEVO REGISTRO',
             url: '/component/tipousuarios/crear'
           }, {
-            title: 'tipousuarios'
+            title: 'CARGO USUARIO'
           }]
         }
       }, {
@@ -827,13 +672,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'CREAR CARGO',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'tipousuarios',
+            title: 'LISTADO',
             url: '/component/tipousuarios/listar'
           }, {
-            title: 'registro'
+            title: 'NUEVO REGISTRO'
           }]
         }
       }, {
@@ -842,13 +687,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'EDITAR CARGO',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'tipousuarios',
+            title: 'LISTADO',
             url: '/component/tipousuarios/listar'
           }, {
-            title: 'edición'
+            title: 'MODIFICACIÓN'
           }]
         }
       }]
@@ -865,13 +710,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'LISTA USUARIOS',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'registro',
+            title: 'NUEVO REGISTRO',
             url: '/component/usuarios/crear'
           }, {
-            title: 'usuarios'
+            title: 'USUARIOS'
           }]
         }
       }, {
@@ -880,13 +725,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'CREAR USUARIO',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'usuarios',
+            title: 'LISTADO',
             url: '/component/usuarios/listar'
           }, {
-            title: 'registro'
+            title: 'NUEVO REGISTRO'
           }]
         }
       }, {
@@ -895,13 +740,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'EDITAR USUARIOS',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'usuarios',
+            title: 'LISTADO',
             url: '/component/usuarios/listar'
           }, {
-            title: 'edición'
+            title: 'MODIFICACIÓN'
           }]
         }
       }]
@@ -919,13 +764,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'LISTADO PRIVILEGIOS',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'registro',
+            title: 'NUEVO REGISTRO',
             url: '/component/privilegios/crear'
           }, {
-            title: 'privilegios'
+            title: 'PRIVILEGIOS'
           }]
         }
       }, {
@@ -934,13 +779,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'CREAR PRIVILEGIO',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'privilegio',
+            title: 'LISTADO',
             url: '/component/privilegios/listar'
           }, {
-            title: 'registro'
+            title: 'NUEVO REGISTRO'
           }]
         }
       }, {
@@ -949,13 +794,13 @@ export const ComponentsRoutes: Routes = [{
         data: {
           title: 'EDITAR PRIVILEGIO',
           urls: [{
-            title: 'Inicio',
+            title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'privilegios',
+            title: 'LISTADO',
             url: '/component/privilegios/listar'
           }, {
-            title: 'edición'
+            title: 'MODIFICACIÓN'
           }]
         }
       }]

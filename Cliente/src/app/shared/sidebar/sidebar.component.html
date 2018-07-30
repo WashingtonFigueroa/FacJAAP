@@ -2,11 +2,11 @@
     <ul id="sidebarnav">
         <li class="user-profile" [class.active]="showMenu === 'user'">
           <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" (click)="addExpandClass('user')" aria-expanded="false">
-            <span class="hide-menu">SAN JOSÉ DE CHORLAVÍ</span></a>
+            <span class="hide-menu"><i class="mdi mdi-settings"></i> Configuración</span></a>
           <ul aria-expanded="false" class="collapse" [class.in]="showMenu === 'user'">
             <li><a (click)="goToTipoUsuarios()">  <i class="ti-user"></i> &nbsp;&nbsp; Tipo Usuarios</a></li>
             <li><a (click)="goToUsuarios()">  <i class="mdi mdi-account-multiple"></i> &nbsp;&nbsp; Usuarios</a></li>
-            <li><a (click)="goToPrivilegios()"> <i class="mdi mdi-settings"></i> &nbsp;&nbsp; Privilegios</a></li>
+            <li><a (click)="goToPrivilegios()"> <i class="mdi mdi-format-list-bulleted"></i> &nbsp;&nbsp; Privilegios</a></li>
             <li><a (click)="logout()"> <i class="mdi mdi-wallet"></i> &nbsp;&nbsp; Cerrar sesión</a></li>
           </ul>
         </li>

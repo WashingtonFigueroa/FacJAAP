@@ -14,11 +14,15 @@
                     <input type="text" class="form-control" id="codigo" name="codigo" formControlName="codigo" autofocus/>
                   </div>
                   <div class="form-group">
-                    <label for="observacion">
-                      Ingrese Observación
-                    </label>
-                    <input type="text" class="form-control" id="observacion" name="observacion" formControlName="observacion" />
-                  </div>
+                      <label for="observacion">
+                        * Seleccione Observación
+                      </label>
+                      <select class="form-control" id="observacion" formControlName="observacion" name="observacion" required>
+                          <option>Instalado</option>
+                          <option>Bodega</option>
+                          <option>Baja</option>
+                      </select>
+                    </div>
                   <div class="form-group">
                       <label for="estado">
                          * Seleccione estado

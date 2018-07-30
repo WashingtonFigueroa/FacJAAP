@@ -9,7 +9,7 @@ import { StarterComponent } from './starter.component';
 const routes: Routes = [{
 	path: '',
 	data: {
-        title: 'Bienvenidos'
+        title: 'BIENVENIDOS'
     },
 	component: StarterComponent
 }];

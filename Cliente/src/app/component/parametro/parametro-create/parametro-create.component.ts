@@ -20,14 +20,10 @@ export class ParametroCreateComponent implements OnInit {
 
   createForm() {
       this.parametroGroup = this.fb.group({
-          'descripcion' : new FormControl('',
-              [Validators.required]),
-          'valor' : new FormControl('',
-              [Validators.required]),
-          'detalle' : new FormControl('',
-              [Validators.required]),
-          'estado' : new FormControl('',
-              [Validators.required])
+          'descripcion' : new FormControl('',[Validators.required]),
+          'valor' : new FormControl('',[Validators.required]),
+          'detalle' : new FormControl('',[Validators.required]),
+          'estado' : "Activo"
       });
   }
 

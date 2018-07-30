@@ -14,11 +14,12 @@ export class FacturaCreateComponent implements OnInit {
 
   @ViewChild(NgAutocompleteComponent) public completer: NgAutocompleteComponent;
   clientesSearch: any = null;
+
   clientes: any = null;
   medidores: any = null;
   lecturas: any = null;
   facturaGroup: FormGroup;
-  factura: any = {
+  factura: any = { 
       'tarifa' : 0,
       'multa' : 0,
       'total' : 0
@@ -28,8 +29,7 @@ export class FacturaCreateComponent implements OnInit {
               protected lecturaService: LecturaService,
               protected fb: FormBuilder) {
     this.createForm();
-    this.clienteService.listaClientes()
-        .subscribe(res => {
+    this.clienteService.listaClientes().subscribe(res => {
             this.clientes = res;
             this.load(res);
         });
@@ -49,7 +49,6 @@ export class FacturaCreateComponent implements OnInit {
               {titleKey: 'nombres', childrenKey: null}
           ),
       ];
-
   }
 
   ngOnInit() {
@@ -78,6 +77,7 @@ export class FacturaCreateComponent implements OnInit {
                      this.lecturas.splice(index, 1, res.lectura);
                  });
   }
+
   verFactura(idlectura) {
       return this.lecturaService.verFactura(idlectura)
                  .subscribe((res: any) => {
