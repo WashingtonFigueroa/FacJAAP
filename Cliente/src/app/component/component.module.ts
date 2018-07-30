@@ -78,6 +78,7 @@ import { PrivilegioIndexComponent } from './privilegio/privilegio-index/privileg
 import { PrivilegioEditComponent } from './privilegio/privilegio-edit/privilegio-edit.component';
 import { PrivilegioCreateComponent } from './privilegio/privilegio-create/privilegio-create.component';
 import { PrivilegioService } from './privilegio/privilegio.service';
+import {NgAutoCompleteModule} from "ng-auto-complete";
 
 @NgModule({
   imports: [CommonModule,
@@ -85,7 +86,8 @@ import { PrivilegioService } from './privilegio/privilegio.service';
     FormsModule,
     ReactiveFormsModule,
     JsonpModule,
-    NgbModule
+    NgbModule,
+    NgAutoCompleteModule
   ],
   declarations: [
     ProveedorComponent,

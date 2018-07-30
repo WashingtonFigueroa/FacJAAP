@@ -43,4 +43,5 @@ class ContribuyenteController extends Controller
     public function listaContribuyentes() {
         return response()->json(Contribuyente::orderBy('nombres', 'asc')->get(), 200);
     }
+
 }

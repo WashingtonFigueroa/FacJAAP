@@ -4,16 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Contribuyente;
 use App\Lectura;
+use App\Multa;
 use App\Parametro;
 use App\Servicio;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\AssignOp\Mul;
 use Symfony\Component\HttpKernel\Client;
 
 class LecturaController extends Controller
 {
     public function index()
     {
-        return response()->json(Lectura::with('servicio')
+        return response()->json(Lectura::with('servicio.Contribuyente')
             ->orderBy('idlectura', 'asc')
             ->paginate(7),
             200);
@@ -94,6 +96,55 @@ class LecturaController extends Controller
         return response()->json([
             'eliminado' => 'Lectura ' . $Lectura->idlectura
                 . ' eliminado exitosamente'
+        ], 200);
+    }
+
+    public function pagar($idlectura) {
+        $tarifa = 0;
+        $multa = 0;
+
+        $totalPagar = 0;
+        $lectura = Lectura::find($idlectura);
+        $tarifa += $lectura->tarifa;
+        $totalPagar += $tarifa;
+        $idservicio = $lectura->idservicio;
+        $multa += Multa::where('idservicio', $idservicio)
+                            ->where('estado', 'Activo')
+                            ->sum('valor');
+        $totalPagar += $multa;
+        $lectura->estado = 'Pagado';
+        $lectura->save();
+        $multas = Multa::where('idservicio', $idservicio)
+                       ->where('estado', 'Activo')
+                       ->get();
+        foreach ($multas as $multa) {
+            $multa->estado = 'Pagado';
+            $multa->save();
+        }
+        return response()->json([
+            'tarifa' => $tarifa,
+            'multa' => $multa,
+            'total' => $totalPagar,
+            'lectura' => $lectura
+        ], 200);
+    }
+    public function verFactura($idlectura) {
+        $tarifa = 0;
+        $multa = 0;
+        $totalPagar = 0;
+        $lectura = Lectura::find($idlectura);
+        $tarifa += $lectura->tarifa;
+        $idservicio = $lectura->idservicio;
+        $multa += Multa::where('idservicio', $idservicio)
+            ->where('estado', 'Activo')
+            ->sum('valor');
+        $totalPagar = $tarifa + $multa;
+
+        return response()->json([
+            'tarifa' => $tarifa,
+            'multa' => $multa,
+            'total' => $totalPagar,
+            'lectura' => $lectura
         ], 200);
     }
 }

@@ -26,4 +26,10 @@ export class LecturaService {
   destroy(id) {
       return this.http.delete(this.base + 'lecturas/' + id );
   }
+  pagar(idlectura) {
+      return this.http.get(this.base + 'pagar/' + idlectura);
+  }
+  verFactura(idlectura) {
+      return this.http.get(this.base + 'ver_factura/' + idlectura);
+  }
 }

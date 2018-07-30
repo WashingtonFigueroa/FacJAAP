@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contribuyente;
+use App\Lectura;
 use App\Medidor;
 use App\Servicio;
 use Illuminate\Http\Request;
@@ -64,5 +65,13 @@ class MedidorController extends Controller
             array_push($medidores, Medidor::find($servicio->idmedidor));
         }
         return response()->json($medidores, 200);
+    }
+    public function listaLecturas($idmedidor) {
+        $idservicio = Servicio::where('idmedidor', $idmedidor)->first()->idservicio;
+        $lecturas = Lectura::where('idservicio', $idservicio)
+                           ->where('estado', 'Deber')
+                           ->orderBy('fecha', 'asc')
+                           ->get();
+        return response()->json($lecturas, 200);
     }
 }

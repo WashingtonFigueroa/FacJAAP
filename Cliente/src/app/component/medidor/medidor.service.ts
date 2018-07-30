@@ -36,4 +36,7 @@ export class MedidorService {
   listaMedidoresCliente(idcliente){
       return this.http.get(this.base + 'lista_medidores_cliente/' + idcliente);
   }
+  listaLecturas(idmedidor){
+      return this.http.get(this.base + 'lista_lecturas/' + idmedidor);
+  }
 }

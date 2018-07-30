@@ -3,17 +3,74 @@
         <div class="container-fluid">
             <div class="row">
               <div class="col-md-12">
-                  <form>
+                  <form [formGroup]="facturaGroup">
                       <div class="row">
                           <label for="servicio">* Seleccione servicio </label>
-                        <div class="col">
-                          <input type="text" class="form-control" placeholder="Buscar por nombre...">
+                        <div class="col" *ngIf="clientesSearch !== null">
+                            <ng-autocomplete (selected)="Selected($event)" [classes]="['']" [group]="clientesSearch"></ng-autocomplete>
                         </div>
                         <div class="col">
-                          <input type="text" class="form-control" placeholder="Buscar por cedula...">
+                            <label>Medidor</label>
+                            <select (change)="listaLecturas()"
+                                    name="idmedidor"
+                                    formControlName="idmedidor"
+                                    class="form-control"
+                                    *ngIf="medidores != null">
+                                <option [value]="medidor.idmedidor" *ngFor="let medidor of medidores">
+                                    {{ medidor.codigo }}
+                                </option>
+                            </select>
                         </div>
                       </div>
-<hr>
+                      <div class="row">
+                          <div class="col">
+                              <div class="table-responsive">
+                                  <table class="table">
+                                      <thead>
+                                      <tr>
+                                          <th>Observacion</th>
+                                          <th>Fecha</th>
+                                          <th>Anterior</th>
+                                          <th>Actual</th>
+                                          <th>Consumo</th>
+                                          <th>Tarifa</th>
+                                          <th>Excedente</th>
+                                          <th>Acciones</th>
+                                      </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr *ngFor="let lectura of lecturas; let i = index">
+                                              <td>{{ lectura.observacion }}</td>
+                                              <td>{{ lectura.fecha }}</td>
+                                              <td>{{ lectura.anterior }}</td>
+                                              <td>{{ lectura.actual }}</td>
+                                              <td>{{ lectura.consumo }}</td>
+                                              <td>{{ lectura.tarifa }}</td>
+                                              <td>{{ lectura.excedente }}</td>
+                                              <td>
+                                                  <button (click)="verFactura(lectura.idlectura)"
+                                                          class="btn btn-info">Ver</button>
+                                                  <button
+                                                          (click)="pagar(lectura.idlectura, i)"
+                                                          [disabled]="lectura.estado === 'Pagado'"
+                                                          [class.btn]="true"
+                                                          [class.btn-danger]="lectura.estado === 'Pagado'"
+                                                          [class.btn-primary]="lectura.estado === 'Deber'">
+                                                      <span *ngIf="lectura.estado === 'Deber'">Pagar</span>
+                                                      <span *ngIf="lectura.estado === 'Pagado'">Pagado</span>
+                                                  </button>
+
+                                              </td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+
+
+                          </div>
+                      </div>
+
+                      <hr>
                       <div class="row">
                           
                         <div class="col">
@@ -52,7 +109,7 @@
                   Agua Potable:
               </td>
               <td>
-                8.00
+                {{ factura.tarifa }}
               </td>
             </tr>
             <tr class="table-active">
@@ -60,7 +117,7 @@
                  Multas
               </td>
               <td>
-                20.00
+                {{ factura.multa }}
               </td>
             </tr>
             <tr class="table-success">
@@ -68,7 +125,7 @@
                   Servicio
               </td>
               <td>
-               100.00
+               0.00
               </td>
             </tr>
             <tr class="table-warning">
@@ -76,7 +133,7 @@
                 Subtotal
               </td>
               <td>
-                128.00
+                {{ factura.total }}
               </td>
             </tr>
             <tr class="table-danger">
@@ -92,7 +149,7 @@
                     TOTAL:
                 </td>
                 <td>
-                  128.00
+                  {{ factura.total }}
                 </td>
               </tr>
           </tbody>
