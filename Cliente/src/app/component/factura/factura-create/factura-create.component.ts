@@ -16,6 +16,7 @@ export class FacturaCreateComponent implements OnInit {
   clientesSearch: any = null;
 
   clientes: any = null;
+  direccion : any = null;
   medidores: any = null;
   lecturas: any = null;
   facturaGroup: FormGroup;
@@ -29,6 +30,7 @@ export class FacturaCreateComponent implements OnInit {
               protected lecturaService: LecturaService,
               protected fb: FormBuilder) {
     this.createForm();
+    
     this.clienteService.listaClientes().subscribe(res => {
             this.clientes = res;
             this.load(res);
@@ -59,6 +61,12 @@ export class FacturaCreateComponent implements OnInit {
           .subscribe(res => {
               this.medidores = res;
           });
+
+    
+          this.clienteService.listaClientes().subscribe((res: any) => {
+             this.direccion = res.direccion;
+        });
+
   }
 
   listaLecturas(){
