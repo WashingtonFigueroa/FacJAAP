@@ -1,23 +1,37 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Servicio;
+use App\Contribuyente;
 use App\Multa;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\Client;
 
 class MultaController extends Controller
 {
     public function index()
     {
         return response()->json(Multa::with('servicio')
-            ->orderBy('idlectura', 'asc')
-            ->paginate(7), 200);
+            ->orderBy('idmulta', 'asc')
+            ->paginate(7), 200); 
    }
 
     public function store(Request $request)
     {
-        $Multa = Multa::create($request->all());
-        return response()->json($Multa, 201);
+        $idcliente = $request->input('idcliente');
+        $idmedidor = $request->input('idmedidor');
+        $idservicio = Servicio::where('idcliente', $idcliente)
+                                ->where('idmedidor', $idmedidor)
+                                ->first()
+                                ->idservicio;
+        $multa = new Multa();
+        $multa->idservicio = $idservicio;
+        $multa->descripcion = $request->input('descripcion');
+        $multa->valor = $request->input('valor');
+        $multa->fecha = $request->input('fecha');
+        $multa->estado = $request->input('estado');
+        $multa->save();
+        return response()->json($multa, 201);
     }
 
     public function show($id)
