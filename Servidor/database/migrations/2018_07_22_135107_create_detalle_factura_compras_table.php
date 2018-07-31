@@ -23,7 +23,7 @@ class CreateDetalleFacturaComprasTable extends Migration
             $table->integer('cantidad');
             $table->string('descripcion');
             $table->double('punit');
-            $table->double('total');
+            $table->double('total', 8, 2);
             $table->softDeletes();
             $table->timestamps();
         });

@@ -22,7 +22,7 @@ class CreatePagoMedidorsTable extends Migration
                   ->onDelete('cascade');
             $table->date('fecha')->nullable();
             $table->date('descripcion');
-            $table->double('valor');
+            $table->double('valor', 8, 2);
             $table->string('estado');
             $table->softDeletes();
             $table->timestamps();

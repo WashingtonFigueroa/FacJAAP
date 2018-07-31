@@ -17,8 +17,8 @@ class CreateMovimientosTable extends Migration
             $table->increments('idmovimiento');
             $table->string('tipo', 50);
             $table->string('detalle', 250);
-            $table->double('valor');
-            $table->double('utilidad');
+            $table->double('valor', 8, 2);
+            $table->double('utilidad', 8, 2);
             $table->date('fecha')->nullable();
             $table->softDeletes();
             $table->timestamps();

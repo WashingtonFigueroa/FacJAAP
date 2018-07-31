@@ -9,26 +9,26 @@
                   *ngIf="parametro !== null">
                   <div class="form-group">
                     <label for="descripcion">
-                      Descripción
+                      * Ingrese descripción
                     </label>
                     <input type="text" class="form-control" id="descripcion" name="descripcion" formControlName="descripcion" autofocus/>
                   </div>
                   <div class="form-group">
   
                     <label for="valor">
-                      valor
+                      * Ingrese valor
                     </label>
-                    <input type="text" class="form-control" id="valor" name="valor" formControlName="valor" />
+                    <input type="text" class="form-control" id="valor" name="valor" formControlName="valor" OnlyNumber="true" placeholder="$0.00"/>
                   </div>
                   <div class="form-group">
                     <label for="detalle">
-                      Detalle
+                        Ingrese Detalle
                     </label>
                     <input type="text" class="form-control" id="detalle" name="detalle" formControlName="detalle" />
                   </div>
                   <div class="form-group">
                     <label for="estado">
-                      Estado
+                      * Seleccione el estado
                     </label>
                     <input type="text" class="form-control" id="estado" name="estado" formControlName="estado" ng-maxlength="10" />
                   </div>

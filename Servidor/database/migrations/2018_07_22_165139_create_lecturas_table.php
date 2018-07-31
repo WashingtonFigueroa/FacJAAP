@@ -25,7 +25,7 @@ class CreateLecturasTable extends Migration
             $table->integer('anterior')->nullable;
             $table->integer('actual')->nullable;
             $table->integer('consumo')->nullable;
-            $table->double('tarifa');
+            $table->double('tarifa', 8, 2);
             $table->double('excedente')->nullable;
             $table->string('estado');            
             $table->softDeletes();
