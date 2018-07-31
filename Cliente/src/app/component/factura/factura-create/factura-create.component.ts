@@ -21,9 +21,19 @@ export class FacturaCreateComponent implements OnInit {
   lecturas: any = null;
   facturaGroup: FormGroup;
   factura: any = { 
+      'idfactura' : 0,
       'tarifa' : 0,
       'multa' : 0,
       'total' : 0
+  };
+  lectura: any = null;
+  datos: any = {
+      mes_facturado: '',
+      cuenta: '',
+      cliente: '',
+      cedula: '',
+      direccion: '',
+      codigo_medidor: ''
   };
   constructor(protected clienteService: ClienteService,
               protected medidorService: MedidorService,
@@ -57,19 +67,34 @@ export class FacturaCreateComponent implements OnInit {
   }
 
   Selected(item: SelectedAutocompleteItem) {
+      this.direccion = item.item.original.direccion;
+
+      this.datos.cliente = item.item.original.nombres;
+      this.datos.direccion = item.item.original.direccion;
+      this.datos.cedula = item.item.original.cedula;
+
       this.medidorService.listaMedidoresCliente(item.item.original.idcliente)
           .subscribe(res => {
               this.medidores = res;
           });
-
-    
-          this.clienteService.listaClientes().subscribe((res: any) => {
+/*          this.clienteService.listaClientes().subscribe((res: any) => {
              this.direccion = res.direccion;
-        });
+        });*/
 
   }
 
   listaLecturas(){
+    this.medidorService.show(this.facturaGroup.value.idmedidor)
+        .subscribe((medidor: any) => {
+            this.datos.codigo_medidor = medidor.codigo;
+        });
+
+    this.medidorService.servicioMedidor(this.facturaGroup.value.idmedidor)
+        .subscribe((servicio: any) => {
+            console.log(servicio);
+            this.datos.cuenta = servicio.idservicio
+        });
+
     this.medidorService.listaLecturas(this.facturaGroup.value.idmedidor)
         .subscribe(res => {
             this.lecturas = res;
@@ -79,19 +104,78 @@ export class FacturaCreateComponent implements OnInit {
   pagar(idlectura, index) {
       return this.lecturaService.pagar(idlectura)
                  .subscribe((res: any)=> {
+                     console.log(res);
+
+                     this.factura.idfactura = res.idfactura;
                      this.factura.tarifa = res.tarifa;
                      this.factura.multa = res.multa;
                      this.factura.total = res.total;
                      this.lecturas.splice(index, 1, res.lectura);
+                     this.print(res.idfactura);
                  });
   }
 
-  verFactura(idlectura) {
-      return this.lecturaService.verFactura(idlectura)
+  getMesGestion(fecha_lectura) {
+    const fecha = new Date(fecha_lectura);
+    const mes_numero = fecha.getMonth()+1;
+    const gestion = fecha.getFullYear();
+    let mes = '';
+    switch(mes_numero) {
+        case 1: mes = 'Enero'; break;
+        case 2: mes = 'Febrero'; break;
+        case 3: mes = 'Marzo'; break;
+        case 4: mes = 'Abril'; break;
+        case 5: mes = 'Mayo'; break;
+        case 6: mes = 'Junio'; break;
+        case 7: mes = 'Julio'; break;
+        case 8: mes = 'Agosto'; break;
+        case 9: mes = 'Septiembre'; break;
+        case 10: mes = 'Octubre'; break;
+        case 11: mes = 'Noviembre'; break;
+        case 12: mes = 'Diciembre'; break;
+    }
+    return mes + '/' + gestion;
+
+  }
+
+  verFactura(lectura) {
+      this.lectura = lectura;
+      this.datos = {
+        mes_facturado: this.getMesGestion(lectura.fecha),
+        cuenta: this.datos.cuenta,
+        cliente: this.datos.cliente,
+        cedula: this.datos.cedula,
+        direccion: this.datos.direccion,
+        codigo_medidor: this.datos.codigo_medidor
+      };
+
+      return this.lecturaService.verFactura(lectura.idlectura)
                  .subscribe((res: any) => {
                      this.factura.tarifa = res.tarifa;
                      this.factura.multa = res.multa;
                      this.factura.total = res.total;
                  });
   }
+
+    print(idfactura): void {
+        let printContents, popupWin;
+        printContents = document.getElementById('print-section').innerHTML;
+        popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
+        popupWin.document.open();
+        popupWin.document.write(`
+          <html>
+            <head>
+              <title>Impresion de Factura</title>
+              <style>
+              
+              </style>
+            </head>
+            <body onload="window.print();window.close()">
+                <h4>Documento sin efecto tributario N. ${idfactura}</h4>
+                ${printContents}
+            </body>
+          </html>`
+        );
+        popupWin.document.close();
+    }
 }

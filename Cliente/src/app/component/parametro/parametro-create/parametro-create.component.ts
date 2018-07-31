@@ -32,6 +32,7 @@ export class ParametroCreateComponent implements OnInit {
           .subscribe(res => {
               console.log('parametro guardado');
               this.parametroGroup.reset();
+              this.parametroGroup.patchValue({'estado': 'Activo'});
           });
   }
 }

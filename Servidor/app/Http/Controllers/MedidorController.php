@@ -74,4 +74,8 @@ class MedidorController extends Controller
                            ->get();
         return response()->json($lecturas, 200);
     }
+    public function servicioMedidor($idmedidor) {
+        $servicio = Servicio::where('idmedidor', $idmedidor)->first();
+        return response()->json($servicio, 200);
+    }
 }

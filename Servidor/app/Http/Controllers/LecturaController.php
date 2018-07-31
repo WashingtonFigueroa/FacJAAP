@@ -3,13 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Contribuyente;
+use App\FacturaVenta;
 use App\Lectura;
 use App\Multa;
 use App\Parametro;
 use App\Servicio;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Expr\AssignOp\Mul;
 use Symfony\Component\HttpKernel\Client;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class LecturaController extends Controller
 {
@@ -121,12 +125,37 @@ class LecturaController extends Controller
             $multa->estado = 'Pagado';
             $multa->save();
         }
+        //http://localhost:8000/api/pagar/:idlectura?token=hasdkfjhaausdfi
+        $user = JWTAuth::parseToken()->authenticate();
+        $datos = [
+            'idservicio' => $idservicio,
+            'numero' => 0,
+            'fecha' => Carbon::now()->toDateString(),
+            'valor' => $totalPagar,
+            'responsable' => $user->nombre,
+            'estado' => 'Pagado',
+            'impreso' => 'si'
+        ];
+        $idfactura = $this->crearFactura($datos);
         return response()->json([
+            'idfactura' => $idfactura,
             'tarifa' => $tarifa,
             'multa' => $multa,
             'total' => $totalPagar,
             'lectura' => $lectura
         ], 200);
+    }
+    public function crearFactura ($datos) {
+        $factura = new FacturaVenta();
+        $factura->idservicio = $datos['idservicio'];
+        $factura->numero = $datos['numero'];
+        $factura->fecha = $datos['fecha'];
+        $factura->valor = $datos['valor'];
+        $factura->responsable = $datos['responsable'];
+        $factura->estado = $datos['estado'];
+        $factura->impreso = $datos['impreso'];
+        $factura->save();
+        return $factura->idfacturaventa;
     }
     public function verFactura($idlectura) {
         $tarifa = 0;

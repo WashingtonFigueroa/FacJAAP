@@ -36,9 +36,9 @@ export class LecturaCreateComponent implements OnInit {
       'idcliente' : new FormControl(0, [Validators.required]),
       'idmedidor' : new FormControl(0, [Validators.required]),
       'observacion' : new FormControl('', [Validators.required]),
-      'fecha' : new FormControl('', [Validators.required]),
+      'fecha' : new FormControl(null, [Validators.required]),
       'actual' : new FormControl('', [Validators.required]),
-      'estado' : new FormControl('', [Validators.required])
+      'estado' : new FormControl('Deber', [Validators.required])
     });
   }
 
@@ -47,9 +47,8 @@ export class LecturaCreateComponent implements OnInit {
         .subscribe(res => {
             this.lecturaGroup.patchValue({
                 observacion: '',
-                fecha: '',
+                fecha: null,
                 actual: '',
-                estado: ''
             });
            
         });

@@ -63,9 +63,8 @@
                           <td>{{ lectura.excedente }}</td>
                           <td>{{ lectura.tarifa }}</td>
                           <td>
-                            <button (click)="verFactura(lectura.idlectura)" class="btn btn-info">Ver
-                            </button>
-                            &nbsp; &nbsp;
+                            <button (click)="verFactura(lectura)" class="btn btn-info">Ver
+                            </button>&nbsp;
                             <button (click)="pagar(lectura.idlectura, i)" [disabled]="lectura.estado === 'Pagado'" [class.btn]="true" [class.btn-danger]="lectura.estado === 'Pagado'" [class.btn-primary]="lectura.estado === 'Deber'">
                               <span *ngIf="lectura.estado === 'Deber'">Pagar</span>
                               <span *ngIf="lectura.estado === 'Pagado'">Pagado</span>
@@ -142,3 +141,68 @@
       </div>
     </div>
   </div>
+
+<div id="print-section" style="display: none">
+  <table>
+    <tr>
+      <td>
+        <strong>MES FACTURADO</strong> {{ datos.mes_facturado }}
+        <strong>CUENTA</strong> {{ datos.cuenta }}
+        <strong>CLIENTE</strong> {{ datos.cliente }}
+      </td>
+      <td>
+        <strong>RUC/CI</strong> {{ datos.cedula }}
+        <strong>DIRECCION</strong> {{ datos.direccion }}
+        <strong>MEDIDOR N.</strong> {{ datos.codigo_medidor }}
+      </td>
+    </tr>
+  </table>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>LECTURA ANTERIOR</th>
+      <th>LECTURA ACTUAL</th>
+      <th>CONSUMO</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngIf="lectura !== null">
+      <td>{{ lectura.anterior }}</td>
+      <td>{{ lectura.actual }}</td>
+      <td>{{ lectura.consumo }}</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>ESTIMADO CLIENTE</th>
+      <th>DESCRIPCION</th>
+      <th>VALOR</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td></td>
+      <td>
+        Aguar Potable <br>
+        Mutlas <br>
+        Servicio <br>
+        Sub total <br>
+        IVA <br>
+        <strong>Total</strong> <br>
+      </td>
+      <td *ngIf="factura !== null">
+        {{ factura.tarifa }} <br>
+        {{ factura.multa }} <br>
+        0.00 <br>
+        {{ factura.total }} <br>
+        0.00 <br>
+        {{ factura.total }} <br>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

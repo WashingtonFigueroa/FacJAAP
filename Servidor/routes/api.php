@@ -43,6 +43,7 @@ Route::get('lista_clientes', 'ContribuyenteController@listaContribuyentes');
 Route::get('lista_medidores', 'MedidorController@listaMedidores');
 Route::get('lista_medidores_cliente/{idcliente}', 'MedidorController@listaMedidoresContribuyente');
 Route::get('lista_lecturas/{idmedidor}', 'MedidorController@listaLecturas');
+Route::get('servicio_medidor/{idmedidor}', 'MedidorController@servicioMedidor');
 
 /*actualizar*/
 Route::get('pagar/{idlectura}', 'LecturaController@pagar');

@@ -22,6 +22,7 @@ export class ClienteIndexComponent implements OnInit {
   next_page: any = null; 
   environment = environment;
 
+
   constructor(protected clienteService: ClienteService,
               protected modalService: NgbModal,
               protected router: Router) {}

@@ -27,7 +27,8 @@ export class LecturaService {
       return this.http.delete(this.base + 'lecturas/' + id );
   }
   pagar(idlectura) {
-      return this.http.get(this.base + 'pagar/' + idlectura);
+      const token = localStorage.getItem('token');
+      return this.http.get(this.base + 'pagar/' + idlectura + '?token=' + token);
   }
   verFactura(idlectura) {
       return this.http.get(this.base + 'ver_factura/' + idlectura);

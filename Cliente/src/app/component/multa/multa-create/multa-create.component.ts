@@ -33,7 +33,10 @@ export class MultaCreateComponent implements OnInit {
   }
 
   Selected(item: SelectedAutocompleteItem) {
-    this.medidorService.listaMedidoresCliente(item.item.original.idcliente)
+    this.multaGroup.patchValue({
+        'idcliente' : item.item.original.idcliente
+    });
+    this.medidorService.listaMedidoresCliente(this.multaGroup.value.idcliente)
         .subscribe(res => {
             this.medidores = res;
         });
@@ -57,13 +60,15 @@ load(clientes) {
       'idcliente' : new FormControl(0, [Validators.required]),
       'idmedidor' : new FormControl(0, [Validators.required]),
       'descripcion' : new FormControl('', [Validators.required]),
-      'valor' : new FormControl('', [Validators.required]),
+      'valor' : new FormControl(null, [Validators.required]),
       'fecha' : new FormControl('', [Validators.required]),
       'estado' : "Deber"
     });
   }
-
   store() {
+    this.multaGroup.patchValue({
+        valor: parseFloat(this.multaGroup.value.valor)
+    });
     this.multaService.store(this.multaGroup.value)
         .subscribe(res => {
             this.multaGroup.patchValue({
@@ -75,14 +80,4 @@ load(clientes) {
            
         });
   }
-
-
-
-  // listaMedidoresCliente() {
-  //     console.log('multas');
-  //     const idcliente = this.multaGroup.value.idcliente;
-  //     this.medidorService.listaMedidoresCliente(idcliente)
-  //         .subscribe(res => this.medidores = res);
-  // }
-
 }

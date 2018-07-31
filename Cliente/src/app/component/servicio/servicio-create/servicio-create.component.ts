@@ -17,7 +17,6 @@ export class ServicioCreateComponent implements OnInit {
   clientesSearch: any = null;
 
   clientes: any = null;
-  idcliente: any = null;
   medidores: any = null;
 
   servicioGroup: FormGroup;
@@ -46,10 +45,11 @@ export class ServicioCreateComponent implements OnInit {
   }
 
   Selected(item: SelectedAutocompleteItem) {
-
- this.idcliente = item.item.original.idcliente;
-
-}
+    const idcliente = item.item.original.idcliente;
+    this.servicioGroup.patchValue({
+       'idcliente' : idcliente
+    });
+  }
 
   ngOnInit() {
   }
