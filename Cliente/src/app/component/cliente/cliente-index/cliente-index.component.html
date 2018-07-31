@@ -25,7 +25,11 @@
           </div> -->
         <div class="row">
           <div class="col-md-12">
-            <input type="search" [(ngModel)]="buscar" placeholder="Buscar clientes.." class="form-control">
+            <input type="search"
+                   (keypress)="buscar(search)"
+                   [(ngModel)]="search"
+                   placeholder="Buscar clientes.."
+                   class="form-control">
           </div>
         </div>
         <div class="row">

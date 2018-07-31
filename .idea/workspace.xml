@@ -5,21 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdded07a-9e4e-4161-8a38-900c48991069" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cliente/src/app/component/cliente/cliente-index/cliente-index.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente/src/app/component/cliente/cliente-index/cliente-index.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cliente/src/app/component/cliente/cliente-index/cliente-index.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente/src/app/component/cliente/cliente-index/cliente-index.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente/src/app/component/factura/factura-create/factura-create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente/src/app/component/factura/factura-create/factura-create.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente/src/app/component/factura/factura-create/factura-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente/src/app/component/factura/factura-create/factura-create.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente/src/app/component/lectura/lectura-create/lectura-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente/src/app/component/lectura/lectura-create/lectura-create.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente/src/app/component/lectura/lectura.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente/src/app/component/lectura/lectura.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente/src/app/component/medidor/medidor.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente/src/app/component/medidor/medidor.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente/src/app/component/multa/multa-create/multa-create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente/src/app/component/multa/multa-create/multa-create.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente/src/app/component/multa/multa-create/multa-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente/src/app/component/multa/multa-create/multa-create.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente/src/app/component/parametro/parametro-create/parametro-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente/src/app/component/parametro/parametro-create/parametro-create.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente/src/app/component/servicio/servicio-create/servicio-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente/src/app/component/servicio/servicio-create/servicio-create.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Servidor/app/Http/Controllers/LecturaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Servidor/app/Http/Controllers/LecturaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Servidor/app/Http/Controllers/MedidorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Servidor/app/Http/Controllers/MedidorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Servidor/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/Servidor/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -63,14 +50,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="cliente-index.component.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Cliente/src/app/component/cliente/cliente-index/cliente-index.component.ts">
+      <file leaf-file-name="cliente-index.component.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Cliente/src/app/component/cliente/cliente-index/cliente-index.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="775">
-              <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="253">
+              <caret line="30" column="49" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -79,8 +63,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>alias</find>
-      <find>cerra</find>
       <find>cerr</find>
       <find>wrapper</find>
       <find>main</find>
@@ -109,6 +91,8 @@
       <find>jwt</find>
       <find>idfactu</find>
       <find>pagar</find>
+      <find>buscar</find>
+      <find>busacr</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -166,8 +150,8 @@
         <option value="$PROJECT_DIR$/Servidor/app/Http/Controllers/LecturaController.php" />
         <option value="$PROJECT_DIR$/Cliente/src/app/component/factura/factura-create/factura-create.component.ts" />
         <option value="$PROJECT_DIR$/Cliente/src/app/component/factura/factura-create/factura-create.component.html" />
-        <option value="$PROJECT_DIR$/Cliente/src/app/component/cliente/cliente-index/cliente-index.component.html" />
         <option value="$PROJECT_DIR$/Cliente/src/app/component/cliente/cliente-index/cliente-index.component.ts" />
+        <option value="$PROJECT_DIR$/Cliente/src/app/component/cliente/cliente-index/cliente-index.component.html" />
       </list>
     </option>
   </component>
@@ -308,7 +292,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/cliente/cliente-index/cliente-index.component.ts&#10;clienteinde&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/cliente/cliente-index/cliente-index.component.ts&#10;style&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/assets/scss/style.scss&#10;lectura&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/LecturaController.php&#10;jwt&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/config/jwt.php&#10;.env&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/.env&#10;jwt.php&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/config/jwt.php&#10;lecturser&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/lectura/lectura.service.ts&#10;factura&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/database/migrations/2018_07_22_165257_create_factura_ventas_table.php&#10;fa&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/FacturaVenta.php&#10;user&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/User.php&#10;facturaventa&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/database/migrations/2018_07_22_165257_create_factura_ventas_table.php&#10;factura.php&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/FacturaVenta.php&#10;lecturacontro&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/LecturaController.php&#10;fac&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/factura/factura-create/factura-create.component.html&#10;servicio&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Servicio.php&#10;medidorser&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/medidor/medidor.service.ts&#10;ME&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/MedidorController.php&#10;api&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/routes/api.php&#10;medido&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Medidor.php&#10;medidorcontro&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/MedidorController.php&#10;medi&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Medidor.php&#10;lectu&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Lectura.php&#10;factur&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/factura/factura-create/factura-create.component.ts&#10;contr&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Contribuyente.php&#10;contri&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Contribuyente.php&#10;contrib&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/ContribuyenteController.php&#10;lecturacrea&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/lectura/lectura-create/lectura-create.component.ts&#10;parametrocreate&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/parametro/parametro-create/parametro-create.component.ts&#10;paramc&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/ParametroController.php&#10;multcontro&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/MultaController.php&#10;multacreate&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/multa/multa-create/multa-create.component.ts&#10;multacrea&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/multa/multa-create/multa-create.component.html&#10;serviciocontro&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/ServicioController.php&#10;serviciocrea&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/servicio/servicio-create/servicio-create.component.ts&#10;lecturaser&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/lectura/lectura.service.ts&#10;lec&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/LecturaController.php&#10;factu&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/factura/factura-create/factura-create.component.html&#10;lecturaservi&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/lectura/lectura.service.ts&#10;lecturacontr&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/LecturaController.php&#10;ser&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Servicio.php&#10;me&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Medidor.php&#10;medidor.php&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Medidor.php&#10;lectura.php&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Lectura.php&#10;facturacreate&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/factura/factura-create/factura-create.component.ts&#10;componentmodu&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/component.module.ts&#10;Contri&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/ContribuyenteController.php&#10;lecturain&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/lectura/lectura-index/lectura-index.component.html&#10;lectur&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Lectura.php&#10;Contr&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Contribuyente.php" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/cliente/cliente-index/cliente-index.component.html&#10;contri&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Contribuyente.php&#10;direccion&#9;null&#9;null&#10;clienteinde&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/cliente/cliente-index/cliente-index.component.ts&#10;style&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/assets/scss/style.scss&#10;lectura&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/LecturaController.php&#10;jwt&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/config/jwt.php&#10;.env&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/.env&#10;jwt.php&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/config/jwt.php&#10;lecturser&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/lectura/lectura.service.ts&#10;factura&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/database/migrations/2018_07_22_165257_create_factura_ventas_table.php&#10;fa&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/FacturaVenta.php&#10;user&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/User.php&#10;facturaventa&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/database/migrations/2018_07_22_165257_create_factura_ventas_table.php&#10;factura.php&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/FacturaVenta.php&#10;lecturacontro&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/LecturaController.php&#10;fac&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/factura/factura-create/factura-create.component.html&#10;servicio&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Servicio.php&#10;medidorser&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/medidor/medidor.service.ts&#10;ME&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/MedidorController.php&#10;api&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/routes/api.php&#10;medido&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Medidor.php&#10;medidorcontro&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/MedidorController.php&#10;medi&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Medidor.php&#10;lectu&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Lectura.php&#10;factur&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/factura/factura-create/factura-create.component.ts&#10;contr&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Contribuyente.php&#10;contrib&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/ContribuyenteController.php&#10;lecturacrea&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/lectura/lectura-create/lectura-create.component.ts&#10;parametrocreate&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/parametro/parametro-create/parametro-create.component.ts&#10;paramc&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/ParametroController.php&#10;multcontro&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/MultaController.php&#10;multacreate&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/multa/multa-create/multa-create.component.ts&#10;multacrea&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/multa/multa-create/multa-create.component.html&#10;serviciocontro&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/ServicioController.php&#10;serviciocrea&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/servicio/servicio-create/servicio-create.component.ts&#10;lecturaser&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/lectura/lectura.service.ts&#10;lec&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/LecturaController.php&#10;factu&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/factura/factura-create/factura-create.component.html&#10;lecturaservi&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/lectura/lectura.service.ts&#10;lecturacontr&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/LecturaController.php&#10;ser&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Servicio.php&#10;me&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Medidor.php&#10;medidor.php&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Medidor.php&#10;lectura.php&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Lectura.php&#10;facturacreate&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/factura/factura-create/factura-create.component.ts&#10;componentmodu&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/component.module.ts&#10;Contri&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Http/Controllers/ContribuyenteController.php&#10;lecturain&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Cliente/src/app/component/lectura/lectura-index/lectura-index.component.html&#10;lectur&#9;FILE&#9;file://C:/Users/HP User/Documents/trabajos/washington/FacJAAP/Servidor/app/Lectura.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="database.console.LAST_STATE" value="false" />
@@ -347,12 +331,12 @@
       <workItem from="1532866704730" duration="8186000" />
       <workItem from="1532911005229" duration="8970000" />
       <workItem from="1532971617015" duration="49000" />
-      <workItem from="1533040588610" duration="9742000" />
+      <workItem from="1533040588610" duration="11063000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65147000" />
+    <option name="totallyTimeSpent" value="66468000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1536" height="864" extended-state="6" />
@@ -417,13 +401,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Cliente/src/app/component/proveedor/proveedor-create/proveedor-create.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
-          <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Cliente/src/app/component/proveedor/proveedor-create/proveedor-create.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="99">
@@ -636,13 +613,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Servidor/app/Contribuyente.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="15" column="18" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Servidor/app/Lectura.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="269">
@@ -730,13 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/2f615766-664a-4aa4-8c47-7116dcdebb29/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="29" lean-forward="true" selection-start-column="29" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Servidor/app/Http/Controllers/LecturaController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="214">
@@ -771,20 +734,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Cliente/src/app/component/cliente/cliente-index/cliente-index.component.html">
+    <entry file="das://2f615766-664a-4aa4-8c47-7116dcdebb29/schema/jaap/table/contribuyentes">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/2f615766-664a-4aa4-8c47-7116dcdebb29/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        <state>
+          <caret column="29" lean-forward="true" selection-start-column="29" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Cliente/src/app/component/cliente/cliente-index/cliente-index.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
+        <state relative-caret-position="544">
+          <caret line="48" column="72" selection-start-line="48" selection-start-column="72" selection-end-line="48" selection-end-column="72" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Servidor/app/Contribuyente.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cliente/src/app/component/cliente/cliente-index/cliente-index.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="30" column="49" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
         </state>
       </provider>
     </entry>

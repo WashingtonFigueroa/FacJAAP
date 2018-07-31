@@ -12,6 +12,7 @@ import { environment } from '../../../../environments/environment.prod';
 export class ClienteIndexComponent implements OnInit {
   
   clientes: any = [];
+  clientesBK: any = [];
   index: number = null;
   idcliente: number = null;
   closeResult: string;
@@ -30,12 +31,24 @@ export class ClienteIndexComponent implements OnInit {
   ngOnInit() {
     this.clienteService.index().subscribe((res: any) => {
       this.clientes = res.data;
+      this.clientesBK = res.data;
       this.getPages(res.last_page);
       this.prev_page = res.prev_page_url;
       this.next_page = res.next_page_url;
     });
   }
 
+  buscar(search) {
+      this.clientes = this.clientesBK.filter((cliente: any)=> {
+          return cliente.nombres.toLowerCase().indexOf(search) > -1 ||
+                 cliente.cedula.toLowerCase().indexOf(search) > -1 ||
+                 cliente.direccion.toLowerCase().indexOf(search) > -1 ||
+                 cliente.email.toLowerCase().indexOf(search) > -1 ||
+                 cliente.telefono.toLowerCase().indexOf(search) > -1 ||
+                 cliente.referencia.toLowerCase().indexOf(search) > -1 ||
+                 cliente.observacion.toLowerCase().indexOf(search) > -1;
+      })
+  }
   getPages(last_page) {
     for (let i=1; i<=last_page; i++ ) {
       this.pages.push(
