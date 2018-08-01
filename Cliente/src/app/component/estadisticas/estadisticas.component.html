@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Estadisticas</h4>
+    <form (submit)="renderPie()" [formGroup]="pieGroup">
+      <div class="form-group">
+        <label>Fecha de inicio</label>
+        <input type="date" class="form-control" formControlName="start" required autofocus>
+        <small class="text-muted">Seleccione la fecha de inicio</small>
+      </div>
+      <div class="form-group">
+        <label>Fecha de fin</label>
+        <input type="date" class="form-control" formControlName="end" required>
+        <small class="text-muted">Seleccione la fecha de fin</small>
+      </div>
+      <button class="btn btn-primary">Genera torta</button>
+    </form>
+    <plotly-plot [data]="ventas.data" [layout]="ventas.layout"></plotly-plot>
+  </div>
+</div>

@@ -48,3 +48,4 @@ Route::get('servicio_medidor/{idmedidor}', 'MedidorController@servicioMedidor');
 /*actualizar*/
 Route::get('pagar/{idlectura}', 'LecturaController@pagar');
 Route::get('ver_factura/{idlectura}', 'LecturaController@verFactura');
+Route::get('ventas_mes/{start}/{end}', 'FacturaVentaController@ventasMes');

@@ -79,6 +79,9 @@ import { PrivilegioEditComponent } from './privilegio/privilegio-edit/privilegio
 import { PrivilegioCreateComponent } from './privilegio/privilegio-create/privilegio-create.component';
 import { PrivilegioService } from './privilegio/privilegio.service';
 import {NgAutoCompleteModule} from "ng-auto-complete";
+import { StadisticasComponent } from './stadisticas/stadisticas.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+import {PlotlyModule} from "angular-plotly.js";
 
 @NgModule({
   imports: [CommonModule,
@@ -87,7 +90,8 @@ import {NgAutoCompleteModule} from "ng-auto-complete";
     ReactiveFormsModule,
     JsonpModule,
     NgbModule,
-    NgAutoCompleteModule
+    NgAutoCompleteModule,
+    PlotlyModule
   ],
   declarations: [
     ProveedorComponent,
@@ -146,7 +150,9 @@ import {NgAutoCompleteModule} from "ng-auto-complete";
     PrivilegioComponent,
     PrivilegioIndexComponent,
     PrivilegioEditComponent,
-    PrivilegioCreateComponent
+    PrivilegioCreateComponent,
+    StadisticasComponent,
+    EstadisticasComponent
   ],
   providers: [
       ProveedorService,

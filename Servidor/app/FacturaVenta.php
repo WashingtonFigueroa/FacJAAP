@@ -17,7 +17,8 @@ class FacturaVenta extends Model
         'valor',
         'responsable',
         'estado',
-        'impreso'
+        'impreso',
+        'mes',
     ];
     protected $dates = ['deleted_at'];
     

@@ -55,6 +55,7 @@ import { PrivilegioComponent } from './privilegio/privilegio.component';
 import { PrivilegioIndexComponent } from './privilegio/privilegio-index/privilegio-index.component';
 import { PrivilegioCreateComponent } from './privilegio/privilegio-create/privilegio-create.component';
 import { PrivilegioEditComponent } from './privilegio/privilegio-edit/privilegio-edit.component';
+import {EstadisticasComponent} from "./estadisticas/estadisticas.component";
 
 export const ComponentsRoutes: Routes = [{
   path: '',
@@ -164,7 +165,9 @@ export const ComponentsRoutes: Routes = [{
           }]
         }
       }]
-    }, {
+    },
+      { path: 'estadisticas', component: EstadisticasComponent }
+      ,{
       path: 'facturacompras',
       component: FacturacompraComponent,
       children: [{

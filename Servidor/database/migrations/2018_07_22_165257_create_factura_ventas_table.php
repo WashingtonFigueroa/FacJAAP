@@ -26,6 +26,7 @@ class CreateFacturaVentasTable extends Migration
             $table->string('responsable');
             $table->string('estado');
             $table->string('impreso');
+            $table->string('mes')->default('');
             $table->softDeletes();
             $table->timestamps();
         });

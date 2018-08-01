@@ -12,6 +12,7 @@ submenu: [
 { path: '/component/facturacompras', title: 'Factura Compra  ', icon: 'mdi mdi-cart', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
 { path: '/component/dropdown', title: 'Egresos  ', icon: 'mdi mdi-poll', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
 { path: '/component/modal', title: 'Inventario  ', icon: 'mdi mdi-buffer', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
+{ path: '/component/estadisticas', title: 'Estadisticas  ', icon: 'mdi mdi-buffer', class: '', label: '', labelClass: '', extralink: false, submenu: [] }
 ]},
 { path: '/component/parametros', title: 'Parametros  ', icon: 'mdi mdi-format-list-bulleted', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
 { path: '/component/clientes', title: 'Cliente  ', icon: 'mdi mdi-account-plus', class: '', label: '', labelClass: '', extralink: false, submenu: [] },

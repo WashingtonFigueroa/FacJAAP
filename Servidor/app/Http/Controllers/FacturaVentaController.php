@@ -40,4 +40,11 @@ class FacturaVentaController extends Controller
                 . ' eliminado exitosamente'
         ], 200);
     }
+    public function ventasMes($start, $end) {
+        $ventas = FacturaVenta::whereBetween('fecha', [$start, $end])
+            ->groupBy('mes')
+            ->selectRaw('mes, sum(valor) as suma')
+            ->get();
+        return response()->json($ventas, 200);
+    }
 }
