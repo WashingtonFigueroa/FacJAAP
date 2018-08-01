@@ -12,8 +12,8 @@ class MultaController extends Controller
     public function index()
     {
         return response()->json(Multa::with('servicio.Contribuyente')
-            ->orderBy('idmulta', 'asc')
-            ->paginate(7), 200); 
+            ->orderBy('idmulta', 'desc')
+            ->paginate(10), 200); 
    }
 
     public function store(Request $request)

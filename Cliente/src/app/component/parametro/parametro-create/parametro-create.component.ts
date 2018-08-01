@@ -9,7 +9,7 @@ import { ParametroService } from '../parametro.service';
 })
 export class ParametroCreateComponent implements OnInit {
   parametroGroup: FormGroup;
-
+  successStatus = false;
   constructor(protected fb: FormBuilder,
               protected parametroService: ParametroService) {
       this.createForm();
@@ -33,6 +33,7 @@ export class ParametroCreateComponent implements OnInit {
               console.log('parametro guardado');
               this.parametroGroup.reset();
               this.parametroGroup.patchValue({'estado': 'Activo'});
+              this.successStatus = true;
           });
   }
 }

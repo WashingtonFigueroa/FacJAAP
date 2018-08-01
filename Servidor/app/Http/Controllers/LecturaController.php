@@ -20,8 +20,8 @@ class LecturaController extends Controller
     public function index()
     {
         return response()->json(Lectura::with('servicio.Contribuyente')
-            ->orderBy('idlectura', 'asc')
-            ->paginate(7),
+            ->orderBy('idlectura', 'desc')
+            ->paginate(10),
             200);
     }
 

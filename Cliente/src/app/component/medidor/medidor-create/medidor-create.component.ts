@@ -9,7 +9,8 @@ import { MedidorService } from '../medidor.service';
 })
 export class MedidorCreateComponent implements OnInit {
   medidorGroup: FormGroup;
-
+  successStatus = false;
+  errorStatus = false;
   constructor(protected fb: FormBuilder,
               protected medidorService: MedidorService) {
               this.createForm();
@@ -34,8 +35,10 @@ export class MedidorCreateComponent implements OnInit {
           .subscribe((res: any)=> {
               if (res.error) {
                   console.log(res.error);
+                  this.errorStatus = true;
               } else {
                   console.log('medidor guardado');
+                  this.successStatus = true;
                   this.medidorGroup.reset();
               }
           });

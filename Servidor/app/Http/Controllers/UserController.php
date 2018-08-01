@@ -13,7 +13,7 @@ class UserController extends Controller
     {
         return response()->json(User::with('tipoUsuario')
                                     ->orderBy('nombre', 'asc')
-                                    ->paginate(7), 200);
+                                    ->paginate(10), 200);
     }
 
     public function store(Request $request)

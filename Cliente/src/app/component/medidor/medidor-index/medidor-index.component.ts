@@ -13,6 +13,7 @@ import { environment } from '../../../../environments/environment.prod';
 export class MedidorIndexComponent implements OnInit {
   
   medidores: any = [];
+  medidoresBK: any = [];
   index: number = null;
   idmedidor: number = null;
   closeResult: string;
@@ -30,12 +31,18 @@ export class MedidorIndexComponent implements OnInit {
   ngOnInit() {
     this.medidorService.index().subscribe((res: any) => {
       this.medidores = res.data;
+      this.medidoresBK = res.data;
       this.getPages(res.last_page);
       this.prev_page = res.prev_page_url;
       this.next_page = res.next_page_url;
     });
   }
 
+  buscar(search) {
+    this.medidores = this.medidoresBK.filter((medidor: any)=> {
+        return medidor.codigo.toLowerCase().indexOf(search) > -1;
+    })
+}
   getPages(last_page) {
     for (let i=1; i<=last_page; i++ ) {
       this.pages.push(

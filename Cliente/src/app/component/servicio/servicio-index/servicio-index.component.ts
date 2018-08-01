@@ -11,26 +11,38 @@ import { environment } from '../../../../environments/environment.prod';
 })
 export class ServicioIndexComponent implements OnInit {
   servicios: any = [];
+  serviciosBK: any = [];
   index: number = null;
   idservico: number = null;
   closeResult: string;
   search = '';
+
   pages: any = [];
   prev_page: any = null;
   next_page: any = null;
   environment = environment;
+
   constructor(protected servicioService: ServicioService,
               protected modalService: NgbModal,
               protected router: Router) { }
 
   ngOnInit() {
     this.servicioService.index().subscribe((res: any) => {
-      this.servicios = res.data;      
+      this.servicios = res.data;  
+      this.serviciosBK = res.data;    
       this.getPages(res.last_page);
       this.prev_page = res.prev_page_url;
       this.next_page = res.next_page_url;
     });
   }
+
+  buscar(search) {
+    this.servicios = this.serviciosBK.filter((servicio: any)=> {
+        return servicio.contribuyente.nombres.toLowerCase().indexOf(search) > -1 ||
+        servicio.medidor.codigo.toLowerCase().indexOf(search) > -1;
+    })
+}
+
   getPages(last_page) {
     for (let i=1; i<=last_page; i++ ) {
       this.pages.push(

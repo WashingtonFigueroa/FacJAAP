@@ -37,6 +37,14 @@
                   Guardar
                 </button>
               </form>
+              <div class="alert alert-success" role="alert"
+                *ngIf="successStatus == true">
+                <strong>Datos guardados exitosamente :D</strong>
+              </div>
+              <div class="alert alert-success" role="alert"
+              *ngIf="errorStatus == true">
+              <strong>Datos Incorrectos</strong>
+            </div>
             </div>
 
             <div class="col-md-6">

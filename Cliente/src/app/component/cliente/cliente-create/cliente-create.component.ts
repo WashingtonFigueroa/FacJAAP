@@ -9,6 +9,7 @@ import { ClienteService } from '../cliente.service';
 })
 export class ClienteCreateComponent implements OnInit {
   clienteGroup: FormGroup;
+  successStatus = false;
 
   constructor(protected fb: FormBuilder,
               protected clienteService: ClienteService) {
@@ -20,20 +21,13 @@ export class ClienteCreateComponent implements OnInit {
 
   createForm() {
       this.clienteGroup = this.fb.group({
-          'cedula' : new FormControl('',
-              [Validators.required]),
-          'nombres' : new FormControl('',
-              [Validators.required]),
-          'direccion' : new FormControl('',
-              [Validators.required]),
-          'email' : new FormControl('',
-              [Validators.required]),
-          'telefono' : new FormControl('',
-              [Validators.required]),
-          'referencia' : new FormControl('',
-              [Validators.required]),
-          'observacion' : new FormControl('',
-              [Validators.required])
+          'cedula' : new FormControl('', [Validators.required, Validators.pattern(/^\d{13}$/)]),
+          'nombres' : new FormControl('', [Validators.required, Validators.pattern(/^[A-Za-z ]{10,100}$/)]),
+          'direccion' : new FormControl('', [Validators.required]),
+          'email' : new FormControl('', [Validators.required]),
+          'telefono' : new FormControl('', [Validators.required, Validators.pattern(/^\d{10}$/)]),
+          'referencia' : new FormControl('', [Validators.required, Validators.pattern(/^\d{10}$/)]),
+          'observacion' : new FormControl('', [Validators.required])
       });
   }
 
@@ -42,6 +36,8 @@ export class ClienteCreateComponent implements OnInit {
           .subscribe(res => {
               console.log('cliente guardado');
               this.clienteGroup.reset();
+              this.successStatus = true;
           });
   }
 }
+ 

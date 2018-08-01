@@ -12,6 +12,8 @@ import { Router } from '../../../../../node_modules/@angular/router';
 })
 export class MultaIndexComponent implements OnInit {
   multas: any = [];
+  multasBK: any = [];
+
   index: number = null;
   idmulta: number = null;
   closeResult: string;
@@ -30,11 +32,21 @@ export class MultaIndexComponent implements OnInit {
   ngOnInit() {
     this.multaService.index().subscribe((res: any) => {
       this.multas = res.data;
+      this.multasBK = res.data;
       this.getPages(res.last_page);
       this.prev_page = res.prev_page_url;
       this.next_page = res.next_page_url;
     });
   }
+
+  buscar(search) {
+    this.multas = this.multasBK.filter((multa: any)=> {
+        return multa.servicio.contribuyente.nombres.toLowerCase().indexOf(search) > -1 ||
+               multa.fecha.toLowerCase().indexOf(search) > -1 ||
+               multa.estado.toLowerCase().indexOf(search) > -1;
+    })
+}
+
   getPages(last_page) {
     for (let i=1; i<=last_page; i++ ) {
       this.pages.push(

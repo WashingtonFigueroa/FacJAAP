@@ -4,19 +4,29 @@ namespace App\Http\Controllers;
 
 use App\Contribuyente;
 use Illuminate\Http\Request;
+use Validator;
 
 class ContribuyenteController extends Controller
 {
 
     public function index()
     {
-        return response()->json(Contribuyente::orderBy('nombres', 'asc')->paginate(7), 200);
+        return response()->json(Contribuyente::orderBy('idcliente', 'desc')->paginate(10), 200);
     }
 
     public function store(Request $request)
     {
-        $Contribuyente = Contribuyente::create($request->all());
-        return response()->json($Contribuyente, 201);
+        $validator = Validator::make($request->all(), [
+            'cedula' => 'required|unique:clientes'
+        ]);
+        if ($validator->fails()) {
+            return response()->json([
+                'mensaje' => 'El cliente esta registrado'
+            ], 500);
+        } else {
+            $Contribuyente = Contribuyente::create($request->all());
+            return response()->json($Contribuyente, 201);
+        }          
     }
 
     public function show($id)

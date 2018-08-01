@@ -77,10 +77,6 @@ export class FacturaCreateComponent implements OnInit {
           .subscribe(res => {
               this.medidores = res;
           });
-/*          this.clienteService.listaClientes().subscribe((res: any) => {
-             this.direccion = res.direccion;
-        });*/
-
   }
 
   listaLecturas(){
@@ -160,22 +156,25 @@ export class FacturaCreateComponent implements OnInit {
     print(idfactura): void {
         let printContents, popupWin;
         printContents = document.getElementById('print-section').innerHTML;
-        popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
-        popupWin.document.open();
+        popupWin = window;
+        popupWin.document.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
+
         popupWin.document.write(`
           <html>
             <head>
-              <title>Impresion de Factura</title>
+              <title>UTN / Washington Figueroa</title>
               <style>
               
               </style>
             </head>
             <body onload="window.print();window.close()">
-                <h4>Documento sin efecto tributario N. ${idfactura}</h4>
+            <h4>JUNTA ADMINISTRADORA DE AGUA POTABLE - "SAN JOSÉ DE CHORLAVÍ"</h4>    
+            <h6>Provincia Imbabura - cantón Ibarra N. ${idfactura}</h6>
                 ${printContents}
             </body>
           </html>`
         );
-        popupWin.document.close();
+        
+       popupWin.document.close();
     }
 }

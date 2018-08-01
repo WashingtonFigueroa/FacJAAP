@@ -15,6 +15,7 @@ export class ServicioCreateComponent implements OnInit {
   
   @ViewChild(NgAutocompleteComponent) public completer: NgAutocompleteComponent;
   clientesSearch: any = null;
+  successStatus = false;
 
   clientes: any = null;
   medidores: any = null;
@@ -72,6 +73,7 @@ export class ServicioCreateComponent implements OnInit {
                 observacion: '',
                 estado: ''
             });
+            this.successStatus = true;
         });
   }
 

@@ -11,7 +11,7 @@ class MaterialController extends Controller
     {
         return response()->json(Material::with('proveedor')
             ->orderBy('nombre', 'asc')
-            ->paginate(7),
+            ->paginate(10),
             200);
     }
 

@@ -12,8 +12,8 @@ class ServicioController extends Controller
     public function index()
     {
     return response()->json(Servicio::with('Contribuyente','Medidor')
-                    ->orderBy('idservicio', 'asc')
-                    ->paginate(7),
+                    ->orderBy('idservicio', 'desc')
+                    ->paginate(10),
                     200); 
     }
 
@@ -23,7 +23,6 @@ class ServicioController extends Controller
     {
         $parametro = Parametro::where('descripcion', 'like', '%' . 'Servicio' . '%' )
                               ->first();
-        
         $servicio = new Servicio();
         $servicio->idcliente = $request->input('idcliente');
         $servicio->idmedidor = $request->input('idmedidor');

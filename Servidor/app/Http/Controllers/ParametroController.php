@@ -4,18 +4,28 @@ namespace App\Http\Controllers;
 
 use App\Parametro;
 use Illuminate\Http\Request;
+use Validator;
 
 class ParametroController extends Controller
 {
     public function index()
     {
-    return response()->json(Parametro::orderBy('idparametro', 'asc')->get(),200);
+    return response()->json(Parametro::orderBy('idparametro', 'desc')->paginate(10),200);
     }
 
     public function store(Request $request)
     {
-        $Parametro = Parametro::create($request->all());
-        return response()->json($Parametro, 201);
+        $validator = Validator::make($request->all(), [
+            'descripcion' => 'required|unique:parametros'
+        ]);
+        if ($validator->fails()) {
+            return response()->json([
+                'mensaje' => 'El parametro ya fue asignado'
+            ], 500);
+        } else {
+            $Parametro = Parametro::create($request->all());
+            return response()->json($Parametro, 201);
+        }
     }
 
     public function show($id)

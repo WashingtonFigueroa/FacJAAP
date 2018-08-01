@@ -6,34 +6,16 @@
             <form [formGroup]="facturaGroup">
               <div class="row">
                 <div class="col" *ngIf="clientesSearch !== null">
-                  <label for="servicio">* Seleccione servicio </label>
+                  <label>* Seleccione cliente </label>
                   <ng-autocomplete class="col-sm-2 col-form-label" (selected)="Selected($event)" [classes]="['']" [group]="clientesSearch"></ng-autocomplete>
                 </div>
                 <div class="col">
-                  <label>Medidor</label>
+                  <label>* SeleccioneMedidor</label>
                   <select (change)="listaLecturas()" name="idmedidor" formControlName="idmedidor" class="custom-select mr-sm-2" *ngIf="medidores != null">
                     <option [value]="medidor.idmedidor" *ngFor="let medidor of medidores">
                       {{ medidor.codigo }}
                     </option>
                   </select>
-                </div>
-              </div>
-              <hr>
-              <div class="row">
-                <div class="col">
-                  <label>Mes facturado:</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                  <label>Junio /2018</label>
-                  <br>
-                  <label>Servicio No.:</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                  <label>000000</label>
-                  <br>
-                </div>
-                <div class="col">
-                  <label>Dirección:</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                  <label>{{direccion}}</label>
-                  <br>
-                  <label>Factura No.:</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                  <label>0001</label>
                 </div>
               </div>
               <hr>
@@ -122,16 +104,33 @@
                         </tr>
                         <tr>
                           <td>
-                            TOTAL:
+                            <strong>TOTAL:</strong>
                           </td>
                           <td>
-                            {{ factura.total }}
+                            <strong>{{ factura.total }}</strong>
                           </td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
                   <div class="col-md-8">
+                      <div class="row">
+                          <div class="col">
+                            <label>Mes facturado:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label>{{ datos.mes_facturado }}</label>
+                            <br>
+                            <label>Servicio No.:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label>000000</label>
+                            <br>
+                          </div>
+                          <div class="col">
+                            <label>Dirección:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label>{{direccion}}</label>
+                            <br>
+                            <label>Factura No.:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label>{{ datos.cuenta }}</label>
+                          </div>
+                        </div>
                   </div>
                 </div>
               </div>
@@ -143,22 +142,22 @@
   </div>
 
 <div id="print-section" style="display: none">
-  <table>
+  <table cellspacing=0 cellpadding=15>
     <tr>
       <td>
-        <strong>MES FACTURADO</strong> {{ datos.mes_facturado }}
-        <strong>CUENTA</strong> {{ datos.cuenta }}
-        <strong>CLIENTE</strong> {{ datos.cliente }}
+        <strong>MES FACTURADO: </strong> {{ datos.mes_facturado }} <br>
+        <strong>SERVICIO: </strong> {{ datos.cuenta }} <br>
+        <strong>CLIENTE: </strong> {{ datos.cliente }}
       </td>
       <td>
-        <strong>RUC/CI</strong> {{ datos.cedula }}
-        <strong>DIRECCION</strong> {{ datos.direccion }}
-        <strong>MEDIDOR N.</strong> {{ datos.codigo_medidor }}
+        <strong>RUC/CI: </strong> {{ datos.cedula }} <br>
+        <strong>DIRECCIÓN:</strong> {{ datos.direccion }} <br>
+        <strong>MEDIDOR N.:</strong> {{ datos.codigo_medidor }}
       </td>
     </tr>
   </table>
   <br>
-  <table>
+  <table cellspacing=0 cellpadding=15>
     <thead>
     <tr>
       <th>LECTURA ANTERIOR</th>
@@ -175,7 +174,7 @@
     </tbody>
   </table>
   <br>
-  <table>
+  <table cellspacing=0 cellpadding=15>
     <thead>
     <tr>
       <th>ESTIMADO CLIENTE</th>
@@ -189,7 +188,6 @@
       <td>
         Aguar Potable <br>
         Mutlas <br>
-        Servicio <br>
         Sub total <br>
         IVA <br>
         <strong>Total</strong> <br>
@@ -197,7 +195,6 @@
       <td *ngIf="factura !== null">
         {{ factura.tarifa }} <br>
         {{ factura.multa }} <br>
-        0.00 <br>
         {{ factura.total }} <br>
         0.00 <br>
         {{ factura.total }} <br>
