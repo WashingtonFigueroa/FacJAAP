@@ -162,7 +162,7 @@ export class FacturaCreateComponent implements OnInit {
         popupWin.document.write(`
           <html>
             <head>
-              <title>UTN / Washington Figueroa</title>
+              <title>UTN</title>
               <style>
               
               </style>
