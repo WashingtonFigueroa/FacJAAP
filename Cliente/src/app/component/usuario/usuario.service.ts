@@ -28,4 +28,7 @@ export class UsuarioService {
   destroy(id) {
       return this.http.delete(this.base + 'usuarios/' + id );
   }
+  listaUsuarios() {
+    return this.http.get(this.base + 'lista_usuarios');
+}
 }

@@ -77,6 +77,7 @@ export class ServicioIndexComponent implements OnInit {
               this.next_page = res.next_page_url;
           });
   }
+  
   destroy(index, id) {
     this.servicioService.destroy(id)
       .subscribe(res => {

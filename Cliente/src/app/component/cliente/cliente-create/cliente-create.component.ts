@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ClienteService } from '../cliente.service';
+import { Router } from '../../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-cliente-create',
@@ -12,7 +13,8 @@ export class ClienteCreateComponent implements OnInit {
   successStatus = false;
 
   constructor(protected fb: FormBuilder,
-              protected clienteService: ClienteService) {
+              protected clienteService: ClienteService,
+              protected router: Router) {
               this.createForm();
   }
 
@@ -35,7 +37,7 @@ export class ClienteCreateComponent implements OnInit {
       this.clienteService.store(this.clienteGroup.value)
           .subscribe(res => {
               console.log('cliente guardado');
-              this.clienteGroup.reset();
+              this.router.navigate(['component/clientes']);
               this.successStatus = true;
           });
   }

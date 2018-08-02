@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '../../../../../node_modules/@angular/forms';
 import { UsuarioService } from '../usuario.service';
 import { TipousuarioService } from '../../tipousuario/tipousuario.service';
+import { Router } from '../../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-usuario-create',
@@ -15,8 +16,9 @@ export class UsuarioCreateComponent implements OnInit {
   
   constructor(protected usuarioService: UsuarioService,
               protected tipoService: TipousuarioService,
-              protected fb: FormBuilder) {
-    this.tipoService.index().subscribe(res => this.tipos = res);
+              protected fb: FormBuilder,
+              protected router: Router) {
+    this.tipoService.listaCargos().subscribe(res => this.tipos = res);
     this.createForm();
   }
 
@@ -45,6 +47,7 @@ export class UsuarioCreateComponent implements OnInit {
                     password: '',
                     password_confirmation: ''
                 });
+                this.router.navigate(['component/usuarios']);
             }
         });
   }

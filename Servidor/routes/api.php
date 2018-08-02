@@ -18,10 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::post('login', 'AuthenticationController@login');
 Route::post('logout', 'AuthenticationController@logout');
-Route::resource('proveedores', 'ProveedorController', ['except' => ['create', 'edit']]);
-Route::resource('materiales', 'MaterialController', ['except' => ['create', 'edit']]);
-Route::resource('factura_compras', 'FacturaCompraController', ['except' => ['create', 'edit']]);
-Route::resource('detalleFacturaCompra', 'DetalleFacturaCompraController', ['except' => ['create', 'edit']]);
 Route::resource('clientes', 'ContribuyenteController');
 Route::resource('medidores', 'MedidorController');
 Route::resource('servicios', 'ServicioController');
@@ -35,11 +31,19 @@ Route::resource('parametros', 'ParametroController');
 Route::resource('privilegios', 'PrivilegioController');
 Route::resource('lecturas', 'LecturaController');
 
+Route::resource('materiales', 'MaterialController');
+Route::resource('inventarios', 'InventarioController');
+
+
 /*recuperacion de documentos, archivos e imagenes*/
 Route::get('factura_compras_documento/{id}', 'FacturaCompraController@getDocumento');
 Route::get('medidores_activos', 'MedidorController@medidoresActivos');
 Route::get('lista_servicios', 'ServicioController@listaServicios');
 Route::get('lista_clientes', 'ContribuyenteController@listaContribuyentes');
+Route::get('lista_cargos', 'TipoUsuarioController@listaCargos');
+Route::get('lista_usuarios', 'UserController@listaUsuarios');
+
+Route::get('lista_materiales', 'MaterialController@listaMateriales');
 Route::get('lista_medidores', 'MedidorController@listaMedidores');
 Route::get('lista_medidores_cliente/{idcliente}', 'MedidorController@listaMedidoresContribuyente');
 Route::get('lista_lecturas/{idmedidor}', 'MedidorController@listaLecturas');

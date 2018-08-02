@@ -2,44 +2,45 @@
 
 namespace App\Http\Controllers;
 
-use App\Material;
+use App\material;
 use Illuminate\Http\Request;
 
 class MaterialController extends Controller
-{    
+{
     public function index()
     {
-        return response()->json(Material::with('proveedor')
-            ->orderBy('nombre', 'asc')
-            ->paginate(10),
-            200);
+    return response()->json(material::orderBy('idmaterial', 'asc')->paginate(10),200);
+    }
+
+    public function listaMateriales() {
+        return response()->json(material::orderBy('idmaterial', 'desc')->get(), 200);
     }
 
     public function store(Request $request)
     {
-        $material = Material::create($request->all());
+        $material = material::create($request->all());
         return response()->json($material, 201);
     }
 
     public function show($id)
     {
-        return response()->json(Material::find($id), 200);
+        return response()->json(material::find($id), 200);
     }
 
     public function update(Request $request, $id)
     {
-        $material = Material::find($id);
+        $material = material::find($id);
         $material->update($request->all());
         return response()->json($material, 200);
     }
 
     public function destroy($id)
     {
-        $material = Material::find($id);
+        $material = material::find($id);
         $material->delete();
         return response()->json([
-            'eliminado' => 'Material ' . $material->nombre
-                . ' eliminado exitosamente'
+            'eliminado' => 'Material ' . $material->idmovimiento
+                            . ' eliminado exitosamente'
         ], 200);
     }
 }

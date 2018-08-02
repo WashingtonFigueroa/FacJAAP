@@ -7,21 +7,6 @@ import { JsonpModule } from '@angular/Http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ComponentsRoutes } from './component.routing';
-import {ProveedorComponent} from "./proveedor/proveedor.component";
-import {ProveedorIndexComponent} from "./proveedor/proveedor-index/proveedor-index.component";
-import {ProveedorEditComponent} from "./proveedor/proveedor-edit/proveedor-edit.component";
-import {ProveedorCreateComponent} from "./proveedor/proveedor-create/proveedor-create.component";
-import {ProveedorService} from "./proveedor/proveedor.service";
-import { MaterialComponent } from './material/material.component';
-import { MaterialIndexComponent } from './material/material-index/material-index.component';
-import { MaterialEditComponent } from './material/material-edit/material-edit.component';
-import { MaterialCreateComponent } from './material/material-create/material-create.component';
-import {MaterialService} from "./material/material.service";
-import { FacturacompraIndexComponent } from './facturacompra/facturacompra-index/facturacompra-index.component';
-import { FacturacompraEditComponent } from './facturacompra/facturacompra-edit/facturacompra-edit.component';
-import { FacturacompraCrearComponent } from './facturacompra/facturacompra-crear/facturacompra-crear.component';
-import { FacturacompraService } from './facturacompra/facturacompra.service';
-import { FacturacompraComponent } from './facturacompra/facturacompra.component';
 import { TipousuarioComponent } from './tipousuario/tipousuario.component';
 import { TipousuarioIndexComponent } from './tipousuario/tipousuario-index/tipousuario-index.component';
 import { TipousuarioEditComponent } from './tipousuario/tipousuario-edit/tipousuario-edit.component';
@@ -82,6 +67,21 @@ import {NgAutoCompleteModule} from "ng-auto-complete";
 import { StadisticasComponent } from './stadisticas/stadisticas.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import {PlotlyModule} from "angular-plotly.js";
+import { MaterialComponent } from './material/material.component';
+import { MaterialIndexComponent } from './material/material-index/material-index.component';
+import { MaterialEditComponent } from './material/material-edit/material-edit.component';
+import { MaterialCreateComponent } from './material/material-create/material-create.component';
+import { InventarioComponent } from './inventario/inventario.component';
+import { InventarioIndexComponent } from './inventario/inventario-index/inventario-index.component';
+import { InventarioEditComponent } from './inventario/inventario-edit/inventario-edit.component';
+import { InventarioCreateComponent } from './inventario/inventario-create/inventario-create.component';
+import { MovimientoComponent } from './movimiento/movimiento.component';
+import { MovimientoIndexComponent } from './movimiento/movimiento-index/movimiento-index.component';
+import { MovimientoEditComponent } from './movimiento/movimiento-edit/movimiento-edit.component';
+import { MovimientoCreateComponent } from './movimiento/movimiento-create/movimiento-create.component';
+import { MaterialService } from './material/material.service';
+import { InventarioService } from './inventario/inventario.service';
+import { MovimientoService } from './movimiento/movimiento.service';
 
 @NgModule({
   imports: [CommonModule,
@@ -94,18 +94,6 @@ import {PlotlyModule} from "angular-plotly.js";
     PlotlyModule
   ],
   declarations: [
-    ProveedorComponent,
-    ProveedorIndexComponent,
-    ProveedorEditComponent,
-    ProveedorCreateComponent,
-    MaterialComponent,
-    MaterialIndexComponent,
-    MaterialEditComponent,
-    MaterialCreateComponent,
-    FacturacompraComponent,
-    FacturacompraIndexComponent,
-    FacturacompraEditComponent,
-    FacturacompraCrearComponent,
     TipousuarioComponent,
     TipousuarioIndexComponent,
     TipousuarioEditComponent,
@@ -152,12 +140,21 @@ import {PlotlyModule} from "angular-plotly.js";
     PrivilegioEditComponent,
     PrivilegioCreateComponent,
     StadisticasComponent,
-    EstadisticasComponent
+    EstadisticasComponent,
+    MaterialComponent,
+    MaterialIndexComponent,
+    MaterialEditComponent,
+    MaterialCreateComponent,
+    InventarioComponent,
+    InventarioIndexComponent,
+    InventarioEditComponent,
+    InventarioCreateComponent,
+    MovimientoComponent,
+    MovimientoIndexComponent,
+    MovimientoEditComponent,
+    MovimientoCreateComponent
   ],
   providers: [
-      ProveedorService,
-      MaterialService,
-      FacturacompraService,
       ClienteService,
       FacturaService,
       LecturaService,
@@ -168,7 +165,10 @@ import {PlotlyModule} from "angular-plotly.js";
       ServicioService,
       TipousuarioService,
       UsuarioService,
-      PrivilegioService
+      PrivilegioService,
+      MaterialService,
+      InventarioService,
+      MovimientoService
   ]
 
 })

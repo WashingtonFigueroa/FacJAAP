@@ -1,57 +1,49 @@
 <div class="card">
     <div class="card-body">
-        <div class="container-fluid">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
             <div class="row">
-              <div class="col-md-12">
-                <div class="row">
-                  <div class="col-md-8">
-                      <form (submit)="update()" role="form" *ngIf="material !== null" [formGroup]="materialGroup">
-                          <div class="form-group">
-                            <label for="proveedor">
-                              Proveedor
-                            </label>
-                            <select name="idproveedor" id="proveedor" class="form-control" formControlName="idproveedor">
-                              <option [value]="proveedor.idproveedor" *ngFor="let proveedor of proveedores"
-                                      [selected]="proveedor.idproveedor === materialGroup.value.idproveedor">
-                                  {{ proveedor.nombre }}
-                              </option>
-                            </select>
-                          </div>
-                          <div class="form-group">
-                            <label for="nombre">
-                              Nombre Material
-                            </label>
-                            <input type="text" class="form-control" id="nombre" formControlName="nombre" name="nombre"/>
-                          </div>
-                          <div class="form-group">
-                            <label for="descripcion">
-                              Descripción
-                            </label>
-                            <input type="text" class="form-control" id="descripcion" formControlName="descripcion" name="descripcion"/>
-                          </div>
-                          <button type="submit" class="btn btn-primary">
-                            Guardar
-                          </button>
-                        </form>
+              <div class="col-md-6">
+                    <form (submit)="update()" role="form" [formGroup]="materialGroup"
+                    *ngIf="material !== null">
+                      <div class="form-group">
+                        <label for="nombre">*Ingrese nombre material </label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" formControlName="nombre"autofocus/>
+                      </div>
+                      <div class="form-group">
+                        <label for="descripcion"> Ingrese descripción </label>
+                        <input type="text" class="form-control" id="descripcion" name="descripcion" formControlName="descripcion" />
+                      </div>
+                  <button type="submit" class="btn btn-success">
+                      Actualizar
+                  </button>
+              </form>
+              </div>
+              <div class="col-md-6">
+                <div class="card">
+                  <h5 class="card-header">
+                            Reglamento
+                          </h5>
+                  <div class="card-body">
+                    <p class="card-text">
+                      Tiene que tener facturero
+                    </p>
+                    <p class="card-text">
+                      reglas 2
+                    </p>
+                    <p class="card-text">
+                      reglas 3
+                    </p>
                   </div>
-                  <div class="col-md-4">
-                    <div class="card">
-                      <h5 class="card-header">
-                        Card title
-                      </h5>
-                      <div class="card-body">
-                        <p class="card-text">
-                          Card content
-                        </p>
-                      </div>
-                      <div class="card-footer">
-                        Card footer
-                      </div>
-                    </div>
+                  <div class="card-footer">
+                    La Directiva
                   </div>
                 </div>
               </div>
             </div>
-          </div>   
+          </div>
+        </div>
+      </div>
     </div>
   </div>

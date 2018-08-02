@@ -14,8 +14,8 @@ submenu: [
 path: '', title: 'Administración  ', icon: 'mdi mdi-bullseye', class: 'has-arrow', label: '', labelClass: '', extralink: false,
 submenu: [
 { path: '/component/materiales', title: 'Material  ', icon: 'mdi mdi-watermark', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
-{ path: '/component/modal', title: 'Inventario  ', icon: 'mdi mdi-buffer', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
-{ path: '/component/facturacompras', title: 'Egresos  ', icon: 'mdi mdi-cart', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
+{ path: '/component/inventarios', title: 'Inventario  ', icon: 'mdi mdi-buffer', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
+{ path: '/component/movimientos', title: 'Egresos  ', icon: 'mdi mdi-cart', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
 { path: '/component/estadisticas', title: 'Estadisticas  ', icon: 'mdi mdi-poll', class: '', label: '', labelClass: '', extralink: false, submenu: [] }
 ]}
 ,

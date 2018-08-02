@@ -16,10 +16,12 @@ class CreateMovimientosTable extends Migration
         Schema::create('movimientos', function (Blueprint $table) {
             $table->increments('idmovimiento');
             $table->string('tipo', 50);
-            $table->string('detalle', 250);
-            $table->double('valor', 8, 2);
-            $table->double('utilidad', 8, 2);
             $table->date('fecha')->nullable();
+            $table->string('detalle', 250);
+            $table->string('intermediario', 100);
+            $table->string('numfac', 50);
+            $table->double('valor', 8, 2);
+            $table->string('documento')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

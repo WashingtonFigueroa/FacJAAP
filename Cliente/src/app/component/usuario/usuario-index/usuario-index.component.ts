@@ -11,6 +11,8 @@ import { Router } from '../../../../../node_modules/@angular/router';
 })
 export class UsuarioIndexComponent implements OnInit {
   usuarios: any = [];
+  usuariosBK: any = [];
+  
   index: number = null;
   iduser: number = null;
 
@@ -29,11 +31,20 @@ export class UsuarioIndexComponent implements OnInit {
   ngOnInit() {
     this.usuarioService.index().subscribe((res: any) => {
       this.usuarios = res.data;
+      this.usuariosBK = res.data;
         this.getPages(res.last_page);
         this.prev_page = res.prev_page_url;
         this.next_page = res.next_page_url;
     });
   }
+
+  buscar(search) {
+    this.usuarios = this.usuariosBK.filter((usuario: any)=> {
+        return usuario.tipo_usuario.nombre.toLowerCase().indexOf(search) > -1 ||
+               usuario.nombre.toLowerCase().indexOf(search) > -1 ||
+               usuario.correo.toLowerCase().indexOf(search) > -1;
+    })
+}
 
   getPages(last_page) {
     for (let i=1; i<=last_page; i++ ) {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TipousuarioService } from '../tipousuario.service';
 import { NgbModal, ModalDismissReasons } from '../../../../../node_modules/@ng-bootstrap/ng-bootstrap';
 import { Router } from '../../../../../node_modules/@angular/router';
+import { environment } from '../../../../environments/environment.prod';
 
 @Component({
   selector: 'app-tipousuario-index',
@@ -10,20 +11,72 @@ import { Router } from '../../../../../node_modules/@angular/router';
 })
 export class TipousuarioIndexComponent implements OnInit {
   tipos: any = [];
+  tiposBK: any = [];
+
   index: number = null;
   idtipo: number = null;
   closeResult: string;
   search = '';
+
+  pages: any = [];
+  prev_page: any = null;
+  next_page: any = null;
+  environment = environment;
 
   constructor(protected tipousuarioService: TipousuarioService,
     protected modalService: NgbModal,
     protected router: Router) {}
 
   ngOnInit() {
-    this.tipousuarioService.index().subscribe(res => {
-      this.tipos = res;
+    this.tipousuarioService.index().subscribe((res: any) => {
+      this.tipos = res.data;
+      this.tiposBK = res.data;
+      this.getPages(res.last_page);
+      this.prev_page = res.prev_page_url;
+      this.next_page = res.next_page_url;
     });
   }
+
+  getPages(last_page) {
+    for (let i=1; i<=last_page; i++ ) {
+      this.pages.push(
+          {
+              url: this.environment.base + 'tipousuarios?page=' + i ,
+              item: i
+          }
+      );
+    }
+  }
+  loadPagination(url) {
+    this.tipousuarioService.indexPerPage(url)
+        .subscribe((res: any)=> {
+          this.tipos = res.data;
+          this.prev_page = res.prev_page_url;
+          this.next_page = res.next_page_url;
+        });
+  }
+  prevPage() {
+    this.tipousuarioService.indexPerPage(this.prev_page)
+        .subscribe( (res : any)=> {
+          this.tipos = res.data;
+          this.prev_page = res.prev_page_url;
+          this.next_page = res.next_page_url;
+        });
+  }
+  nextPage() {
+      this.tipousuarioService.indexPerPage(this.next_page)
+          .subscribe( (res : any)=> {
+              this.tipos = res.data;
+              this.prev_page = res.prev_page_url;
+              this.next_page = res.next_page_url;
+          });
+  }
+
+  buscar(search) {
+    this.tipos = this.tiposBK.filter((tipo: any)=> {
+        return tipo.nombre.toLowerCase().indexOf(search) > -1;
+    })
+}
 
   destroy(index, id) {
     this.tipousuarioService.destroy(id)

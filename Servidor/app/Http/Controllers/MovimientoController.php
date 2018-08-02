@@ -4,18 +4,30 @@ namespace App\Http\Controllers;
 
 use App\Movimiento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MovimientoController extends Controller
 {
     public function index()
     {
-    return response()->json(Movimiento::orderBy('idmovimiento', 'asc')->get(),200);
+    return response()->json(Movimiento::orderBy('idmovimiento', 'asc')->paginate(10),200);
     }
 
     public function store(Request $request)
     {
-        $Movimiento = Movimiento::create($request->all());
-        return response()->json($Movimiento, 201);
+        if ($request->hasFile('documento')){
+            $path_documento = $request->file('documento')->store('documentos');
+            $Movimiento = new Movimiento();
+            $Movimiento->tipo = $request->input('tipo');
+            $Movimiento->fecha = $request->input('fecha');
+            $Movimiento->detalle = $request->input('detalle');
+            $Movimiento->intermediario = $request->input('intermediario');
+            $Movimiento->numfac = $request->input('numfac');
+            $Movimiento->valor = $request->input('valor');
+            $Movimiento->documento = $path_documento;
+            $Movimiento->save();
+            return response()->json($Movimiento, 201);
+        }
     }
 
     public function show($id)
@@ -33,10 +45,18 @@ class MovimientoController extends Controller
     public function destroy($id)
     {
         $Movimiento = Movimiento::find($id);
+//        Storage::delete($Movimiento->documento);
         $Movimiento->delete();
         return response()->json([
-            'eliminado' => 'Movimiento ' . $Movimiento->idmovimiento
-                            . ' eliminado exitosamente'
+            'eliminado' => 'Movimiento con #' . $Movimiento->idmovimiento
+                          . ' fue eliminado exitosamente'
         ], 200);
     }
+
+    public function getDocumento($id){
+        $Movimiento = Movimiento::find($id);
+        return response()->file(storage_path('app/' . $Movimiento->documento));
+        //return response()->download(storage_path('app/' . $Movimiento->documento));
+    }
+
 }

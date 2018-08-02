@@ -1,16 +1,4 @@
 import { Routes}from '@angular/router';
-import { ProveedorComponent}from "./proveedor/proveedor.component";
-import { ProveedorCreateComponent}from "./proveedor/proveedor-create/proveedor-create.component";
-import { ProveedorIndexComponent}from "./proveedor/proveedor-index/proveedor-index.component";
-import { ProveedorEditComponent}from "./proveedor/proveedor-edit/proveedor-edit.component";
-import { MaterialComponent}from "./material/material.component";
-import { MaterialIndexComponent } from "./material/material-index/material-index.component";
-import { MaterialCreateComponent } from "./material/material-create/material-create.component";
-import { MaterialEditComponent } from "./material/material-edit/material-edit.component";
-import { FacturacompraComponent } from './facturacompra/facturacompra.component';
-import { FacturacompraIndexComponent } from './facturacompra/facturacompra-index/facturacompra-index.component';
-import { FacturacompraCrearComponent } from './facturacompra/facturacompra-crear/facturacompra-crear.component';
-import { FacturacompraEditComponent } from './facturacompra/facturacompra-edit/facturacompra-edit.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { ClienteIndexComponent } from './cliente/cliente-index/cliente-index.component';
 import { ClienteCreateComponent } from './cliente/cliente-create/cliente-create.component';
@@ -56,208 +44,146 @@ import { PrivilegioIndexComponent } from './privilegio/privilegio-index/privileg
 import { PrivilegioCreateComponent } from './privilegio/privilegio-create/privilegio-create.component';
 import { PrivilegioEditComponent } from './privilegio/privilegio-edit/privilegio-edit.component';
 import {EstadisticasComponent} from "./estadisticas/estadisticas.component";
+import { MaterialComponent } from './material/material.component';
+import { MaterialIndexComponent } from './material/material-index/material-index.component';
+import { MaterialCreateComponent } from './material/material-create/material-create.component';
+import { MaterialEditComponent } from './material/material-edit/material-edit.component';
+import { InventarioComponent } from './inventario/inventario.component';
+import { InventarioIndexComponent } from './inventario/inventario-index/inventario-index.component';
+import { InventarioCreateComponent } from './inventario/inventario-create/inventario-create.component';
+import { InventarioEditComponent } from './inventario/inventario-edit/inventario-edit.component';
+import { MovimientoComponent } from './movimiento/movimiento.component';
+import { MovimientoIndexComponent } from './movimiento/movimiento-index/movimiento-index.component';
+import { MovimientoCreateComponent } from './movimiento/movimiento-create/movimiento-create.component';
+import { MovimientoEditComponent } from './movimiento/movimiento-edit/movimiento-edit.component';
 
 export const ComponentsRoutes: Routes = [{
   path: '',
-  children: [{
-      path: 'proveedores',
-      component: ProveedorComponent,
-      children: [{
-        path: '',
-        redirectTo: 'listar',
-        pathMatch: 'full'  }, { path: 'listar', component: ProveedorIndexComponent,
-        data: {
-          title: 'Lista Proveedores',
-          urls: [{ title: 'INICIO', url: '/dashboard' }, 
-          { title: 'NUEVO REGISTRO', url: '/component/proveedores/crear'}, 
-          { title: 'proveedores'   }]}}, 
-          { path: 'crear', component: ProveedorCreateComponent,
-        data: {
-          title: 'Registrar Proveedor',
-          urls: [{ title: 'INICIO', url: '/dashboard' }, {
-            title: 'Proveedores',
-            url: '/component/proveedores/listar'}, 
-            { title: 'NUEVO REGISTRO'}]}}, 
-            { path: 'editar/:id', component: ProveedorEditComponent,
-        data: {
-          title: 'Editar Proveedor',
-          urls: [{ title: 'INICIO', url: '/dashboard'}, 
-          { title: 'Proveedores', url: '/component/proveedores/listar'}, 
-          { title: 'MODIFICACIÓN' }]} }]}, 
+  children: [
 //rutas estadisticas
           { path: 'estadisticas', component: EstadisticasComponent,
           data: {
             title: 'ESTADÍSTICAS',
             urls: [{ title: 'INICIO', url: '/dashboard'}, 
             { title: 'REPORTES' }] } },
-//rutas materiales
-          {
-      path: 'materiales',
-      component: MaterialComponent,
-      children: [{
-        path: '',
-        redirectTo: 'listar',
-        pathMatch: 'full'
-      }, {
-        path: 'listar',
-        component: MaterialIndexComponent,
-        data: {
-          title: 'Lista Materiales',
-          urls: [{
-            title: 'INICIO',
-            url: '/dashboard'
-          }, {
-            title: 'NUEVO REGISTRO',
-            url: '/component/materiales/crear'
-          }, {
-            title: 'materiales'
-          }]
-        }
-      }, 
-      {
-        path: 'crear',
-        component: MaterialCreateComponent,
-        data: {
-          title: 'Registrar Materiale',
-          urls: [{
-            title: 'INICIO',
-            url: '/dashboard'
-          }, {
-            title: 'materiales',
-            url: '/component/materiales/listar'
-          }, {
-            title: 'NUEVO REGISTRO'
-          }]
-        }
-      }, 
-      {
-        path: 'editar/:id',
-        component: MaterialEditComponent,
-        data: {
-          title: 'Editar Materiale',
-          urls: [{
-            title: 'INICIO',
-            url: '/dashboard'
-          }, {
-            title: 'materiales',
-            url: '/component/materiales/listar'
-          }, {
-            title: 'MODIFICACIÓN'
-          }]
-        }
-      }]
-    },
-    {
-      path: 'facturacompras',
-      component: FacturacompraComponent,
-      children: [{
-        path: '',
-        redirectTo: 'listar',
-        pathMatch: 'full'
-      }, {
-        path: 'listar',
-        component: FacturacompraIndexComponent,
-        data: {
-          title: 'Listar facturas de compra',
-          urls: [{
-            title: 'INICIO',
-            url: '/dashboard'
-          }, {
-            title: 'NUEVO REGISTRO',
-            url: '/component/facturacompras/crear'
-          }, {
-            title: 'facturacompras'
-          }]
-        }
-      }, {
-        path: 'crear',
-        component: FacturacompraCrearComponent,
-        data: {
-          title: 'Registrar factura compra',
-          urls: [{
-            title: 'INICIO',
-            url: '/dashboard'
-          }, {
-            title: 'facturacompras',
-            url: '/component/facturacompras/listar'
-          }, {
-            title: 'NUEVO REGISTRO'
-          }]
-        }
-      }, {
-        path: 'editar/:id',
-        component: FacturacompraEditComponent,
-        data: {
-          title: 'Editar factura compra',
-          urls: [{
-            title: 'INICIO',
-            url: '/dashboard'
-          }, {
-            title: 'facturacompras',
-            url: '/component/facturacompras/listar'
-          }, {
-            title: 'MODIFICACIÓN'
-          }]
-        }
-      }]
-    }, 
-    
-    
+//rutas clientes    
     {
       path: 'clientes',
       component: ClienteComponent,
       children: [{
         path: '',
         redirectTo: 'listar',
-        pathMatch: 'full'
-      }, {
-        path: 'listar',
-        component: ClienteIndexComponent,
-        data: {
+        pathMatch: 'full'      },
+       { path: 'listar', component: ClienteIndexComponent, data: {
           title: 'LISTA CLIENTES',
-          urls: [{
-            title: 'INICIO',
-            url: '/dashboard'
-          }, {
-            title: 'NUEVO REGISTRO',
-            url: '/component/clientes/crear'
-          }, {
-            title: 'CLIENTES'
-          }]
-        }
-      }, {
-        path: 'crear',
-        component: ClienteCreateComponent,
-        data: {
+          urls: [{ title: 'INICIO', url: '/dashboard' },
+           { title: 'NUEVO REGISTRO', url: '/component/clientes/crear'},
+           { title: 'CLIENTES' }]
+        }      },
+       { path: 'crear', component: ClienteCreateComponent, data: {
           title: 'CREAR CLIENTE',
-          urls: [{
-            title: 'INICIO',
-            url: '/dashboard'
-          }, {
-            title: 'LISTADO',
-            url: '/component/clientes/listar'
-          }, {
-            title: 'NUEVO REGISTRO'
-          }]
-        }
-      }, {
-        path: 'editar/:id',
-        component: ClienteEditComponent,
-        data: {
+          urls: [{ title: 'INICIO', url: '/dashboard' },
+           { title: 'LISTADO', url: '/component/clientes/listar'},
+           { title: 'NUEVO REGISTRO' }]
+        }      
+      },
+       { path: 'editar/:id', component: ClienteEditComponent, data: {
           title: 'EDITAR CLIENTE',
-          urls: [{
-            title: 'INICIO',
-            url: '/dashboard'
-          }, {
-            title: 'LISTADO',
-            url: '/component/clientes/listar'
-          }, {
-            title: 'MODIFICACIÓN'
-          }]
+          urls: [{ title: 'INICIO', url: '/dashboard' },
+           { title: 'LISTADO', url: '/component/clientes/listar'},
+           { title: 'MODIFICACIÓN' }]
         }
-      }]
-    }, {
-      path: 'facturas',
+      }]    
+    },
+//rutas materiales    
+    {
+      path: 'materiales',
+      component: MaterialComponent,
+      children: [{
+        path: '',
+        redirectTo: 'listar',
+        pathMatch: 'full'      },
+       { path: 'listar', component: MaterialIndexComponent, data: {
+          title: 'LISTA MATERIALES',
+          urls: [{ title: 'INICIO', url: '/dashboard' },
+           { title: 'NUEVO REGISTRO', url: '/component/materiales/crear'},
+           { title: 'MATERIALES' }]
+        }      },
+       { path: 'crear', component: MaterialCreateComponent, data: {
+          title: 'CREAR MATERIAL',
+          urls: [{ title: 'INICIO', url: '/dashboard' },
+           { title: 'LISTADO', url: '/component/materiales/listar'},
+           { title: 'NUEVO REGISTRO' }]
+        }      
+      },
+       { path: 'editar/:id', component: MaterialEditComponent, data: {
+          title: 'EDITAR MATERIAL',
+          urls: [{ title: 'INICIO', url: '/dashboard' },
+           { title: 'LISTADO', url: '/component/materiales/listar'},
+           { title: 'MODIFICACIÓN' }]
+        }
+      }]    
+    },
+//rutas INVENTARIO    
+    {
+      path: 'inventarios',
+      component: InventarioComponent,
+      children: [{
+        path: '',
+        redirectTo: 'listar',
+        pathMatch: 'full'      },
+       { path: 'listar', component: InventarioIndexComponent, data: {
+          title: 'LISTA INVENTARIO',
+          urls: [{ title: 'INICIO', url: '/dashboard' },
+           { title: 'NUEVO REGISTRO', url: '/component/inventarios/crear'},
+           { title: 'INVENTARIO' }]
+        }      },
+       { path: 'crear', component: InventarioCreateComponent, data: {
+          title: 'GESTION INVENTARIO',
+          urls: [{ title: 'INICIO', url: '/dashboard' },
+           { title: 'LISTADO', url: '/component/inventarios/listar'},
+           { title: 'NUEVO REGISTRO' }]
+        }      
+      },
+       { path: 'editar/:id', component: InventarioEditComponent, data: {
+          title: 'EDITAR INVENTARIO',
+          urls: [{ title: 'INICIO', url: '/dashboard' },
+           { title: 'LISTADO', url: '/component/inventarios/listar'},
+           { title: 'MODIFICACIÓN' }]
+        }
+      }]    
+    },
+//rutas MOVIMIENTOS    
+{
+  path: 'movimientos',
+  component: MovimientoComponent,
+  children: [{
+    path: '',
+    redirectTo: 'listar',
+    pathMatch: 'full'      },
+   { path: 'listar', component: MovimientoIndexComponent, data: {
+      title: 'LISTA MOVIMIENTOS',
+      urls: [{ title: 'INICIO', url: '/dashboard' },
+       { title: 'NUEVO REGISTRO', url: '/component/movimientos/crear'},
+       { title: 'MOVIMIENTOS' }]
+    }      },
+   { path: 'crear', component: MovimientoCreateComponent, data: {
+      title: 'GESTION MOVIMIENTOS',
+      urls: [{ title: 'INICIO', url: '/dashboard' },
+       { title: 'LISTADO', url: '/component/movimientos/listar'},
+       { title: 'NUEVO REGISTRO' }]
+    }      
+  },
+   { path: 'editar/:id', component: MovimientoEditComponent, data: {
+      title: 'EDITAR MOVIMIENTOS',
+      urls: [{ title: 'INICIO', url: '/dashboard' },
+       { title: 'LISTADO', url: '/component/movimientos/listar'},
+       { title: 'MODIFICACIÓN' }]
+    }
+  }]    
+},
+//rutas factura venta
+     {  path: 'facturas',
       component: FacturaComponent,
       children: [{
         path: '',

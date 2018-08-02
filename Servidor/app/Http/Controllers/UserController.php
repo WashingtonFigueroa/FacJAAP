@@ -12,8 +12,12 @@ class UserController extends Controller
     public function index()
     {
         return response()->json(User::with('tipoUsuario')
-                                    ->orderBy('nombre', 'asc')
+                                    ->orderBy('nombre', 'desc')
                                     ->paginate(10), 200);
+    }
+
+    public function listaUsuarios() {
+        return response()->json(User::orderBy('nombre', 'desc')->get(), 200);
     }
 
     public function store(Request $request)

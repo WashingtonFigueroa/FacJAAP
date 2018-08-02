@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { TipousuarioService } from '../tipousuario.service';
+import { Router } from '../../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-tipousuario-create',
@@ -11,7 +12,8 @@ export class TipousuarioCreateComponent implements OnInit {
   tipoGroup: FormGroup;
 
   constructor(protected fb: FormBuilder,
-              protected tipousuarioService: TipousuarioService) {
+              protected tipousuarioService: TipousuarioService,
+              protected router: Router) {
       this.createForm();
   }
 
@@ -29,7 +31,7 @@ export class TipousuarioCreateComponent implements OnInit {
       this.tipousuarioService.store(this.tipoGroup.value)
           .subscribe(res => {
               console.log('tipo usuario guardado');
-              this.tipoGroup.reset();
-          });
+              this.router.navigate(['component/tipousuarios']);
+            });
   }
 }

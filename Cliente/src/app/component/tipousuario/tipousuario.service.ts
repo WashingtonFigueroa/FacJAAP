@@ -12,6 +12,9 @@ export class TipousuarioService {
   index() {
     return this.http.get(this.base + 'tipousuarios');
   }
+  indexPerPage(url) {
+    return this.http.get( url );
+  }
   show(id) {
       return this.http.get(this.base + 'tipousuarios/' + id);
   }
@@ -24,4 +27,7 @@ export class TipousuarioService {
   destroy(id) {
       return this.http.delete(this.base + 'tipousuarios/' + id );
   }
+  listaCargos() {
+    return this.http.get(this.base + 'lista_cargos');
+}
 }

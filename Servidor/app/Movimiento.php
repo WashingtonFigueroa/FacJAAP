@@ -12,10 +12,12 @@ class Movimiento extends Model
     protected $primaryKey = 'idmovimiento';
     protected $fillable = [
         'tipo',
-        'detalle',
-        'valor',
-        'utilidad',
         'fecha',
+        'detalle',
+        'intermediario',
+        'numfac',
+        'valor',
+        'documento',
     ];
     protected $dates = ['deleted_at'];
 }

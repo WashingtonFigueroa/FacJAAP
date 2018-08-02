@@ -1,0 +1,78 @@
+<div class="card">
+    <div class="card-body">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-6">
+                <form (submit)="store()" role="form" [formGroup]="movimientoGroup">
+                    
+                  <div class="form-group">
+                        <label for="tipo">
+                           * Seleccione movimiento
+                        </label>
+                        <select class="form-control" id="tipo" formControlName="tipo" name="tipo" autofocus>
+                            <option>Egreso</option>
+                            <option>Ingreso</option>
+                          </select>
+                      </div>  
+      
+                  <div class="form-group">
+                    <label for="fecha">*Seleccione la fecha </label>
+                    <input type="date" class="form-control" id="fecha" name="fecha" formControlName="fecha"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="detalle"> *Ingrese detalle </label>
+                    <input type="text" class="form-control" id="detalle" name="detalle" formControlName="detalle" />
+                  </div>
+                  <div class="form-group">
+                      <label for="intermediario"> *Ingrese responsable </label>
+                      <input type="text" class="form-control" id="intermediario" name="intermediario" formControlName="intermediario" />
+                    </div>
+                    <div class="form-group">
+                        <label for="numfac"> *Ingrese # factura </label>
+                        <input type="text" class="form-control" id="numfac" name="numfac" formControlName="numfac" />
+                      </div>
+                      <div class="form-group">
+                          <label for="valor"> *Ingrese valor </label>
+                          <input type="number" class="form-control" id="valor" name="valor" formControlName="valor" />
+                        </div>
+                        <div class="form-group">
+                            <label for="docuento">*Seleccione documento </label>
+                            <input type="file" class="form-control" id="docuento" name="docuento" formControlName="docuento" />
+                          </div>
+                  <button type="submit" class="btn btn-primary">
+                    Guardar
+                  </button>
+                </form>
+                <div class="alert alert-success" role="alert" *ngIf="successStatus == true">
+                  <strong>Datos guardados exitosamente :D</strong>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card">
+                  <h5 class="card-header">
+                            Reglamento
+                          </h5>
+                  <div class="card-body">
+                    <p class="card-text">
+                      Tiene que tener facturero
+                    </p>
+                    <p class="card-text">
+                      reglas 2
+                    </p>
+                    <p class="card-text">
+                      reglas 3
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    La Directiva
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

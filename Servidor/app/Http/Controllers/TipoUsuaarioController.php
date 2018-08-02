@@ -9,9 +9,13 @@ class TipoUsuarioController extends Controller
 {
     public function index()
     {
-        return response()->json(TipoUsuario::orderBy('nombre', 'asc')->get(),
-        200);
+        return response()->json(TipoUsuario::orderBy('nombre', 'desc')->paginate(10),200);
     }
+
+    public function listaCargos() {
+        return response()->json(TipoUsuario::orderBy('nombre', 'desc')->get(), 200);
+    }
+
 
     public function store(Request $request)
     {
