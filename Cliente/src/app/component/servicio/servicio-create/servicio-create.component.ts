@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { ServicioService } from '../servicio.service';
 import { ClienteService } from '../../cliente/cliente.service';
 import { MedidorService } from '../../medidor/medidor.service';
+import { Router } from '../../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-servicio-create',
@@ -24,7 +25,8 @@ export class ServicioCreateComponent implements OnInit {
 
   constructor(protected servicioService: ServicioService,
               protected clienteService: ClienteService,
-              protected medidorService: MedidorService,              
+              protected medidorService: MedidorService,  
+              protected router: Router,            
               protected fb: FormBuilder) {
       this.createForm();
       this.medidorService.medidoresActivos().subscribe(res => this.medidores = res);
@@ -74,6 +76,7 @@ export class ServicioCreateComponent implements OnInit {
                 estado: ''
             });
             this.successStatus = true;
+            this.router.navigate(['component/servicios']);
         });
   }
 

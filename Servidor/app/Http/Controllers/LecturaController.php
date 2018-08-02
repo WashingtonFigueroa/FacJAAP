@@ -46,9 +46,9 @@ class LecturaController extends Controller
             $lectura->idservicio = $idservicio;
             $lectura->observacion = $request->input('observacion');
             $lectura->fecha = $request->input('fecha');
+            $lectura->anterior = $request->input('anterior');
             $lectura->actual = $request->input('actual');
-            $lectura->anterior = $request->input('actual');
-            $lectura->consumo = $request->input('actual');
+            $lectura->consumo = $lectura->actual - $lectura->anterior;
             if ($lectura->consumo > $baseM3->valor)
             {
                 $lectura->excedente = $lectura->consumo - $baseM3->valor;
@@ -61,11 +61,13 @@ class LecturaController extends Controller
             $lectura->save();
         } else {
             $ultimaLectura = Servicio::find($idservicio)->lecturas()->orderBy('idlectura', 'desc')->first();
+//             $ultimaLectura = Lectura::where('idservicio', $idservicio)->orderBy('idlectura', 'asc')->first();
+// dump($ultimaLectura);
             $lectura->idservicio = $idservicio;
             $lectura->observacion = $request->input('observacion');
             $lectura->fecha = $request->input('fecha');
-            $lectura->actual = $request->input('actual');
             $lectura->anterior = $ultimaLectura->actual;
+            $lectura->actual = $request->input('actual');
             $lectura->consumo = $lectura->actual - $lectura->anterior;
             if ($lectura->consumo > $baseM3->valor)
             {
@@ -113,13 +115,13 @@ class LecturaController extends Controller
         $totalPagar += $tarifa;
         $idservicio = $lectura->idservicio;
         $multa += Multa::where('idservicio', $idservicio)
-                            ->where('estado', 'Activo')
+                            ->where('estado', 'Deber')
                             ->sum('valor');
         $totalPagar += $multa;
         $lectura->estado = 'Pagado';
         $lectura->save();
         $multas = Multa::where('idservicio', $idservicio)
-                       ->where('estado', 'Activo')
+                       ->where('estado', 'Deber')
                        ->get();
         foreach ($multas as $multa) {
             $multa->estado = 'Pagado';
@@ -185,7 +187,7 @@ class LecturaController extends Controller
         $tarifa += $lectura->tarifa;
         $idservicio = $lectura->idservicio;
         $multa += Multa::where('idservicio', $idservicio)
-            ->where('estado', 'Activo')
+            ->where('estado', 'Deber')
             ->sum('valor');
         $totalPagar = $tarifa + $multa;
 

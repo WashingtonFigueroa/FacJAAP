@@ -153,28 +153,24 @@ export class FacturaCreateComponent implements OnInit {
                  });
   }
 
-    print(idfactura): void {
-        let printContents, popupWin;
-        printContents = document.getElementById('print-section').innerHTML;
-        //popupWin = window;
-        popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
-        popupWin.document.open();
-        popupWin.document.write(`
-          <html>
-            <head>
-              <title>UTN</title>
-              <style>
-              
-              </style>
-            </head>
-            <body onload="window.print();window.close()">
-            <h4>JUNTA ADMINISTRADORA DE AGUA POTABLE - "SAN JOSÉ DE CHORLAVÍ"</h4>    
-            <h6>Provincia Imbabura - cantón Ibarra N. ${idfactura}</h6>
-                ${printContents}
-            </body>
-          </html>`
-        );
-        
-       popupWin.document.close();
-    }
+  print(idfactura): void {
+    let printContents, popupWin;
+    printContents = document.getElementById('print-section').innerHTML;
+    popupWin = window;
+    popupWin.document.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
+    popupWin.document.write(`
+      <html>
+        <head>
+          <title>UTN</title>
+          <style>        
+          </style>
+        </head>
+        <body onload="window.print();window.close()">
+            ${printContents}
+        </body>
+      </html>`
+    );
+    
+   popupWin.document.close();
+}
 }

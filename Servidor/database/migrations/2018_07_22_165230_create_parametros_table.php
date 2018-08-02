@@ -17,7 +17,7 @@ class CreateParametrosTable extends Migration
             $table->increments('idparametro');
             $table->string('descripcion', 100);
             $table->double('valor', 8, 2);
-            $table->string('detalle', 250)->nullable();
+            $table->string('detalle', 250)->nullable()->default('NULL');
             $table->string('estado',10);
             $table->softDeletes();
             $table->timestamps();

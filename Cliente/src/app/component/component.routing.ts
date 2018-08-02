@@ -65,54 +65,33 @@ export const ComponentsRoutes: Routes = [{
       children: [{
         path: '',
         redirectTo: 'listar',
-        pathMatch: 'full'
-      }, {
-        path: 'listar',
-        component: ProveedorIndexComponent,
+        pathMatch: 'full'  }, { path: 'listar', component: ProveedorIndexComponent,
         data: {
           title: 'Lista Proveedores',
-          urls: [{
-            title: 'INICIO',
-            url: '/dashboard'
-          }, {
-            title: 'NUEVO REGISTRO',
-            url: '/component/proveedores/crear'
-          }, {
-            title: 'proveedores'
-          }]
-        }
-      }, {
-        path: 'crear',
-        component: ProveedorCreateComponent,
+          urls: [{ title: 'INICIO', url: '/dashboard' }, 
+          { title: 'NUEVO REGISTRO', url: '/component/proveedores/crear'}, 
+          { title: 'proveedores'   }]}}, 
+          { path: 'crear', component: ProveedorCreateComponent,
         data: {
           title: 'Registrar Proveedor',
-          urls: [{
-            title: 'INICIO',
-            url: '/dashboard'
-          }, {
+          urls: [{ title: 'INICIO', url: '/dashboard' }, {
             title: 'Proveedores',
-            url: '/component/proveedores/listar'
-          }, {
-            title: 'NUEVO REGISTRO'
-          }]
-        }
-      }, {
-        path: 'editar/:id',
-        component: ProveedorEditComponent,
+            url: '/component/proveedores/listar'}, 
+            { title: 'NUEVO REGISTRO'}]}}, 
+            { path: 'editar/:id', component: ProveedorEditComponent,
         data: {
           title: 'Editar Proveedor',
-          urls: [{
-            title: 'INICIO',
-            url: '/dashboard'
-          }, {
-            title: 'Proveedores',
-            url: '/component/proveedores/listar'
-          }, {
-            title: 'MODIFICACIÓN'
-          }]
-        }
-      }]
-    }, {
+          urls: [{ title: 'INICIO', url: '/dashboard'}, 
+          { title: 'Proveedores', url: '/component/proveedores/listar'}, 
+          { title: 'MODIFICACIÓN' }]} }]}, 
+//rutas estadisticas
+          { path: 'estadisticas', component: EstadisticasComponent,
+          data: {
+            title: 'ESTADÍSTICAS',
+            urls: [{ title: 'INICIO', url: '/dashboard'}, 
+            { title: 'REPORTES' }] } },
+//rutas materiales
+          {
       path: 'materiales',
       component: MaterialComponent,
       children: [{
@@ -134,7 +113,8 @@ export const ComponentsRoutes: Routes = [{
             title: 'materiales'
           }]
         }
-      }, {
+      }, 
+      {
         path: 'crear',
         component: MaterialCreateComponent,
         data: {
@@ -149,7 +129,8 @@ export const ComponentsRoutes: Routes = [{
             title: 'NUEVO REGISTRO'
           }]
         }
-      }, {
+      }, 
+      {
         path: 'editar/:id',
         component: MaterialEditComponent,
         data: {
@@ -166,8 +147,7 @@ export const ComponentsRoutes: Routes = [{
         }
       }]
     },
-      { path: 'estadisticas', component: EstadisticasComponent }
-      ,{
+    {
       path: 'facturacompras',
       component: FacturacompraComponent,
       children: [{

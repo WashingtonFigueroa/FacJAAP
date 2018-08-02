@@ -9,8 +9,8 @@ class FacturaVentaController extends Controller
 {
     public function index()
     {
-        return response()->json(FacturaVenta::orderBy('idfacturaventa', 'asc')->get(),
-            200);
+        return response()->json(FacturaVenta::orderBy('idfacturaventa', 'desc')->paginate(10), 200);
+
     }
 
     public function store(Request $request)

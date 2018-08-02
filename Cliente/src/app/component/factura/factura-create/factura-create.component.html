@@ -140,66 +140,75 @@
       </div>
     </div>
   </div>
+<!-- Impresion Factura" -->
 
 <div id="print-section" style="display: none">
-  <table cellspacing=0 cellpadding=15>
+    <table cellpadding=2 align="center">
     <tr>
-      <td>
-        <strong>MES FACTURADO: </strong> {{ datos.mes_facturado }} <br>
-        <strong>SERVICIO: </strong> {{ datos.cuenta }} <br>
-        <strong>CLIENTE: </strong> {{ datos.cliente }}
-      </td>
-      <td>
-        <strong>RUC/CI: </strong> {{ datos.cedula }} <br>
-        <strong>DIRECCIÓN:</strong> {{ datos.direccion }} <br>
-        <strong>MEDIDOR N.:</strong> {{ datos.codigo_medidor }}
-      </td>
+      <th colspan="3">JUNTA ADMINISTRADORA DE AGUA POTABLE - "SAN JOSÉ DE CHORLAVÍ"</th>
     </tr>
-  </table>
-  <br>
-  <table cellspacing=0 cellpadding=15>
-    <thead>
     <tr>
-      <th>LECTURA ANTERIOR</th>
-      <th>LECTURA ACTUAL</th>
-      <th>CONSUMO</th>
+      <th colspan="3" align="center">Provincia Imbabura - cantón Ibarra</th>
     </tr>
-    </thead>
-    <tbody>
-    <tr *ngIf="lectura !== null">
-      <td>{{ lectura.anterior }}</td>
-      <td>{{ lectura.actual }}</td>
-      <td>{{ lectura.consumo }}</td>
-    </tr>
-    </tbody>
-  </table>
-  <br>
-  <table cellspacing=0 cellpadding=15>
-    <thead>
     <tr>
-      <th>ESTIMADO CLIENTE</th>
+      <td colspan="2">RUC/CI: {{ datos.cedula }}</td>
+      <td>MES FACTURADO: {{ datos.mes_facturado }}</td>
+    </tr>
+    <tr>
+      <td colspan="2">CLIENTE: {{ datos.cliente }}</td>
+      <td>SERVICIO: {{ datos.cuenta }}</td>
+    </tr>
+    <tr>
+      <td colspan="2">DIRECCIÓN: {{ datos.direccion }}</td>
+      <td>MEDIDOR: {{ datos.codigo_medidor }}</td>
+    </tr>
+    <tr>
+        <th>LECTURA ANTERIOR</th>
+        <th>LECTURA ACTUAL</th>
+        <th>CONSUMO</th>
+      </tr>
+    <tr *ngIf="lectura !== null" align="center">
+        <td>{{ lectura.anterior }}</td>
+        <td>{{ lectura.actual }}</td>
+        <td>{{ lectura.consumo }}</td>
+      </tr>
+    <tr>
+      <th>TOTAL COBRADO</th>
       <th>DESCRIPCION</th>
       <th>VALOR</th>
     </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td></td>
-      <td>
-        Aguar Potable <br>
-        Mutlas <br>
-        Sub total <br>
-        IVA <br>
-        <strong>Total</strong> <br>
-      </td>
-      <td *ngIf="factura !== null">
-        {{ factura.tarifa }} <br>
-        {{ factura.multa }} <br>
-        {{ factura.total }} <br>
-        0.00 <br>
-        {{ factura.total }} <br>
-      </td>
+    <tr *ngIf="factura !== null">
+     <th rowspan="5" align="center">
+       <pre>
+    
+    
+_______________
+PRESIDENTE
+    
+    
+_______________
+RECAUDADOR
+       </pre>
+     </th>
+      <td>Agua Potable:</td>
+      <td align="center" > {{ factura.tarifa }} </td>
     </tr>
-    </tbody>
-  </table>
+    <tr>
+      <td>Multas:</td>
+      <td align="center" >{{ factura.multa }} </td>
+    </tr>
+    <tr>
+       <td>Sub Total:</td>
+      <td align="center" >{{ factura.total }}</td>
+     </tr>
+     <tr>
+       <td>IVA:</td>
+      <td align="center" >0.00</td>
+     </tr>
+     <tr>
+       <td>TOTAL:</td>
+      <td align="center" >{{ factura.total }}</td>
+     </tr>
+    </table>
 </div>
+  
