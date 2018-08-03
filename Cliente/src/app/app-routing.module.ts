@@ -13,6 +13,7 @@ export const Approutes: Routes = [
     children: [
         { path: '', redirectTo: '/login', pathMatch: 'full' },
         { path: 'login', component: LoginComponent},
+        { path: 'login/:param', component: LoginComponent},
         { path: 'starter', loadChildren: './starter/starter.module#StarterModule',
             canActivate: [AuthGuard]},
         { path: 'component',

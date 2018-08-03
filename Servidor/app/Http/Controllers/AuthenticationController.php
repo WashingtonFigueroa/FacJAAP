@@ -26,6 +26,7 @@ class AuthenticationController extends Controller
         }
 /*        return response()->json($credentials);*/
         try {
+            \Config::set('auth.providers.users.model', \App\Usuario::class);
             if (!$token = JWTAuth::attempt($credentials)) {
                 return response()->json([
                     'autenticado' => false,

@@ -15,6 +15,7 @@ class UsuarioController extends Controller
 
     public function store(Request $request)
     {
+        //Hash::make($request->input('pass'));
             $Usuario = Usuario::create($request->all());
             return response()->json($Usuario, 201);
     }

@@ -8,7 +8,7 @@ submenu: [
 { path: '/component/tipousuarios/listar', title: 'Cargos  ', icon: 'ti-user', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
 { path: '/component/usuarios/listar', title: 'Usuarios  ', icon: 'mdi mdi-account-multiple', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
 { path: '/component/privilegios/listar', title: 'Privilegios  ', icon: 'mdi mdi-format-list-bulleted', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
-{ path: '/login', title: 'Salir  ', icon: 'mdi mdi-wallet', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
+{ path: '/login/logout', title: 'Salir  ', icon: 'mdi mdi-wallet', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
 ]},
 {
 path: '', title: 'Administración  ', icon: 'mdi mdi-bullseye', class: 'has-arrow', label: '', labelClass: '', extralink: false,

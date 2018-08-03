@@ -78,7 +78,6 @@ export class MultaCreateComponent implements OnInit {
           descripcion: '',
           valor: '',
           fecha: '',
-          estado: ''
         });
         this.successStatus = true;
       });

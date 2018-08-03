@@ -6,6 +6,7 @@ import { LecturaService } from '../lectura.service';
 import { ServicioService } from '../../servicio/servicio.service';
 import { ClienteService } from "../../cliente/cliente.service";
 import { MedidorService } from "../../medidor/medidor.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-lectura-create',
@@ -29,6 +30,7 @@ export class LecturaCreateComponent implements OnInit {
     protected servicioService: ServicioService,
     protected clienteService: ClienteService,
     protected medidorService: MedidorService,
+    protected router: Router,
     protected fb: FormBuilder) {
     this.servicioService.listaServicios().subscribe(res => this.servicios = res);
     this.createForm();
@@ -77,16 +79,34 @@ export class LecturaCreateComponent implements OnInit {
   }
 
   store() {
-    this.lecturaService.store(this.lecturaGroup.value)
-      .subscribe(res => {
+    if (this.lecturaGroup.value.actual < this.lecturaGroup.value.anterior ) {
         this.lecturaGroup.patchValue({
-          observacion: '',
-          fecha: null,
-          anterior: '',
-          actual: '',
+            actual: 0
         });
-        this.successStatus = true;
-      });
+    } else {
+        this.lecturaService.store(this.lecturaGroup.value)
+            .subscribe(res => {
+                this.lecturaGroup.patchValue({
+                    observacion: '',
+                    fecha: null,
+                    anterior: '',
+                    actual: '',
+                });
+                this.successStatus = true;
+                this.router.navigate(['/component/lecturas/listar']);
+            });
+    }
+  }
+  searchLecturaAnterior() {
+    this.lecturaService.searchLecturaAnterior(this.lecturaGroup.value.idmedidor)
+        .subscribe((res: any) => {
+          if(res.anterior) {
+            this.lecturaGroup.patchValue({
+                anterior : res.actual
+            });
+          }
+        });
+
   }
   listaMedidoresCliente() {
     console.log('lectura');

@@ -28,6 +28,13 @@ class LecturaController extends Controller
     public function store(Request $request)
     {
 
+        $anteriorInput = $request->input('anterior');
+        $actualnput = $request->input('actual');
+        if ($actualnput < $anteriorInput) {
+            return response()->json([
+                'error' => 'La lectura actual debe ser mayor al anterior'
+            ], 500);
+        }
         $idcliente = $request->input('idcliente');
         $idmedidor = $request->input('idmedidor');
         $idservicio = Servicio::where('idcliente', $idcliente)
@@ -197,5 +204,13 @@ class LecturaController extends Controller
             'total' => $totalPagar,
             'lectura' => $lectura
         ], 200);
+    }
+    public function searchLecturaAnterior($idmedidor) {
+        $lectura = Servicio::where('idmedidor', $idmedidor)
+                            ->first()
+                            ->lecturas()
+                            ->orderBy('idlectura', 'desc')
+                            ->first();
+        return response()->json($lectura, 200);
     }
 }

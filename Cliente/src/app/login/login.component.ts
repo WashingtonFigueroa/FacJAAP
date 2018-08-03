@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {LoginService} from "./login.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -13,7 +13,15 @@ export class LoginComponent implements OnInit {
   loginGroup: FormGroup;
   constructor(protected fb: FormBuilder,
               protected loginService: LoginService,
+              protected route: ActivatedRoute,
               protected router: Router) {
+      this.route.params.subscribe((res: any)=> {
+        console.log(res);
+        if(res.param === 'logout'){
+         localStorage.removeItem('token');
+         this.router.navigate(['/']);
+        }
+      });
       this.createForm();
   }
 

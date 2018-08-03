@@ -12,7 +12,11 @@
                   </div>
                   <div class="col">
                     <label>Medidor</label>
-                    <select name="idmedidor" formControlName="idmedidor" class="custom-select mr-sm-2" *ngIf="medidores != null">
+                    <select name="idmedidor"
+                            (change)="searchLecturaAnterior()"
+                            formControlName="idmedidor"
+                            class="custom-select mr-sm-2"
+                            *ngIf="medidores != null">
                       <option [value]="medidor.idmedidor" *ngFor="let medidor of medidores">
                         {{ medidor.codigo }}
                       </option>
@@ -35,7 +39,11 @@
                     <label for="actual">
                       * Ingrese Lectura actual
                     </label>
-                    <input type="number" class="form-control" id="actual" formControlName="actual" name="actual" placeholder="0" />
+                    <input type="number"
+                           class="form-control"
+                           id="actual"
+                           formControlName="actual"
+                           name="actual" placeholder="0" />
                   </div>
 
 

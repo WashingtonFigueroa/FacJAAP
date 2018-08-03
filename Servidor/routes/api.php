@@ -13,9 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});
+});*/
 Route::post('login', 'AuthenticationController@login');
 Route::post('logout', 'AuthenticationController@logout');
 Route::resource('clientes', 'ContribuyenteController');
@@ -53,3 +53,5 @@ Route::get('servicio_medidor/{idmedidor}', 'MedidorController@servicioMedidor');
 Route::get('pagar/{idlectura}', 'LecturaController@pagar');
 Route::get('ver_factura/{idlectura}', 'LecturaController@verFactura');
 Route::get('ventas_mes/{start}/{end}', 'FacturaVentaController@ventasMes');
+
+Route::get('search_lectura_anterior/{idmedidor}', 'LecturaController@searchLecturaAnterior');

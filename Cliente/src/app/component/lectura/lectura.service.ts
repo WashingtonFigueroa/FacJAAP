@@ -33,4 +33,7 @@ export class LecturaService {
   verFactura(idlectura) {
       return this.http.get(this.base + 'ver_factura/' + idlectura);
   }
+  searchLecturaAnterior(idmedidor) {
+      return this.http.get(this.base + 'search_lectura_anterior/' + idmedidor);
+  }
 }
