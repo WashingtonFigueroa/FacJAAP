@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\inventario;
 use Illuminate\Http\Request;
+use App\material;
 
 class InventarioController extends Controller
 {
@@ -15,12 +16,22 @@ class InventarioController extends Controller
 
     public function store(Request $request)
     {
-        $inventario = inventario::create($request->all());
+        $idmaterial = $request->input('idmaterial');
+        $material = material::where('idmaterial', $idmaterial)->first();
+        $stock = $material->stock;
+        $cantidad = $request->input('cantidad');
+        $estado = $request->input('estado');        
+            if ($estado === 'Ingreso' ) {
+                $material->stock = $stock + $cantidad;
+                $material->save();
+                $inventario = inventario::create($request->all());
+            }
+            if ($estado == 'Salida' && $stock > $cantidad ) {
+                $material->stock = $stock - $cantidad;
+                $material->save();
+                $inventario = inventario::create($request->all());
+            }
         return response()->json($inventario, 201);
-    
-    
-    
-    
     }
 
     public function show($id)
