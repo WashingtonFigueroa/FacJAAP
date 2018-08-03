@@ -17,6 +17,7 @@ class CreateMaterialsTable extends Migration
             $table->increments('idmaterial');
             $table->string('nombre')->unique();
             $table->string('descripcion')->nullable();
+            $table->integer('stock');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
             'estado' => 'activo',
         ]);
 
-        \App\User::create([
+        \App\Usuario::create([
             'idtipo' => $tipo_usuario->idtipo,
             'nombre' => 'Washington',
             'correo' => 'washington@gmail.com',

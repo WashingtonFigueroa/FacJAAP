@@ -25,12 +25,12 @@ Route::resource('multas', 'MultaController');
 Route::resource('movimientos', 'MovimientoController');
 Route::resource('factura_ventas', 'FacturaVentaController');
 Route::resource('pago_medidor', 'PagoMedidorController');
-Route::resource('tipousuarios', 'TipoUsuarioController');
-Route::resource('usuarios', 'UserController', ['except' => ['create', 'edit']]);
 Route::resource('parametros', 'ParametroController');
-Route::resource('privilegios', 'PrivilegioController');
-Route::resource('lecturas', 'LecturaController');
+Route::resource('tipousuarios', 'TipoUsuarioController');
+Route::resource('usuarios', 'UsuarioController');
+//Route::resource('privilegios', 'PrivilegioController');
 
+Route::resource('lecturas', 'LecturaController');
 Route::resource('materiales', 'MaterialController');
 Route::resource('inventarios', 'InventarioController');
 
@@ -40,8 +40,8 @@ Route::get('factura_compras_documento/{id}', 'FacturaCompraController@getDocumen
 Route::get('medidores_activos', 'MedidorController@medidoresActivos');
 Route::get('lista_servicios', 'ServicioController@listaServicios');
 Route::get('lista_clientes', 'ContribuyenteController@listaContribuyentes');
+
 Route::get('lista_cargos', 'TipoUsuarioController@listaCargos');
-Route::get('lista_usuarios', 'UserController@listaUsuarios');
 
 Route::get('lista_materiales', 'MaterialController@listaMateriales');
 Route::get('lista_medidores', 'MedidorController@listaMedidores');

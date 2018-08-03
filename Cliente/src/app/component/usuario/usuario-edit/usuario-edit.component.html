@@ -7,7 +7,7 @@
                 <div class="col-md-8">
                     <form (submit)="update()" role="form" *ngIf="usuario !== null" [formGroup]="usuarioGroup">
                         
-                      <div class="form-group">
+                        <div class="form-group">
                           <label for="tipo">
                             * Seleccione tipo usuario
                           </label>
@@ -18,19 +18,23 @@
                             </option>
                           </select>
                         </div>
+
+
+
                         <div class="form-group">
                           <label for="nombre">
                             * Nombre usuario
                           </label>
                           <input type="text" class="form-control" id="nombre" formControlName="nombre" name="nombre"/>
-                        </div>
-                        <label for="">Ingrese Nuevas Credenciales</label>
+                        </div>                       
                         <div class="form-group">
                           <label for="correo">
                             * Ingrese correo
                           </label>
                           <input type="email" class="form-control" id="correo" formControlName="correo" name="correo"/>
                         </div>
+
+                        <label for="">Ingrese Nuevas Credenciales</label>
                         <div class="form-group">
                           <label for="password">
                             * Ingrese contraseña

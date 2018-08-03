@@ -37,7 +37,10 @@
                       Nombre
                     </th>
                     <th>
-                      Descripción
+                      Descripción 
+                    </th>
+                    <th>
+                      Stock
                     </th>
                     <th>
                       Acciones
@@ -54,6 +57,9 @@
                     </td>
                     <td>
                       {{ material.descripcion }}
+                    </td>
+                    <td>
+                      {{ material.stock }}
                     </td>
                     <td>
                       <button (click)="edit(material.idmaterial)" type="button" class="btn btn-info">

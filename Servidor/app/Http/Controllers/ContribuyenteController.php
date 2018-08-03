@@ -8,7 +8,6 @@ use Validator;
 
 class ContribuyenteController extends Controller
 {
-
     public function index()
     {
         return response()->json(Contribuyente::orderBy('idcliente', 'desc')->paginate(10), 200);

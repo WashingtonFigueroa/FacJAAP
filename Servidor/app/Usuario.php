@@ -2,15 +2,16 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User extends Authenticatable
+class Usuario extends  Authenticatable
 {
     use Notifiable;
     use SoftDeletes;
-    protected $table = 'users';
+    protected $table = 'usuarios';
     protected $primaryKey = 'iduser';
     protected $fillable = [
         'idtipo',
@@ -25,6 +26,7 @@ class User extends Authenticatable
     ];
 
     public function tipoUsuario() {
-        return $this->belongsTo('App\TipoUsuario', 'idtipo');
+        return $this->belongsTo('App\TipoUsuario', 'idtipo'); 
     }
+
 }

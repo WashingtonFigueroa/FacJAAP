@@ -14,10 +14,11 @@ class TipoUsuario extends Model
         'nombre',
         'estado'
     ];
+
     protected $dates = ['deleted_at'];
 
     public function users() {
-        return $this->hasMany('App\User', 'iduser');
+        return $this->hasMany('App\Usuario', 'iduser');
     }
 
     /*Eliminacion en cascada, todos sus registros hijo, mueren tambien*/
@@ -28,4 +29,5 @@ class TipoUsuario extends Model
             $padre->users()->delete();
         });
     }
+
 }

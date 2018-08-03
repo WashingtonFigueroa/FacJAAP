@@ -24,7 +24,9 @@ export class MaterialCreateComponent implements OnInit {
   createForm() {
       this.materialGroup = this.fb.group({
           'nombre' : new FormControl('', [Validators.required]),
-          'descripcion' : new FormControl('', [Validators.required])
+          'descripcion' : new FormControl('', [Validators.required]),
+          'stock' : 0
+
       });
   }
 

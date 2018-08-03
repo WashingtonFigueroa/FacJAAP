@@ -12,7 +12,8 @@ class material extends Model
     protected $primaryKey = 'idmaterial';
     protected $fillable = [
         'nombre',
-        'descripcion'
+        'descripcion',
+        'stock'
     ];
     protected $dates = ['deleted_at'];
 

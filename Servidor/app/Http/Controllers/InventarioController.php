@@ -9,13 +9,18 @@ class InventarioController extends Controller
 {
     public function index()
     {
-    return response()->json(inventario::orderBy('idinventario', 'asc')->paginate(10),200);
+    return response()->json(inventario::with('material')
+                            ->orderBy('idinventario', 'desc')->paginate(10),200);
     }
 
     public function store(Request $request)
     {
         $inventario = inventario::create($request->all());
         return response()->json($inventario, 201);
+    
+    
+    
+    
     }
 
     public function show($id)

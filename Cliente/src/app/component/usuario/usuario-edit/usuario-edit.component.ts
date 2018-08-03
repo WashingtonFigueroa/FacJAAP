@@ -20,7 +20,8 @@ export class UsuarioEditComponent implements OnInit {
     protected fb: FormBuilder,
     protected route: ActivatedRoute,
     protected router: Router) {
-    this.tipoService.index().subscribe(res => this.tipos = res);
+    this.tipoService.listaCargos().subscribe(res => this.tipos = res);
+   
     this.route.params.subscribe(param => {
       this.iduser = param.id;
       this.usuarioService.show(param.id).subscribe(res => {
@@ -34,10 +35,11 @@ export class UsuarioEditComponent implements OnInit {
   
   createForm(usuario) {
     this.usuarioGroup = this.fb.group({
-      'idtipo': new FormControl(usuario.idproveedor, [Validators.required]),
+      'idtipo': new FormControl(usuario.idtipo, [Validators.required]),
       'nombre': new FormControl(usuario.nombre, [Validators.required]),
-      'correo': new FormControl(usuario.descripcion, [Validators.required]),
-      'password': new FormControl(usuario.descripcion, [Validators.required])
+      'correo': new FormControl(usuario.correo, [Validators.required]),
+      'password': new FormControl(usuario.password, [Validators.required]),
+      'password2': new FormControl(usuario.password, [Validators.required])
     });
   }
 

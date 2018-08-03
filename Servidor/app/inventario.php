@@ -13,9 +13,10 @@ class inventario extends Model
     protected $fillable = [
         'idmaterial',
         'descripcion',
-        'stock',
+        'cantidad',
         'responsable',
-        'fecha'
+        'fecha',
+        'estado',
     ];
     protected $dates = ['deleted_at'];
 
