@@ -3,22 +3,36 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
-            <form [formGroup]="facturaGroup">
-              <div class="row">
-                <div class="col" *ngIf="clientesSearch !== null">
-                  <label>* Seleccione cliente </label>
-                  <ng-autocomplete class="col-sm-2 col-form-label" (selected)="Selected($event)" [classes]="['']" [group]="clientesSearch"></ng-autocomplete>
-                </div>
-                <div class="col">
-                  <label>* SeleccioneMedidor</label>
-                  <select (change)="listaLecturas()" name="idmedidor" formControlName="idmedidor" class="custom-select mr-sm-2" *ngIf="medidores != null">
-                    <option [value]="medidor.idmedidor" *ngFor="let medidor of medidores">
-                      {{ medidor.codigo }}
-                    </option>
-                  </select>
-                </div>
-              </div>
-              <hr>
+              <div class="col-md-12">
+                <form [formGroup]="facturaGroup">
+                  <div class="row">
+                    <div class="col-md-4">
+                        <div class="col" *ngIf="clientesSearch !== null">
+                            <label>* Seleccione cliente </label>
+                            <ng-autocomplete class="col-sm-2 col-form-label" (selected)="Selected($event)" [classes]="['']" [group]="clientesSearch"></ng-autocomplete>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="col">
+                            <label>* SeleccioneMedidor</label>
+                            <select (change)="listaLecturas()" name="idmedidor" formControlName="idmedidor" class="custom-select mr-sm-2" *ngIf="medidores != null">
+                              <option [value]="medidor.idmedidor" *ngFor="let medidor of medidores">
+                                {{ medidor.codigo }}
+                              </option>
+                            </select>
+                          </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="col">
+                            <label>Mes facturado:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label>{{ datos.mes_facturado }}</label>
+                          </div>
+                          <div class="col">
+                            <label>Dirección:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label>{{direccion}}</label>
+                          </div>
+                    </div>
+                  </div>
               <div class="row">
                 <div class="col">
                   <div class="table-responsive">
@@ -43,7 +57,7 @@
                           <td>{{ lectura.actual }}</td>
                           <td>{{ lectura.consumo }}</td>
                           <td>{{ lectura.excedente }}</td>
-                          <td>{{ lectura.tarifa }}</td>
+                          <td>{{ lectura.tarifa | currency:"CAD":"symbol-narrow" }}</td>
                           <td>
                             <button (click)="verFactura(lectura)" class="btn btn-info">Ver
                             </button>&nbsp;
@@ -75,7 +89,7 @@
                             Agua Potable:
                           </td>
                           <td>
-                            {{ factura.tarifa }}
+                            {{ factura.tarifa | currency:"CAD":"symbol-narrow"}}
                           </td>
                         </tr>
                         <tr>
@@ -83,7 +97,7 @@
                             Multas
                           </td>
                           <td>
-                            {{ factura.multa }}
+                            {{ factura.multa | currency:"CAD":"symbol-narrow"}}
                           </td>
                         </tr>
                         <tr>
@@ -91,7 +105,7 @@
                             Subtotal
                           </td>
                           <td>
-                            {{ factura.total }}
+                            {{ factura.total | currency:"CAD":"symbol-narrow"}}
                           </td>
                         </tr>
                         <tr>
@@ -107,7 +121,7 @@
                             <strong>TOTAL:</strong>
                           </td>
                           <td>
-                            <strong>{{ factura.total }}</strong>
+                            <strong>{{ factura.total | currency:"CAD":"symbol-narrow"}}</strong>
                           </td>
                         </tr>
                       </tbody>
@@ -115,21 +129,7 @@
                   </div>
                   <div class="col-md-8">
                       <div class="row">
-                          <div class="col">
-                            <label>Mes facturado:</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <label>{{ datos.mes_facturado }}</label>
-                            <br>
-                            <label>Servicio No.:</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <label>000000</label>
-                            <br>
-                          </div>
-                          <div class="col">
-                            <label>Dirección:</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <label>{{direccion}}</label>
-                            <br>
-                            <label>Factura No.:</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <label>{{ datos.cuenta }}</label>
-                          </div>
+FDSFSD
                         </div>
                   </div>
                 </div>
@@ -191,15 +191,15 @@ RECAUDADOR
        </pre>
      </th>
       <td>Agua Potable:</td>
-      <td align="center" > {{ factura.tarifa }} </td>
+      <td align="center" > {{ factura.tarifa | currency:"CAD":"symbol-narrow"}} </td>
     </tr>
     <tr>
       <td>Multas:</td>
-      <td align="center" >{{ factura.multa }} </td>
+      <td align="center" >{{ factura.multa | currency:"CAD":"symbol-narrow"}} </td>
     </tr>
     <tr>
        <td>Sub Total:</td>
-      <td align="center" >{{ factura.total }}</td>
+      <td align="center" >{{ factura.total | currency:"CAD":"symbol-narrow"}}</td>
      </tr>
      <tr>
        <td>IVA:</td>
@@ -207,7 +207,7 @@ RECAUDADOR
      </tr>
      <tr>
        <td>TOTAL:</td>
-      <td align="center" >{{ factura.total }}</td>
+      <td align="center" >{{ factura.total | currency:"CAD":"symbol-narrow"}}</td>
      </tr>
     </table>
 </div>

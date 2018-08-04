@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MedidorService } from '../medidor.service';
+import { Router } from '../../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-medidor-create',
@@ -12,7 +13,8 @@ export class MedidorCreateComponent implements OnInit {
   successStatus = false;
   errorStatus = false;
   constructor(protected fb: FormBuilder,
-              protected medidorService: MedidorService) {
+              protected medidorService: MedidorService,
+              protected router: Router) {
               this.createForm();
   }
 
@@ -39,7 +41,7 @@ export class MedidorCreateComponent implements OnInit {
               } else {
                   console.log('medidor guardado');
                   this.successStatus = true;
-                  this.medidorGroup.reset();
+                  this.router.navigate(['component/medidores']);
               }
           });
   }

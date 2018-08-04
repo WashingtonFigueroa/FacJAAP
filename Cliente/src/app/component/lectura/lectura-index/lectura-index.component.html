@@ -87,7 +87,7 @@
                       {{ lectura.excedente}}
                     </td>
                     <td>
-                      {{ lectura.tarifa}}
+                      {{ lectura.tarifa | currency:"CAD":"symbol-narrow"}}
                     </td>
                     <td>
                       {{ lectura.estado}}

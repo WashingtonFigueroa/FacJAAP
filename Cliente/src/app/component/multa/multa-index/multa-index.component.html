@@ -65,7 +65,7 @@
                       {{ multa.descripcion}}
                     </td>
                     <td>
-                      {{ multa.valor}}
+                      {{ multa.valor | currency:"CAD":"symbol-narrow"}}
                     </td>
                     <td>
                       {{ multa.fecha}}

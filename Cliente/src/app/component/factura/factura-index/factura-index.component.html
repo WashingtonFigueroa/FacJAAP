@@ -30,25 +30,20 @@
             <table class="table table-striped table-bordered">
               <thead>
                 <tr>
-                  <th> # </th>
+                  <th> # Fac</th>
                   <th> Servicio </th>
-                  <th> Numero </th>
                   <th> Fecha </th>
                   <th> Valor </th>
-                  <th> Responsable </th>                 
-                  <th> Imprimir </th>
+                  <th> Responsable </th> 
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let factura of facturas; let i = index">
                   <td>
-                    {{ i + 1 }}
+                      {{ factura.idfacturaventa }}  
                   </td>
                   <td>
                     {{ factura.idservicio }}  
-                  </td>
-                  <td>
-                    {{ factura.numero }}
                   </td>
                   <td>
                     {{ factura.fecha }}
@@ -58,18 +53,6 @@
                   </td>
                   <td>
                     {{ factura.responsable}}
-                  </td>
-                   <td>
-                    <!-- <button (click)="edit(factura.idfactura)" type="button" class="btn btn-info">
-                      <i class="fa fa-pencil-square" aria-hidden="true"></i>
-                    </button>
-                    &nbsp;
-                    <button type="button" class="btn btn-danger" (click)="confirm(i, factura.idfactura,confirmModal)">
-                      <i class="fa fa-eraser" aria-hidden="true"></i>
-                    </button> -->
-                    <button type="button"  class="btn btn-info">
-                        <i class="mdi mdi-printer"></i>
-                    </button> 
                   </td>
                 </tr>
               </tbody>

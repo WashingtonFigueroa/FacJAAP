@@ -79,10 +79,11 @@ export class LecturaCreateComponent implements OnInit {
   }
 
   store() {
-    if (this.lecturaGroup.value.actual < this.lecturaGroup.value.anterior ) {
+    if (this.lecturaGroup.value.actual < this.lecturaGroup.value.anterior && this.lecturaGroup.value.fecha == null) {
         this.lecturaGroup.patchValue({
             actual: 0
         });
+        this.successStatus = true;
     } else {
         this.lecturaService.store(this.lecturaGroup.value)
             .subscribe(res => {
@@ -91,8 +92,7 @@ export class LecturaCreateComponent implements OnInit {
                     fecha: null,
                     anterior: '',
                     actual: '',
-                });
-                this.successStatus = true;
+                });                
                 this.router.navigate(['/component/lecturas/listar']);
             });
     }

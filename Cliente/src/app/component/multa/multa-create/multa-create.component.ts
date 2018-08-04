@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '../../../../../
 import { MultaService } from '../multa.service';
 import { ClienteService } from '../../cliente/cliente.service';
 import { MedidorService } from '../../medidor/medidor.service';
+import { Router } from '../../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-multa-create',
@@ -24,7 +25,8 @@ export class MultaCreateComponent implements OnInit {
   constructor(protected multaService: MultaService,
     protected clienteService: ClienteService,
     protected medidorService: MedidorService,
-    protected fb: FormBuilder) {
+    protected fb: FormBuilder,
+    protected router: Router) {
     this.createForm();
 
     this.clienteService.listaClientes().subscribe(res => {
@@ -80,6 +82,7 @@ export class MultaCreateComponent implements OnInit {
           fecha: '',
         });
         this.successStatus = true;
+        this.router.navigate(['component/multas']);
       });
   }
 }

@@ -104,10 +104,10 @@ export const ComponentsRoutes: Routes = [{
         redirectTo: 'listar',
         pathMatch: 'full'      },
        { path: 'listar', component: MaterialIndexComponent, data: {
-          title: 'LISTA MATERIALES',
+          title: 'LISTA INVENTARIO',
           urls: [{ title: 'INICIO', url: '/dashboard' },
            { title: 'NUEVO REGISTRO', url: '/component/materiales/crear'},
-           { title: 'MATERIALES' }]
+           { title: 'INVENTARIO' }]
         }      },
        { path: 'crear', component: MaterialCreateComponent, data: {
           title: 'CREAR MATERIAL',
@@ -133,20 +133,20 @@ export const ComponentsRoutes: Routes = [{
         redirectTo: 'listar',
         pathMatch: 'full'      },
        { path: 'listar', component: InventarioIndexComponent, data: {
-          title: 'LISTA INVENTARIO',
+          title: 'LISTA KARDEX',
           urls: [{ title: 'INICIO', url: '/dashboard' },
            { title: 'NUEVO REGISTRO', url: '/component/inventarios/crear'},
-           { title: 'INVENTARIO' }]
+           { title: 'KARDEX' }]
         }      },
        { path: 'crear', component: InventarioCreateComponent, data: {
-          title: 'GESTION INVENTARIO',
+          title: 'MOVIMIENTO KARDEX',
           urls: [{ title: 'INICIO', url: '/dashboard' },
            { title: 'LISTADO', url: '/component/inventarios/listar'},
            { title: 'NUEVO REGISTRO' }]
         }      
       },
        { path: 'editar/:id', component: InventarioEditComponent, data: {
-          title: 'EDITAR INVENTARIO',
+          title: 'EDITAR KARDEX',
           urls: [{ title: 'INICIO', url: '/dashboard' },
            { title: 'LISTADO', url: '/component/inventarios/listar'},
            { title: 'MODIFICACIÓN' }]
