@@ -1,16 +1,9 @@
-/*
-Template Name: Admin Press Admin
-Author: Themedesigner
-Email: niravjoshi87@gmail.com
-File: scss
-*/
-
 @import '../variable';
 $themecolor: #2e90ff;
 $themecolor-dark: #028ee1;
-$topbar: #fff;
-$sidebar:#242a33;
-$sidebar-text: #687384;
+$topbar: rgb(53, 51, 51);
+$sidebar:#eee;
+$sidebar-text: #585858;
 $sidebar-icons: #424a56;
 $sidebar-dark: #1c2128;
 $sidebar-alt:#1c2128;
@@ -33,10 +26,10 @@ $topbar-alt: #398bf7;
         }
         .navbar-light .navbar-nav .nav-item > {
             a.nav-link {
-                color: #a6b7bf;
+                color: #011018;
                 &:hover,
                 &:focus {
-                    color:#242a33!important;
+                    color:#424a56!important;
                 }
             }
         }
@@ -53,7 +46,7 @@ $topbar-alt: #398bf7;
         }
         .top-navbar .navbar-header .navbar-brand .light-logo {
             display: inline-block;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(0, 0, 0, 0.8);
         }
     }
 

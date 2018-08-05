@@ -75,8 +75,8 @@
               <hr>
               <div class="container-fluid">
                 <div class="row">
-                  <div class="col-md-4">
-                    <table class="table table-striped table-bordered">
+                  <div class="col-md-12">
+                    <table class="table table-striped table-bordered" align="center">
                       <thead>
                         <tr>
                           <th> Descripción </th>
@@ -127,11 +127,7 @@
                       </tbody>
                     </table>
                   </div>
-                  <div class="col-md-8">
-                      <div class="row">
-FDSFSD
-                        </div>
-                  </div>
+
                 </div>
               </div>
             </form>
@@ -190,23 +186,23 @@ _______________
 RECAUDADOR
        </pre>
      </th>
-      <td>Agua Potable:</td>
+      <td align="center" >Agua Potable:</td>
       <td align="center" > {{ factura.tarifa | currency:"CAD":"symbol-narrow"}} </td>
     </tr>
     <tr>
-      <td>Multas:</td>
+      <td align="center" >Multas:</td>
       <td align="center" >{{ factura.multa | currency:"CAD":"symbol-narrow"}} </td>
     </tr>
     <tr>
-       <td>Sub Total:</td>
+       <td align="center" >Sub Total:</td>
       <td align="center" >{{ factura.total | currency:"CAD":"symbol-narrow"}}</td>
      </tr>
      <tr>
-       <td>IVA:</td>
+       <td align="center" >IVA:</td>
       <td align="center" >0.00</td>
      </tr>
      <tr>
-       <td>TOTAL:</td>
+       <td align="center" >TOTAL:</td>
       <td align="center" >{{ factura.total | currency:"CAD":"symbol-narrow"}}</td>
      </tr>
     </table>

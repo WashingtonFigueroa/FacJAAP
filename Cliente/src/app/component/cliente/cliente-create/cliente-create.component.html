@@ -9,16 +9,10 @@
                   <div class="form-group">
                     <label for="cedula">*Ingrese cédula </label>
                     <input type="text" class="form-control" id="cedula" name="cedula" formControlName="cedula" OnlyNumber="true" maxlength="13" autofocus/>
-                    <div class="alert alert-danger" role="alert" *ngIf="clienteGroup.get('cedula').status === 'INVALID'">
-                      <strong>El campo cédula es obligatorio</strong>
-                    </div>
                   </div>
                   <div class="form-group">
                     <label for="nombres"> *Ingrese nombres </label>
                     <input type="text" class="form-control" id="nombres" name="nombres" formControlName="nombres" />
-                    <div class="alert alert-danger" role="alert" *ngIf="clienteGroup.get('nombres').status === 'INVALID'">
-                      <strong>El campo nombres es obligatorio</strong>
-                    </div>
                   </div>
                   <div class="form-group">
                     <label for="direccion">* Seleccione direccion </label>
@@ -26,9 +20,6 @@
                       <option>San José de Chorlaví</option>
                       <option>San Agustin</option>
                     </select>
-                    <div class="alert alert-danger" role="alert" *ngIf="clienteGroup.get('direccion').status === 'INVALID'">
-                        <strong>El campo dirección es obligatorio</strong>
-                      </div>
                   </div>
                   <div class="form-group">
                     <label for="observacion"> Ingrese dirección </label>
@@ -60,26 +51,15 @@
                   <strong>Datos guardados exitosamente :D</strong>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="card">
-                  <h5 class="card-header">
-                            Reglamento
-                          </h5>
-                  <div class="card-body">
-                    <p class="card-text">
-                      Tiene que tener facturero
-                    </p>
-                    <p class="card-text">
-                      reglas 2
-                    </p>
-                    <p class="card-text">
-                      reglas 3
-                    </p>
+              <div class="col-md-6" align="center">
+                <!-- inicio card -->
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="assets\images\log.png" alt="Card image cap">
+                    <div class="card-body">
+                      <p class="card-text">Proveer con cantidad, calidad, eficacia y el servicio de agua potable de uso domestico para los usuarios del barrio San José de Chorlavi y San Agustin, contribuyendo en el mejoramiento de la calidad de vida a través de la capacitación y del mejoramiento continuo de quienes administran el sistema de agua potable.</p>
+                    </div>
                   </div>
-                  <div class="card-footer">
-                    La Directiva
-                  </div>
-                </div>
+                  <!-- fin card -->
               </div>
             </div>
           </div>

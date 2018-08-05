@@ -35,6 +35,7 @@ export class FacturaCreateComponent implements OnInit {
       direccion: '',
       codigo_medidor: ''
   };
+
   constructor(protected clienteService: ClienteService,
               protected medidorService: MedidorService,
               protected lecturaService: LecturaService,
@@ -151,6 +152,7 @@ export class FacturaCreateComponent implements OnInit {
                      this.factura.multa = res.multa;
                      this.factura.total = res.total;
                  });
+                
   }
 
   print(idfactura): void {
@@ -161,7 +163,7 @@ export class FacturaCreateComponent implements OnInit {
     popupWin.document.write(`
       <html>
         <head>
-          <title>UTN</title>
+          <title>UTN / Estuardo Figueroa</title>
           <style>        
           </style>
         </head>

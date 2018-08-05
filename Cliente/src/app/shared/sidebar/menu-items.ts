@@ -7,7 +7,7 @@ path: '', title: 'Ajustes  ', icon: 'mdi mdi-settings', class: 'has-arrow', labe
 submenu: [
 { path: '/component/tipousuarios/listar', title: 'Cargos  ', icon: 'ti-user', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
 { path: '/component/usuarios/listar', title: 'Usuarios  ', icon: 'mdi mdi-account-multiple', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
-{ path: '/component/privilegios/listar', title: 'Privilegios  ', icon: 'mdi mdi-format-list-bulleted', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
+// { path: '/component/privilegios/listar', title: 'Privilegios  ', icon: 'mdi mdi-format-list-bulleted', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
 { path: '/login/logout', title: 'Salir  ', icon: 'mdi mdi-wallet', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
 ]},
 {

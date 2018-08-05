@@ -71,7 +71,6 @@ export class LecturaCreateComponent implements OnInit {
       'idcliente': new FormControl(0, [Validators.required]),
       'idmedidor': new FormControl(0, [Validators.required]),
       'observacion': new FormControl('', [Validators.required]), 
-      'fecha': new FormControl(null, [Validators.required]),
       'anterior': new FormControl(null, [Validators.required]),
       'actual': new FormControl('', [Validators.required]),
       'estado': new FormControl('Deber', [Validators.required])
@@ -79,7 +78,7 @@ export class LecturaCreateComponent implements OnInit {
   }
 
   store() {
-    if (this.lecturaGroup.value.actual < this.lecturaGroup.value.anterior && this.lecturaGroup.value.fecha == null) {
+    if (this.lecturaGroup.value.actual < this.lecturaGroup.value.anterior) {
         this.lecturaGroup.patchValue({
             actual: 0
         });
@@ -89,7 +88,6 @@ export class LecturaCreateComponent implements OnInit {
             .subscribe(res => {
                 this.lecturaGroup.patchValue({
                     observacion: '',
-                    fecha: null,
                     anterior: '',
                     actual: '',
                 });                

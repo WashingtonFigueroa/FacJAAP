@@ -49,7 +49,7 @@ class LecturaController extends Controller
         $lectura = new Lectura();
         $lectura->idservicio = $idservicio;
         $lectura->observacion = $request->input('observacion');
-        $lectura->fecha = $request->input('fecha');
+        $lectura->fecha = Carbon::now()->format('Y-m-d');
         $lectura->anterior = $request->input('anterior');
         $lectura->actual = $request->input('actual');
         $lectura->consumo = $lectura->actual - $lectura->anterior;
