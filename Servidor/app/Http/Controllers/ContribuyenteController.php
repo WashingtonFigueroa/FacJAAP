@@ -10,7 +10,7 @@ class ContribuyenteController extends Controller
 {
     public function index()
     {
-        return response()->json(Contribuyente::orderBy('idcliente', 'desc')->paginate(10), 200);
+        return response()->json(Contribuyente::orderBy('idcliente', 'desc')->paginate(150), 200);
     }
 
     public function store(Request $request)

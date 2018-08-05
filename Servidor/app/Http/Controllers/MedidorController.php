@@ -13,7 +13,7 @@ class MedidorController extends Controller
 {
     public function index()
     {
-        return response()->json(Medidor::orderBy('idmedidor', 'desc')->paginate(10), 200);
+        return response()->json(Medidor::orderBy('idmedidor', 'desc')->paginate(150), 200);
     }
 
     public function store(Request $request)

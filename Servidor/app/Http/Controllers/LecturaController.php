@@ -42,51 +42,28 @@ class LecturaController extends Controller
                                 ->first()
                                 ->idservicio;
 
-        $lecturas = Servicio::find($idservicio)->lecturas()->count();
-
         $baseM3 = Parametro::where('descripcion', 'like', '%'.'Base M3'.'%')->first();
         $valorbase = Parametro::where('descripcion', 'like', '%'.'Base M3 Chorlavi'.'%')->first();
         $metroCubicoAgua = Parametro::where('descripcion', 'like', '%'.'M3 Agua Chorlavi'.'%')->first();
         
         $lectura = new Lectura();
-        if ($lecturas === 0) {
-            $lectura->idservicio = $idservicio;
-            $lectura->observacion = $request->input('observacion');
-            $lectura->fecha = $request->input('fecha');
-            $lectura->anterior = $request->input('anterior');
-            $lectura->actual = $request->input('actual');
-            $lectura->consumo = $lectura->actual - $lectura->anterior;
-            if ($lectura->consumo > $baseM3->valor)
-            {
-                $lectura->excedente = $lectura->consumo - $baseM3->valor;
-                $lectura->tarifa = ($lectura->excedente *  $metroCubicoAgua->valor) + $valorbase->valor;
-            }else{
-                $lectura->excedente = 0;
-                $lectura->tarifa = $valorbase->valor;
-            }
-            $lectura->estado = 'Deber';
-            $lectura->save();
-        } else {
-            $ultimaLectura = Servicio::find($idservicio)->lecturas()->orderBy('idlectura', 'desc')->first();
-//             $ultimaLectura = Lectura::where('idservicio', $idservicio)->orderBy('idlectura', 'asc')->first();
-// dump($ultimaLectura);
-            $lectura->idservicio = $idservicio;
-            $lectura->observacion = $request->input('observacion');
-            $lectura->fecha = $request->input('fecha');
-            $lectura->anterior = $ultimaLectura->actual;
-            $lectura->actual = $request->input('actual');
-            $lectura->consumo = $lectura->actual - $lectura->anterior;
-            if ($lectura->consumo > $baseM3->valor)
-            {
-                $lectura->excedente = $lectura->consumo - $baseM3->valor;
-                $lectura->tarifa = ($lectura->excedente *  $metroCubicoAgua->valor) + $valorbase->valor;
-            }else{
-                $lectura->excedente = 0;
-                $lectura->tarifa = $valorbase->valor;
-            }
-            $lectura->estado = 'Deber';
-            $lectura->save();
+        $lectura->idservicio = $idservicio;
+        $lectura->observacion = $request->input('observacion');
+        $lectura->fecha = $request->input('fecha');
+        $lectura->anterior = $request->input('anterior');
+        $lectura->actual = $request->input('actual');
+        $lectura->consumo = $lectura->actual - $lectura->anterior;
+        if ($lectura->consumo > $baseM3->valor)
+        {
+            $lectura->excedente = $lectura->consumo - $baseM3->valor;
+            $lectura->tarifa = ($lectura->excedente *  $metroCubicoAgua->valor) + $valorbase->valor;
+        }else{
+            $lectura->excedente = 0;
+            $lectura->tarifa = $valorbase->valor;
         }
+        $lectura->estado = 'Deber';
+        $lectura->save();
+
         return response()->json($lectura, 201);
     }
 
@@ -113,7 +90,10 @@ class LecturaController extends Controller
     }
 
     public function pagar($idlectura) {
-        $tarifa = 0;
+//http://localhost:8000/api/pagar/:idlectura?token=hasdkfjhaausdfi
+$user = JWTAuth::parseToken()->authenticate();
+if ($user->nombre != null) {
+    $tarifa = 0;
         $multa = 0;
 
         $totalPagar = 0;
@@ -134,8 +114,7 @@ class LecturaController extends Controller
             $multa->estado = 'Pagado';
             $multa->save();
         }
-        //http://localhost:8000/api/pagar/:idlectura?token=hasdkfjhaausdfi
-        $user = JWTAuth::parseToken()->authenticate();
+
         $datos = [
             'idservicio' => $idservicio,
             'numero' => 0,
@@ -153,6 +132,8 @@ class LecturaController extends Controller
             'total' => $totalPagar,
             'lectura' => $lectura
         ], 200);
+}
+       
     }
     public function getMes($fecha) {
         $mes = '';
@@ -206,11 +187,14 @@ class LecturaController extends Controller
         ], 200);
     }
     public function searchLecturaAnterior($idmedidor) {
-        $lectura = Servicio::where('idmedidor', $idmedidor)
-                            ->first()
-                            ->lecturas()
+
+        $idservicio = Servicio::where('idmedidor', $idmedidor)
+                                ->first()
+                                ->idservicio;
+        $lectura = Lectura::where('idservicio', $idservicio)
                             ->orderBy('idlectura', 'desc')
                             ->first();
+
         return response()->json($lectura, 200);
     }
 }

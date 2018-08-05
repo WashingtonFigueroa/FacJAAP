@@ -13,7 +13,7 @@ class ServicioController extends Controller
     {
     return response()->json(Servicio::with('Contribuyente','Medidor')
                     ->orderBy('idservicio', 'desc')
-                    ->paginate(10),
+                    ->paginate(150),
                     200); 
     }
 
