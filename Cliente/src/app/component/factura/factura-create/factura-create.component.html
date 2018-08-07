@@ -33,6 +33,7 @@
                           </div>
                     </div>
                   </div>
+                  <hr>
               <div class="row">
                 <div class="col">
                   <div class="table-responsive">
@@ -60,7 +61,7 @@
                           <td>{{ lectura.tarifa | currency:"CAD":"symbol-narrow" }}</td>
                           <td>
                             <button (click)="verFactura(lectura)" class="btn btn-info">Ver
-                            </button>&nbsp;
+                            </button>&nbsp;&nbsp;&nbsp;
                             <button (click)="pagar(lectura.idlectura, i)" [disabled]="lectura.estado === 'Pagado'" [class.btn]="true" [class.btn-danger]="lectura.estado === 'Pagado'" [class.btn-primary]="lectura.estado === 'Deber'">
                               <span *ngIf="lectura.estado === 'Deber'">Pagar</span>
                               <span *ngIf="lectura.estado === 'Pagado'">Pagado</span>

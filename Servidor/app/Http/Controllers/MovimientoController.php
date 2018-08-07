@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Movimiento;
+use App\FacturaVenta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -11,6 +12,20 @@ class MovimientoController extends Controller
     public function index()
     {
     return response()->json(Movimiento::orderBy('idmovimiento', 'asc')->paginate(10),200);
+    }
+
+    public function Egresos()
+    {
+        $egresos = Movimiento::sum('valor');
+        
+      return response()->json($egresos, 200); 
+    }
+
+    public function Ingresos()
+    {
+        $ingresos = FacturaVenta::sum('valor');
+        
+      return response()->json($ingresos, 200); 
     }
 
     public function store(Request $request)

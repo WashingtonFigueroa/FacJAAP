@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Usuario;
 use Illuminate\Http\Request;
+use Validator;
 
 class UsuarioController extends Controller
 {
@@ -13,11 +14,30 @@ class UsuarioController extends Controller
                          ->orderBy('iduser', 'desc')->paginate(10), 200);
     }
 
+    public function listaUsuarios()
+    {
+        return response()->json(Usuario::with('tipoUsuario')
+                         ->orderBy('iduser', 'desc')->get, 200);
+    }
+
     public function store(Request $request)
     {
-        //Hash::make($request->input('pass'));
-            $Usuario = Usuario::create($request->all());
-            return response()->json($Usuario, 201);
+        $validator = Validator::make($request->all(), [
+            'password' => 'required|min:6|confirmed'
+        ]);
+        if ($validator->fails()){
+            return response()->json([
+                'error' => 'La confirmacion de password no coincide'
+            ], 500);
+        } else {
+            $user = new Usuario();
+            $user->idtipo = $request->input('idtipo');
+            $user->nombre = $request->input('nombre');
+            $user->correo = $request->input('correo');
+            $user->password = Hash::make($request->input('password'));
+            $user->save();
+            return response()->json($user, 201);
+        }
     }
 
     public function show($id)

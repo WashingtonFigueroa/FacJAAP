@@ -3,51 +3,56 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <div class="row">
-            <div class="col-md-8">
-                  <form (submit)="update()" role="form" [formGroup]="parametroGroup"
+                 <form (submit)="update()" role="form" [formGroup]="parametroGroup"
                   *ngIf="parametro !== null">
-                  <div class="form-group">
-                    <label for="descripcion">
-                      * Ingrese descripción
-                    </label>
-                    <input type="text" class="form-control" id="descripcion" name="descripcion" formControlName="descripcion" disabled />
-                  </div>
-                  <div class="form-group">
-  
-                    <label for="valor">
-                      * Ingrese valor
-                    </label>
-                    <input type="text" class="form-control" id="valor" name="valor" formControlName="valor" OnlyNumber="true" autofocus placeholder="$0.00"/>
-                  </div>
-                  <div class="form-group">
-                    <label for="detalle">
-                        Ingrese Detalle
-                    </label>
-                    <input type="text" class="form-control" id="detalle" name="detalle" formControlName="detalle" />
-                  </div>
-                  <div class="form-group">
-                    <label for="estado">
-                      * Seleccione el estado
-                    </label>
-                    <input type="text" class="form-control" id="estado" name="estado" formControlName="estado" ng-maxlength="10" />
-                  </div>
-                <button type="submit" class="btn btn-success">
-                    Actualizar
-                </button>
-            </form>
-            </div>
-            <div class="col-md-6" align="center">
-                <!-- inicio card -->
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="assets\images\log.png" alt="Card image cap">
-                    <div class="card-body">
-                      <p class="card-text">Proveer con cantidad, calidad, eficacia y el servicio de agua potable de uso domestico para los usuarios del barrio San José de Chorlavi y San Agustin, contribuyendo en el mejoramiento de la calidad de vida a través de la capacitación y del mejoramiento continuo de quienes administran el sistema de agua potable.</p>
+                  <div class="row">
+                      <div class="col-md-4">
+                          <div class="form-group">
+                              <label for="descripcion">
+                                * Ingrese descripción
+                              </label>
+                              <input type="text" class="form-control" id="descripcion" name="descripcion" formControlName="descripcion" disabled/>
+                            </div>
+                            <div class="form-group">
+                              <label for="valor">
+                                * Ingrese valor
+                              </label>
+                              <input type="number" class="form-control" id="valor" name="valor" formControlName="valor" placeholder="$0.00" autofocus/>
+                            </div>
+                            <div class="form-group">
+                              <label for="detalle">
+                                Ingrese Detalle
+                              </label>
+                              <input type="text" class="form-control" id="detalle" name="detalle" formControlName="detalle" />
+                            </div>
+                            <hr>
+                            <button type="submit" class="btn btn-success">
+                                Actualizar
+                            </button>
+                      </div>
+                      <div class="col-md-4" align="center">
+                        <div class="col align-self-center">
+                            <img alt="JAAP" src="\assets\images\icon\parametros.jpg" width="200"/>
+                        </div>
+                      </div>
+                      <div class="col-md-4" align="center">
+                        <!-- inicio card -->
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-header">
+                              NOTA:
+                            </div>
+                            <ul class="list-group list-group-flush">
+                              <li class="list-group-item">Todos los parámetros creados no podrán ser modificados aceptó el valor y estado.</li>
+    
+                            </ul>
+                          </div>
+                      <!-- fin card -->
+                      </div>
                     </div>
-                  </div>
-                  <!-- fin card -->
-              </div>
-          </div>
+            </form>
+        
+
+       
         </div>
       </div>
     </div>

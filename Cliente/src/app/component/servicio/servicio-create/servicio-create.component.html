@@ -1,15 +1,16 @@
 <div class="card">
     <div class="card-body">
       <div class="container-fluid">
+        <form (submit)="store()" role="form" [formGroup]="servicioGroup">
         <div class="row">
-          <div class="col-md-12">
-            <div class="row">
-              <div class="col-md-6">
-                <form (submit)="store()" role="form" [formGroup]="servicioGroup">
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-4">
                   <div class="form-group">
                     <div class="col" *ngIf="clientesSearch !== null">
-                      <label for="servicio">* Seleccione el cliente </label> <br>
-                        <ng-autocomplete (selected)="Selected($event)" [classes]="['']" [group]="clientesSearch"></ng-autocomplete>
+                      <label for="servicio">* Seleccione el cliente </label>
+                      <br>
+                      <ng-autocomplete (selected)="Selected($event)" [classes]="['']" [group]="clientesSearch"></ng-autocomplete>
                     </div>
                   </div>
                   <div class="form-group">
@@ -32,28 +33,40 @@
                     </label>
                     <input type="text" class="form-control" id="observacion" formControlName="observacion" name="observacion" />
                   </div>
+                  <hr>
                   <button type="submit" class="btn btn-primary">
                     Guardar
                   </button>
-                </form>
-                  <div class="alert alert-success" role="alert"
-                    *ngIf="successStatus == true">
-                    <strong>Datos guardados exitosamente :D</strong>
+                </div>
+                <div class="col-md-4" align="center">
+                  <div class="col align-self-center">
+                    <img alt="JAAP" src="\assets\images\icon\servicio.jpg" width="200" />
                   </div>
-              </div>
-              <div class="col-md-6" align="center">
+                </div>
+                <div class="col-md-4" align="center">
                   <!-- inicio card -->
                   <div class="card" style="width: 18rem;">
-                      <img class="card-img-top" src="assets\images\log.png" alt="Card image cap">
-                      <div class="card-body">
-                        <p class="card-text">Proveer con cantidad, calidad, eficacia y el servicio de agua potable de uso domestico para los usuarios del barrio San José de Chorlavi y San Agustin, contribuyendo en el mejoramiento de la calidad de vida a través de la capacitación y del mejoramiento continuo de quienes administran el sistema de agua potable.</p>
-                      </div>
+                    <div class="card-header">
+                      NOTA:
                     </div>
-                    <!-- fin card -->
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">El valor de Instalacion es de $300.00</li>
+                        <li class="list-group-item">Las planillas a cancelar son el primer domingo del mes</li>
+                      <li class="list-group-item">Los valores de las multas seran incluidos en la planilla del mes</li>
+                      <li class="list-group-item">El valor de multa por 3 meses es de $ 0.50</li>
+                      <li class="list-group-item">El valor de multa por 6 meses reconección es de $ 10.00</li>
+                    </ul>
+                  </div>
+                  <!-- fin card -->
                 </div>
+              </div>
             </div>
           </div>
+        </form>
+        <div class="alert alert-success" role="alert" *ngIf="successStatus == true">
+          <strong>Datos guardados exitosamente :D</strong>
         </div>
+
       </div>
     </div>
   </div>

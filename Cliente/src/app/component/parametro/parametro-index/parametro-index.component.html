@@ -37,7 +37,7 @@
                       Descripción
                     </th>
                     <th>
-                      valor
+                      Valor
                     </th>
                     <th>
                       Detalle
@@ -59,7 +59,7 @@
                       {{ parametro.descripcion }}
                     </td>
                     <td>
-                      {{ parametro.valor }}
+                      {{ parametro.valor | currency:"CAD":"symbol-narrow"}}
                     </td>
                     <td>
                       {{ parametro.detalle}}
@@ -67,14 +67,14 @@
                     <td>
                       {{ parametro.estado}}
                     </td>
-                    <td>
+                    <td align="center">
                       <button (click)="edit(parametro.idparametro)" type="button" class="btn btn-info">
                         <i class="fa fa-pencil-square" aria-hidden="true"></i>
                       </button>
-                      &nbsp;&nbsp;
+                      <!-- &nbsp;&nbsp;
                       <button type="button" class="btn btn-danger" (click)="confirm(i, parametro.idparametro,confirmModal)">
                         <i class="fa fa-eraser" aria-hidden="true"></i>
-                      </button>
+                      </button> -->
                     </td>
                   </tr>
                 </tbody>

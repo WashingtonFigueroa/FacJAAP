@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FacturaService} from "../factura/factura.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import { EstadisticasService } from './estadisticas.service';
 
 @Component({
   selector: 'app-estadisticas',
@@ -9,6 +10,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class EstadisticasComponent implements OnInit {
   ventas_mes: any = [];
+  total_egresos;
+  total_ingresos;
 
   ventas: any = {
       data: [
@@ -25,12 +28,19 @@ export class EstadisticasComponent implements OnInit {
   };
   pieGroup: FormGroup;
   constructor(protected facturaService: FacturaService,
+              protected estadisticasService: EstadisticasService,
               protected fb: FormBuilder) {
 
       this.createForm();
   }
 
   ngOnInit() {
+    this.estadisticasService.total_egresos().subscribe(res => {
+        this.total_egresos = res;
+      });
+      this.estadisticasService.total_ingresos().subscribe(res => {
+        this.total_ingresos = res;
+      });
   }
   //reset pie
   reset() {

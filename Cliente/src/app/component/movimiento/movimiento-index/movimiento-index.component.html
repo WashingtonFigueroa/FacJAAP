@@ -51,9 +51,6 @@
                           <th>
                               Valor
                             </th>
-                            <th>
-                                Respaldo
-                              </th>
                     <th>
                       Acciones
                     </th>
@@ -80,11 +77,8 @@
                           {{ movimiento.numfac }}
                         </td>
                         <td>
-                          {{ movimiento.valor }}
+                          {{ movimiento.valor | currency:"CAD":"symbol-narrow" }}
                         </td>
-                        <td>
-                            <!-- {{ movimiento.documento }} --> link img 
-                          </td>
                     <td>
                       <button (click)="edit(movimiento.idmovimiento)" type="button" class="btn btn-info">
                         <i class="fa fa-pencil-square" aria-hidden="true"></i>

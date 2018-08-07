@@ -22,12 +22,17 @@ Route::resource('clientes', 'ContribuyenteController');
 Route::resource('medidores', 'MedidorController');
 Route::resource('servicios', 'ServicioController');
 Route::resource('multas', 'MultaController');
+
 Route::resource('movimientos', 'MovimientoController');
+Route::get('total_egresos', 'MovimientoController@Egresos');
+Route::get('total_ingresos', 'MovimientoController@Ingresos');
+
 Route::resource('factura_ventas', 'FacturaVentaController');
 Route::resource('pago_medidor', 'PagoMedidorController');
 Route::resource('parametros', 'ParametroController');
 Route::resource('tipousuarios', 'TipoUsuarioController');
 Route::resource('usuarios', 'UsuarioController');
+Route::resource('listaUsuarios', 'UsuarioController@listaUsuarios');
 //Route::resource('privilegios', 'PrivilegioController');
 
 Route::resource('lecturas', 'LecturaController');

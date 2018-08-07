@@ -1,47 +1,56 @@
 <div class="card">
-  <div class="card-body">
+    <div class="card-body">
       <div class="container-fluid">
+        <form (submit)="update()" role="form" *ngIf="multa !== null" [formGroup]="multaGroup">
           <div class="row">
             <div class="col-md-12">
               <div class="row">
-                <div class="col-md-8">
-                    <form (submit)="update()" role="form" *ngIf="multa !== null" [formGroup]="multaGroup">
-                      <div class="form-group">
-                        <label for="descripcion">
-                          * Ingrese descripción
-                        </label>
-                        <input type="text" class="form-control" id="descripcion" formControlName="descripcion" name="descripcion"/>
-                      </div>
-                      <div class="form-group">
-                          <label for="valor">
-                            * Ingrese Valor Multa
-                          </label>
-                          <input type="text" class="form-control" id="valor" formControlName="valor" name="valor" OnlyNumber="true" placeholder="$ 0.00"/>
-                        </div>
-                      <div class="form-group">
-                        <label for="fecha">
-                          * Ingrese fecha
-                        </label>
-                        <input type="date" class="form-control" id="fecha" formControlName="fecha" name="fecha"/>
-                      </div>
-                      <button type="submit" class="btn btn-success">
-                        Actualizar
-                    </button>
-                      </form>
-                </div>
-                <div class="col-md-6" align="center">
-                    <!-- inicio card -->
-                    <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="assets\images\log.png" alt="Card image cap">
-                        <div class="card-body">
-                          <p class="card-text">Proveer con cantidad, calidad, eficacia y el servicio de agua potable de uso domestico para los usuarios del barrio San José de Chorlavi y San Agustin, contribuyendo en el mejoramiento de la calidad de vida a través de la capacitación y del mejoramiento continuo de quienes administran el sistema de agua potable.</p>
-                        </div>
-                      </div>
-                      <!-- fin card -->
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="descripcion">
+                      * Ingrese descripción
+                    </label>
+                    <input type="text" class="form-control" id="descripcion" formControlName="descripcion" name="descripcion" />
                   </div>
+                  <div class="form-group">
+                    <label for="fecha">
+                      * Ingrese fecha
+                    </label>
+                    <input type="date" class="form-control" id="fecha" formControlName="fecha" name="fecha" />
+                  </div>
+                  <div class="form-group">
+                    <label for="valor">
+                      * Ingrese valor multa
+                    </label>
+                    <input type="number" class="form-control" id="valor" formControlName="valor" name="valor" placeholder="$ 0.00" />
+                  </div>
+                  <hr>
+                  <button type="submit" class="btn btn-success">
+                    Actualizar
+                  </button>
+                </div>
+                <div class="col-md-4" align="center">
+                  <div class="col align-self-center">
+                    <img alt="JAAP" src="\assets\images\icon\multa.jpg" width="200" />
+                  </div>
+                </div>
+                <div class="col-md-4" align="center">
+                  <!-- inicio card -->
+                  <div class="card" style="width: 18rem;">
+                    <div class="card-header">
+                      NOTA:
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">El valor de las multas es aleatorio y colocadas en asamblea.</li>
+                      <li class="list-group-item">Este valor se cancela en la planilla del mes.</li>
+                    </ul>
+                  </div>
+                  <!-- fin card -->
+                </div>
               </div>
             </div>
           </div>
-        </div>   
+        </form>
+      </div>
+    </div>
   </div>
-</div>

@@ -49,7 +49,7 @@
                     {{ factura.fecha }}
                   </td>
                   <td>
-                    {{ factura.valor}}
+                    {{ factura.valor | currency:"CAD":"symbol-narrow"}}
                   </td>
                   <td>
                     {{ factura.responsable}}

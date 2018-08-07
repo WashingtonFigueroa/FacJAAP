@@ -45,6 +45,6 @@ class FacturaVentaController extends Controller
             ->groupBy('mes')
             ->selectRaw('mes, sum(valor) as suma')
             ->get();
-        return response()->json($ventas, 200);
+        return response()->json($ventas, 200); 
     }
 }

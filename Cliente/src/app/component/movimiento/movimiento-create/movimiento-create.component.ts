@@ -48,7 +48,7 @@ export class MovimientoCreateComponent implements OnInit {
           this.movimientoService.store(form)
               .subscribe(res => {
                   console.log('Material guardado');
-                  this.router.navigate(['component/materiales']);
+                  this.router.navigate(['component/movimientos']);
                   this.successStatus = true;
               });
       }
