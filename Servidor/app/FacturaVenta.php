@@ -12,7 +12,6 @@ class FacturaVenta extends Model
     protected $primaryKey = 'idfacturaventa';
     protected $fillable = [
         'idservicio',
-        'numero',
         'fecha',
         'valor',
         'responsable',

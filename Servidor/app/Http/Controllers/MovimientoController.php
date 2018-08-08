@@ -11,7 +11,7 @@ class MovimientoController extends Controller
 {
     public function index()
     {
-    return response()->json(Movimiento::orderBy('idmovimiento', 'asc')->paginate(10),200);
+    return response()->json(Movimiento::orderBy('idmovimiento', 'desc')->paginate(10),200);
     }
 
     public function Egresos()

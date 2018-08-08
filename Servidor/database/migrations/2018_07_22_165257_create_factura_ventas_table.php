@@ -20,7 +20,6 @@ class CreateFacturaVentasTable extends Migration
                   ->references('idservicio') 
                   ->on('servicios')
                   ->onDelete('cascade');
-            $table->string('numero');
             $table->date('fecha');
             $table->double('valor', 8, 2);
             $table->string('responsable');

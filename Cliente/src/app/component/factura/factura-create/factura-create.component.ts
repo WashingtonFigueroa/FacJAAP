@@ -163,11 +163,24 @@ export class FacturaCreateComponent implements OnInit {
     popupWin.document.write(`
       <html>
         <head>
-          <title>UTN / Estuardo Figueroa</title>
+          <title>UTN</title>
           <style>        
           </style>
         </head>
         <body onload="window.print();window.close()">
+        <table cellpadding=2 align="center">
+            <tr>
+            <th colspan="2">JUNTA ADMINISTRADORA DE AGUA POTABLE - "SAN JOSÉ DE CHORLAVÍ"</th>
+            <th> 
+            <img alt="JAAP" src="/assets/images/log.png" width="100"/>
+            </th>
+            </tr>
+            <tr>
+            <th colspan="2" align="center">Provincia Imbabura - cantón Ibarra</th>
+            <th> Recibo # : ${idfactura}</th>
+            </tr> 
+        </table>
+        <hr>
             ${printContents}
         </body>
       </html>`

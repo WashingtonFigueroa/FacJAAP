@@ -8,6 +8,7 @@ use App\Lectura;
 use App\Multa;
 use App\Parametro;
 use App\Servicio;
+use App\Movimiento;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -117,7 +118,6 @@ if ($user->nombre != null) {
 
         $datos = [
             'idservicio' => $idservicio,
-            'numero' => 0,
             'fecha' => Carbon::now(),
             'valor' => $totalPagar,
             'responsable' => $user->nombre,
@@ -157,7 +157,6 @@ if ($user->nombre != null) {
     public function crearFactura ($datos) {
         $factura = new FacturaVenta();
         $factura->idservicio = $datos['idservicio'];
-        $factura->numero = $datos['numero'];
         $factura->fecha = $datos['fecha'];
         $factura->valor = $datos['valor'];
         $factura->responsable = $datos['responsable'];
@@ -165,6 +164,19 @@ if ($user->nombre != null) {
         $factura->impreso = $datos['impreso'];
         $factura->mes = $this->getMes($datos['fecha']);
         $factura->save();
+//   guardar movimiento
+
+
+        $Movimiento = new Movimiento();
+        $Movimiento->tipo = 'Ingreso';
+        $Movimiento->fecha = $datos['fecha'];
+        $Movimiento->detalle = 'Pago planilla';
+        $Movimiento->intermediario = $datos['responsable'];
+        $Movimiento->numfac = '001';
+        $Movimiento->valor = $datos['valor'];
+        $Movimiento->save();
+
+
         return $factura->idfacturaventa;
     }
     public function verFactura($idlectura) {
