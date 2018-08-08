@@ -40,9 +40,20 @@ class MovimientoController extends Controller
             $Movimiento->numfac = $request->input('numfac');
             $Movimiento->valor = $request->input('valor');
             $Movimiento->documento = $path_documento;
-            $Movimiento->save();
-            return response()->json($Movimiento, 201);
+            $Movimiento->save();           
         }
+        else{
+            $Movimiento = new Movimiento();
+            $Movimiento->tipo = $request->input('tipo');
+            $Movimiento->fecha = $request->input('fecha');
+            $Movimiento->detalle = $request->input('detalle');
+            $Movimiento->intermediario = $request->input('intermediario');
+            $Movimiento->numfac = $request->input('numfac');
+            $Movimiento->valor = $request->input('valor');
+            $Movimiento->documento = "documentos/log.png";
+            $Movimiento->save();
+        }
+        return response()->json($Movimiento, 201);
     }
 
     public function show($id)

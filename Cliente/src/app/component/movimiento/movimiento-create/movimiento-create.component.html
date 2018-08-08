@@ -1,70 +1,73 @@
 <div class="card">
     <div class="card-body">
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="row">
-              <div class="col-md-6">
-                <form (submit)="store()" role="form" [formGroup]="movimientoGroup">
-                    
+        <form (submit)="store()" role="form" [formGroup]="movimientoGroup">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-4">
                   <div class="form-group">
-                        <label for="tipo">
-                           * Seleccione movimiento
-                        </label>
-                        <select class="form-control" id="tipo" formControlName="tipo" name="tipo" autofocus>
-                            <option>Egreso</option>
-                            <option>Ingreso</option>
-                          </select>
-                      </div>  
-      
+                    <label for="tipo">
+                      * Seleccione movimiento
+                    </label>
+                    <select class="form-control" id="tipo" formControlName="tipo" name="tipo" autofocus>
+                      <option selected>Egreso</option>
+                      <option>Ingreso</option>
+                    </select>
+                  </div>
                   <div class="form-group">
                     <label for="fecha">*Seleccione la fecha </label>
-                    <input type="date" class="form-control" id="fecha" name="fecha" formControlName="fecha"/>
+                    <input type="date" class="form-control" id="fecha" name="fecha" formControlName="fecha" />
                   </div>
                   <div class="form-group">
                     <label for="detalle"> *Ingrese detalle </label>
                     <input type="text" class="form-control" id="detalle" name="detalle" formControlName="detalle" />
                   </div>
                   <div class="form-group">
-                      <label for="intermediario"> *Ingrese responsable </label>
-                      <input type="text" class="form-control" id="intermediario" name="intermediario" formControlName="intermediario" />
+                    <label for="intermediario"> *Ingrese responsable </label>
+                    <input type="text" class="form-control" id="intermediario" name="intermediario" formControlName="intermediario" />
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="col align-self-center">
+                    <div class="form-group">
+                      <label for="numfac"> *Ingrese # factura </label>
+                      <input type="text" class="form-control" id="numfac" name="numfac" formControlName="numfac" />
                     </div>
                     <div class="form-group">
-                        <label for="numfac"> *Ingrese # factura </label>
-                        <input type="text" class="form-control" id="numfac" name="numfac" formControlName="numfac" />
-                      </div>
-                      <div class="form-group">
-                          <label for="valor"> *Ingrese valor </label>
-                          <input type="number" class="form-control" id="valor" name="valor" formControlName="valor" />
-                        </div>
-                        <div class="form-group">
-                            <label for="documento">*Seleccione documento </label>
-                            <input type="file"
-                                   class="form-control"
-                                   #documento
-                                   id="documento" name="documento"/>
-                          </div>
-                  <button type="submit" class="btn btn-primary">
-                    Guardar
-                  </button>
-                </form>
-                <div class="alert alert-success" role="alert" *ngIf="successStatus == true">
-                  <strong>Datos guardados exitosamente :D</strong>
+                      <label for="valor"> *Ingrese valor </label>
+                      <input type="number" class="form-control" id="valor" name="valor" formControlName="valor" />
+                    </div>
+                    <div class="form-group">
+                      <label for="documento">Seleccione documento </label>
+                      <input type="file" class="form-control" #documento id="documento" name="documento" />
+                    </div>
+                    <hr>
+                    <button type="submit" class="btn btn-primary">
+                      Guardar
+                    </button>
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-6" align="center">
+                <div class="col-md-4" align="center">
                   <!-- inicio card -->
                   <div class="card" style="width: 18rem;">
-                      <img class="card-img-top" src="assets\images\log.png" alt="Card image cap">
-                      <div class="card-body">
-                        <p class="card-text">Proveer con cantidad, calidad, eficacia y el servicio de agua potable de uso domestico para los usuarios del barrio San José de Chorlavi y San Agustin, contribuyendo en el mejoramiento de la calidad de vida a través de la capacitación y del mejoramiento continuo de quienes administran el sistema de agua potable.</p>
-                      </div>
+                    <div class="card-header">
+                      NOTA:
                     </div>
-                    <!-- fin card -->
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Ingreso de facturas compras y comprobante</li>
+                    </ul>
+                  </div>
+                  <!-- fin card -->
+                  <img src="/assets/images/icon/movimientos.jpg" alt="" width="200">
                 </div>
+              </div>
             </div>
           </div>
-        </div>
+        </form>
+        <div class="alert alert-success" role="alert" *ngIf="successStatus == true">
+          <strong>Datos guardados exitosamente :D</strong>
+        </div>       
       </div>
     </div>
   </div>

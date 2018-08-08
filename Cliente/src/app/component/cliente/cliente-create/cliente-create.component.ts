@@ -11,6 +11,8 @@ import { Router } from '../../../../../node_modules/@angular/router';
 export class ClienteCreateComponent implements OnInit {
   clienteGroup: FormGroup;
   successStatus = false;
+  consulta_cedula;
+  txt_ruc;
 
   constructor(protected fb: FormBuilder,
               protected clienteService: ClienteService,
@@ -41,5 +43,14 @@ export class ClienteCreateComponent implements OnInit {
               this.successStatus = true;
           });
   }
+
+    // consultacliente(txt_ruc,consulta_cedula) {
+    //     this.clienteService.ConsultaCedula(this.txt_ruc, this.consulta_cedula).subscribe((res: any) => {
+    //             this.txt_ruc = res;
+    //             this.consulta_cedula = res;
+    //         });
+    // }
+
 }
  
+

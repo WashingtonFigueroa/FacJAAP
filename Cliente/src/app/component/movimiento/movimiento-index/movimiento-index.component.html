@@ -11,18 +11,17 @@
     <div class="modal-footer">
       <button class="btn btn-default" (click)="c('cerrar')">No</button>
       <button class="btn btn-danger" (click)="c('si')">Esta bien</button>
-      <!--<button type="button" class="btn btn-secondary" >Close</button>-->
     </div>
   </ng-template>
   <div class="card">
     <div class="card-body">
       <div class="container-fluid">
-          <div class="row">
-            <i class="fa fa-search"></i>
-            <div class="col-md-4">
-              <input type="search" *ngIf="movimientos !== null" (keypress)="buscar(search)" [(ngModel)]="search" placeholder="Buscar movimientos.." class="form-control">
-            </div>
+        <div class="row">
+          <i class="fa fa-search"></i>
+          <div class="col-md-4">
+            <input type="search" *ngIf="movimientos !== null" (keypress)="buscar(search)" [(ngModel)]="search" placeholder="Buscar movimientos.." class="form-control">
           </div>
+        </div>
         <hr>
         <div class="row">
           <div class="col-md-12">
@@ -40,17 +39,17 @@
                       Fecha
                     </th>
                     <th>
-                        Detalle
-                      </th>
-                      <th>
-                          Intermediario
-                        </th>
-                        <th>
-                            # Fac
-                          </th>
-                          <th>
-                              Valor
-                            </th>
+                      Detalle
+                    </th>
+                    <th>
+                      Intermediario
+                    </th>
+                    <th>
+                      Recibo #
+                    </th>
+                    <th>
+                      Valor
+                    </th>
                     <th>
                       Acciones
                     </th>
@@ -59,7 +58,7 @@
                 <tbody>
                   <tr *ngFor="let movimiento of movimientos; let i = index">
                     <td>
-                      {{ i + 1 }}
+                      {{ movimiento.idmovimiento }}
                     </td>
                     <td>
                       {{ movimiento.tipo }}
@@ -68,23 +67,23 @@
                       {{ movimiento.fecha }}
                     </td>
                     <td>
-                        {{ movimiento.detalle }}
-                      </td>
-                      <td>
-                        {{ movimiento.intermediario }}
-                      </td>
-                      <td>
-                          {{ movimiento.numfac }}
-                        </td>
-                        <td>
-                          {{ movimiento.valor | currency:"CAD":"symbol-narrow" }}
-                        </td>
+                      {{ movimiento.detalle }}
+                    </td>
                     <td>
-                      <button (click)="edit(movimiento.idmovimiento)" type="button" class="btn btn-info">
+                      {{ movimiento.intermediario }}
+                    </td>
+                    <td>
+                      {{ movimiento.numfac }}
+                    </td>
+                    <td>
+                      {{ movimiento.valor | currency:"CAD":"symbol-narrow" }}
+                    </td>
+                    <td align="center">
+                      <button (click)="edit(movimiento.idmovimiento)" type="button" [disabled]="movimiento.tipo === 'Ingreso'" class="btn btn-info">
                         <i class="fa fa-pencil-square" aria-hidden="true"></i>
                       </button>
                       &nbsp;
-                      <button type="button" class="btn btn-danger" (click)="confirm(i, movimiento.idmovimiento,confirmModal)">
+                      <button type="button" class="btn btn-danger" (click)="confirm(i, movimiento.idmovimiento,confirmModal)" [disabled]="movimiento.tipo === 'Ingreso'">
                         <i class="fa fa-eraser" aria-hidden="true"></i>
                       </button>
                     </td>

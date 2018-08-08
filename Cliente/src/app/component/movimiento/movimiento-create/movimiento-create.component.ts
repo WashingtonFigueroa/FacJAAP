@@ -34,24 +34,37 @@ export class MovimientoCreateComponent implements OnInit {
   }
 
   store() {
-      const form =  new FormData();
-      const file = this.documento.nativeElement;
-      if (file.files[0]) {
-          form.append('documento', file.files[0]);
-          form.append('tipo', this.movimientoGroup.value.tipo);
-          form.append('fecha', this.movimientoGroup.value.fecha);
-          form.append('detalle', this.movimientoGroup.value.detalle);
-          form.append('intermediario', this.movimientoGroup.value.intermediario);
-          form.append('numfac', this.movimientoGroup.value.numfac);
-          form.append('valor', this.movimientoGroup.value.valor);
-
-          this.movimientoService.store(form)
-              .subscribe(res => {
-                  console.log('Material guardado');
-                  this.router.navigate(['component/movimientos']);
-                  this.successStatus = true;
-              });
-      }
+        const form =  new FormData();
+        const file = this.documento.nativeElement;
+        const Ingfecha = this.movimientoGroup.value.fecha;
+        var f = new Date();
+        const Sisfecha = f.getFullYear() + "-" + (f.getMonth() +1) + "-" + f.getDate();        
+    if( (new Date(Ingfecha).getTime() <= new Date(Sisfecha).getTime())) {
+        if (file.files[0]) {
+            form.append('documento', file.files[0]);
+            form.append('tipo', this.movimientoGroup.value.tipo);
+            form.append('fecha', this.movimientoGroup.value.fecha);
+            form.append('detalle', this.movimientoGroup.value.detalle);
+            form.append('intermediario', this.movimientoGroup.value.intermediario);
+            form.append('numfac', this.movimientoGroup.value.numfac);
+            form.append('valor', this.movimientoGroup.value.valor);         
+        }else{
+        form.append('tipo', this.movimientoGroup.value.tipo);
+        form.append('fecha', this.movimientoGroup.value.fecha);
+        form.append('detalle', this.movimientoGroup.value.detalle);
+        form.append('intermediario', this.movimientoGroup.value.intermediario);
+        form.append('numfac', this.movimientoGroup.value.numfac);
+        form.append('valor', this.movimientoGroup.value.valor);
+        }
+        this.movimientoService.store(form)
+        .subscribe(res => {
+            console.log('Movimiento guardado');
+            this.router.navigate(['component/movimientos']);
+            this.successStatus = true;
+        });
+    }else{
+        console.log('La fecha ingresada es mayor a la fecha actual');    
+    }
 
   }
 }

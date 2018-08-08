@@ -3,72 +3,68 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
-                <form (submit)="store()" role="form" [formGroup]="clienteGroup">
+            <form (submit)="store()" role="form" [formGroup]="clienteGroup">
+              <div class="row">
+                <div class="col-md-4">
                   
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="cedula">*Ingrese cédula </label>
-                                <input type="text" class="form-control" id="cedula" name="cedula" formControlName="cedula" OnlyNumber="true" maxlength="13" autofocus/>
-                              </div>
-                              <div class="form-group">
-                                  <label for="nombres"> *Ingrese nombres </label>
-                                  <input type="text" class="form-control" id="nombres" name="nombres" formControlName="nombres" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="direccion">* Seleccione Sector </label>
-                                    <select class="form-control" id="direccion" formControlName="direccion" name="direccion" required>
-                                      <option>San José de Chorlaví</option>
-                                      <option>San Agustin</option>
-                                    </select>
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="observacion"> Ingrese dirección </label>
-                                    <input type="text" class="form-control" id="observacion" name="observacion" formControlName="observacion" />
-                                  </div>
-                              
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="email">
-                                  Ingrese Correo
-                                </label>
-                                <input type="email" class="form-control" id="email" name="email" formControlName="email" />
-                              </div>
-                              <div class="form-group">
-                                <label for="telefono">
-                                  Ingrese teléfono
-                                </label>
-                                <input type="text" class="form-control" id="telefono" name="telefono" formControlName="telefono" OnlyNumber="true" maxlength="10" />
-                              </div>
-                              <div class="form-group">
-                                <label for="referencia">
-                                  Ingrese teléfono referencia
-                                </label>
-                                <input type="text" class="form-control" id="referencia" name="referencia" formControlName="referencia" OnlyNumber="true" maxlength="10" />
-                              </div>
-                              <hr>
-                              <button type="submit" class="btn btn-primary">
-                                Guardar
-                              </button>
-                        </div>
+                  <div class="form-group">
+                    <label for="cedula">*Ingrese cédula </label>
+                    <input type="text" class="form-control" id="cedula" name="cedula" formControlName="cedula" OnlyNumber="true" maxlength="13" autofocus/>
+                    <!-- <button type="button" name="btn_verificar" id="btn_verificar" class="btn btn-primary btn-sm" 
+                    onclick="angular.element(this).scope().cargadatos('estado')"><i class="ace-icon fa fa-search"></i></button> -->
+                  </div>
 
-                        <div class="col-md-4" align="center" >
-                           <div class="col align-self-center">
-                             <img alt="JAAP" src="\assets\images\icon\clientes.jpg" />
-                           </div>
-                        </div>
-                      </div>
-
-
-                </form>
-                <div class="alert alert-success" role="alert" *ngIf="successStatus == true">
-                  <strong>Datos guardados exitosamente :D</strong>
+                  <div class="form-group">
+                    <label for="nombres"> *Ingrese nombres </label>
+                    <input type="text" class="form-control" id="nombres" name="nombres" formControlName="nombres" />
+                  </div>
+                  <div class="form-group">
+                    <label for="direccion">* Seleccione Sector </label>
+                    <select class="form-control" id="direccion" formControlName="direccion" name="direccion" required>
+                      <option>San José de Chorlaví</option>
+                      <option>San Agustin</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="observacion"> Ingrese dirección </label>
+                    <input type="text" class="form-control" id="observacion" name="observacion" formControlName="observacion" />
+                  </div>
                 </div>
-
-
-
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="email">
+                      Ingrese Correo
+                    </label>
+                    <input type="email" class="form-control" id="email" name="email" formControlName="email" />
+                  </div>
+                  <div class="form-group">
+                    <label for="telefono">
+                      Ingrese teléfono
+                    </label>
+                    <input type="text" class="form-control" id="telefono" name="telefono" formControlName="telefono" OnlyNumber="true" maxlength="10" />
+                  </div>
+                  <div class="form-group">
+                    <label for="referencia">
+                      Ingrese teléfono referencia
+                    </label>
+                    <input type="text" class="form-control" id="referencia" name="referencia" formControlName="referencia" OnlyNumber="true" maxlength="10" />
+                  </div>
+                  <hr>
+                  <button type="submit" class="btn btn-primary">
+                    Guardar
+                  </button>
+                </div>
+                <div class="col-md-4" align="center">
+                  <div class="col align-self-center">
+                    <img alt="JAAP" src="\assets\images\icon\clientes.jpg" />
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="alert alert-success" role="alert" *ngIf="successStatus == true">
+              <strong>Datos guardados exitosamente :D</strong>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>

@@ -165,18 +165,14 @@ if ($user->nombre != null) {
         $factura->mes = $this->getMes($datos['fecha']);
         $factura->save();
 //   guardar movimiento
-
-
         $Movimiento = new Movimiento();
         $Movimiento->tipo = 'Ingreso';
         $Movimiento->fecha = $datos['fecha'];
         $Movimiento->detalle = 'Pago planilla';
         $Movimiento->intermediario = $datos['responsable'];
-        $Movimiento->numfac = '001';
+        $Movimiento->numfac = $factura->idfacturaventa;
         $Movimiento->valor = $datos['valor'];
         $Movimiento->save();
-
-
         return $factura->idfacturaventa;
     }
     public function verFactura($idlectura) {
