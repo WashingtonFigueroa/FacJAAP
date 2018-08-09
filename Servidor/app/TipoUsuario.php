@@ -21,6 +21,10 @@ class TipoUsuario extends Model
         return $this->hasMany('App\Usuario', 'iduser');
     }
 
+    public function privilegios() {
+        return $this->hasMany('App\Privilegios', 'idprivilegio');
+    }
+
     /*Eliminacion en cascada, todos sus registros hijo, mueren tambien*/
     public static function boot()
     {

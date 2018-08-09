@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Privilegios;
+use App\TipoUsuario;
+use App\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Tymon\JWTAuth\Exceptions\JWTException;
@@ -26,7 +29,7 @@ class AuthenticationController extends Controller
         }
 /*        return response()->json($credentials);*/
         try {
-            \Config::set('auth.providers.users.model', \App\Usuario::class);
+ //           \Config::set('auth.providers.users.model', \App\Usuario::class);
             if (!$token = JWTAuth::attempt($credentials)) {
                 return response()->json([
                     'autenticado' => false,
@@ -39,12 +42,20 @@ class AuthenticationController extends Controller
                 'mensaje' => 'Error durante la autenticacion, por favor intente nuevamente'],
                 500);
         }
+        //Bearer ajhslfkjadshflkahsdflkjhasdflkjh
+        // api/usuario?token=halskjdfhalksdjfh
+        /*JWTAuth::setToken('Bearer '  . $token);
+        $usuario = JWTAuth::parseToken()->authenticate();*/
+        $usuario = Usuario::where('correo', \request()->input('correo'))->first();
+        $idtipo = TipoUsuario::find($usuario->idtipo)->idtipo;
+        $privilegios = Privilegios::where('idtipo', $idtipo)->get();
         return response()->json([
             'autenticado' => true,
+            'usuario' => $usuario,
+            'privilegios' => $privilegios,
             'token' => $token,
             'mensaje' => 'Usuario autenticado exitosamente'
         ], 200);
-/*        'user' => JWTAuth::auth(),*/
     }
 
     public function logout() {

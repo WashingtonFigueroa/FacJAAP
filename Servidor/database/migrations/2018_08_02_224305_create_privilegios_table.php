@@ -14,7 +14,15 @@ class CreatePrivilegiosTable extends Migration
     public function up()
     {
         Schema::create('privilegios', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('idprivilegio');
+            $table->integer('idtipo')->unsigned();
+            $table->foreign('idtipo')
+                  ->references('idtipo')
+                  ->on('tipo_usuarios')
+                  ->onDelete('cascade');
+            $table->string('ruta');
+            $table->boolean('estado')->default(true);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

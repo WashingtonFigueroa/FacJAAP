@@ -29,5 +29,8 @@ export class TipousuarioService {
   }
   listaCargos() {
     return this.http.get(this.base + 'lista_cargos');
-}
+  }
+  listaPrivilegios(idtipo) {
+    return this.http.get(this.base + 'lista_privilegios/' + idtipo);
+  }
 }

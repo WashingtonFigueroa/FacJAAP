@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $tipo_usuario = \App\TipoUsuario::create([
+/*        $tipo_usuario = \App\TipoUsuario::create([
             'nombre' => 'Administrador',
             'estado' => 'activo',
         ]);
@@ -48,8 +48,17 @@ class DatabaseSeeder extends Seeder
             'valor' => 300.00,
             'detalle' => 'Valor instalación',
             'estado' => 'Activo',
-        ]);
-
+        ]);*/
+        $rutas = ['cargos','usuarios','privilegios','inventario','kardex','administracion','estadisticas','parametros','clientes','medidores','servicios','multas','lecturas','pago_planilla'];
+        for ($i = 1; $i<=2; $i++) {
+            foreach ($rutas as $ruta) {
+                \App\Privilegios::create([
+                    'idtipo' => $i,
+                    'ruta' => $ruta,
+                    'estado' => true
+                ]);
+            }
+        }
         // $this->call(UsersTableSeeder::class);
     }
 }

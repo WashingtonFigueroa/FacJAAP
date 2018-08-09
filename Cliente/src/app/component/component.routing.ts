@@ -56,6 +56,7 @@ import { MovimientoComponent } from './movimiento/movimiento.component';
 import { MovimientoIndexComponent } from './movimiento/movimiento-index/movimiento-index.component';
 import { MovimientoCreateComponent } from './movimiento/movimiento-create/movimiento-create.component';
 import { MovimientoEditComponent } from './movimiento/movimiento-edit/movimiento-edit.component';
+import {AuthGuard} from "./auth.guard";
 
 export const ComponentsRoutes: Routes = [{
   path: '',
@@ -609,6 +610,7 @@ export const ComponentsRoutes: Routes = [{
     }, {
       path: 'usuarios',
       component: UsuarioComponent,
+      canActivate: [AuthGuard],
       children: [{
         path: '',
         redirectTo: 'listar',
@@ -663,6 +665,7 @@ export const ComponentsRoutes: Routes = [{
     {
       path: 'privilegios',
       component: PrivilegioComponent,
+      canActivate: [AuthGuard],
       children: [{
         path: '',
         redirectTo: 'listar',

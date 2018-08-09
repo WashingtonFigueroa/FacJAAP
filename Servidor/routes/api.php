@@ -33,7 +33,7 @@ Route::resource('parametros', 'ParametroController');
 Route::resource('tipousuarios', 'TipoUsuarioController');
 Route::resource('usuarios', 'UsuarioController');
 Route::resource('listaUsuarios', 'UsuarioController@listaUsuarios');
-//Route::resource('privilegios', 'PrivilegioController');
+Route::resource('privilegios', 'PrivilegiosController', ['only'=> ['index', 'update']]);
 
 Route::resource('lecturas', 'LecturaController');
 Route::resource('materiales', 'MaterialController');
@@ -47,6 +47,7 @@ Route::get('lista_servicios', 'ServicioController@listaServicios');
 Route::get('lista_clientes', 'ContribuyenteController@listaContribuyentes');
 
 Route::get('lista_cargos', 'TipoUsuarioController@listaCargos');
+Route::get('lista_privilegios/{idtipo}', 'TipoUsuarioController@listaPrivilegios');
 
 Route::get('lista_materiales', 'MaterialController@listaMateriales');
 Route::get('lista_medidores', 'MedidorController@listaMedidores');

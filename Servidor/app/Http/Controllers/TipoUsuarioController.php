@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Privilegios;
 use App\TipoUsuario;
 use Illuminate\Http\Request;
 use Validator;
@@ -15,6 +16,9 @@ class TipoUsuarioController extends Controller
 
     public function listaCargos() {
         return response()->json(TipoUsuario::orderBy('idtipo', 'asc')->get(), 200);
+    }
+    public function listaPrivilegios($idtipo) {
+        return response()->json(Privilegios::where('idtipo', $idtipo)->get(), 200);
     }
 
     public function store(Request $request)
@@ -53,6 +57,5 @@ class TipoUsuarioController extends Controller
                         . ' eliminado exitosamente'
         ], 200);
     }
-   
 
 }

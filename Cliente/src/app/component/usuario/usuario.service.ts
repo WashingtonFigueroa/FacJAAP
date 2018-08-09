@@ -30,5 +30,5 @@ export class UsuarioService {
   }
   listaUsuarios() {
     return this.http.get(this.base + 'lista_usuarios');
-}
+  }
 }
