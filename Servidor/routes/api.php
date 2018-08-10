@@ -61,3 +61,6 @@ Route::get('ver_factura/{idlectura}', 'LecturaController@verFactura');
 Route::get('ventas_mes/{start}/{end}', 'FacturaVentaController@ventasMes');
 
 Route::get('search_lectura_anterior/{idmedidor}', 'LecturaController@searchLecturaAnterior');
+
+
+Route::get('generar_backup', 'BackupController@generarBackup');

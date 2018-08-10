@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FacturaService} from "../factura/factura.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import { EstadisticasService } from './estadisticas.service';
+import { environment } from "../../../environments/environment.prod";
 
 @Component({
   selector: 'app-estadisticas',
@@ -9,6 +10,7 @@ import { EstadisticasService } from './estadisticas.service';
   styleUrls: ['./estadisticas.component.css']
 })
 export class EstadisticasComponent implements OnInit {
+  backup = environment.backup;
   ventas_mes: any = [];
   total_egresos;
   total_ingresos;
@@ -82,5 +84,6 @@ export class EstadisticasComponent implements OnInit {
               console.log(this.ventas);
           });
   }
+
 
 }

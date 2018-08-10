@@ -18,5 +18,8 @@ export class EstadisticasService {
   total_ingresos() {
     return this.http.get(this.base + 'total_ingresos');
   }
-  
+
+  generarBackup() {
+    return this.http.get(this.base + 'generar_backup');
+  }
 }

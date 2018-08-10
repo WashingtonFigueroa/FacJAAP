@@ -77,6 +77,14 @@
       <path value="$PROJECT_DIR$/Servidor/vendor/namshi/jose" />
       <path value="$PROJECT_DIR$/Servidor/vendor/symfony/polyfill-php56" />
       <path value="$PROJECT_DIR$/Servidor/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/Servidor/vendor/league/flysystem-aws-s3-v3" />
+      <path value="$PROJECT_DIR$/Servidor/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/Servidor/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/Servidor/vendor/paulvl/backup" />
+      <path value="$PROJECT_DIR$/Servidor/vendor/mtdowling/jmespath.php" />
+      <path value="$PROJECT_DIR$/Servidor/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/Servidor/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/Servidor/vendor/aws/aws-sdk-php" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

@@ -10,17 +10,27 @@ export class LoginService {
 
   base = environment.base;
   constructor(protected http: HttpClient) { }
-  usuario: any = null;
-  privilegios: any = null;
   login(credentials) {
     return this.http.post(this.base + 'login', credentials)
                     .map( (response: any)=> {
-                        this.usuario = response.usuario;
-                        this.privilegios = response.privilegios;
+                        localStorage.setItem('jaap-usuario', JSON.stringify(response.usuario))
+                        localStorage.setItem('jaap-privilegios', JSON.stringify(response.privilegios))
                         return response;
                     });
   }
+  getUsuario(){
+      if (localStorage.getItem('token')) {
+          return JSON.parse(localStorage.getItem('jaap-usuario'));
+      }
+  }
+  getPrivilegios(){
+      if (localStorage.getItem('token')) {
+          return JSON.parse(localStorage.getItem('jaap-privilegios'));
+      }
+  }
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('jaap-usuario');
+    localStorage.removeItem('jaap-privilegios');
   }
 }

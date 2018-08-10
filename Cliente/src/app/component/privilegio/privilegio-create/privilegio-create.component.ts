@@ -33,7 +33,7 @@ export class PrivilegioCreateComponent implements OnInit {
               protected loginService: LoginService,
               protected privilegioService: PrivilegioService) {
     this.tipoUsuarioService.listaCargos().subscribe(res => this.tipo_usuarios = res);
-      console.log(this.loginService.usuario);
+      console.log(this.loginService.getUsuario());
 
   }
 

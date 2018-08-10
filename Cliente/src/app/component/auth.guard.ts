@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router} from '@angular/router';
 import { Observable } from 'rxjs';
+import 'rxjs/add/operator/map';
 import {LoginService} from "../login/login.service";
 
 @Injectable({
@@ -16,12 +17,14 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     console.log(state.url);
-    let privilegios = this.loginService.privilegios;
+    let privilegios = [];
+    privilegios = this.loginService.getPrivilegios();
     if (localStorage.getItem('token')) {
         if (state.url === '/starter'){
             return true;
         }
         if (privilegios !== null) {
+            console.log(privilegios);
             for(let i = 0; i< privilegios.length; i++) {
                if ('/component/'+privilegios[i].ruta+'/listar' === state.url)  {
                    return privilegios[i].estado === 1 ? true : false;
