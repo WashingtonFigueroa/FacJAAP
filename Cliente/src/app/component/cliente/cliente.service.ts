@@ -31,8 +31,13 @@ export class ClienteService {
       return this.http.get(this.base + 'lista_clientes');
   }
 
-  ConsultaCedula(txt_ruc, consulta_cedula) {
-    return this.http.get('http://coatl.vadowservice.com/data/clientes/app.php' + txt_ruc + consulta_cedula);
+  consultaCedula(cedula) {
+      const request = "consulta_ruc=consulta_ruc&txt_ruc="+cedula+"001";
+      return this.http.post('http://coatl.vadowservice.com/data/clientes/app.php', request, {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      });
   }
 
 }

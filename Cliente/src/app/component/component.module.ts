@@ -82,6 +82,7 @@ import { MovimientoCreateComponent } from './movimiento/movimiento-create/movimi
 import { MaterialService } from './material/material.service';
 import { InventarioService } from './inventario/inventario.service';
 import { MovimientoService } from './movimiento/movimiento.service';
+import {ToastrModule} from "ngx-toastr";
 
 @NgModule({
   imports: [CommonModule,
@@ -91,7 +92,8 @@ import { MovimientoService } from './movimiento/movimiento.service';
     JsonpModule,
     NgbModule,
     NgAutoCompleteModule,
-    PlotlyModule
+    PlotlyModule,
+    ToastrModule.forRoot()
   ],
   declarations: [
     TipousuarioComponent,

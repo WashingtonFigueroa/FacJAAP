@@ -31,30 +31,43 @@ class MovimientoController extends Controller
 
     public function store(Request $request)
     {
-        if ($request->hasFile('documento')){
-            $path_documento = $request->file('documento')->store('documentos');
-            $Movimiento = new Movimiento();
-            $Movimiento->tipo = $request->input('tipo');
-            $Movimiento->fecha = $request->input('fecha');
-            $Movimiento->detalle = $request->input('detalle');
-            $Movimiento->intermediario = $request->input('intermediario');
-            $Movimiento->numfac = $request->input('numfac');
-            $Movimiento->valor = $request->input('valor');
-            $Movimiento->documento = $path_documento;
-            $Movimiento->save();           
+        try{
+            if ($request->hasFile('documento')){
+                $path_documento = $request->file('documento')->store('documentos');
+                $Movimiento = new Movimiento();
+                $Movimiento->tipo = $request->input('tipo');
+                $Movimiento->fecha = $request->input('fecha');
+                $Movimiento->detalle = $request->input('detalle');
+                $Movimiento->intermediario = $request->input('intermediario');
+                $Movimiento->numfac = $request->input('numfac');
+                $Movimiento->valor = $request->input('valor');
+                $Movimiento->documento = $path_documento;
+                $Movimiento->save();
+            }
+            else{
+                $Movimiento = new Movimiento();
+                $Movimiento->tipo = $request->input('tipo');
+                $Movimiento->fecha = $request->input('fecha');
+                $Movimiento->detalle = $request->input('detalle');
+                $Movimiento->intermediario = $request->input('intermediario');
+                $Movimiento->numfac = $request->input('numfac');
+                $Movimiento->valor = $request->input('valor');
+                $Movimiento->documento = "documentos/log.png";
+                $Movimiento->save();
+            }
+            return response()->json([
+                'title' => 'Exito',
+                'message' => 'Movimiento guardado exitosamente',
+                'movimiento' => $Movimiento
+            ], 201);
+
+        }catch (\Exception $e) {
+            return response()->json([
+                'title' => 'Exito',
+                'message' => 'Movimiento no guardado exitosamente',
+                'error' => 'ups!'
+            ], 500);
         }
-        else{
-            $Movimiento = new Movimiento();
-            $Movimiento->tipo = $request->input('tipo');
-            $Movimiento->fecha = $request->input('fecha');
-            $Movimiento->detalle = $request->input('detalle');
-            $Movimiento->intermediario = $request->input('intermediario');
-            $Movimiento->numfac = $request->input('numfac');
-            $Movimiento->valor = $request->input('valor');
-            $Movimiento->documento = "documentos/log.png";
-            $Movimiento->save();
-        }
-        return response()->json($Movimiento, 201);
     }
 
     public function show($id)

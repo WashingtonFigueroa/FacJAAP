@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class PrivilegiosController extends Controller
 {
+    protected $privilegioData = null;
     /**
      * Display a listing of the resource.
      *
@@ -35,9 +36,19 @@ class PrivilegiosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
+    private function guardar($idtipo) {
+        $rutas = ['tipousuarios', 'usuarios', 'privilegios', 'inventario', 'kardex', 'administracion', 'estadisticas', 'parametros', 'clientes', 'medidores', 'servicios', 'multas', 'lecturas', 'pago_planilla'];
+        foreach ($rutas as $ruta){
+            $privilegio = new Privilegios();
+            $privilegio->idtipo = $idtipo;
+            $privilegio->ruta = $ruta;
+            $privilegio->estado = true;
+            $privilegio->save();
+        }
+    }
     /**
      * Display the specified resource.
      *
@@ -69,78 +80,79 @@ class PrivilegiosController extends Controller
      */
     public function update($idtipo)
     {
-        $privilegioData = request()->all();
-        $privilegios = Privilegios::where('idtipo', $idtipo)->get();
+        if ($this->privilegioData === null) {
+            $this->privilegioData = request()->all();
+        }
+        $existe = Privilegios::where('idtipo', $idtipo)->count();
 
-        if ($privilegios != 0)
+        if ($existe > 0)
         {
+            $privilegios = Privilegios::where('idtipo', $idtipo)->get();
             foreach ($privilegios as $privilegio) {
                 switch ($privilegio->ruta) {
                     case 'tipousuarios':
-                        $privilegio->estado = $privilegioData['tipousuarios'];
+                        $privilegio->estado = $this->privilegioData['tipousuarios'];
                         $privilegio->save();
                         break;
                     case 'usuarios':
-                        $privilegio->estado = $privilegioData['usuarios'];
+                        $privilegio->estado = $this->privilegioData['usuarios'];
                         $privilegio->save();
                         break;
                     case 'privilegios':
-                        $privilegio->estado = $privilegioData['privilegios'];
+                        $privilegio->estado = $this->privilegioData['privilegios'];
                         $privilegio->save();
                         break;
                     case 'inventario':
-                        $privilegio->estado = $privilegioData['inventario'];
+                        $privilegio->estado = $this->privilegioData['inventario'];
                         $privilegio->save();
                         break;
                     case 'kardex':
-                        $privilegio->estado = $privilegioData['kardex'];
+                        $privilegio->estado = $this->privilegioData['kardex'];
                         $privilegio->save();
                         break;
                     case 'administracion':
-                        $privilegio->estado = $privilegioData['administracion'];
+                        $privilegio->estado = $this->privilegioData['administracion'];
                         $privilegio->save();
                         break;
                     case 'estadisticas':
-                        $privilegio->estado = $privilegioData['estadisticas'];
+                        $privilegio->estado = $this->privilegioData['estadisticas'];
                         $privilegio->save();
                         break;
                     case 'parametros':
-                        $privilegio->estado = $privilegioData['parametros'];
+                        $privilegio->estado = $this->privilegioData['parametros'];
                         $privilegio->save();
                         break;
                     case 'clientes':
-                        $privilegio->estado = $privilegioData['clientes'];
+                        $privilegio->estado = $this->privilegioData['clientes'];
                         $privilegio->save();
                         break;
                     case 'medidores':
-                        $privilegio->estado = $privilegioData['medidores'];
+                        $privilegio->estado = $this->privilegioData['medidores'];
                         $privilegio->save();
                         break;
                     case 'servicios':
-                        $privilegio->estado = $privilegioData['servicios'];
+                        $privilegio->estado = $this->privilegioData['servicios'];
                         $privilegio->save();
                         break;
                     case 'multas':
-                        $privilegio->estado = $privilegioData['multas'];
+                        $privilegio->estado = $this->privilegioData['multas'];
                         $privilegio->save();
                         break;
                     case 'lecturas':
-                        $privilegio->estado = $privilegioData['lecturas'];
+                        $privilegio->estado = $this->privilegioData['lecturas'];
                         $privilegio->save();
                         break;
                     case 'pago_planilla':
-                        $privilegio->estado = $privilegioData['pago_planilla'];
+                        $privilegio->estado = $this->privilegioData['pago_planilla'];
                         $privilegio->save();
                         break;
                 }
             }
             return response()->json(['exito' => 'Privilegios actualizados'], 200);
         }else{
-            $privilegio = Privilegios::create($privilegioData->all());
-            return response()->json($privilegio, 201);
+            $this->guardar($idtipo);
+            $this->update($idtipo);
         }
-
-
     }
 
     /**

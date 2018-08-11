@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ClienteService } from '../cliente.service';
 import { Router } from '../../../../../node_modules/@angular/router';
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-cliente-create',
@@ -16,7 +17,8 @@ export class ClienteCreateComponent implements OnInit {
 
   constructor(protected fb: FormBuilder,
               protected clienteService: ClienteService,
-              protected router: Router) {
+              protected router: Router,
+              protected toastr: ToastrService) {
               this.createForm();
   }
 
@@ -37,19 +39,25 @@ export class ClienteCreateComponent implements OnInit {
 
   store() {
       this.clienteService.store(this.clienteGroup.value)
-          .subscribe(res => {
+          .subscribe((cliente: any)=> {
               console.log('cliente guardado');
-              this.router.navigate(['component/clientes']);
+              //this.router.navigate(['component/clientes']);
               this.successStatus = true;
           });
   }
 
-    // consultacliente(txt_ruc,consulta_cedula) {
-    //     this.clienteService.ConsultaCedula(this.txt_ruc, this.consulta_cedula).subscribe((res: any) => {
-    //             this.txt_ruc = res;
-    //             this.consulta_cedula = res;
-    //         });
-    // }
+    consultacliente() {
+        this.clienteService.consultaCedula(this.clienteGroup.value.cedula)
+            .subscribe((cliente: any) => {
+                if (cliente.datosEmpresa.valid === "false") {
+                    this.toastr.error('El cliente no existe', 'Error de cedula');
+                } else {
+                    this.clienteGroup.patchValue({
+                        nombres: cliente.establecimientos.adicional.representante_legal
+                    });
+                }
+            });
+    }
 
 }
  

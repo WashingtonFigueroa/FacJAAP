@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Contribuyente;
 use App\FacturaVenta;
 use App\Lectura;
+use App\Mail\Factura;
 use App\Multa;
 use App\Parametro;
 use App\Servicio;
@@ -12,6 +13,7 @@ use App\Movimiento;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use PhpParser\Node\Expr\AssignOp\Mul;
 use Symfony\Component\HttpKernel\Client;
 use Tymon\JWTAuth\Facades\JWTAuth;
@@ -90,49 +92,55 @@ class LecturaController extends Controller
     }
 
     public function pagar($idlectura) {
-//http://localhost:8000/api/pagar/:idlectura?token=hasdkfjhaausdfi
-$user = JWTAuth::parseToken()->authenticate();
-if ($user->nombre != null) {
-    $tarifa = 0;
-        $multa = 0;
+        //http://localhost:8000/api/pagar/:idlectura?token=hasdkfjhaausdfi
+        $user = JWTAuth::parseToken()->authenticate();
+        if ($user->nombre != null) {
+            $tarifa = 0;
+            $multa = 0;
 
-        $totalPagar = 0;
-        $lectura = Lectura::find($idlectura);
-        $tarifa += $lectura->tarifa;
-        $totalPagar += $tarifa;
-        $idservicio = $lectura->idservicio;
-        $multa += Multa::where('idservicio', $idservicio)
-                            ->where('estado', 'Deber')
-                            ->sum('valor');
-        $totalPagar += $multa;
-        $lectura->estado = 'Pagado';
-        $lectura->save();
-        $multas = Multa::where('idservicio', $idservicio)
-                       ->where('estado', 'Deber')
-                       ->get();
-        foreach ($multas as $multa) {
-            $multa->estado = 'Pagado';
-            $multa->save();
+            $totalPagar = 0;
+            $lectura = Lectura::find($idlectura);
+            $tarifa += $lectura->tarifa;
+            $totalPagar += $tarifa;
+            $idservicio = $lectura->idservicio;
+
+            $idcliente = Servicio::find($idservicio)->idcliente;
+            $cliente = Contribuyente::find($idcliente);
+
+            $multa += Multa::where('idservicio', $idservicio)
+                                ->where('estado', 'Deber')
+                                ->sum('valor');
+            $totalPagar += $multa;
+            $lectura->estado = 'Pagado';
+            $lectura->save();
+            $multas = Multa::where('idservicio', $idservicio)
+                           ->where('estado', 'Deber')
+                           ->get();
+            foreach ($multas as $multa) {
+                $multa->estado = 'Pagado';
+                $multa->save();
+            }
+
+            $datos = [
+                'idservicio' => $idservicio,
+                'fecha' => Carbon::now(),
+                'valor' => $totalPagar,
+                'responsable' => $user->nombre,
+                'estado' => 'Pagado',
+                'impreso' => 'si'
+            ];
+            $idfactura = $this->crearFactura($datos);
+            $envio = [
+                'idfactura' => $idfactura,
+                'cliente' => $cliente,
+                'tarifa' => $tarifa,
+                'multa' => $multa,
+                'total' => $totalPagar,
+                'lectura' => $lectura
+            ];
+            Mail::send(new Factura($envio));
+            return response()->json($envio, 200);
         }
-
-        $datos = [
-            'idservicio' => $idservicio,
-            'fecha' => Carbon::now(),
-            'valor' => $totalPagar,
-            'responsable' => $user->nombre,
-            'estado' => 'Pagado',
-            'impreso' => 'si'
-        ];
-        $idfactura = $this->crearFactura($datos);
-        return response()->json([
-            'idfactura' => $idfactura,
-            'tarifa' => $tarifa,
-            'multa' => $multa,
-            'total' => $totalPagar,
-            'lectura' => $lectura
-        ], 200);
-}
-       
     }
     public function getMes($fecha) {
         $mes = '';

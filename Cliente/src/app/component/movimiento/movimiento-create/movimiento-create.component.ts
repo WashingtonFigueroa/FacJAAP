@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '../../../../../node_modules/@angular/forms';
 import { MovimientoService } from '../movimiento.service';
 import { Router } from '../../../../../node_modules/@angular/router';
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-movimiento-create',
@@ -15,7 +16,8 @@ export class MovimientoCreateComponent implements OnInit {
 
   constructor(protected fb: FormBuilder,
               protected movimientoService: MovimientoService,
-              protected router: Router) {
+              protected router: Router,
+              protected toastr: ToastrService) {
               this.createForm();
   }
 
@@ -57,13 +59,25 @@ export class MovimientoCreateComponent implements OnInit {
         form.append('valor', this.movimientoGroup.value.valor);
         }
         this.movimientoService.store(form)
-        .subscribe(res => {
+        .subscribe((res: any)=> {
             console.log('Movimiento guardado');
-            this.router.navigate(['component/movimientos']);
+            this.toastr.success(res.message, res.title, {
+                timeOut: 1000
+            });
+            setTimeout(()=>{
+                this.router.navigate(['/acceso/component/movimientos']);
+            }, 1000);
             this.successStatus = true;
+        }, (error: any)=> {
+            this.toastr.error(error.message, error.title)
+        }, () => {
+            console.log('completed subscription! :D');
         });
     }else{
-        console.log('La fecha ingresada es mayor a la fecha actual');    
+        const message = 'La fecha ingresada es mayor a la fecha actual';
+        this.toastr.error(message, 'Error de ingreso de datos', {
+            timeOut: 5000
+        });
     }
 
   }
