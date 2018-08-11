@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Movimiento;
 use App\FacturaVenta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class MovimientoController extends Controller

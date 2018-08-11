@@ -65,7 +65,7 @@ export const ComponentsRoutes: Routes = [{
           { path: 'estadisticas', component: EstadisticasComponent,
           data: {
             title: 'ESTADÍSTICAS',
-            urls: [{ title: 'INICIO', url: '/dashboard'}, 
+            urls: [{ title: 'INICIO', url: '/acceso/dashboard'},
             { title: 'REPORTES' }] } },
 //rutas clientes    
     {
@@ -77,21 +77,21 @@ export const ComponentsRoutes: Routes = [{
         pathMatch: 'full'      },
        { path: 'listar', component: ClienteIndexComponent, data: {
           title: 'LISTA CLIENTES',
-          urls: [{ title: 'INICIO', url: '/dashboard' },
-           { title: 'NUEVO REGISTRO', url: '/component/clientes/crear'},
+          urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
+           { title: 'NUEVO REGISTRO', url: '/acceso/component/clientes/crear'},
            { title: 'CLIENTES' }]
         }      },
        { path: 'crear', component: ClienteCreateComponent, data: {
           title: 'CREAR CLIENTE',
-          urls: [{ title: 'INICIO', url: '/dashboard' },
-           { title: 'LISTADO', url: '/component/clientes/listar'},
+          urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
+           { title: 'LISTADO', url: '/acceso/component/clientes/listar'},
            { title: 'NUEVO REGISTRO' }]
         }      
       },
        { path: 'editar/:id', component: ClienteEditComponent, data: {
           title: 'EDITAR CLIENTE',
-          urls: [{ title: 'INICIO', url: '/dashboard' },
-           { title: 'LISTADO', url: '/component/clientes/listar'},
+          urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
+           { title: 'LISTADO', url: '/acceso/component/clientes/listar'},
            { title: 'MODIFICACIÓN' }]
         }
       }]    
@@ -106,21 +106,21 @@ export const ComponentsRoutes: Routes = [{
         pathMatch: 'full'      },
        { path: 'listar', component: MaterialIndexComponent, data: {
           title: 'LISTA INVENTARIO',
-          urls: [{ title: 'INICIO', url: '/dashboard' },
-           { title: 'NUEVO REGISTRO', url: '/component/materiales/crear'},
+          urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
+           { title: 'NUEVO REGISTRO', url: '/acceso/component/materiales/crear'},
            { title: 'INVENTARIO' }]
         }      },
        { path: 'crear', component: MaterialCreateComponent, data: {
           title: 'CREAR MATERIAL',
-          urls: [{ title: 'INICIO', url: '/dashboard' },
-           { title: 'LISTADO', url: '/component/materiales/listar'},
+          urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
+           { title: 'LISTADO', url: '/acceso/component/materiales/listar'},
            { title: 'NUEVO REGISTRO' }]
         }      
       },
        { path: 'editar/:id', component: MaterialEditComponent, data: {
           title: 'EDITAR MATERIAL',
-          urls: [{ title: 'INICIO', url: '/dashboard' },
-           { title: 'LISTADO', url: '/component/materiales/listar'},
+          urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
+           { title: 'LISTADO', url: '/acceso/component/materiales/listar'},
            { title: 'MODIFICACIÓN' }]
         }
       }]    
@@ -135,21 +135,21 @@ export const ComponentsRoutes: Routes = [{
         pathMatch: 'full'      },
        { path: 'listar', component: InventarioIndexComponent, data: {
           title: 'LISTA KARDEX',
-          urls: [{ title: 'INICIO', url: '/dashboard' },
-           { title: 'NUEVO REGISTRO', url: '/component/inventarios/crear'},
+          urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
+           { title: 'NUEVO REGISTRO', url: '/acceso/component/inventarios/crear'},
            { title: 'KARDEX' }]
         }      },
        { path: 'crear', component: InventarioCreateComponent, data: {
           title: 'MOVIMIENTO KARDEX',
-          urls: [{ title: 'INICIO', url: '/dashboard' },
-           { title: 'LISTADO', url: '/component/inventarios/listar'},
+          urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
+           { title: 'LISTADO', url: '/acceso/component/inventarios/listar'},
            { title: 'NUEVO REGISTRO' }]
         }      
       },
        { path: 'editar/:id', component: InventarioEditComponent, data: {
           title: 'EDITAR KARDEX',
-          urls: [{ title: 'INICIO', url: '/dashboard' },
-           { title: 'LISTADO', url: '/component/inventarios/listar'},
+          urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
+           { title: 'LISTADO', url: '/acceso/component/inventarios/listar'},
            { title: 'MODIFICACIÓN' }]
         }
       }]    
@@ -164,21 +164,21 @@ export const ComponentsRoutes: Routes = [{
     pathMatch: 'full'      },
    { path: 'listar', component: MovimientoIndexComponent, data: {
       title: 'LISTA MOVIMIENTOS',
-      urls: [{ title: 'INICIO', url: '/dashboard' },
-       { title: 'NUEVO REGISTRO', url: '/component/movimientos/crear'},
+      urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
+       { title: 'NUEVO REGISTRO', url: '/acceso/component/movimientos/crear'},
        { title: 'MOVIMIENTOS' }]
     }      },
    { path: 'crear', component: MovimientoCreateComponent, data: {
       title: 'GESTION MOVIMIENTOS',
-      urls: [{ title: 'INICIO', url: '/dashboard' },
-       { title: 'LISTADO', url: '/component/movimientos/listar'},
+      urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
+       { title: 'LISTADO', url: '/acceso/component/movimientos/listar'},
        { title: 'NUEVO REGISTRO' }]
     }      
   },
    { path: 'editar/:id', component: MovimientoEditComponent, data: {
       title: 'EDITAR MOVIMIENTOS',
-      urls: [{ title: 'INICIO', url: '/dashboard' },
-       { title: 'LISTADO', url: '/component/movimientos/listar'},
+      urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
+       { title: 'LISTADO', url: '/acceso/component/movimientos/listar'},
        { title: 'MODIFICACIÓN' }]
     }
   }]    
@@ -197,10 +197,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'LISTADO FACTURAS EMITIDAS',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'NUEVO REGISTRO',
-            url: '/component/facturas/crear'
+            url: '/acceso/component/facturas/crear'
           }, {
             title: 'FACTURAS'
           }]
@@ -212,10 +212,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'EMISIÓN DE FACTURAS',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'LISTADO',
-            url: '/component/facturas/listar'
+            url: '/acceso/component/facturas/listar'
           }, {
             title: 'NUEVO REGISTRO'
           }]
@@ -227,10 +227,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'EDITAR FACTURAS',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'LISTADO',
-            url: '/component/facturas/listar'
+            url: '/acceso/component/facturas/listar'
           }, {
             title: 'MODIFICACIÓN'
           }]
@@ -250,10 +250,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'LISTADO LECTURAS',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'NUEVO REGISTRO',
-            url: '/component/lecturas/crear'
+            url: '/acceso/component/lecturas/crear'
           }, {
             title: 'LECTURAS'
           }]
@@ -265,10 +265,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'INGRESO lECTURA',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'LISTADO',
-            url: '/component/lecturas/listar'
+            url: '/acceso/component/lecturas/listar'
           }, {
             title: 'NUEVO REGISTRO'
           }]
@@ -280,10 +280,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'EDITAR LECTURAS',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'LISTADO',
-            url: '/component/lecturas/listar'
+            url: '/acceso/component/lecturas/listar'
           }, {
             title: 'MODIFICACIÓN'
           }]
@@ -303,10 +303,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'LISTADO MEDIDORES',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'NUEVO REGISTRO',
-            url: '/component/medidores/crear'
+            url: '/acceso/component/medidores/crear'
           }, {
             title: 'MEDIDOR'
           }]
@@ -318,10 +318,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'CREAR MEDIDORES',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'LISTADO',
-            url: '/component/medidores/listar'
+            url: '/acceso/component/medidores/listar'
           }, {
             title: 'NUEVO REGISTRO'
           }]
@@ -333,10 +333,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'EDITAR MEDIDORE',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'LISTADO',
-            url: '/component/medidores/listar'
+            url: '/acceso/component/medidores/listar'
           }, {
             title: 'MODIFICACIÓN'
           }]
@@ -356,10 +356,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'LISTA MULTAS',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'NUEVO REGISTRO',
-            url: '/component/multas/crear'
+            url: '/acceso/component/multas/crear'
           }, {
             title: 'MULTA'
           }]
@@ -371,10 +371,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'REGISTRO MULTA',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'LISTADO',
-            url: '/component/multas/listar'
+            url: '/acceso/component/multas/listar'
           }, {
             title: 'NUEVO REGISTRO'
           }]
@@ -386,10 +386,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'EDITAR MULTA',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'LISTADO',
-            url: '/component/multas/listar'
+            url: '/acceso/component/multas/listar'
           }, {
             title: 'MODIFICACIÓN'
           }]
@@ -409,10 +409,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'LISTA PAGO SERVICIO',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'NUEVO REGISTRO',
-            url: '/component/pagos/crear'
+            url: '/acceso/component/pagos/crear'
           }, {
             title: 'PAGO INSTALACIÓN'
           }]
@@ -424,10 +424,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'CANCELACIÓN SERVICIO',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'LISTADO',
-            url: '/component/pagos/listar'
+            url: '/acceso/component/pagos/listar'
           }, {
             title: 'NUEVO REGISTRO'
           }]
@@ -439,10 +439,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'Editar pago',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'pagos',
-            url: '/component/pagos/listar'
+            url: '/acceso/component/pagos/listar'
           }, {
             title: 'MODIFICACIÓN'
           }]
@@ -462,10 +462,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'LISTA PARAMETROS',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'NUEVO REGISTRO',
-            url: '/component/parametros/crear'
+            url: '/acceso/component/parametros/crear'
           }, {
             title: 'PARAMETROS'
           }]
@@ -477,10 +477,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'INGRESO DE PARAMETROS',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'LISTADO',
-            url: '/component/parametros/listar'
+            url: '/acceso/component/parametros/listar'
           }, {
             title: 'NUEVO REGISTRO'
           }]
@@ -492,10 +492,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'EDITAR PARAMETROS',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'LISTADO',
-            url: '/component/parametros/listar'
+            url: '/acceso/component/parametros/listar'
           }, {
             title: 'MODIFICACIÓN'
           }]
@@ -515,10 +515,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'LISTADO SERVICIOS',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'NUEVO REGISTRO',
-            url: '/component/servicios/crear'
+            url: '/acceso/component/servicios/crear'
           }, {
             title: 'SERVICIOS'
           }]
@@ -530,10 +530,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'HABILITAR SERVICIOS',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'LISTADO',
-            url: '/component/servicios/listar'
+            url: '/acceso/component/servicios/listar'
           }, {
             title: 'NUEVO REGISTRO'
           }]
@@ -545,10 +545,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'EDITAR SERVICIOS',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'LISTADO',
-            url: '/component/servicios/listar'
+            url: '/acceso/component/servicios/listar'
           }, {
             title: 'MODIFICACIÓN'
           }]
@@ -568,10 +568,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'LISTA DE CARGOS',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'NUEVO REGISTRO',
-            url: '/component/tipousuarios/crear'
+            url: '/acceso/component/tipousuarios/crear'
           }, {
             title: 'CARGO USUARIO'
           }]
@@ -583,10 +583,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'CREAR CARGO',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'LISTADO',
-            url: '/component/tipousuarios/listar'
+            url: '/acceso/component/tipousuarios/listar'
           }, {
             title: 'NUEVO REGISTRO'
           }]
@@ -598,10 +598,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'EDITAR CARGO',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'LISTADO',
-            url: '/component/tipousuarios/listar'
+            url: '/acceso/component/tipousuarios/listar'
           }, {
             title: 'MODIFICACIÓN'
           }]
@@ -622,10 +622,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'LISTA USUARIOS',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'NUEVO REGISTRO',
-            url: '/component/usuarios/crear'
+            url: '/acceso/component/usuarios/crear'
           }, {
             title: 'USUARIOS'
           }]
@@ -637,10 +637,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'CREAR USUARIO',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'LISTADO',
-            url: '/component/usuarios/listar'
+            url: '/acceso/component/usuarios/listar'
           }, {
             title: 'NUEVO REGISTRO'
           }]
@@ -652,10 +652,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'EDITAR USUARIOS',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'LISTADO',
-            url: '/component/usuarios/listar'
+            url: '/acceso/component/usuarios/listar'
           }, {
             title: 'MODIFICACIÓN'
           }]
@@ -677,10 +677,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'LISTADO PRIVILEGIOS',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'NUEVO REGISTRO',
-            url: '/component/privilegios/crear'
+            url: '/acceso/component/privilegios/crear'
           }, {
             title: 'PRIVILEGIOS'
           }]
@@ -692,10 +692,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'CREAR PRIVILEGIO',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'LISTADO',
-            url: '/component/privilegios/listar'
+            url: '/acceso/component/privilegios/listar'
           }, {
             title: 'NUEVO REGISTRO'
           }]
@@ -707,10 +707,10 @@ export const ComponentsRoutes: Routes = [{
           title: 'EDITAR PRIVILEGIO',
           urls: [{
             title: 'INICIO',
-            url: '/dashboard'
+            url: '/acceso/dashboard'
           }, {
             title: 'LISTADO',
-            url: '/component/privilegios/listar'
+            url: '/acceso/component/privilegios/listar'
           }, {
             title: 'MODIFICACIÓN'
           }]

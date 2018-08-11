@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
       if (localStorage.getItem('token')) {
-          this.router.navigate(['/starter']);
+          this.router.navigate(['/acceso/starter']);
       }
   }
   createForm() {
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
         .subscribe((res: any) => {
             if (res.autenticado) {
                 localStorage.setItem('token', res.token);
-                this.router.navigate(['/starter']);
+                this.router.navigate(['/acceso/starter']);
             } else {
                 this.loginGroup.reset();
             }

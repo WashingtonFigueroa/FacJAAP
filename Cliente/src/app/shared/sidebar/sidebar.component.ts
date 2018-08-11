@@ -9,8 +9,7 @@ declare var $: any;
   templateUrl: './sidebar.component.html'
 })
 export class SidebarComponent implements OnInit {
-	
-    
+
     showMenu: string = '';
     showSubMenu: string = '';
     public sidebarnavItems: any[];
@@ -57,7 +56,7 @@ export class SidebarComponent implements OnInit {
     }
     logout() {
         localStorage.removeItem('token');
-        this.router.navigate(['/login']);
+        this.router.navigate(['/acceso/login']);
     }
 
 }

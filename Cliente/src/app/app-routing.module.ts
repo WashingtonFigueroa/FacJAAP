@@ -5,15 +5,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FullComponent } from './layouts/full/full.component';
 import {LoginComponent} from "./login/login.component";
 import {AuthGuard} from "./component/auth.guard";
+import {PortadaModule} from "./portada/portada.module";
 
 export const Approutes: Routes = [
 {
-    path: '',
+    path: 'acceso',
     component: FullComponent,
     children: [
         { path: '', redirectTo: '/login', pathMatch: 'full' },
-        { path: 'login', component: LoginComponent},
-        { path: 'login/:param', component: LoginComponent},
+        { path: 'login', component: LoginComponent },
+        { path: 'login/:param', component: LoginComponent },
         { path: 'starter', loadChildren: './starter/starter.module#StarterModule',
             canActivate: [AuthGuard]},
         { path: 'component',
@@ -21,9 +22,10 @@ export const Approutes: Routes = [
             canActivate: [AuthGuard]},
     ]
 },
+{ path: '' , loadChildren: './portada/portada.module#PortadaModule'},
 {
     path: '**',
-    redirectTo: '/login'
+    redirectTo: '/acceso/login'
 }];
 
 

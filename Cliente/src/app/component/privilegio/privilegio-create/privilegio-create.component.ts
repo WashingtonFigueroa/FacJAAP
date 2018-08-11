@@ -43,6 +43,7 @@ export class PrivilegioCreateComponent implements OnInit {
   loadPrivilegios(idtipo) {
     this.tipoUsuarioService.listaPrivilegios(idtipo)
         .subscribe((privilegios: any) => {
+            console.log(privilegios);
             const lista = privilegios;
             lista.map(privilegio => {
                 switch (privilegio.ruta) {
