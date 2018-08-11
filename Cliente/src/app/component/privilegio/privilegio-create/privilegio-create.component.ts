@@ -13,7 +13,7 @@ export class PrivilegioCreateComponent implements OnInit {
 
   idtipo = 0;
   privilegio = {
-    cargos: true,
+    tipousuarios: true,
     usuarios: true,
     privilegios: true,
     inventario: true,
@@ -46,7 +46,7 @@ export class PrivilegioCreateComponent implements OnInit {
             const lista = privilegios;
             lista.map(privilegio => {
                 switch (privilegio.ruta) {
-                    case 'cargos': this.privilegio.cargos = privilegio.estado; break;
+                    case 'tipousuarios': this.privilegio.tipousuarios = privilegio.estado; break;
                     case 'usuarios': this.privilegio.usuarios = privilegio.estado; break;
                     case 'privilegios': this.privilegio.privilegios = privilegio.estado; break;
                     case 'inventario': this.privilegio.inventario = privilegio.estado; break;

@@ -556,6 +556,7 @@ export const ComponentsRoutes: Routes = [{
       }]
     }, {
       path: 'tipousuarios',
+      canActivate: [AuthGuard],
       component: TipousuarioComponent,
       children: [{
         path: '',
@@ -689,15 +690,12 @@ export const ComponentsRoutes: Routes = [{
         path: 'crear',
         component: PrivilegioCreateComponent,
         data: {
-          title: 'CREAR PRIVILEGIO',
+          title: 'ADMINISTRAR PRIVILEGIO',
           urls: [{
             title: 'INICIO',
             url: '/dashboard'
           }, {
-            title: 'LISTADO',
-            url: '/component/privilegios/listar'
-          }, {
-            title: 'NUEVO REGISTRO'
+            title: 'ASIGNACIÓN PRIVILEGIO'
           }]
         }
       }, {

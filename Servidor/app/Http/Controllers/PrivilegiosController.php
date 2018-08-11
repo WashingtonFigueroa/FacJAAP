@@ -70,69 +70,77 @@ class PrivilegiosController extends Controller
     public function update($idtipo)
     {
         $privilegioData = request()->all();
-
         $privilegios = Privilegios::where('idtipo', $idtipo)->get();
-        foreach ($privilegios as $privilegio) {
-            switch ($privilegio->ruta) {
-                case 'cargos':
-                    $privilegio->estado = $privilegioData['cargos'];
-                    $privilegio->save();
-                    break;
-                case 'usuarios':
-                    $privilegio->estado = $privilegioData['usuarios'];
-                    $privilegio->save();
-                    break;
-                case 'privilegios':
-                    $privilegio->estado = $privilegioData['privilegios'];
-                    $privilegio->save();
-                    break;
-                case 'inventario':
-                    $privilegio->estado = $privilegioData['inventario'];
-                    $privilegio->save();
-                    break;
-                case 'kardex':
-                    $privilegio->estado = $privilegioData['kardex'];
-                    $privilegio->save();
-                    break;
-                case 'administracion':
-                    $privilegio->estado = $privilegioData['administracion'];
-                    $privilegio->save();
-                    break;
-                case 'estadisticas':
-                    $privilegio->estado = $privilegioData['estadisticas'];
-                    $privilegio->save();
-                    break;
-                case 'parametros':
-                    $privilegio->estado = $privilegioData['parametros'];
-                    $privilegio->save();
-                    break;
-                case 'clientes':
-                    $privilegio->estado = $privilegioData['clientes'];
-                    $privilegio->save();
-                    break;
-                case 'medidores':
-                    $privilegio->estado = $privilegioData['medidores'];
-                    $privilegio->save();
-                    break;
-                case 'servicios':
-                    $privilegio->estado = $privilegioData['servicios'];
-                    $privilegio->save();
-                    break;
-                case 'multas':
-                    $privilegio->estado = $privilegioData['multas'];
-                    $privilegio->save();
-                    break;
-                case 'lecturas':
-                    $privilegio->estado = $privilegioData['lecturas'];
-                    $privilegio->save();
-                    break;
-                case 'pago_planilla':
-                    $privilegio->estado = $privilegioData['pago_planilla'];
-                    $privilegio->save();
-                    break;
+
+        if ($privilegios != 0)
+        {
+            foreach ($privilegios as $privilegio) {
+                switch ($privilegio->ruta) {
+                    case 'tipousuarios':
+                        $privilegio->estado = $privilegioData['tipousuarios'];
+                        $privilegio->save();
+                        break;
+                    case 'usuarios':
+                        $privilegio->estado = $privilegioData['usuarios'];
+                        $privilegio->save();
+                        break;
+                    case 'privilegios':
+                        $privilegio->estado = $privilegioData['privilegios'];
+                        $privilegio->save();
+                        break;
+                    case 'inventario':
+                        $privilegio->estado = $privilegioData['inventario'];
+                        $privilegio->save();
+                        break;
+                    case 'kardex':
+                        $privilegio->estado = $privilegioData['kardex'];
+                        $privilegio->save();
+                        break;
+                    case 'administracion':
+                        $privilegio->estado = $privilegioData['administracion'];
+                        $privilegio->save();
+                        break;
+                    case 'estadisticas':
+                        $privilegio->estado = $privilegioData['estadisticas'];
+                        $privilegio->save();
+                        break;
+                    case 'parametros':
+                        $privilegio->estado = $privilegioData['parametros'];
+                        $privilegio->save();
+                        break;
+                    case 'clientes':
+                        $privilegio->estado = $privilegioData['clientes'];
+                        $privilegio->save();
+                        break;
+                    case 'medidores':
+                        $privilegio->estado = $privilegioData['medidores'];
+                        $privilegio->save();
+                        break;
+                    case 'servicios':
+                        $privilegio->estado = $privilegioData['servicios'];
+                        $privilegio->save();
+                        break;
+                    case 'multas':
+                        $privilegio->estado = $privilegioData['multas'];
+                        $privilegio->save();
+                        break;
+                    case 'lecturas':
+                        $privilegio->estado = $privilegioData['lecturas'];
+                        $privilegio->save();
+                        break;
+                    case 'pago_planilla':
+                        $privilegio->estado = $privilegioData['pago_planilla'];
+                        $privilegio->save();
+                        break;
+                }
             }
+            return response()->json(['exito' => 'Privilegios actualizados'], 200);
+        }else{
+            $privilegio = Privilegios::create($privilegioData->all());
+            return response()->json($privilegio, 201);
         }
-        return response()->json(['exito' => 'Privilegios actualizados'], 200);
+
+
     }
 
     /**

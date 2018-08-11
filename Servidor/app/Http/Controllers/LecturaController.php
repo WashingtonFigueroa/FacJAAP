@@ -28,7 +28,6 @@ class LecturaController extends Controller
 
     public function store(Request $request)
     {
-
         $anteriorInput = $request->input('anterior');
         $actualnput = $request->input('actual');
         if ($actualnput < $anteriorInput) {
