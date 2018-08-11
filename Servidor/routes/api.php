@@ -33,7 +33,7 @@ Route::resource('parametros', 'ParametroController');
 Route::resource('tipousuarios', 'TipoUsuarioController');
 Route::resource('usuarios', 'UsuarioController');
 Route::resource('listaUsuarios', 'UsuarioController@listaUsuarios');
-Route::resource('privilegios', 'PrivilegiosController', ['only'=> ['index', 'update']]);
+Route::resource('privilegios', 'PrivilegiosController', ['only'=> ['index', 'update','store']]);
 
 Route::resource('lecturas', 'LecturaController');
 Route::resource('materiales', 'MaterialController');

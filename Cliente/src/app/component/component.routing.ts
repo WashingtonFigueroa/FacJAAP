@@ -59,663 +59,661 @@ import { MovimientoEditComponent } from './movimiento/movimiento-edit/movimiento
 import {AuthGuard} from "./auth.guard";
 
 export const ComponentsRoutes: Routes = [{
-  path: '',
-  children: [
-//rutas estadisticas
-          { path: 'estadisticas', component: EstadisticasComponent,
-          data: {
-            title: 'ESTADÍSTICAS',
-            urls: [{ title: 'INICIO', url: '/acceso/dashboard'},
-            { title: 'REPORTES' }] } },
-//rutas clientes    
-    {
-      path: 'clientes',
-      component: ClienteComponent,
-      children: [{
-        path: '',
-        redirectTo: 'listar',
-        pathMatch: 'full'      },
-       { path: 'listar', component: ClienteIndexComponent, data: {
-          title: 'LISTA CLIENTES',
-          urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
-           { title: 'NUEVO REGISTRO', url: '/acceso/component/clientes/crear'},
-           { title: 'CLIENTES' }]
-        }      },
-       { path: 'crear', component: ClienteCreateComponent, data: {
-          title: 'CREAR CLIENTE',
-          urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
-           { title: 'LISTADO', url: '/acceso/component/clientes/listar'},
-           { title: 'NUEVO REGISTRO' }]
-        }      
-      },
-       { path: 'editar/:id', component: ClienteEditComponent, data: {
-          title: 'EDITAR CLIENTE',
-          urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
-           { title: 'LISTADO', url: '/acceso/component/clientes/listar'},
-           { title: 'MODIFICACIÓN' }]
-        }
-      }]    
-    },
-//rutas materiales    
-    {
-      path: 'materiales',
-      component: MaterialComponent,
-      children: [{
-        path: '',
-        redirectTo: 'listar',
-        pathMatch: 'full'      },
-       { path: 'listar', component: MaterialIndexComponent, data: {
-          title: 'LISTA INVENTARIO',
-          urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
-           { title: 'NUEVO REGISTRO', url: '/acceso/component/materiales/crear'},
-           { title: 'INVENTARIO' }]
-        }      },
-       { path: 'crear', component: MaterialCreateComponent, data: {
-          title: 'CREAR MATERIAL',
-          urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
-           { title: 'LISTADO', url: '/acceso/component/materiales/listar'},
-           { title: 'NUEVO REGISTRO' }]
-        }      
-      },
-       { path: 'editar/:id', component: MaterialEditComponent, data: {
-          title: 'EDITAR MATERIAL',
-          urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
-           { title: 'LISTADO', url: '/acceso/component/materiales/listar'},
-           { title: 'MODIFICACIÓN' }]
-        }
-      }]    
-    },
-//rutas INVENTARIO    
-    {
-      path: 'inventarios',
-      component: InventarioComponent,
-      children: [{
-        path: '',
-        redirectTo: 'listar',
-        pathMatch: 'full'      },
-       { path: 'listar', component: InventarioIndexComponent, data: {
-          title: 'LISTA KARDEX',
-          urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
-           { title: 'NUEVO REGISTRO', url: '/acceso/component/inventarios/crear'},
-           { title: 'KARDEX' }]
-        }      },
-       { path: 'crear', component: InventarioCreateComponent, data: {
-          title: 'MOVIMIENTO KARDEX',
-          urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
-           { title: 'LISTADO', url: '/acceso/component/inventarios/listar'},
-           { title: 'NUEVO REGISTRO' }]
-        }      
-      },
-       { path: 'editar/:id', component: InventarioEditComponent, data: {
-          title: 'EDITAR KARDEX',
-          urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
-           { title: 'LISTADO', url: '/acceso/component/inventarios/listar'},
-           { title: 'MODIFICACIÓN' }]
-        }
-      }]    
-    },
-//rutas MOVIMIENTOS    
-{
-  path: 'movimientos',
-  component: MovimientoComponent,
-  children: [{
     path: '',
-    redirectTo: 'listar',
-    pathMatch: 'full'      },
-   { path: 'listar', component: MovimientoIndexComponent, data: {
-      title: 'LISTA MOVIMIENTOS',
-      urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
-       { title: 'NUEVO REGISTRO', url: '/acceso/component/movimientos/crear'},
-       { title: 'MOVIMIENTOS' }]
-    }      },
-   { path: 'crear', component: MovimientoCreateComponent, data: {
-      title: 'GESTION MOVIMIENTOS',
-      urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
-       { title: 'LISTADO', url: '/acceso/component/movimientos/listar'},
-       { title: 'NUEVO REGISTRO' }]
-    }      
-  },
-   { path: 'editar/:id', component: MovimientoEditComponent, data: {
-      title: 'EDITAR MOVIMIENTOS',
-      urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
-       { title: 'LISTADO', url: '/acceso/component/movimientos/listar'},
-       { title: 'MODIFICACIÓN' }]
-    }
-  }]    
-},
+    children: [
+//rutas estadisticas
+        { path: 'estadisticas', component: EstadisticasComponent,
+            data: {
+                title: 'ESTADÍSTICAS',
+                urls: [{ title: 'INICIO', url: '/dashboard'},
+                    { title: 'REPORTES' }] } },
+//rutas clientes
+        {
+            path: 'clientes',
+            component: ClienteComponent,
+            children: [{
+                path: '',
+                redirectTo: 'listar',
+                pathMatch: 'full'      },
+                { path: 'listar', component: ClienteIndexComponent, data: {
+                        title: 'LISTA CLIENTES',
+                        urls: [{ title: 'INICIO', url: '/dashboard' },
+                            { title: 'NUEVO REGISTRO', url: '/component/clientes/crear'},
+                            { title: 'CLIENTES' }]
+                    }      },
+                { path: 'crear', component: ClienteCreateComponent, data: {
+                        title: 'CREAR CLIENTE',
+                        urls: [{ title: 'INICIO', url: '/dashboard' },
+                            { title: 'LISTADO', url: '/component/clientes/listar'},
+                            { title: 'NUEVO REGISTRO' }]
+                    }
+                },
+                { path: 'editar/:id', component: ClienteEditComponent, data: {
+                        title: 'EDITAR CLIENTE',
+                        urls: [{ title: 'INICIO', url: '/dashboard' },
+                            { title: 'LISTADO', url: '/component/clientes/listar'},
+                            { title: 'MODIFICACIÓN' }]
+                    }
+                }]
+        },
+//rutas materiales
+        {
+            path: 'materiales',
+            component: MaterialComponent,
+            children: [{
+                path: '',
+                redirectTo: 'listar',
+                pathMatch: 'full'      },
+                { path: 'listar', component: MaterialIndexComponent, data: {
+                        title: 'LISTA INVENTARIO',
+                        urls: [{ title: 'INICIO', url: '/dashboard' },
+                            { title: 'NUEVO REGISTRO', url: '/component/materiales/crear'},
+                            { title: 'INVENTARIO' }]
+                    }      },
+                { path: 'crear', component: MaterialCreateComponent, data: {
+                        title: 'CREAR MATERIAL',
+                        urls: [{ title: 'INICIO', url: '/dashboard' },
+                            { title: 'LISTADO', url: '/component/materiales/listar'},
+                            { title: 'NUEVO REGISTRO' }]
+                    }
+                },
+                { path: 'editar/:id', component: MaterialEditComponent, data: {
+                        title: 'EDITAR MATERIAL',
+                        urls: [{ title: 'INICIO', url: '/dashboard' },
+                            { title: 'LISTADO', url: '/component/materiales/listar'},
+                            { title: 'MODIFICACIÓN' }]
+                    }
+                }]
+        },
+//rutas INVENTARIO
+        {
+            path: 'inventarios',
+            component: InventarioComponent,
+            children: [{
+                path: '',
+                redirectTo: 'listar',
+                pathMatch: 'full'      },
+                { path: 'listar', component: InventarioIndexComponent, data: {
+                        title: 'LISTA KARDEX',
+                        urls: [{ title: 'INICIO', url: '/dashboard' },
+                            { title: 'NUEVO REGISTRO', url: '/component/inventarios/crear'},
+                            { title: 'KARDEX' }]
+                    }      },
+                { path: 'crear', component: InventarioCreateComponent, data: {
+                        title: 'MOVIMIENTO KARDEX',
+                        urls: [{ title: 'INICIO', url: '/dashboard' },
+                            { title: 'LISTADO', url: '/component/inventarios/listar'},
+                            { title: 'NUEVO REGISTRO' }]
+                    }
+                },
+                { path: 'editar/:id', component: InventarioEditComponent, data: {
+                        title: 'EDITAR KARDEX',
+                        urls: [{ title: 'INICIO', url: '/dashboard' },
+                            { title: 'LISTADO', url: '/component/inventarios/listar'},
+                            { title: 'MODIFICACIÓN' }]
+                    }
+                }]
+        },
+//rutas MOVIMIENTOS
+        {
+            path: 'movimientos',
+            component: MovimientoComponent,
+            children: [{
+                path: '',
+                redirectTo: 'listar',
+                pathMatch: 'full'      },
+                { path: 'listar', component: MovimientoIndexComponent, data: {
+                        title: 'LISTA MOVIMIENTOS',
+                        urls: [{ title: 'INICIO', url: '/dashboard' },
+                            { title: 'NUEVO REGISTRO', url: '/component/movimientos/crear'},
+                            { title: 'MOVIMIENTOS' }]
+                    }      },
+                { path: 'crear', component: MovimientoCreateComponent, data: {
+                        title: 'GESTION MOVIMIENTOS',
+                        urls: [{ title: 'INICIO', url: '/dashboard' },
+                            { title: 'LISTADO', url: '/component/movimientos/listar'},
+                            { title: 'NUEVO REGISTRO' }]
+                    }
+                },
+                { path: 'editar/:id', component: MovimientoEditComponent, data: {
+                        title: 'EDITAR MOVIMIENTOS',
+                        urls: [{ title: 'INICIO', url: '/dashboard' },
+                            { title: 'LISTADO', url: '/component/movimientos/listar'},
+                            { title: 'MODIFICACIÓN' }]
+                    }
+                }]
+        },
 //rutas factura venta
-     {  path: 'facturas',
-      component: FacturaComponent,
-      children: [{
-        path: '',
-        redirectTo: 'listar',
-        pathMatch: 'full'
-      }, {
-        path: 'listar',
-        component: FacturaIndexComponent,
-        data: {
-          title: 'LISTADO FACTURAS EMITIDAS',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'NUEVO REGISTRO',
-            url: '/acceso/component/facturas/crear'
-          }, {
-            title: 'FACTURAS'
-          }]
+        {  path: 'facturas',
+            component: FacturaComponent,
+            children: [{
+                path: '',
+                redirectTo: 'listar',
+                pathMatch: 'full'
+            }, {
+                path: 'listar',
+                component: FacturaIndexComponent,
+                data: {
+                    title: 'LISTADO FACTURAS EMITIDAS',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'NUEVO REGISTRO',
+                        url: '/component/facturas/crear'
+                    }, {
+                        title: 'FACTURAS'
+                    }]
+                }
+            }, {
+                path: 'crear',
+                component: FacturaCreateComponent,
+                data: {
+                    title: 'EMISIÓN DE FACTURAS',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'LISTADO',
+                        url: '/component/facturas/listar'
+                    }, {
+                        title: 'NUEVO REGISTRO'
+                    }]
+                }
+            }, {
+                path: 'editar/:id',
+                component: FacturaEditComponent,
+                data: {
+                    title: 'EDITAR FACTURAS',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'LISTADO',
+                        url: '/component/facturas/listar'
+                    }, {
+                        title: 'MODIFICACIÓN'
+                    }]
+                }
+            }]
+        }, {
+            path: 'lecturas',
+            component: LecturaComponent,
+            children: [{
+                path: '',
+                redirectTo: 'listar',
+                pathMatch: 'full'
+            }, {
+                path: 'listar',
+                component: LecturaIndexComponent,
+                data: {
+                    title: 'LISTADO LECTURAS',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'NUEVO REGISTRO',
+                        url: '/component/lecturas/crear'
+                    }, {
+                        title: 'LECTURAS'
+                    }]
+                }
+            }, {
+                path: 'crear',
+                component: LecturaCreateComponent,
+                data: {
+                    title: 'INGRESO lECTURA',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'LISTADO',
+                        url: '/component/lecturas/listar'
+                    }, {
+                        title: 'NUEVO REGISTRO'
+                    }]
+                }
+            }, {
+                path: 'editar/:id',
+                component: LecturaEditComponent,
+                data: {
+                    title: 'EDITAR LECTURAS',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'LISTADO',
+                        url: '/component/lecturas/listar'
+                    }, {
+                        title: 'MODIFICACIÓN'
+                    }]
+                }
+            }]
+        }, {
+            path: 'medidores',
+            component: MedidorComponent,
+            children: [{
+                path: '',
+                redirectTo: 'listar',
+                pathMatch: 'full'
+            }, {
+                path: 'listar',
+                component: MedidorIndexComponent,
+                data: {
+                    title: 'LISTADO MEDIDORES',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'NUEVO REGISTRO',
+                        url: '/component/medidores/crear'
+                    }, {
+                        title: 'MEDIDOR'
+                    }]
+                }
+            }, {
+                path: 'crear',
+                component: MedidorCreateComponent,
+                data: {
+                    title: 'CREAR MEDIDORES',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'LISTADO',
+                        url: '/component/medidores/listar'
+                    }, {
+                        title: 'NUEVO REGISTRO'
+                    }]
+                }
+            }, {
+                path: 'editar/:id',
+                component: MedidorEditComponent,
+                data: {
+                    title: 'EDITAR MEDIDORE',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'LISTADO',
+                        url: '/component/medidores/listar'
+                    }, {
+                        title: 'MODIFICACIÓN'
+                    }]
+                }
+            }]
+        }, {
+            path: 'multas',
+            component: MultaComponent,
+            children: [{
+                path: '',
+                redirectTo: 'listar',
+                pathMatch: 'full'
+            }, {
+                path: 'listar',
+                component: MultaIndexComponent,
+                data: {
+                    title: 'LISTA MULTAS',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'NUEVO REGISTRO',
+                        url: '/component/multas/crear'
+                    }, {
+                        title: 'MULTA'
+                    }]
+                }
+            }, {
+                path: 'crear',
+                component: MultaCreateComponent,
+                data: {
+                    title: 'REGISTRO MULTA',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'LISTADO',
+                        url: '/component/multas/listar'
+                    }, {
+                        title: 'NUEVO REGISTRO'
+                    }]
+                }
+            }, {
+                path: 'editar/:id',
+                component: MultaEditComponent,
+                data: {
+                    title: 'EDITAR MULTA',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'LISTADO',
+                        url: '/component/multas/listar'
+                    }, {
+                        title: 'MODIFICACIÓN'
+                    }]
+                }
+            }]
+        }, {
+            path: 'pagos',
+            component: PagoComponent,
+            children: [{
+                path: '',
+                redirectTo: 'listar',
+                pathMatch: 'full'
+            }, {
+                path: 'listar',
+                component: PagoIndexComponent,
+                data: {
+                    title: 'LISTA PAGO SERVICIO',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'NUEVO REGISTRO',
+                        url: '/component/pagos/crear'
+                    }, {
+                        title: 'PAGO INSTALACIÓN'
+                    }]
+                }
+            }, {
+                path: 'crear',
+                component: PagoCreateComponent,
+                data: {
+                    title: 'CANCELACIÓN SERVICIO',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'LISTADO',
+                        url: '/component/pagos/listar'
+                    }, {
+                        title: 'NUEVO REGISTRO'
+                    }]
+                }
+            }, {
+                path: 'editar/:id',
+                component: PagoEditComponent,
+                data: {
+                    title: 'Editar pago',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'pagos',
+                        url: '/component/pagos/listar'
+                    }, {
+                        title: 'MODIFICACIÓN'
+                    }]
+                }
+            }]
+        }, {
+            path: 'parametros',
+            component: ParametroComponent,
+            children: [{
+                path: '',
+                redirectTo: 'listar',
+                pathMatch: 'full'
+            }, {
+                path: 'listar',
+                component: ParametroIndexComponent,
+                data: {
+                    title: 'LISTA PARAMETROS',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'NUEVO REGISTRO',
+                        url: '/component/parametros/crear'
+                    }, {
+                        title: 'PARAMETROS'
+                    }]
+                }
+            }, {
+                path: 'crear',
+                component: ParametroCreateComponent,
+                data: {
+                    title: 'INGRESO DE PARAMETROS',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'LISTADO',
+                        url: '/component/parametros/listar'
+                    }, {
+                        title: 'NUEVO REGISTRO'
+                    }]
+                }
+            }, {
+                path: 'editar/:id',
+                component: ParametroEditComponent,
+                data: {
+                    title: 'EDITAR PARAMETROS',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'LISTADO',
+                        url: '/component/parametros/listar'
+                    }, {
+                        title: 'MODIFICACIÓN'
+                    }]
+                }
+            }]
+        }, {
+            path: 'servicios',
+            component: ServicioComponent,
+            children: [{
+                path: '',
+                redirectTo: 'listar',
+                pathMatch: 'full'
+            }, {
+                path: 'listar',
+                component: ServicioIndexComponent,
+                data: {
+                    title: 'LISTADO SERVICIOS',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'NUEVO REGISTRO',
+                        url: '/component/servicios/crear'
+                    }, {
+                        title: 'SERVICIOS'
+                    }]
+                }
+            }, {
+                path: 'crear',
+                component: ServicioCreateComponent,
+                data: {
+                    title: 'HABILITAR SERVICIOS',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'LISTADO',
+                        url: '/component/servicios/listar'
+                    }, {
+                        title: 'NUEVO REGISTRO'
+                    }]
+                }
+            }, {
+                path: 'editar/:id',
+                component: ServicioEditComponent,
+                data: {
+                    title: 'EDITAR SERVICIOS',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'LISTADO',
+                        url: '/component/servicios/listar'
+                    }, {
+                        title: 'MODIFICACIÓN'
+                    }]
+                }
+            }]
+        }, {
+            path: 'tipousuarios',
+            canActivate: [AuthGuard],
+            component: TipousuarioComponent,
+            children: [{
+                path: '',
+                redirectTo: 'listar',
+                pathMatch: 'full'
+            }, {
+                path: 'listar',
+                component: TipousuarioIndexComponent,
+                data: {
+                    title: 'LISTA DE CARGOS',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'NUEVO REGISTRO',
+                        url: '/component/tipousuarios/crear'
+                    }, {
+                        title: 'CARGO USUARIO'
+                    }]
+                }
+            }, {
+                path: 'crear',
+                component: TipousuarioCreateComponent,
+                data: {
+                    title: 'CREAR CARGO',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'LISTADO',
+                        url: '/component/tipousuarios/listar'
+                    }, {
+                        title: 'NUEVO REGISTRO'
+                    }]
+                }
+            }, {
+                path: 'editar/:id',
+                component: TipousuarioEditComponent,
+                data: {
+                    title: 'EDITAR CARGO',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'LISTADO',
+                        url: '/component/tipousuarios/listar'
+                    }, {
+                        title: 'MODIFICACIÓN'
+                    }]
+                }
+            }]
+        }, {
+            path: 'usuarios',
+            component: UsuarioComponent,
+            canActivate: [AuthGuard],
+            children: [{
+                path: '',
+                redirectTo: 'listar',
+                pathMatch: 'full'
+            }, {
+                path: 'listar',
+                component: UsuarioIndexComponent,
+                data: {
+                    title: 'LISTA USUARIOS',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'NUEVO REGISTRO',
+                        url: '/component/usuarios/crear'
+                    }, {
+                        title: 'USUARIOS'
+                    }]
+                }
+            }, {
+                path: 'crear',
+                component: UsuarioCreateComponent,
+                data: {
+                    title: 'CREAR USUARIO',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'LISTADO',
+                        url: '/component/usuarios/listar'
+                    }, {
+                        title: 'NUEVO REGISTRO'
+                    }]
+                }
+            }, {
+                path: 'editar/:id',
+                component: UsuarioEditComponent,
+                data: {
+                    title: 'EDITAR USUARIOS',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'LISTADO',
+                        url: '/component/usuarios/listar'
+                    }, {
+                        title: 'MODIFICACIÓN'
+                    }]
+                }
+            }]
+        },
+        {
+            path: 'privilegios',
+            component: PrivilegioComponent,
+            canActivate: [AuthGuard],
+            children: [{
+                path: '',
+                redirectTo: 'listar',
+                pathMatch: 'full'
+            }, {
+                path: 'listar',
+                component: PrivilegioIndexComponent,
+                data: {
+                    title: 'LISTADO PRIVILEGIOS',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'NUEVO REGISTRO',
+                        url: '/component/privilegios/crear'
+                    }, {
+                        title: 'PRIVILEGIOS'
+                    }]
+                }
+            }, {
+                path: 'crear',
+                component: PrivilegioCreateComponent,
+                data: {
+                    title: 'ADMINISTRAR PRIVILEGIO',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'ASIGNACIÓN PRIVILEGIO'
+                    }]
+                }
+            }, {
+                path: 'editar/:id',
+                component: PrivilegioEditComponent,
+                data: {
+                    title: 'EDITAR PRIVILEGIO',
+                    urls: [{
+                        title: 'INICIO',
+                        url: '/dashboard'
+                    }, {
+                        title: 'LISTADO',
+                        url: '/component/privilegios/listar'
+                    }, {
+                        title: 'MODIFICACIÓN'
+                    }]
+                }
+            }]
         }
-      }, {
-        path: 'crear',
-        component: FacturaCreateComponent,
-        data: {
-          title: 'EMISIÓN DE FACTURAS',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'LISTADO',
-            url: '/acceso/component/facturas/listar'
-          }, {
-            title: 'NUEVO REGISTRO'
-          }]
-        }
-      }, {
-        path: 'editar/:id',
-        component: FacturaEditComponent,
-        data: {
-          title: 'EDITAR FACTURAS',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'LISTADO',
-            url: '/acceso/component/facturas/listar'
-          }, {
-            title: 'MODIFICACIÓN'
-          }]
-        }
-      }]
-    }, {
-      path: 'lecturas',
-      component: LecturaComponent,
-      children: [{
-        path: '',
-        redirectTo: 'listar',
-        pathMatch: 'full'
-      }, {
-        path: 'listar',
-        component: LecturaIndexComponent,
-        data: {
-          title: 'LISTADO LECTURAS',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'NUEVO REGISTRO',
-            url: '/acceso/component/lecturas/crear'
-          }, {
-            title: 'LECTURAS'
-          }]
-        }
-      }, {
-        path: 'crear',
-        component: LecturaCreateComponent,
-        data: {
-          title: 'INGRESO lECTURA',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'LISTADO',
-            url: '/acceso/component/lecturas/listar'
-          }, {
-            title: 'NUEVO REGISTRO'
-          }]
-        }
-      }, {
-        path: 'editar/:id',
-        component: LecturaEditComponent,
-        data: {
-          title: 'EDITAR LECTURAS',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'LISTADO',
-            url: '/acceso/component/lecturas/listar'
-          }, {
-            title: 'MODIFICACIÓN'
-          }]
-        }
-      }]
-    }, {
-      path: 'medidores',
-      component: MedidorComponent,
-      children: [{
-        path: '',
-        redirectTo: 'listar',
-        pathMatch: 'full'
-      }, {
-        path: 'listar',
-        component: MedidorIndexComponent,
-        data: {
-          title: 'LISTADO MEDIDORES',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'NUEVO REGISTRO',
-            url: '/acceso/component/medidores/crear'
-          }, {
-            title: 'MEDIDOR'
-          }]
-        }
-      }, {
-        path: 'crear',
-        component: MedidorCreateComponent,
-        data: {
-          title: 'CREAR MEDIDORES',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'LISTADO',
-            url: '/acceso/component/medidores/listar'
-          }, {
-            title: 'NUEVO REGISTRO'
-          }]
-        }
-      }, {
-        path: 'editar/:id',
-        component: MedidorEditComponent,
-        data: {
-          title: 'EDITAR MEDIDORE',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'LISTADO',
-            url: '/acceso/component/medidores/listar'
-          }, {
-            title: 'MODIFICACIÓN'
-          }]
-        }
-      }]
-    }, {
-      path: 'multas',
-      component: MultaComponent,
-      children: [{
-        path: '',
-        redirectTo: 'listar',
-        pathMatch: 'full'
-      }, {
-        path: 'listar',
-        component: MultaIndexComponent,
-        data: {
-          title: 'LISTA MULTAS',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'NUEVO REGISTRO',
-            url: '/acceso/component/multas/crear'
-          }, {
-            title: 'MULTA'
-          }]
-        }
-      }, {
-        path: 'crear',
-        component: MultaCreateComponent,
-        data: {
-          title: 'REGISTRO MULTA',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'LISTADO',
-            url: '/acceso/component/multas/listar'
-          }, {
-            title: 'NUEVO REGISTRO'
-          }]
-        }
-      }, {
-        path: 'editar/:id',
-        component: MultaEditComponent,
-        data: {
-          title: 'EDITAR MULTA',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'LISTADO',
-            url: '/acceso/component/multas/listar'
-          }, {
-            title: 'MODIFICACIÓN'
-          }]
-        }
-      }]
-    }, {
-      path: 'pagos',
-      component: PagoComponent,
-      children: [{
-        path: '',
-        redirectTo: 'listar',
-        pathMatch: 'full'
-      }, {
-        path: 'listar',
-        component: PagoIndexComponent,
-        data: {
-          title: 'LISTA PAGO SERVICIO',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'NUEVO REGISTRO',
-            url: '/acceso/component/pagos/crear'
-          }, {
-            title: 'PAGO INSTALACIÓN'
-          }]
-        }
-      }, {
-        path: 'crear',
-        component: PagoCreateComponent,
-        data: {
-          title: 'CANCELACIÓN SERVICIO',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'LISTADO',
-            url: '/acceso/component/pagos/listar'
-          }, {
-            title: 'NUEVO REGISTRO'
-          }]
-        }
-      }, {
-        path: 'editar/:id',
-        component: PagoEditComponent,
-        data: {
-          title: 'Editar pago',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'pagos',
-            url: '/acceso/component/pagos/listar'
-          }, {
-            title: 'MODIFICACIÓN'
-          }]
-        }
-      }]
-    }, {
-      path: 'parametros',
-      component: ParametroComponent,
-      children: [{
-        path: '',
-        redirectTo: 'listar',
-        pathMatch: 'full'
-      }, {
-        path: 'listar',
-        component: ParametroIndexComponent,
-        data: {
-          title: 'LISTA PARAMETROS',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'NUEVO REGISTRO',
-            url: '/acceso/component/parametros/crear'
-          }, {
-            title: 'PARAMETROS'
-          }]
-        }
-      }, {
-        path: 'crear',
-        component: ParametroCreateComponent,
-        data: {
-          title: 'INGRESO DE PARAMETROS',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'LISTADO',
-            url: '/acceso/component/parametros/listar'
-          }, {
-            title: 'NUEVO REGISTRO'
-          }]
-        }
-      }, {
-        path: 'editar/:id',
-        component: ParametroEditComponent,
-        data: {
-          title: 'EDITAR PARAMETROS',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'LISTADO',
-            url: '/acceso/component/parametros/listar'
-          }, {
-            title: 'MODIFICACIÓN'
-          }]
-        }
-      }]
-    }, {
-      path: 'servicios',
-      component: ServicioComponent,
-      children: [{
-        path: '',
-        redirectTo: 'listar',
-        pathMatch: 'full'
-      }, {
-        path: 'listar',
-        component: ServicioIndexComponent,
-        data: {
-          title: 'LISTADO SERVICIOS',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'NUEVO REGISTRO',
-            url: '/acceso/component/servicios/crear'
-          }, {
-            title: 'SERVICIOS'
-          }]
-        }
-      }, {
-        path: 'crear',
-        component: ServicioCreateComponent,
-        data: {
-          title: 'HABILITAR SERVICIOS',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'LISTADO',
-            url: '/acceso/component/servicios/listar'
-          }, {
-            title: 'NUEVO REGISTRO'
-          }]
-        }
-      }, {
-        path: 'editar/:id',
-        component: ServicioEditComponent,
-        data: {
-          title: 'EDITAR SERVICIOS',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'LISTADO',
-            url: '/acceso/component/servicios/listar'
-          }, {
-            title: 'MODIFICACIÓN'
-          }]
-        }
-      }]
-    }, {
-      path: 'tipousuarios',
-      component: TipousuarioComponent,
-      children: [{
-        path: '',
-        redirectTo: 'listar',
-        pathMatch: 'full'
-      }, {
-        path: 'listar',
-        component: TipousuarioIndexComponent,
-        data: {
-          title: 'LISTA DE CARGOS',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'NUEVO REGISTRO',
-            url: '/acceso/component/tipousuarios/crear'
-          }, {
-            title: 'CARGO USUARIO'
-          }]
-        }
-      }, {
-        path: 'crear',
-        component: TipousuarioCreateComponent,
-        data: {
-          title: 'CREAR CARGO',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'LISTADO',
-            url: '/acceso/component/tipousuarios/listar'
-          }, {
-            title: 'NUEVO REGISTRO'
-          }]
-        }
-      }, {
-        path: 'editar/:id',
-        component: TipousuarioEditComponent,
-        data: {
-          title: 'EDITAR CARGO',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'LISTADO',
-            url: '/acceso/component/tipousuarios/listar'
-          }, {
-            title: 'MODIFICACIÓN'
-          }]
-        }
-      }]
-    }, {
-      path: 'usuarios',
-      component: UsuarioComponent,
-      canActivate: [AuthGuard],
-      children: [{
-        path: '',
-        redirectTo: 'listar',
-        pathMatch: 'full'
-      }, {
-        path: 'listar',
-        component: UsuarioIndexComponent,
-        data: {
-          title: 'LISTA USUARIOS',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'NUEVO REGISTRO',
-            url: '/acceso/component/usuarios/crear'
-          }, {
-            title: 'USUARIOS'
-          }]
-        }
-      }, {
-        path: 'crear',
-        component: UsuarioCreateComponent,
-        data: {
-          title: 'CREAR USUARIO',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'LISTADO',
-            url: '/acceso/component/usuarios/listar'
-          }, {
-            title: 'NUEVO REGISTRO'
-          }]
-        }
-      }, {
-        path: 'editar/:id',
-        component: UsuarioEditComponent,
-        data: {
-          title: 'EDITAR USUARIOS',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'LISTADO',
-            url: '/acceso/component/usuarios/listar'
-          }, {
-            title: 'MODIFICACIÓN'
-          }]
-        }
-      }]
-    },
-    {
-      path: 'privilegios',
-      component: PrivilegioComponent,
-      canActivate: [AuthGuard],
-      children: [{
-        path: '',
-        redirectTo: 'listar',
-        pathMatch: 'full'
-      }, {
-        path: 'listar',
-        component: PrivilegioIndexComponent,
-        data: {
-          title: 'LISTADO PRIVILEGIOS',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'NUEVO REGISTRO',
-            url: '/acceso/component/privilegios/crear'
-          }, {
-            title: 'PRIVILEGIOS'
-          }]
-        }
-      }, {
-        path: 'crear',
-        component: PrivilegioCreateComponent,
-        data: {
-          title: 'CREAR PRIVILEGIO',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'LISTADO',
-            url: '/acceso/component/privilegios/listar'
-          }, {
-            title: 'NUEVO REGISTRO'
-          }]
-        }
-      }, {
-        path: 'editar/:id',
-        component: PrivilegioEditComponent,
-        data: {
-          title: 'EDITAR PRIVILEGIO',
-          urls: [{
-            title: 'INICIO',
-            url: '/acceso/dashboard'
-          }, {
-            title: 'LISTADO',
-            url: '/acceso/component/privilegios/listar'
-          }, {
-            title: 'MODIFICACIÓN'
-          }]
-        }
-      }]
-    }
-  ]
+    ]
 }];
