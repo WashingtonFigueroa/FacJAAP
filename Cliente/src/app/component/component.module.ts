@@ -92,8 +92,7 @@ import {ToastrModule} from "ngx-toastr";
     JsonpModule,
     NgbModule,
     NgAutoCompleteModule,
-    PlotlyModule,
-    ToastrModule.forRoot()
+    PlotlyModule
   ],
   declarations: [
     TipousuarioComponent,

@@ -65,32 +65,25 @@
             <div class="col-md-12">
 <h1>Consultar Planilla</h1>
                 <hr>
-                <!--<form [formGroup]="facturaGroup">-->
+                <form [formGroup]="facturaGroup">
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="col" *ngIf="clientesSearch !== null">
+                            <div class="col">
                                 <label>* Seleccione cliente </label><br>
-                                <!--<ng-autocomplete class="col-sm-2 col-form-label" (selected)="Selected($event)" [classes]="['']" [group]="clientesSearch"></ng-autocomplete>-->
+                                <input type="text" formControlName="nombres" name="clienteSearch">
+                                <button class="btn btn-primary"
+                                        (click)="searchCliente()"><span class="fa fa-search"></span></button>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="col">
                                 <label>* SeleccioneMedidor</label>
-                                <select (change)="listaLecturas()" name="idmedidor" formControlName="idmedidor" class="custom-select mr-sm-2" *ngIf="medidores != null">
+                                <select (change)="listaLecturas()" name="idmedidor"
+                                        formControlName="idmedidor" class="custom-select mr-sm-2" *ngIf="medidores != null">
                                     <option [value]="medidor.idmedidor" *ngFor="let medidor of medidores">
                                         {{ medidor.codigo }}
                                     </option>
                                 </select>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="col">
-                                <label>Mes facturado:</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <label>{{ datos.mes_facturado }}</label>
-                            </div>
-                            <div class="col">
-                                <label>Dirección:</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <label>{{direccion}}</label>
                             </div>
                         </div>
                     </div>
@@ -126,7 +119,7 @@
                         </div>
                     </div>
 
-                <!--</form>-->
+                </form>
             </div>
         </div>
     </div>

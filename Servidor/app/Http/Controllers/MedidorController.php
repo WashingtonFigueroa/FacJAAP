@@ -66,6 +66,15 @@ class MedidorController extends Controller
         }
         return response()->json($medidores, 200);
     }
+    public function listaMedidoresContribuyenteNombres($nombres) {
+        $idcliente = Contribuyente::where('nombres', 'like', '%'. $nombres.'%')->first()->idcliente;
+        $servicios = Servicio::where('idcliente', $idcliente)->get();
+        $medidores = [];
+        foreach ($servicios as $servicio) {
+            array_push($medidores, Medidor::find($servicio->idmedidor));
+        }
+        return response()->json($medidores, 200);
+    }
     public function listaLecturas($idmedidor) {
         $idservicio = Servicio::where('idmedidor', $idmedidor)->first()->idservicio;
         $lecturas = Lectura::where('idservicio', $idservicio)

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {LoginService} from "./login.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(protected fb: FormBuilder,
               protected loginService: LoginService,
               protected route: ActivatedRoute,
+              protected toastr: ToastrService,
               protected router: Router) {
       this.route.params.subscribe((res: any)=> {
         console.log(res);
@@ -42,11 +44,13 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.loginGroup.value)
         .subscribe((res: any) => {
             if (res.autenticado) {
+                this.toastr.success('Ingresando al sistema');
                 localStorage.setItem('token', res.token);
                 this.router.navigate(['/acceso/starter']);
-            } else {
-                this.loginGroup.reset();
             }
+        }, (error) => {
+          this.toastr.error('Credenciales invalidas', 'Error de autenticacion');
+          this.loginGroup.reset();
         });
   }
 

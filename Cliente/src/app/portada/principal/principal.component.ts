@@ -14,7 +14,7 @@ import {LecturaService} from "../../component/lectura/lectura.service";
 })
 export class PrincipalComponent implements OnInit {
     @ViewChild(NgAutocompleteComponent) public completer: NgAutocompleteComponent;
-    clientesSearch: any = null;
+    nombres: any = null;
 
     clientes: any = null;
     direccion : any = null;
@@ -42,43 +42,15 @@ export class PrincipalComponent implements OnInit {
                 protected lecturaService: LecturaService,
                 protected fb: FormBuilder) {
         this.createForm();
-
-        this.clienteService.listaClientes().subscribe(res => {
-            this.clientes = res;
-            this.load(res);
-        });
     }
     createForm() {
         this.facturaGroup = this.fb.group({
+            'nombres' : new FormControl(0, Validators.required),
             'idcliente' : new FormControl(0, Validators.required),
             'idmedidor' : new FormControl(0, Validators.required)
         });
     }
-    load(clientes) {
-        this.clientesSearch = [
-            CreateNewAutocompleteGroup(
-                'Buscar cliente',
-                'completer',
-                clientes,
-                {titleKey: 'nombres', childrenKey: null}
-            ),
-        ];
-    }
-
     ngOnInit() {
-    }
-
-    Selected(item: SelectedAutocompleteItem) {
-        this.direccion = item.item.original.direccion;
-
-        this.datos.cliente = item.item.original.nombres;
-        this.datos.direccion = item.item.original.direccion;
-        this.datos.cedula = item.item.original.cedula;
-
-        this.medidorService.listaMedidoresCliente(item.item.original.idcliente)
-            .subscribe(res => {
-                this.medidores = res;
-            });
     }
 
     listaLecturas(){
@@ -97,6 +69,14 @@ export class PrincipalComponent implements OnInit {
             .subscribe(res => {
                 this.lecturas = res;
             });
+    }
+
+    searchCliente() {
+      this.medidorService.listaMedidoresClienteNombres(this.facturaGroup.value.nombres)
+        .subscribe(res => {
+          this.medidores = res;
+          console.log(this.medidores);
+        });
     }
 
 }

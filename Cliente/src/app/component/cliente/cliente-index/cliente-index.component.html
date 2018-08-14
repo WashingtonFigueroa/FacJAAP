@@ -18,9 +18,14 @@
     <div class="card-body">
       <div class="container-fluid">
           <div class="row">
-            <i class="fa fa-search"></i>
             <div class="col-md-4">
+              <i class="fa fa-search"></i>
               <input type="search" *ngIf="clientes !== null" (keypress)="buscar(search)" [(ngModel)]="search" placeholder="Buscar clientes.." class="form-control">
+            </div>
+            <div class="col-md-8 text-right">
+              <button class="btn btn-primary" (click)="export()">
+                <span class="fa fa-save"></span>
+              </button>
             </div>
           </div>
         <hr>

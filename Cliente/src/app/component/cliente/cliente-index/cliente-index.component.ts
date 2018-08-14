@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClienteService } from '../cliente.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
+import { Angular5Csv } from "angular5-csv/Angular5-csv";
 import { environment } from '../../../../environments/environment.prod';
 
 @Component({
@@ -117,6 +118,12 @@ export class ClienteIndexComponent implements OnInit {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
-
+  export() {
+    const date = new Date();
+    const now = date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate();
+    const csv = new Angular5Csv(this.clientesBK, 'clientes-' + now , {
+      fieldSeparator: ';'
+    });
+  }
 }
 

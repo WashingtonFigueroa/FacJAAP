@@ -25,6 +25,7 @@
     "@swimlane/ngx-datatable": "^13.0.0",
     "angular-calendar": "^0.22.1",
     "angular-plotly.js": "^0.1.14",
+    "angular5-csv": "^0.2.10",
     "bootstrap": "^4.1.1",
     "chart.js": "^2.7.1",
     "chartist": "^0.11.0",

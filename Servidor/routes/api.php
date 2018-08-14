@@ -52,6 +52,7 @@ Route::get('lista_privilegios/{idtipo}', 'TipoUsuarioController@listaPrivilegios
 Route::get('lista_materiales', 'MaterialController@listaMateriales');
 Route::get('lista_medidores', 'MedidorController@listaMedidores');
 Route::get('lista_medidores_cliente/{idcliente}', 'MedidorController@listaMedidoresContribuyente');
+Route::get('lista_medidores_cliente_nombres/{nombres}', 'MedidorController@listaMedidoresContribuyenteNombres');
 Route::get('lista_lecturas/{idmedidor}', 'MedidorController@listaLecturas');
 Route::get('servicio_medidor/{idmedidor}', 'MedidorController@servicioMedidor');
 
