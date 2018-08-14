@@ -10,7 +10,6 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class Factura extends Mailable
 {
     use Queueable, SerializesModels;
-
     /**
      * Create a new message instance.
      *
@@ -34,5 +33,4 @@ class Factura extends Mailable
             ->to($this->envio['cliente']['email'], $this->envio['cliente']['nombres'])
             ->subject('Pago de factura');
     }
-
 }
