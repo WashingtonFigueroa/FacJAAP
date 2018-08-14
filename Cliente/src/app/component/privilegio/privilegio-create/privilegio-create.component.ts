@@ -26,7 +26,7 @@ export class PrivilegioCreateComponent implements OnInit {
     servicios: true,
     multas: true,
     lecturas: true,
-    pago_planilla: true
+      facturas: true
   };
   tipo_usuarios: any = null;
   constructor(protected tipoUsuarioService: TipousuarioService,
@@ -60,7 +60,7 @@ export class PrivilegioCreateComponent implements OnInit {
                     case 'servicios': this.privilegio.servicios = privilegio.estado; break;
                     case 'multas': this.privilegio.multas = privilegio.estado; break;
                     case 'lecturas': this.privilegio.lecturas = privilegio.estado; break;
-                    case 'pago_planilla': this.privilegio.pago_planilla = privilegio.estado; break;
+                    case 'facturas': this.privilegio.facturas = privilegio.estado; break;
                 }
             });
         });

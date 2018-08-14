@@ -40,7 +40,7 @@ class PrivilegiosController extends Controller
     }
 
     private function guardar($idtipo) {
-        $rutas = ['tipousuarios', 'usuarios', 'privilegios', 'inventario', 'kardex', 'administracion', 'estadisticas', 'parametros', 'clientes', 'medidores', 'servicios', 'multas', 'lecturas', 'pago_planilla'];
+        $rutas = ['tipousuarios', 'usuarios', 'privilegios', 'inventario', 'kardex', 'administracion', 'estadisticas', 'parametros', 'clientes', 'medidores', 'servicios', 'multas', 'lecturas', 'facturas'];
         foreach ($rutas as $ruta){
             $privilegio = new Privilegios();
             $privilegio->idtipo = $idtipo;
@@ -142,8 +142,8 @@ class PrivilegiosController extends Controller
                         $privilegio->estado = $this->privilegioData['lecturas'];
                         $privilegio->save();
                         break;
-                    case 'pago_planilla':
-                        $privilegio->estado = $this->privilegioData['pago_planilla'];
+                    case 'facturas':
+                        $privilegio->estado = $this->privilegioData['facturas'];
                         $privilegio->save();
                         break;
                 }
