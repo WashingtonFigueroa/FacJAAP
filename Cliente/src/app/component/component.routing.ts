@@ -62,7 +62,9 @@ export const ComponentsRoutes: Routes = [{
     path: '',
     children: [
 //rutas estadisticas
-        { path: 'estadisticas', component: EstadisticasComponent,
+        { path: 'estadisticas',
+            canActivate: [AuthGuard],
+            component: EstadisticasComponent,
             data: {
                 title: 'ESTADÍSTICAS',
                 urls: [{ title: 'INICIO', url: '/acceso/dashboard'},
@@ -70,6 +72,7 @@ export const ComponentsRoutes: Routes = [{
 //rutas clientes
         {
             path: 'clientes',
+            canActivate: [AuthGuard],
             component: ClienteComponent,
             children: [{
                 path: '',
@@ -99,6 +102,7 @@ export const ComponentsRoutes: Routes = [{
 //rutas materiales
         {
             path: 'materiales',
+            canActivate: [AuthGuard],
             component: MaterialComponent,
             children: [{
                 path: '',
@@ -128,6 +132,7 @@ export const ComponentsRoutes: Routes = [{
 //rutas INVENTARIO
         {
             path: 'inventarios',
+            canActivate: [AuthGuard],
             component: InventarioComponent,
             children: [{
                 path: '',
@@ -157,6 +162,7 @@ export const ComponentsRoutes: Routes = [{
 //rutas MOVIMIENTOS
         {
             path: 'movimientos',
+            canActivate: [AuthGuard],
             component: MovimientoComponent,
             children: [{
                 path: '',
@@ -185,6 +191,7 @@ export const ComponentsRoutes: Routes = [{
         },
 //rutas factura venta
         {  path: 'facturas',
+            canActivate: [AuthGuard],
             component: FacturaComponent,
             children: [{
                 path: '',
@@ -238,6 +245,7 @@ export const ComponentsRoutes: Routes = [{
             }]
         }, {
             path: 'lecturas',
+            canActivate: [AuthGuard],
             component: LecturaComponent,
             children: [{
                 path: '',
@@ -291,6 +299,7 @@ export const ComponentsRoutes: Routes = [{
             }]
         }, {
             path: 'medidores',
+            canActivate: [AuthGuard],
             component: MedidorComponent,
             children: [{
                 path: '',
@@ -344,6 +353,7 @@ export const ComponentsRoutes: Routes = [{
             }]
         }, {
             path: 'multas',
+            canActivate: [AuthGuard],
             component: MultaComponent,
             children: [{
                 path: '',
@@ -397,6 +407,7 @@ export const ComponentsRoutes: Routes = [{
             }]
         }, {
             path: 'pagos',
+            canActivate: [AuthGuard],
             component: PagoComponent,
             children: [{
                 path: '',
@@ -450,6 +461,7 @@ export const ComponentsRoutes: Routes = [{
             }]
         }, {
             path: 'parametros',
+            canActivate: [AuthGuard],
             component: ParametroComponent,
             children: [{
                 path: '',
@@ -503,6 +515,7 @@ export const ComponentsRoutes: Routes = [{
             }]
         }, {
             path: 'servicios',
+            canActivate: [AuthGuard],
             component: ServicioComponent,
             children: [{
                 path: '',
@@ -610,8 +623,8 @@ export const ComponentsRoutes: Routes = [{
             }]
         }, {
             path: 'usuarios',
-            component: UsuarioComponent,
             canActivate: [AuthGuard],
+            component: UsuarioComponent,
             children: [{
                 path: '',
                 redirectTo: 'listar',
