@@ -10,7 +10,7 @@ class ContribuyenteController extends Controller
 {
     public function index()
     {
-        return response()->json(Contribuyente::orderBy('idcliente', 'desc')->paginate(150), 200);
+        return response()->json(Contribuyente::orderBy('idcliente', 'desc')->paginate(10), 200);
     }
 
     public function store(Request $request)
@@ -51,6 +51,14 @@ class ContribuyenteController extends Controller
     }
     public function listaContribuyentes() {
         return response()->json(Contribuyente::orderBy('nombres', 'asc')->get(), 200);
+    }
+    public function buscarContribuyente() {
+        $search = request()->input('search');
+        $contribuyentes = Contribuyente::where('nombres', 'like', '%' . $search . '%')
+                                        ->orWhere('direccion', 'like', '%' . $search . '%')
+                                        ->orWhere('cedula', 'like', '%' . $search . '%')
+                                        ->paginate(10);
+        return response()->json($contribuyentes, 200);
     }
 
 }

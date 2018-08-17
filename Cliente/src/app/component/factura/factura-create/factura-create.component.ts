@@ -13,6 +13,7 @@ import {LecturaService} from "../../lectura/lectura.service";
 export class FacturaCreateComponent implements OnInit {
 
   @ViewChild(NgAutocompleteComponent) public completer: NgAutocompleteComponent;
+  ver = false;
   clientesSearch: any = null;
 
   clientes: any = null;
@@ -148,6 +149,7 @@ export class FacturaCreateComponent implements OnInit {
 
       return this.lecturaService.verFactura(lectura.idlectura)
                  .subscribe((res: any) => {
+                     this.ver = true;
                      this.factura.tarifa = res.tarifa;
                      this.factura.multa = res.multa;
                      this.factura.total = res.total;

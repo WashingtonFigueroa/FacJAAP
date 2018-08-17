@@ -57,8 +57,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ToastrModule.forRoot(),
     NgbModule.forRoot(),
     RouterModule.forRoot(Approutes, { useHash: false }),  
-    PerfectScrollbarModule,
-      NgxMaskModule.forRoot(),
+    PerfectScrollbarModule
   ],
   providers: [
       LoginService,

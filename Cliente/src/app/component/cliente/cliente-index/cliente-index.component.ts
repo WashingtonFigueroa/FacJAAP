@@ -4,6 +4,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { Angular5Csv } from "angular5-csv/Angular5-csv";
 import { environment } from '../../../../environments/environment.prod';
+import {timeout} from 'rxjs/operators/timeout';
 
 @Component({
   selector: 'app-cliente-index',
@@ -13,7 +14,6 @@ import { environment } from '../../../../environments/environment.prod';
 export class ClienteIndexComponent implements OnInit {
   
   clientes: any = [];
-  clientesBK: any = [];
   index: number = null;
   idcliente: number = null;
   closeResult: string;
@@ -32,7 +32,6 @@ export class ClienteIndexComponent implements OnInit {
   ngOnInit() {
     this.clienteService.index().subscribe((res: any) => {
       this.clientes = res.data;
-      this.clientesBK = res.data;
       this.getPages(res.last_page);
       this.prev_page = res.prev_page_url;
       this.next_page = res.next_page_url;
@@ -40,11 +39,10 @@ export class ClienteIndexComponent implements OnInit {
   }
 
   buscar(search) {
-      this.clientes = this.clientesBK.filter((cliente: any)=> {
-          return cliente.nombres.toLowerCase().indexOf(search) > -1 ||
-                 cliente.cedula.toLowerCase().indexOf(search) > -1 ||
-                 cliente.direccion.toLowerCase().indexOf(search) > -1;
-      })
+    this.clienteService.buscarCliente({ search: search })
+      .subscribe((res: any)  => {
+        this.clientes = res.data;
+      });
   }
 
   getPages(last_page) {
@@ -121,8 +119,10 @@ export class ClienteIndexComponent implements OnInit {
   export() {
     const date = new Date();
     const now = date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate();
-    const csv = new Angular5Csv(this.clientesBK, 'clientes-' + now , {
-      fieldSeparator: ';'
+    this.clienteService.listaClientes().subscribe(clientes => {
+      const csv = new Angular5Csv(clientes, 'clientes-' + now , {
+        fieldSeparator: ';'
+      });
     });
   }
 }

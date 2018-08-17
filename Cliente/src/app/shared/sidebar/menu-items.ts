@@ -15,8 +15,8 @@ path: '', title: 'Jaap', icon: 'mdi mdi-bullseye', class: 'has-arrow', label: ''
 submenu: [
 { path: '/acceso/component/materiales', title: 'Inventario  ', icon: 'mdi mdi-watermark', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
 { path: '/acceso/component/inventarios', title: 'Kardex  ', icon: 'mdi mdi-buffer', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
-{ path: '/acceso/component/movimientos', title: 'Administarción ', icon: 'mdi mdi-cart', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
-{ path: '/acceso/component/estadisticas', title: 'Estadisticas  ', icon: 'mdi mdi-poll', class: '', label: '', labelClass: '', extralink: false, submenu: [] }
+{ path: '/acceso/component/movimientos', title: 'Administración ', icon: 'mdi mdi-cart', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
+{ path: '/acceso/component/estadisticas/listar', title: 'Estadisticas  ', icon: 'mdi mdi-poll', class: '', label: '', labelClass: '', extralink: false, submenu: [] }
 ]}
 ,
 { path: '/acceso/component/parametros', title: 'Parametros  ', icon: 'mdi mdi-format-list-bulleted', class: '', label: '', labelClass: '', extralink: false, submenu: [] },

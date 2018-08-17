@@ -65,3 +65,5 @@ Route::get('search_lectura_anterior/{idmedidor}', 'LecturaController@searchLectu
 
 
 Route::get('generar_backup', 'BackupController@generarBackup');
+
+Route::post('buscar_cliente', 'ContribuyenteController@buscarContribuyente');

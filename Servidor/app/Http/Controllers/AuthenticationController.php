@@ -18,7 +18,7 @@ class AuthenticationController extends Controller
         $credentials = request()->only('correo', 'password');
         $rules = [
             'correo' => 'required|email',
-            'password' => 'required|min:8',
+            'password' => 'required|min:5',
         ];
         $validator = Validator::make($credentials, $rules);
         if ($validator->fails()) {

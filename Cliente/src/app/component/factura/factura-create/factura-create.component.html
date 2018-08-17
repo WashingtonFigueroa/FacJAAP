@@ -63,7 +63,10 @@
                           <td>
                             <button (click)="verFactura(lectura)" class="btn btn-info">Ver
                             </button>&nbsp;&nbsp;&nbsp;
-                            <button (click)="pagar(lectura.idlectura, i)" [disabled]="lectura.estado === 'Pagado'" [class.btn]="true" [class.btn-danger]="lectura.estado === 'Pagado'" [class.btn-primary]="lectura.estado === 'Deber'">
+                            <button
+                              (click)="pagar(lectura.idlectura, i)"
+                              [disabled]="lectura.estado === 'Pagado' || !ver"
+                              [class.btn]="true" [class.btn-danger]="lectura.estado === 'Pagado'" [class.btn-primary]="lectura.estado === 'Deber'">
                               <span *ngIf="lectura.estado === 'Deber'">Pagar</span>
                               <span *ngIf="lectura.estado === 'Pagado'">Pagado</span>
                             </button>

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment.prod';
 import { HttpClient } from '@angular/common/http';
-
+import 'rxjs/add/operator/timeout';
+import 'rxjs/add/operator/map';
 @Injectable({
   providedIn: 'root'
 })
@@ -29,6 +30,9 @@ export class ClienteService {
   }
   listaClientes() {
       return this.http.get(this.base + 'lista_clientes');
+  }
+  buscarCliente(search) {
+      return this.http.post(this.base + 'buscar_cliente', search);
   }
 
   consultaCedula(cedula) {

@@ -27,9 +27,9 @@ export class AuthGuard implements CanActivate {
         if (privilegios !== null) {
             console.log(privilegios);
             for(let i = 0; i< privilegios.length; i++) {
-               if ('/acceso/component/'+privilegios[i].ruta+'/listar' === state.url)  {
+              if ('/acceso/component/'+privilegios[i].ruta+'/listar' === state.url)  {
                    return privilegios[i].estado === 1 ? true : false;
-               }
+              }
             }
         }
     }
