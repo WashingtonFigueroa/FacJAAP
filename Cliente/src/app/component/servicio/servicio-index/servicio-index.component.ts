@@ -85,7 +85,7 @@ export class ServicioIndexComponent implements OnInit {
       });
   }
   edit(id) {
-    this.router.navigate(['component/servicios/editar/' + id]);
+    this.router.navigate(['acceso/component/servicios/editar/' + id]);
   }
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {

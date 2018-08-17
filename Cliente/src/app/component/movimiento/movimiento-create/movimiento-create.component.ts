@@ -66,8 +66,7 @@ export class MovimientoCreateComponent implements OnInit {
             });
             setTimeout(()=>{
                 this.router.navigate(['/acceso/component/movimientos']);
-            }, 1000);
-            this.successStatus = true;
+            }, 5000);
         }, (error: any)=> {
             this.toastr.error(error.message, error.title)
         }, () => {

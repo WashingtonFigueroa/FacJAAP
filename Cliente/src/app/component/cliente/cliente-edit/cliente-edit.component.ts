@@ -47,8 +47,7 @@ export class ClienteEditComponent implements OnInit {
   update() {
       this.clienteService.update(this.clienteGroup.value, this.idcliente)
           .subscribe(res => {
-              this.router.navigate(['component/clientes']);
-              console.log('clinete modificado');
+              this.router.navigate(['acceso/component/clientes']);
           });
   }
 }

@@ -16,9 +16,9 @@ export class PrivilegioCreateComponent implements OnInit {
     tipousuarios: true,
     usuarios: true,
     privilegios: true,
-    inventario: true,
-    kardex: true,
-    administracion: true,
+    materiales: true,
+    inventarios: true,
+    movimientos: true,
     estadisticas: true,
     parametros: true,
     clientes: true,
@@ -50,9 +50,9 @@ export class PrivilegioCreateComponent implements OnInit {
                     case 'tipousuarios': this.privilegio.tipousuarios = privilegio.estado; break;
                     case 'usuarios': this.privilegio.usuarios = privilegio.estado; break;
                     case 'privilegios': this.privilegio.privilegios = privilegio.estado; break;
-                    case 'inventario': this.privilegio.inventario = privilegio.estado; break;
-                    case 'kardex': this.privilegio.kardex = privilegio.estado; break;
-                    case 'administracion': this.privilegio.administracion = privilegio.estado; break;
+                    case 'materiales': this.privilegio.materiales = privilegio.estado; break;
+                    case 'inventarios': this.privilegio.inventarios = privilegio.estado; break;
+                    case 'movimientos': this.privilegio.movimientos = privilegio.estado; break;
                     case 'estadisticas': this.privilegio.estadisticas = privilegio.estado; break;
                     case 'parametros': this.privilegio.parametros = privilegio.estado; break;
                     case 'clientes': this.privilegio.clientes = privilegio.estado; break;

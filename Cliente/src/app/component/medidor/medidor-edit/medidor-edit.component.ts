@@ -43,7 +43,7 @@ export class MedidorEditComponent implements OnInit {
   update() {
       this.medidorService.update(this.medidorGroup.value, this.idmedidor)
           .subscribe(res => {
-              this.router.navigate(['component/medidores']);     
+              this.router.navigate(['acceso/component/medidores']);
           });
   }
 }

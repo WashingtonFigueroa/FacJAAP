@@ -10,12 +10,12 @@
                     <div class="col-md-4">
                         <div class="col" *ngIf="clientesSearch !== null">
                             <label>* Seleccione cliente </label><br>
-                            <ng-autocomplete class="col-sm-2 col-form-label" (selected)="Selected($event)" [classes]="['']" [group]="clientesSearch"></ng-autocomplete>
+                            <ng-autocomplete class="col-sm-12 col-form-label" (selected)="Selected($event)" [classes]="['']" [group]="clientesSearch"></ng-autocomplete>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="col">
-                            <label>* SeleccioneMedidor</label>
+                            <label>* SeleccioneMedidor</label><br>
                             <select (change)="listaLecturas()" name="idmedidor" formControlName="idmedidor" class="custom-select mr-sm-2" *ngIf="medidores != null">
                               <option [value]="medidor.idmedidor" *ngFor="let medidor of medidores">
                                 {{ medidor.codigo }}
@@ -150,7 +150,7 @@
 
 <div id="print-section" style="display: none">
     <table cellpadding=2 align="center">
-    <tr>        
+    <tr>
       <td colspan="2">RUC/CI: {{ datos.cedula }}</td>
       <td>MES FACTURADO: {{ datos.mes_facturado }}</td>
     </tr>
@@ -180,12 +180,12 @@
     <tr *ngIf="factura !== null">
      <th rowspan="5" align="center">
        <pre>
-    
-    
+
+
 _______________
 PRESIDENTE
-    
-    
+
+
 _______________
 RECAUDADOR
        </pre>
@@ -211,4 +211,3 @@ RECAUDADOR
      </tr>
     </table>
 </div>
-  

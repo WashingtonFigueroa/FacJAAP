@@ -82,7 +82,7 @@ export class MultaCreateComponent implements OnInit {
           fecha: '',
         });
         this.successStatus = true;
-        this.router.navigate(['component/multas']);
+        this.router.navigate(['acceso/component/multas']);
       });
   }
 }

@@ -86,7 +86,7 @@ export class MaterialIndexComponent implements OnInit {
   }
 
   edit(id) {
-    this.router.navigate(['component/materiales/editar/' + id]);
+    this.router.navigate(['acceso/component/materiales/editar/' + id]);
   }
 
   private getDismissReason(reason: any): string {

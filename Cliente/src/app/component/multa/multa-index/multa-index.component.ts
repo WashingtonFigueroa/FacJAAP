@@ -88,7 +88,7 @@ export class MultaIndexComponent implements OnInit {
       });
   }
   edit(id) {
-    this.router.navigate(['component/multas/editar/' + id]);
+    this.router.navigate(['acceso/component/multas/editar/' + id]);
   }
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {

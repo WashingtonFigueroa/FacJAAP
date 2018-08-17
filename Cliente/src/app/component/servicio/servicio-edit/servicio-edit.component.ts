@@ -52,7 +52,7 @@ export class ServicioEditComponent implements OnInit {
   update() {
     this.servicioService.update(this.servicioGroup.value, this.idservicio)
       .subscribe(res => {
-        this.router.navigate(['component/servicios']);
+        this.router.navigate(['acceso/component/servicios']);
         console.log('edit servicio');
       });
   }

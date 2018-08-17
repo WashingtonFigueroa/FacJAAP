@@ -41,7 +41,7 @@ export class TipousuarioEditComponent implements OnInit {
   update() {
       this.tipoService.update(this.tipoGroup.value, this.idtipo)
           .subscribe(res => {
-              this.router.navigate(['component/tipousuarios']);
+              this.router.navigate(['acceso/component/tipousuarios']);
               console.log('Tipo usuario Actualizado');
           });
   }

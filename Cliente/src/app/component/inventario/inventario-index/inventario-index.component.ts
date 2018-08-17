@@ -88,7 +88,7 @@ export class InventarioIndexComponent implements OnInit {
   }
 
   edit(id) {
-    this.router.navigate(['component/inventarios/editar/' + id]);
+    this.router.navigate(['acceso/component/inventarios/editar/' + id]);
   }
   
   private getDismissReason(reason: any): string {

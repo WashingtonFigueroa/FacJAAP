@@ -86,7 +86,7 @@ export class MedidorIndexComponent implements OnInit {
   }
 
   edit(id) {
-    this.router.navigate(['component/medidores/editar/' + id]);
+    this.router.navigate(['acceso/component/medidores/editar/' + id]);
   }
 
   private getDismissReason(reason: any): string {

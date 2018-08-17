@@ -86,7 +86,7 @@ export class ParametroIndexComponent implements OnInit {
   }
 
   edit(id) {
-    this.router.navigate(['component/parametros/editar/' + id]);
+    this.router.navigate(['acceso/component/parametros/editar/' + id]);
   }
 
   private getDismissReason(reason: any): string {

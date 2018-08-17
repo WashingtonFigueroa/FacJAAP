@@ -46,8 +46,7 @@ export class UsuarioEditComponent implements OnInit {
   update() {
     this.usuarioService.update(this.usuarioGroup.value, this.iduser)
       .subscribe(res => {
-        this.router.navigate(['component/usuarios']);
-        console.log('usuario modificado');
+        this.router.navigate(['acceso/component/usuarios']);
       });
   }
 }

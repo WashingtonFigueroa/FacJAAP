@@ -47,7 +47,7 @@ export class UsuarioCreateComponent implements OnInit {
                     password: '',
                     password_confirmation: ''
                 });
-                this.router.navigate(['component/usuarios']);
+                this.router.navigate(['acceso/component/usuarios']);
             }
         });
   }

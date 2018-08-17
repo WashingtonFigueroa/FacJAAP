@@ -9,7 +9,7 @@ class MaterialController extends Controller
 {
     public function index()
     {
-    return response()->json(material::orderBy('idmaterial', 'asc')->paginate(10),200);
+    return response()->json(material::orderBy('idmaterial', 'desc')->paginate(10),200);
     }
 
     public function listaMateriales() {

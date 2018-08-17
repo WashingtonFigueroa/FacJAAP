@@ -5,6 +5,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ClienteService} from "../../component/cliente/cliente.service";
 import {MedidorService} from "../../component/medidor/medidor.service";
 import {LecturaService} from "../../component/lectura/lectura.service";
+import {ToastrService} from "ngx-toastr";
 
 
 @Component({
@@ -40,6 +41,7 @@ export class PrincipalComponent implements OnInit {
     constructor(protected clienteService: ClienteService,
                 protected medidorService: MedidorService,
                 protected lecturaService: LecturaService,
+                protected toastr: ToastrService,
                 protected fb: FormBuilder) {
         this.createForm();
     }
@@ -61,7 +63,6 @@ export class PrincipalComponent implements OnInit {
 
         this.medidorService.servicioMedidor(this.facturaGroup.value.idmedidor)
             .subscribe((servicio: any) => {
-                console.log(servicio);
                 this.datos.cuenta = servicio.idservicio
             });
 
@@ -75,7 +76,7 @@ export class PrincipalComponent implements OnInit {
       this.medidorService.listaMedidoresClienteNombres(this.facturaGroup.value.nombres)
         .subscribe(res => {
           this.medidores = res;
-          console.log(this.medidores);
+            this.toastr.info('Seleccione Medidor', 'ok');
         });
     }
 

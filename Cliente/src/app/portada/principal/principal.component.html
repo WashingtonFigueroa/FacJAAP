@@ -7,55 +7,71 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <ul class="nav">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
                         <img src="assets/images/logo-icon.png" alt="" width="100">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">JAAP SAN JOSE DE CHORLAVI</a>
-                        </li>
-                        <li class="nav-item dropdown ml-md-auto">
-                            <button type="button" class="btn btn-info" routerLink="/acceso/login">
-                                Ingreso Sistema
-                            </button>
-                        </li>
-                    </ul>
+
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="navbar-nav">
+                                <li class="nav-item active">
+                                    JAAP SAN JOSE DE CHORLAVI
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav ml-md-auto">
+                                <li class="nav-item active">
+                                    <button type="button" class="btn btn-info" routerLink="/acceso/login" style="color: #fff">
+                                        Ingreso Sistema
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
                 </div>
             </div>
         </div>
     </div>
-</header> <!-- .site-header -->
+</header>
+<!-- .site-header -->
 
 <!-- TOP CONTENT -->
 <div class="top-c">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-offset-1 col-lg-5 col-md-5 col-xs-offset-1 col-sm-5 col-xs-8 col-xs-offset-2">
-                <div class="topc-img">
-                    <img src="assets/images/log.png" alt="">
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <h3 class="topc-title">SISTEMA JAAP </h3>
-                <ul>
-                    <li><i class="fa fa-check"></i>Contribuir con.</li>
-                    <li><i class="fa fa-check"></i>Contribuir con.</li>
-                    <li><i class="fa fa-check"></i>Contribuir con.</li>
-                    <li><i class="fa fa-check"></i>Contribuir con.</li>
-                    <li><i class="fa fa-check"></i>Contribuir con.</li>
-                    <li><i class="fa fa-check"></i>Contribuir con.</li>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-4">
+                        <br><br>
+                        <img src="assets/images/log.png" alt="" width="300">
+                    </div>
+                    <div class="col-md-4">
 
-                </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h3 class="topc-title">SISTEMA JAAP </h3>
+                        <ul>
+                            <li><i class="fa fa-check"></i>Contribuir con.</li>
+                            <li><i class="fa fa-check"></i>Contribuir con.</li>
+                            <li><i class="fa fa-check"></i>Contribuir con.</li>
+                            <li><i class="fa fa-check"></i>Contribuir con.</li>
+                            <li><i class="fa fa-check"></i>Contribuir con.</li>
+                            <li><i class="fa fa-check"></i>Contribuir con.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
 </div>
 
 
 <!-- SERVICES -->
 <div class="content-section" id="services">
     <div class="container" align="center">
-      <h3>-Más de la mitad de los grandes ríos de todo el mundo están seriamente contaminados y agotados, degradando y envenenando los ecosistemas que los rodean, amenazando la salud y sustento vital de personas que dependen de ella para regar, beber o su uso industrial.-Ismail Serageldin.</h3>
-    </div> <!-- .container -->
-</div> <!-- #services -->
+        <h3>-Más de la mitad de los grandes ríos de todo el mundo están seriamente contaminados y agotados, degradando y envenenando los ecosistemas que los rodean, amenazando la salud y sustento vital de personas que dependen de ella para regar, beber o
+            su uso industrial.-Ismail Serageldin.</h3>
+    </div>
+</div>
+<!-- #services -->
 
 
 <!-- PRODUCTS -->
@@ -63,38 +79,43 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-<h1>Consultar Planilla</h1>
+                <h1>Consultar Planilla</h1>
                 <hr>
                 <form [formGroup]="facturaGroup">
                     <div class="row">
-                        <div class="col-md-4">
-                            <div class="col">
-                                <label>* Seleccione cliente </label><br>
-                                <input type="text" formControlName="nombres" name="clienteSearch">
-                                <button class="btn btn-primary"
-                                        (click)="searchCliente()"><span class="fa fa-search"></span></button>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="col">
-                                <label>* SeleccioneMedidor</label>
-                                <select (change)="listaLecturas()" name="idmedidor"
-                                        formControlName="idmedidor" class="custom-select mr-sm-2" *ngIf="medidores != null">
-                                    <option [value]="medidor.idmedidor" *ngFor="let medidor of medidores">
-                                        {{ medidor.codigo }}
-                                    </option>
-                                </select>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label>Ingrese nombres del cliente </label>
+                                    <input type="text" formControlName="nombres" name="clienteSearch"><br>
+                                    <br>
+                                    <label>* Seleccione Medidor</label>
+                                    <select (change)="listaLecturas()" name="idmedidor" formControlName="idmedidor" class="custom-select mr-sm-2" *ngIf="medidores != null">
+                                        <option [value]="medidor.idmedidor" *ngFor="let medidor of medidores">
+                                            {{ medidor.codigo }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label>.</label><br>
+                                    <button class="btn btn-primary" (click)="searchCliente()"><span class="fa fa-search"></span></button>
+                                </div>
+                                <div class="col-md-4">
+                                    <h3>Estimad@ Cliente:</h3>
+                                    <p>La junta de agua potable San José de Chorlaví JAAP, Trabaja cada día para servirle mejor, por este motivo le invita a formar parte de nuestro compromiso con el medio ambiente y le recuerda que puede recibir su comprobante de pago a su email.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+
                     <hr>
                     <div class="row">
                         <div class="col">
                             <div class="table-responsive">
-                                <table class="table table-striped table-bordered">
+                                <table class="table table-striped table-bordered" style="color: black">
                                     <thead>
                                     <tr>
-                                        <th>Observacion</th>
                                         <th>Fecha</th>
                                         <th>Anterior</th>
                                         <th>Actual</th>
@@ -105,7 +126,6 @@
                                     </thead>
                                     <tbody>
                                     <tr *ngFor="let lectura of lecturas; let i = index">
-                                        <td>{{ lectura.observacion }}</td>
                                         <td>{{ lectura.fecha }}</td>
                                         <td>{{ lectura.anterior }}</td>
                                         <td>{{ lectura.actual }}</td>
@@ -123,7 +143,8 @@
             </div>
         </div>
     </div>
-</div> <!-- #products -->
+</div>
+<!-- #products -->
 
 
 <!-- VIDEO FEATURe -->
@@ -134,10 +155,14 @@
                 <div class="video embed-responsive embed-responsive-16by9">
                     <iframe width="1759" height="663" src="https://www.youtube.com/embed/RJ6e_TFT1O8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </div>
-            </div> <!-- .col-md-8 -->
-        </div> <!-- .row -->
-    </div> <!-- .container -->
-</div> <!-- .video-feature -->
+            </div>
+            <!-- .col-md-8 -->
+        </div>
+        <!-- .row -->
+    </div>
+    <!-- .container -->
+</div>
+<!-- .video-feature -->
 
 
 <!-- CONTACT -->
@@ -146,22 +171,25 @@
         <div class="row">
             <div class="col-md-12 text-center section-header">
                 <h2 class="section-title">CONTACTOS</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam quisquam magni praesentium minima quidem tempore deserunt dolor! Tenetur eveniet suscipit, velit aperiam quam nostrum id iure obcaecati.</p>
+                <p>“Olvidamos que el ciclo del agua y el ciclo de la vida son uno mismo”</p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12 contact-info">
-                <p>Etiam interdum elementum massa amaas, sit amet pretium orci sollicitudin pellenue. Aeneanss risus neque, dignissim nec orci in. <br><br>Hendrerit tempor ligula. Suspendisse sed nisi eget sapien ltrices.</p>
-                <ul>
+                 <ul>
                     <li><i class="fa fa-phone"></i> 090-080-0980</li>
                     <li><i class="fa fa-map-marker"></i>Chorlavi-Ibarra-Ecuador</li>
                     <li><i class="fa fa-envelope"></i>sanjosedechorlavi@gmail.com</li>
                 </ul>
-            </div> <!-- .col-md-5 -->
+            </div>
+            <!-- .col-md-5 -->
 
-        </div> <!-- .row -->
-    </div> <!-- .container -->
-</div> <!-- #contact -->
+        </div>
+        <!-- .row -->
+    </div>
+    <!-- .container -->
+</div>
+<!-- #contact -->
 
 
 <!-- FOOTER -->
@@ -170,10 +198,11 @@
         <div class="row">
             <div class="col-md-12 text-right">
                 <p>Copyright &copy; 2018 UTN / Washington Figueroa</p>
-            </div> <!-- .col-md-12 -->
-        </div> <!-- .row -->
-    </div> <!-- .container -->
-</footer> <!-- .site-footer -->
-
-
-
+            </div>
+            <!-- .col-md-12 -->
+        </div>
+        <!-- .row -->
+    </div>
+    <!-- .container -->
+</footer>
+<!-- .site-footer -->

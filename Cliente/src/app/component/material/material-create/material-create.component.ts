@@ -33,8 +33,7 @@ export class MaterialCreateComponent implements OnInit {
   store() {
       this.materialService.store(this.materialGroup.value)
           .subscribe(res => {
-              console.log('Material guardado');
-              this.router.navigate(['component/materiales']);
+              this.router.navigate(['acceso/component/materiales']);
               this.successStatus = true;
           });
   }

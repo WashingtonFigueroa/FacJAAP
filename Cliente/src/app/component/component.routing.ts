@@ -63,7 +63,7 @@ export const ComponentsRoutes: Routes = [{
     children: [
 //rutas estadisticas
         { path: 'estadisticas',
-            canActivate: [AuthGuard],
+            // canActivate: [AuthGuard],
             component: EstadisticasComponent,
             data: {
                 title: 'ESTADÍSTICAS',

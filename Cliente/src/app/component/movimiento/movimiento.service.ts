@@ -28,4 +28,8 @@ export class MovimientoService {
       return this.http.delete(this.base + 'movimientos/' + id );
   }
 
+  generarBackup() {
+      return this.http.get(this.base + 'generar_backup');
+  }
+
 }

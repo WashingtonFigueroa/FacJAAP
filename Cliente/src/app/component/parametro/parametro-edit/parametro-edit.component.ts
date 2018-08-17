@@ -44,7 +44,7 @@ export class ParametroEditComponent implements OnInit {
   update() {
       this.parametroService.update(this.parametroGroup.value, this.idparametro)
           .subscribe(res => {
-              this.router.navigate(['component/parametros']);
+              this.router.navigate(['acceso/component/parametros']);
               console.log(res);
           });
   }

@@ -49,8 +49,8 @@ class DatabaseSeeder extends Seeder
             'detalle' => 'Valor instalación',
             'estado' => 'Activo',
         ]);*/
-        $rutas = ['cargos','usuarios','privilegios','inventario','kardex','administracion','estadisticas','parametros','clientes','medidores','servicios','multas','lecturas','facturas'];
-        for ($i = 1; $i<=2; $i++) {
+        $rutas = ['tipousuarios','usuarios','privilegios','materiales','inventarios','movimientos','estadisticas','parametros','clientes','medidores','servicios','multas','lecturas','facturas'];
+        for ($i = 1; $i<=1; $i++) {
             foreach ($rutas as $ruta) {
                 \App\Privilegios::create([
                     'idtipo' => $i,

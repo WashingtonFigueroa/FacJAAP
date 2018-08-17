@@ -39,9 +39,8 @@ export class MedidorCreateComponent implements OnInit {
                   console.log(res.error);
                   this.errorStatus = true;
               } else {
-                  console.log('medidor guardado');
                   this.successStatus = true;
-                  this.router.navigate(['component/medidores']);
+                  this.router.navigate(['acceso/component/medidores']);
               }
           });
   }

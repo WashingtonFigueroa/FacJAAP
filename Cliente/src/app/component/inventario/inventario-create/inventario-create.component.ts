@@ -49,7 +49,7 @@ export class InventarioCreateComponent implements OnInit {
                     fecha: '',
                     estado:''
                 });
-                this.router.navigate(['component/inventarios']);
+                this.router.navigate(['acceso/component/inventarios']);
             }
         });
   }

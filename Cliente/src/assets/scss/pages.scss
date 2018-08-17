@@ -50,16 +50,16 @@ File: scss
 
 .topbar {
   position: relative;
-  z-index: 50;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+  z-index: 25;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   .top-navbar {
-    min-height: 50px;
-    padding: 0px 15px 0 0;
+    min-height: 10px;
+    padding: 0px 5px 0 0;
     .dropdown-toggle::after {
       display: none;
     }
     .navbar-header {
-      line-height: 45px;
+      line-height: 10px;
       padding-left: 10px;
       .navbar-brand {
         margin-right: 0px;
@@ -69,16 +69,16 @@ File: scss
           display: none;
         }
         b {
-          line-height: 60px;
+          line-height: 10px;
           display: inline-block;
         }
       }
     }
     .navbar-nav>.nav-item>.nav-link {
-      padding-left: .75rem;
-      padding-right: .75rem;
+      padding-left: .25rem;
+      padding-right: .25rem;
       font-size: 15px;
-      line-height: 40px;
+      line-height: 10px;
     }
     .navbar-nav>.nav-item.show {
       background: $dark-transparent;

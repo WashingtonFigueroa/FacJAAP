@@ -76,7 +76,7 @@ export class ServicioCreateComponent implements OnInit {
                 estado: ''
             });
             this.successStatus = true;
-            this.router.navigate(['component/servicios']);
+            this.router.navigate(['acceso/component/servicios']);
         });
   }
 

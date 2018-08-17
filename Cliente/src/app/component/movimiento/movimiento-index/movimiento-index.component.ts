@@ -86,7 +86,7 @@ export class MovimientoIndexComponent implements OnInit {
   }
 
   edit(id) {
-    this.router.navigate(['component/movimientos/editar/' + id]);
+    this.router.navigate(['acceso/component/movimientos/editar/' + id]);
   }
 
   private getDismissReason(reason: any): string {

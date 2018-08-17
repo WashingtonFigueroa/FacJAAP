@@ -30,7 +30,6 @@ export class ParametroCreateComponent implements OnInit {
   store() {
       this.parametroService.store(this.parametroGroup.value)
           .subscribe(res => {
-              console.log('parametro guardado');
               this.parametroGroup.reset();
               this.parametroGroup.patchValue({'estado': 'Activo'});
               this.successStatus = true;

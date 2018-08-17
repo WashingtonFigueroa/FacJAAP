@@ -81,8 +81,7 @@ export class EstadisticasComponent implements OnInit {
                       this.ventas.data[0].labels.push(record.mes);
                   });
               }
-              console.log(this.ventas);
-          });
+           });
   }
 
 

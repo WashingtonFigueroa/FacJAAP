@@ -41,8 +41,7 @@ export class MaterialEditComponent implements OnInit {
   update() {
       this.materialService.update(this.materialGroup.value, this.idmaterial)
           .subscribe(res => {
-              this.router.navigate(['component/materiales']);
-              console.log('clinete modificado');
+              this.router.navigate(['acceso/component/materiales']);
           });
   }
 

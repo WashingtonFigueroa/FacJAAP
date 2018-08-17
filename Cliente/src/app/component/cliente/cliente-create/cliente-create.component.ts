@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { ClienteService } from '../cliente.service';
 import { Router } from '../../../../../node_modules/@angular/router';
 import {ToastrService} from "ngx-toastr";
+import {log} from "util";
 
 @Component({
   selector: 'app-cliente-create',
@@ -41,7 +42,7 @@ export class ClienteCreateComponent implements OnInit {
       this.clienteService.store(this.clienteGroup.value)
           .subscribe((cliente: any)=> {
               console.log('cliente guardado');
-              //this.router.navigate(['component/clientes']);
+              this.router.navigate(['acceso/component/clientes']);
               this.successStatus = true;
           });
   }
@@ -49,12 +50,12 @@ export class ClienteCreateComponent implements OnInit {
     consultacliente() {
         this.clienteService.consultaCedula(this.clienteGroup.value.cedula)
             .subscribe((cliente: any) => {
-                if (cliente.datosEmpresa.valid === "false") {
-                    this.toastr.error('El cliente no existe', 'Error de cedula');
-                } else {
+                if (cliente.datosPersona.valid === true) {
                     this.clienteGroup.patchValue({
-                        nombres: cliente.establecimientos.adicional.representante_legal
+                        nombres: cliente.datosPersona.name
                     });
+                } else {
+                    this.toastr.error('El cliente no existe', 'Error de cedula');
                 }
             });
     }

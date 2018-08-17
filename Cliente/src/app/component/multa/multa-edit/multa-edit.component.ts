@@ -57,7 +57,7 @@ export class MultaEditComponent implements OnInit {
   update() {
     this.multaService.update(this.multaGroup.value, this.idmulta)
       .subscribe(res => {
-        this.router.navigate(['component/multas']);
+        this.router.navigate(['acceso/component/multas']);
         console.log(res);
       });
   }

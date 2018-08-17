@@ -30,8 +30,7 @@ export class TipousuarioCreateComponent implements OnInit {
   store() {
       this.tipousuarioService.store(this.tipoGroup.value)
           .subscribe(res => {
-              console.log('tipo usuario guardado');
-              this.router.navigate(['component/tipousuarios']);
+              this.router.navigate(['acceso/component/tipousuarios']);
             });
   }
 }

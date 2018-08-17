@@ -88,7 +88,7 @@ export class UsuarioIndexComponent implements OnInit {
   }
 
   edit(id) {
-    this.router.navigate(['component/usuarios/editar/' + id]);
+    this.router.navigate(['acceso/component/usuarios/editar/' + id]);
   }
   
   private getDismissReason(reason: any): string {

@@ -32,7 +32,7 @@ export class ClienteService {
   }
 
   consultaCedula(cedula) {
-      const request = "consulta_ruc=consulta_ruc&txt_ruc="+cedula+"001";
+      const request = "consulta_cedula=consulta_cedula&txt_ruc="+cedula;
       return this.http.post('http://coatl.vadowservice.com/data/clientes/app.php', request, {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
