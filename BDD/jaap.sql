@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2018 at 02:25 AM
+-- Generation Time: Aug 17, 2018 at 04:43 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.1.15
 
@@ -158,7 +158,9 @@ INSERT INTO `clientes` (`idcliente`, `cedula`, `nombres`, `direccion`, `email`, 
 (110, '1003833447', 'Washington Figueroa', 'San José de Chorlaví', 'w.figo.1991@gmail.com', '0969191290', NULL, 'San Antonio', NULL, '2018-08-05 02:38:10', '2018-08-05 02:38:10'),
 (111, '1002082806', 'rosa cuaspud', 'San José de Chorlaví', NULL, NULL, NULL, NULL, NULL, '2018-08-05 03:26:01', '2018-08-05 03:26:01'),
 (112, '100200', 'JUAN MAGAN', 'San José de Chorlaví', 'rosa@gmail.com', '0969191290', NULL, 'CALLE xyz', NULL, '2018-08-07 02:48:25', '2018-08-07 02:50:54'),
-(113, '1002003000', 'Fausto Salazar', 'San José de Chorlaví', 'fausto@gmail.com', '0969191290', NULL, NULL, NULL, '2018-08-07 20:56:37', '2018-08-08 02:45:49');
+(113, '1002003000', 'Fausto Salazar', 'San José de Chorlaví', 'fausto@gmail.com', '0969191290', NULL, NULL, NULL, '2018-08-07 20:56:37', '2018-08-08 02:45:49'),
+(114, '1003653415', 'ANDRADE PIJUANGO JEFFERSON ESTEBAN', 'San José de Chorlaví', 'andre@gmail.com', '6546546', NULL, NULL, NULL, '2018-08-14 21:51:02', '2018-08-14 21:54:49'),
+(115, '1002003006', 'gdfg', 'San José de Chorlaví', 'g', NULL, NULL, 'gdfg', NULL, '2018-08-17 03:13:39', '2018-08-17 03:13:39');
 
 -- --------------------------------------------------------
 
@@ -232,7 +234,10 @@ INSERT INTO `factura_ventas` (`idfacturaventa`, `idservicio`, `fecha`, `valor`, 
 (45, 98, '2018-08-08', 10.50, 'Washington', 'Pagado', 'si', 'Agosto', NULL, '2018-08-08 15:10:03', '2018-08-08 15:10:03'),
 (46, 100, '2018-08-08', 25.50, 'Washington', 'Pagado', 'si', 'Agosto', NULL, '2018-08-08 15:13:00', '2018-08-08 15:13:00'),
 (47, 98, '2018-08-08', 15.50, 'Washington', 'Pagado', 'si', 'Agosto', NULL, '2018-08-08 16:09:29', '2018-08-08 16:09:29'),
-(48, 100, '2018-08-08', 20.50, 'Washington', 'Pagado', 'si', 'Agosto', NULL, '2018-08-09 00:03:45', '2018-08-09 00:03:45');
+(48, 100, '2018-08-08', 20.50, 'Washington', 'Pagado', 'si', 'Agosto', NULL, '2018-08-09 00:03:45', '2018-08-09 00:03:45'),
+(49, 98, '2018-08-13', 30.50, 'Washington', 'Pagado', 'si', 'Agosto', NULL, '2018-08-14 03:32:01', '2018-08-14 03:32:01'),
+(50, 98, '2018-08-14', 50.50, 'Washington', 'Pagado', 'si', 'Agosto', NULL, '2018-08-14 22:08:13', '2018-08-14 22:08:13'),
+(51, 98, '2018-08-14', 10.50, 'Washington', 'Pagado', 'si', 'Agosto', NULL, '2018-08-14 22:09:40', '2018-08-14 22:09:40');
 
 -- --------------------------------------------------------
 
@@ -263,7 +268,8 @@ INSERT INTO `inventarios` (`idinventario`, `idmaterial`, `descripcion`, `cantida
 (3, 3, 'Ingreso Bodega', 15, 'Geovanny Cevallos', '2018-08-07', 'Ingreso', NULL, '2018-08-07 18:12:14', '2018-08-07 18:12:14'),
 (4, 4, 'Ingreso bodega', 19, 'Geovanny Cevallos', '2018-08-07', 'Ingreso', NULL, '2018-08-07 18:12:49', '2018-08-07 18:12:49'),
 (5, 4, 'Ingreso bodega', 9, 'Geovanny Cevallos', '2018-08-07', 'Ingreso', NULL, '2018-08-07 18:13:26', '2018-08-07 18:13:26'),
-(6, 4, 'Salida de Bodega a casa de don marcelo', 3, 'Mauricio Carvajal', '2018-08-07', 'Salida', NULL, '2018-08-07 18:14:30', '2018-08-07 18:14:30');
+(6, 4, 'Salida de Bodega a casa de don marcelo', 3, 'Mauricio Carvajal', '2018-08-07', 'Salida', NULL, '2018-08-07 18:14:30', '2018-08-07 18:14:30'),
+(7, 11, 'Ingreso Bodega', 3, 'carmen', '2018-08-14', 'Ingreso', NULL, '2018-08-14 22:51:54', '2018-08-14 22:51:54');
 
 -- --------------------------------------------------------
 
@@ -431,7 +437,12 @@ INSERT INTO `lecturas` (`idlectura`, `idservicio`, `observacion`, `fecha`, `ante
 (137, 98, NULL, '2018-08-08', 950, 1050, 100, 10.50, 85, 'Pagado', NULL, '2018-08-08 15:09:50', '2018-08-08 15:10:03'),
 (138, 100, NULL, '2018-08-08', 500, 750, 250, 25.50, 235, 'Pagado', NULL, '2018-08-08 15:11:46', '2018-08-08 15:13:00'),
 (139, 100, NULL, '2018-08-08', 750, 950, 200, 20.50, 185, 'Pagado', NULL, '2018-08-08 15:26:17', '2018-08-09 00:03:45'),
-(140, 98, NULL, '2018-08-08', 1050, 1200, 150, 15.50, 135, 'Pagado', NULL, '2018-08-08 16:08:52', '2018-08-08 16:09:29');
+(140, 98, NULL, '2018-08-08', 1050, 1200, 150, 15.50, 135, 'Pagado', NULL, '2018-08-08 16:08:52', '2018-08-08 16:09:29'),
+(141, 98, NULL, '2018-08-13', 1200, 1500, 300, 30.50, 285, 'Pagado', NULL, '2018-08-14 03:31:22', '2018-08-14 03:32:01'),
+(142, 100, NULL, '2018-08-13', 950, 1500, 550, 55.50, 535, 'Deber', NULL, '2018-08-14 03:50:30', '2018-08-14 03:50:30'),
+(143, 98, NULL, '2018-08-14', 1500, 2000, 500, 50.50, 485, 'Pagado', NULL, '2018-08-14 16:54:28', '2018-08-14 22:08:13'),
+(144, 98, NULL, '2018-08-14', 2000, 2100, 100, 10.50, 85, 'Pagado', NULL, '2018-08-14 22:09:26', '2018-08-14 22:09:40'),
+(145, 98, NULL, '2018-08-15', 2100, 2500, 400, 99.25, 385, 'Deber', NULL, '2018-08-15 15:34:51', '2018-08-15 15:34:51');
 
 -- --------------------------------------------------------
 
@@ -459,7 +470,9 @@ INSERT INTO `materiales` (`idmaterial`, `nombre`, `descripcion`, `stock`, `delet
 (3, 'Palas', NULL, 15, NULL, '2018-08-07 18:10:11', '2018-08-07 18:12:14'),
 (4, 'Tubería 2\'', NULL, 25, NULL, '2018-08-07 18:10:39', '2018-08-07 18:14:30'),
 (5, 'Tubería 3\'', NULL, 0, NULL, '2018-08-07 18:10:48', '2018-08-07 18:10:48'),
-(6, 'Tubería 4\'', NULL, 0, NULL, '2018-08-07 18:10:56', '2018-08-07 18:10:56');
+(6, 'Tubería 4\'', NULL, 0, NULL, '2018-08-07 18:10:56', '2018-08-07 18:10:56'),
+(7, 'Carretilla', NULL, 0, NULL, '2018-08-14 22:26:51', '2018-08-14 22:26:51'),
+(11, 'Martillo', 'dos cabezas', 3, NULL, '2018-08-14 22:43:38', '2018-08-14 22:51:54');
 
 -- --------------------------------------------------------
 
@@ -577,7 +590,7 @@ INSERT INTO `medidores` (`idmedidor`, `codigo`, `observacion`, `estado`, `delete
 (93, '160612190A', '', 'Pasivo', NULL, '0000-00-00 00:00:00', '2018-08-04 16:21:45'),
 (94, '160612180A', '', 'Pasivo', NULL, '0000-00-00 00:00:00', '2018-08-04 16:22:03'),
 (95, '210012746', '', 'Activo', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(96, '612033905', '', 'Activo', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(96, '612033905', '', 'Pasivo', NULL, '0000-00-00 00:00:00', '2018-08-17 01:35:54'),
 (97, '19263', '', 'Activo', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (98, '1605013158', '', 'Activo', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (99, '9605257', '', 'Activo', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -695,7 +708,13 @@ INSERT INTO `movimientos` (`idmovimiento`, `tipo`, `fecha`, `detalle`, `intermed
 (41, 'Egreso', '2018-08-09', 'dsf', 'fdsf', '534', 45.00, 'documentos/log.png', NULL, '2018-08-08 18:58:20', '2018-08-08 18:58:20'),
 (42, 'Egreso', '2018-08-11', 'gfdg', 'dfgdf', 'gdfg', 56.00, 'documentos/log.png', NULL, '2018-08-08 19:00:15', '2018-08-08 19:00:15'),
 (43, 'Egreso', '2018-08-08', 'dfgfd', 'dfg', 'dsf', 45.00, 'documentos/log.png', NULL, '2018-08-08 19:04:36', '2018-08-08 19:04:36'),
-(44, 'Ingreso', '2018-08-08', 'Pago planilla', 'Washington', '48', 20.50, NULL, NULL, '2018-08-09 00:03:45', '2018-08-09 00:03:45');
+(44, 'Ingreso', '2018-08-08', 'Pago planilla', 'Washington', '48', 20.50, NULL, NULL, '2018-08-09 00:03:45', '2018-08-09 00:03:45'),
+(45, 'Ingreso', '2018-08-13', 'Pago planilla', 'Washington', '49', 30.50, NULL, NULL, '2018-08-14 03:32:02', '2018-08-14 03:32:02'),
+(46, 'Ingreso', '2018-08-14', 'Pago planilla', 'Washington', '50', 50.50, NULL, NULL, '2018-08-14 22:08:13', '2018-08-14 22:08:13'),
+(47, 'Ingreso', '2018-08-14', 'Pago planilla', 'Washington', '51', 10.50, NULL, NULL, '2018-08-14 22:09:40', '2018-08-14 22:09:40'),
+(48, 'Egreso', '2018-08-09', 'Compra x', 'gfdg', '4453', 33.00, 'documentos/log.png', NULL, '2018-08-14 23:05:47', '2018-08-14 23:05:47'),
+(49, 'Egreso', '2018-08-09', 'fsdf', 'fsdf', '34234', 31.00, 'documentos/log.png', NULL, '2018-08-14 23:07:02', '2018-08-14 23:07:02'),
+(50, 'Egreso', '2018-08-09', 'ewrew', 'rewr', '423', 34.00, 'documentos/log.png', NULL, '2018-08-14 23:07:41', '2018-08-14 23:07:41');
 
 -- --------------------------------------------------------
 
@@ -722,7 +741,8 @@ CREATE TABLE `multas` (
 INSERT INTO `multas` (`idmulta`, `idservicio`, `descripcion`, `valor`, `fecha`, `estado`, `deleted_at`, `created_at`, `updated_at`) VALUES
 (1, 99, 'reunion', 5.00, '2018-08-07', 'Pagado', NULL, '2018-08-07 16:27:55', '2018-08-07 16:57:44'),
 (2, 100, 'reunion', 10.00, '2018-08-10', 'Pagado', NULL, '2018-08-07 20:58:42', '2018-08-07 21:00:28'),
-(3, 100, 'minga', 11.00, '2018-08-07', 'Pagado', NULL, '2018-08-08 02:37:07', '2018-08-08 02:37:39');
+(3, 100, 'minga', 11.00, '2018-08-07', 'Pagado', NULL, '2018-08-08 02:37:07', '2018-08-08 02:37:39'),
+(4, 55, 'dasdas', 1.00, '2018-08-26', 'Deber', NULL, '2018-08-17 01:36:28', '2018-08-17 01:36:28');
 
 -- --------------------------------------------------------
 
@@ -765,8 +785,8 @@ CREATE TABLE `parametros` (
 
 INSERT INTO `parametros` (`idparametro`, `descripcion`, `valor`, `detalle`, `estado`, `deleted_at`, `created_at`, `updated_at`) VALUES
 (1, 'Base M3', 15.00, 'Base consumo', 'Activo', NULL, '2018-08-04 14:57:16', '2018-08-04 14:57:16'),
-(2, 'Base M3 Chorlavi', 2.00, 'Valor base consumo', 'Activo', NULL, '2018-08-04 14:57:16', '2018-08-04 14:57:16'),
-(3, 'M3 Agua Chorlavi', 0.10, 'Valor m3 agua', 'Activo', NULL, '2018-08-04 14:57:16', '2018-08-04 14:57:16'),
+(2, 'Base M3 Chorlavi', 3.00, 'Valor base consumo', 'Activo', NULL, '2018-08-04 14:57:16', '2018-08-14 23:09:12'),
+(3, 'M3 Agua Chorlavi', 0.25, 'Valor m3 agua', 'Activo', NULL, '2018-08-04 14:57:16', '2018-08-14 23:09:37'),
 (4, 'Servicio', 300.00, 'Valor instalación', 'Activo', NULL, '2018-08-04 14:57:17', '2018-08-04 14:57:17'),
 (5, 'Multa 3 meses', 0.50, 'Valor a pagar en la factura', 'Activo', NULL, '2018-08-07 03:50:14', '2018-08-07 04:00:51');
 
@@ -789,10 +809,47 @@ CREATE TABLE `password_resets` (
 --
 
 CREATE TABLE `privilegios` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `idprivilegio` int(10) UNSIGNED NOT NULL,
+  `idtipo` int(11) UNSIGNED NOT NULL,
+  `ruta` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `estado` tinyint(4) NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `privilegios`
+--
+
+INSERT INTO `privilegios` (`idprivilegio`, `idtipo`, `ruta`, `estado`, `created_at`, `updated_at`) VALUES
+(1, 1, 'tipousuarios', 1, '2018-08-10 00:01:57', '2018-08-10 02:28:21'),
+(2, 1, 'usuarios', 1, '2018-08-10 00:01:57', '2018-08-10 02:28:21'),
+(3, 1, 'privilegios', 1, '2018-08-10 00:01:57', '2018-08-10 00:01:57'),
+(4, 1, 'materiales', 1, '2018-08-10 00:01:57', '2018-08-10 00:01:57'),
+(5, 1, 'inventarios', 1, '2018-08-10 00:01:58', '2018-08-10 00:01:58'),
+(6, 1, 'movimientos', 1, '2018-08-10 00:01:58', '2018-08-10 02:10:18'),
+(7, 1, 'estadisticas', 1, '2018-08-10 00:01:58', '2018-08-10 02:06:56'),
+(8, 1, 'parametros', 1, '2018-08-10 00:01:58', '2018-08-10 00:01:58'),
+(9, 1, 'clientes', 1, '2018-08-10 00:01:58', '2018-08-10 02:10:18'),
+(10, 1, 'medidores', 1, '2018-08-10 00:01:58', '2018-08-10 00:01:58'),
+(11, 1, 'servicios', 1, '2018-08-10 00:01:58', '2018-08-10 00:01:58'),
+(12, 1, 'multas', 1, '2018-08-10 00:01:58', '2018-08-10 00:01:58'),
+(13, 1, 'lecturas', 1, '2018-08-10 00:01:58', '2018-08-10 00:01:58'),
+(14, 1, 'facturas', 1, '2018-08-10 00:01:58', '2018-08-14 13:00:48'),
+(57, 4, 'tipousuarios', 0, '2018-08-14 22:38:30', '2018-08-14 22:38:31'),
+(58, 4, 'usuarios', 0, '2018-08-14 22:38:30', '2018-08-14 22:38:31'),
+(59, 4, 'privilegios', 0, '2018-08-14 22:38:30', '2018-08-14 22:38:31'),
+(60, 4, 'materiales', 0, '2018-08-14 22:38:30', '2018-08-14 22:38:31'),
+(61, 4, 'inventarios', 0, '2018-08-14 22:38:30', '2018-08-14 22:38:31'),
+(62, 4, 'movimientos', 0, '2018-08-14 22:38:30', '2018-08-14 22:38:31'),
+(63, 4, 'estadisticas', 0, '2018-08-14 22:38:30', '2018-08-14 22:38:31'),
+(64, 4, 'parametros', 0, '2018-08-14 22:38:30', '2018-08-14 22:38:31'),
+(65, 4, 'clientes', 0, '2018-08-14 22:38:30', '2018-08-14 22:38:31'),
+(66, 4, 'medidores', 0, '2018-08-14 22:38:30', '2018-08-14 22:38:31'),
+(67, 4, 'servicios', 0, '2018-08-14 22:38:31', '2018-08-14 22:38:31'),
+(68, 4, 'multas', 0, '2018-08-14 22:38:31', '2018-08-14 22:38:32'),
+(69, 4, 'lecturas', 1, '2018-08-14 22:38:31', '2018-08-14 22:38:32'),
+(70, 4, 'facturas', 0, '2018-08-14 22:38:31', '2018-08-14 22:38:32');
 
 -- --------------------------------------------------------
 
@@ -917,7 +974,8 @@ INSERT INTO `servicios` (`idservicio`, `idcliente`, `idmedidor`, `fecha`, `obser
 (97, 109, 109, '2018-08-04', NULL, 300.00, 'Activo', NULL, '2018-08-04 17:53:20', '2018-08-04 17:53:20'),
 (98, 110, 110, '2018-08-04', NULL, 300.00, 'Activo', NULL, '2018-08-05 02:40:00', '2018-08-05 02:40:00'),
 (99, 110, 111, '2018-08-07', NULL, 300.00, 'Activo', NULL, '2018-08-07 16:19:32', '2018-08-07 16:19:32'),
-(100, 113, 107, '2018-09-07', NULL, 300.00, 'Activo', NULL, '2018-08-07 20:57:36', '2018-08-07 20:57:36');
+(100, 113, 107, '2018-09-07', NULL, 300.00, 'Activo', NULL, '2018-08-07 20:57:36', '2018-08-07 20:57:36'),
+(101, 55, 96, '2018-08-26', NULL, 300.00, 'Activo', NULL, '2018-08-17 01:35:54', '2018-08-17 01:35:54');
 
 -- --------------------------------------------------------
 
@@ -939,8 +997,11 @@ CREATE TABLE `tipo_usuarios` (
 --
 
 INSERT INTO `tipo_usuarios` (`idtipo`, `nombre`, `estado`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'Administrador', 'activo', NULL, '2018-08-04 14:57:16', '2018-08-04 14:57:16'),
-(2, 'Secretaria', 'Activo', NULL, '2018-08-07 00:01:22', '2018-08-07 00:01:22');
+(1, 'Administrador', 'Activo', NULL, '2018-08-04 14:57:16', '2018-08-10 23:56:51'),
+(2, 'Secretaria', 'Activo', NULL, '2018-08-07 00:01:22', '2018-08-07 00:01:22'),
+(3, 'Presidente', 'Activo', NULL, '2018-08-10 23:56:42', '2018-08-10 23:56:42'),
+(4, 'Operador', 'Activo', NULL, '2018-08-14 19:57:37', '2018-08-14 19:57:37'),
+(5, 'fdsfsdfdsf', 'Activo', NULL, '2018-08-14 22:33:55', '2018-08-14 22:34:00');
 
 -- --------------------------------------------------------
 
@@ -965,7 +1026,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`iduser`, `idtipo`, `nombre`, `correo`, `password`, `deleted_at`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Washington', 'washington@gmail.com', '$2y$10$Jbpv3uCnxcCJWWa8Q3GHbOEBLgXCzX6mz1tbUGCU3g4WWd3syKahS', NULL, NULL, '2018-08-04 14:57:16', '2018-08-04 14:57:16');
+(1, 1, 'Washington', 'washington@gmail.com', '$2y$10$Jbpv3uCnxcCJWWa8Q3GHbOEBLgXCzX6mz1tbUGCU3g4WWd3syKahS', NULL, NULL, '2018-08-04 14:57:16', '2018-08-04 14:57:16'),
+(2, 2, 'Mirian Tatés', 'mtates@hotmail.com', '12345678', NULL, NULL, '2018-08-10 02:32:16', '2018-08-10 23:58:38'),
+(3, 3, 'Héctor Álvarez', 'hector@gmail.com', '987654321', NULL, NULL, '2018-08-10 23:57:49', '2018-08-14 22:41:39'),
+(4, 4, 'Geovanny Quintas', 'geovanny@gmail.com', '$2y$10$ASY2rh7mXmujg8sngWkkquPwxEPsLdoR95CU/K/4XeqIuNo18jmuC', NULL, NULL, '2018-08-14 22:37:39', '2018-08-14 22:37:39');
 
 --
 -- Indexes for dumped tables
@@ -1053,7 +1117,8 @@ ALTER TABLE `password_resets`
 -- Indexes for table `privilegios`
 --
 ALTER TABLE `privilegios`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`idprivilegio`),
+  ADD KEY `idtipo` (`idtipo`);
 
 --
 -- Indexes for table `servicios`
@@ -1085,31 +1150,31 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `idcliente` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `idcliente` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
 
 --
 -- AUTO_INCREMENT for table `factura_ventas`
 --
 ALTER TABLE `factura_ventas`
-  MODIFY `idfacturaventa` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `idfacturaventa` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `inventarios`
 --
 ALTER TABLE `inventarios`
-  MODIFY `idinventario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idinventario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `lecturas`
 --
 ALTER TABLE `lecturas`
-  MODIFY `idlectura` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
+  MODIFY `idlectura` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
 
 --
 -- AUTO_INCREMENT for table `materiales`
 --
 ALTER TABLE `materiales`
-  MODIFY `idmaterial` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idmaterial` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `medidores`
@@ -1127,13 +1192,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `movimientos`
 --
 ALTER TABLE `movimientos`
-  MODIFY `idmovimiento` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `idmovimiento` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `multas`
 --
 ALTER TABLE `multas`
-  MODIFY `idmulta` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idmulta` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `pago_medidores`
@@ -1151,25 +1216,25 @@ ALTER TABLE `parametros`
 -- AUTO_INCREMENT for table `privilegios`
 --
 ALTER TABLE `privilegios`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idprivilegio` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT for table `servicios`
 --
 ALTER TABLE `servicios`
-  MODIFY `idservicio` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `idservicio` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT for table `tipo_usuarios`
 --
 ALTER TABLE `tipo_usuarios`
-  MODIFY `idtipo` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idtipo` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `iduser` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `iduser` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -1204,6 +1269,12 @@ ALTER TABLE `multas`
 --
 ALTER TABLE `pago_medidores`
   ADD CONSTRAINT `pago_medidores_idservicio_foreign` FOREIGN KEY (`idservicio`) REFERENCES `servicios` (`idservicio`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `privilegios`
+--
+ALTER TABLE `privilegios`
+  ADD CONSTRAINT `privilegios_ibfk_1` FOREIGN KEY (`idtipo`) REFERENCES `tipo_usuarios` (`idtipo`);
 
 --
 -- Constraints for table `servicios`
