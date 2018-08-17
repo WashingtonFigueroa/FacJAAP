@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { ClienteService } from '../cliente.service';
 import { Router } from '../../../../../node_modules/@angular/router';
 import {ToastrService} from "ngx-toastr";
+import {NgxMaskModule} from 'ngx-mask'
 import {log} from "util";
 
 @Component({
@@ -43,23 +44,25 @@ export class ClienteCreateComponent implements OnInit
             });
     }
 
-    store()
-    {
+    store() {
         let x = 0;
-        if (!this.clienteGroup.value.cedula)
-        {
+        if (!this.clienteGroup.value.cedula || this.clienteGroup.value.cedula.length != 10) {
             x++;
             this.toastr.error('Ingrese Cédula', 'Error de cliente');
         }
-        if (!this.clienteGroup.value.nombres)
-        {
+        if (!this.clienteGroup.value.nombres) {
             x++;
             this.toastr.error('Ingrese Nombres', 'Error de cliente');
         }
-        if (!this.clienteGroup.value.direccion)
-        {
+        if (!this.clienteGroup.value.direccion) {
             x++;
             this.toastr.error('Ingrese Dirección', 'Error de cliente');
+        }
+    console.log(this.clienteGroup.value.telefono.length);
+        if (this.clienteGroup.value.telefono.length != 0 || this.clienteGroup.value.telefono.length != 10)
+        {
+            x++;
+            this.toastr.error('Ingrese Telefono', 'Error de cliente');
         }
         if (x === 0)
         {
