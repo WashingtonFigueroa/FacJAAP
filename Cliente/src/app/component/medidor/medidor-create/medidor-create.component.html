@@ -31,12 +31,23 @@
                       <option>Pasivo</option>
                     </select>
                   </div>
-                  <hr>
-                  <button type="submit" class="btn btn-primary">
-                    Guardar
-                  </button>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <button [disabled]="medidorGroup.status === 'INVALID'" type="submit" class="btn btn-primary" style="width: 150px">
+                        <span class="fa fa-save"></span>
+                        Guardar
+                      </button>
+                    </div>
+                    <div class="col-md-6">
+                      <button type="reset" class="btn btn-success" style="width: 150px">
+                        <span class="fa fa-file"></span>
+                        Nuevo
+                      </button>
+                    </div>
+                  </div>
                 </div>
                 <div class="col-md-4" align="center">
+                  <h3>Gestión Medidores</h3>
                   <div class="col align-self-center">
                     <img alt="JAAP" src="\assets\images\icon\medidor.jpg" width="200" />
                   </div>
@@ -55,12 +66,6 @@
                 </div>
               </div>
             </form>
-            <div class="alert alert-success" role="alert" *ngIf="successStatus == true">
-              <strong>Datos guardados exitosamente :D</strong>
-            </div>
-            <div class="alert alert-success" role="alert" *ngIf="errorStatus == true">
-              <strong>Datos Incorrectos</strong>
-            </div>
           </div>
         </div>
       </div>

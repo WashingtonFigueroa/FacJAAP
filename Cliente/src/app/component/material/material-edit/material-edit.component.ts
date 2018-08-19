@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '../../../../../node_modules/@angular/forms';
 import { MaterialService } from '../material.service';
 import { ActivatedRoute, Router } from '../../../../../node_modules/@angular/router';
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-material-edit',
@@ -16,7 +17,8 @@ export class MaterialEditComponent implements OnInit {
   constructor(protected materialService: MaterialService,
               protected fb: FormBuilder,
               protected route: ActivatedRoute,
-              protected router: Router) {
+              protected router: Router,
+              protected toastr: ToastrService) {
 
       this.route.params.subscribe(param => {
           this.idmaterial = param.id;
@@ -34,7 +36,7 @@ export class MaterialEditComponent implements OnInit {
   createForm(material) {
       this.materialGroup = this.fb.group({
           'nombre' : new FormControl(material.nombre, Validators.required),
-          'descripcion' : new FormControl(material.descripcion, Validators.required)
+          'descripcion' : new FormControl(material.descripcion)
       });
   }
 
@@ -42,6 +44,7 @@ export class MaterialEditComponent implements OnInit {
       this.materialService.update(this.materialGroup.value, this.idmaterial)
           .subscribe(res => {
               this.router.navigate(['acceso/component/materiales']);
+              this.toastr.success("Material Actulizado", "Ok");
           });
   }
 

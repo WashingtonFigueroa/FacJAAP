@@ -25,11 +25,12 @@
                     <input type="number" class="form-control" id="valor" formControlName="valor" name="valor" placeholder="$ 0.00" />
                   </div>
                   <hr>
-                  <button type="submit" class="btn btn-success">
+                  <button [disabled]="multaGroup.status === 'INVALID'" type="submit" class="btn btn-success">
                     Actualizar
                   </button>
                 </div>
                 <div class="col-md-4" align="center">
+                  <h3>Gestión de Multas</h3>
                   <div class="col align-self-center">
                     <img alt="JAAP" src="\assets\images\icon\multa.jpg" width="200" />
                   </div>

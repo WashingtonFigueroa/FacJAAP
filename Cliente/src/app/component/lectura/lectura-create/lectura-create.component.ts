@@ -7,6 +7,7 @@ import { ServicioService } from '../../servicio/servicio.service';
 import { ClienteService } from "../../cliente/cliente.service";
 import { MedidorService } from "../../medidor/medidor.service";
 import {Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-lectura-create',
@@ -20,7 +21,7 @@ export class LecturaCreateComponent implements OnInit {
   clientesSearch: any = null;
 
   clientes: any = null;
-  successStatus = false;
+
 
   medidores: any = null;
   servicios: any = null;
@@ -31,7 +32,8 @@ export class LecturaCreateComponent implements OnInit {
     protected clienteService: ClienteService,
     protected medidorService: MedidorService,
     protected router: Router,
-    protected fb: FormBuilder) {
+    protected fb: FormBuilder,
+              protected toastr: ToastrService) {
     this.servicioService.listaServicios().subscribe(res => this.servicios = res);
     this.createForm();
 
@@ -70,7 +72,7 @@ export class LecturaCreateComponent implements OnInit {
     this.lecturaGroup = this.fb.group({
       'idcliente': new FormControl(0, [Validators.required]),
       'idmedidor': new FormControl(0, [Validators.required]),
-      'observacion': new FormControl('', [Validators.required]), 
+      'observacion': new FormControl(''),
       'anterior': new FormControl(null, [Validators.required]),
       'actual': new FormControl('', [Validators.required]),
       'estado': new FormControl('Deber', [Validators.required])
@@ -82,7 +84,7 @@ export class LecturaCreateComponent implements OnInit {
         this.lecturaGroup.patchValue({
             actual: 0
         });
-        this.successStatus = true;
+        this.toastr.error("Lectura actual es Incorrecta","Error Lectura");
     } else {
         this.lecturaService.store(this.lecturaGroup.value)
             .subscribe(res => {
@@ -91,7 +93,8 @@ export class LecturaCreateComponent implements OnInit {
                     anterior: '',
                     actual: '',
                 });                
-                this.router.navigate(['/component/lecturas/listar']);
+                this.router.navigate(['acceso/component/lecturas/listar']);
+                this.toastr.success("Lectura Guardada","Ok");
             });
     }
   }

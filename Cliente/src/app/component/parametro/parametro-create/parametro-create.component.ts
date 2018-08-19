@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ParametroService } from '../parametro.service';
+import {Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-parametro-create',
@@ -9,9 +11,9 @@ import { ParametroService } from '../parametro.service';
 })
 export class ParametroCreateComponent implements OnInit {
   parametroGroup: FormGroup;
-  successStatus = false;
   constructor(protected fb: FormBuilder,
-              protected parametroService: ParametroService) {
+              protected parametroService: ParametroService,
+              protected toastr: ToastrService) {
       this.createForm();
   }
 
@@ -22,7 +24,7 @@ export class ParametroCreateComponent implements OnInit {
       this.parametroGroup = this.fb.group({
           'descripcion' : new FormControl('',[Validators.required]),
           'valor' : new FormControl('',[Validators.required]),
-          'detalle' : new FormControl('',[Validators.required]),
+          'detalle' : new FormControl(),
           'estado' : "Activo"
       });
   }
@@ -32,7 +34,10 @@ export class ParametroCreateComponent implements OnInit {
           .subscribe(res => {
               this.parametroGroup.reset();
               this.parametroGroup.patchValue({'estado': 'Activo'});
-              this.successStatus = true;
+              this.toastr.success('Parametro Guardado', 'Ok');
+          }, (error) => {
+              this.toastr.error('Descripción Repetida', 'Error de Parametro');
+              this.parametroGroup.reset();
           });
   }
 }

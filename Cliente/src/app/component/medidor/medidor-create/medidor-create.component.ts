@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MedidorService } from '../medidor.service';
 import { Router } from '../../../../../node_modules/@angular/router';
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-medidor-create',
@@ -10,11 +11,10 @@ import { Router } from '../../../../../node_modules/@angular/router';
 })
 export class MedidorCreateComponent implements OnInit {
   medidorGroup: FormGroup;
-  successStatus = false;
-  errorStatus = false;
   constructor(protected fb: FormBuilder,
               protected medidorService: MedidorService,
-              protected router: Router) {
+              protected router: Router,
+              protected toastr: ToastrService) {
               this.createForm();
   }
 
@@ -23,12 +23,9 @@ export class MedidorCreateComponent implements OnInit {
 
   createForm() {
       this.medidorGroup = this.fb.group({
-          'codigo' : new FormControl('',
-              [Validators.required]),
-          'observacion' : new FormControl('',
-              [Validators.required]),
-          'estado' : new FormControl('',
-              [Validators.required])
+          'codigo' : new FormControl('',[Validators.required]),
+          'observacion' : new FormControl('',[Validators.required]),
+          'estado' : new FormControl('',[Validators.required])
       });
   }
 
@@ -36,11 +33,10 @@ export class MedidorCreateComponent implements OnInit {
       this.medidorService.store(this.medidorGroup.value)
           .subscribe((res: any)=> {
               if (res.error) {
-                  console.log(res.error);
-                  this.errorStatus = true;
+                  this.toastr.error('Código Repetido', 'Error de medidor');
               } else {
-                  this.successStatus = true;
                   this.router.navigate(['acceso/component/medidores']);
+                  this.toastr.success('Medidor Guardado', 'Ok');
               }
           });
   }

@@ -6,6 +6,7 @@ import { ServicioService } from '../servicio.service';
 import { ClienteService } from '../../cliente/cliente.service';
 import { MedidorService } from '../../medidor/medidor.service';
 import { Router } from '../../../../../node_modules/@angular/router';
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-servicio-create',
@@ -16,7 +17,6 @@ export class ServicioCreateComponent implements OnInit {
   
   @ViewChild(NgAutocompleteComponent) public completer: NgAutocompleteComponent;
   clientesSearch: any = null;
-  successStatus = false;
 
   clientes: any = null;
   medidores: any = null;
@@ -27,7 +27,8 @@ export class ServicioCreateComponent implements OnInit {
               protected clienteService: ClienteService,
               protected medidorService: MedidorService,  
               protected router: Router,            
-              protected fb: FormBuilder) {
+              protected fb: FormBuilder,
+              protected toastr: ToastrService) {
       this.createForm();
       this.medidorService.medidoresActivos().subscribe(res => this.medidores = res);
       this.clienteService.listaClientes().subscribe(res => {
@@ -58,26 +59,33 @@ export class ServicioCreateComponent implements OnInit {
   }
 
   createForm() {
-    this.servicioGroup = this.fb.group({
-      'idcliente' : new FormControl(0, Validators.required),
-      'idmedidor' : new FormControl('', [Validators.required]),
-      'fecha' : new FormControl('', [Validators.required]),
-      'observacion' : new FormControl('', [Validators.required]),
-      'estado' : "Activo"
-    });
+      this.servicioGroup = this.fb.group({
+          'idcliente' : new FormControl(0, Validators.required),
+          'idmedidor' : new FormControl('', [Validators.required]),
+          'fecha' : new FormControl('', [Validators.required]),
+          'observacion' : new FormControl(),
+          'estado' : "Activo"
+      });
   }
 
   store() {
-    this.servicioService.store(this.servicioGroup.value)
-        .subscribe(res => {
-            this.servicioGroup.patchValue({
-                fecha: '',
-                observacion: '',
-                estado: ''
+    const Ingfecha = this.servicioGroup.value.fecha;
+    var f = new Date();
+    const Sisfecha = f.getFullYear() + "-" + (f.getMonth() +1) + "-" + f.getDate();
+    if( (new Date(Ingfecha).getTime() <= new Date(Sisfecha).getTime())) {
+        this.servicioService.store(this.servicioGroup.value)
+            .subscribe(res => {
+                this.servicioGroup.patchValue({
+                    fecha: '',
+                    observacion: '',
+                    estado: ''
+                });
+                this.router.navigate(['acceso/component/servicios']);
+                this.toastr.success("Servicio Guardado","Ok");
             });
-            this.successStatus = true;
-            this.router.navigate(['acceso/component/servicios']);
-        });
+    }else{
+        this.toastr.error("La fecha ingresada es mayor a la fecha actual","Error Servicio");
+    }
   }
 
 }

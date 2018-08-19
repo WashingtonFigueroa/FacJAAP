@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '../../../../../node_modules/@angular/forms';
 import { MaterialService } from '../material.service';
 import { Router } from '../../../../../node_modules/@angular/router';
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-material-create',
@@ -14,7 +15,8 @@ export class MaterialCreateComponent implements OnInit {
 
   constructor(protected fb: FormBuilder,
               protected materialService: MaterialService,
-              protected router: Router) {
+              protected router: Router,
+              protected  toastr: ToastrService) {
               this.createForm();
   }
 
@@ -24,7 +26,7 @@ export class MaterialCreateComponent implements OnInit {
   createForm() {
       this.materialGroup = this.fb.group({
           'nombre' : new FormControl('', [Validators.required]),
-          'descripcion' : new FormControl('', [Validators.required]),
+          'descripcion' : new FormControl(''),
           'stock' : 0
 
       });
@@ -34,7 +36,9 @@ export class MaterialCreateComponent implements OnInit {
       this.materialService.store(this.materialGroup.value)
           .subscribe(res => {
               this.router.navigate(['acceso/component/materiales']);
-              this.successStatus = true;
+             this.toastr.success("Material Guardado", "Ok");
+          }, (error) => {
+              this.toastr.error('Material ya registrado', 'Error Materiales');
           });
   }
 }

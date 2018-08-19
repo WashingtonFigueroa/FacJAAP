@@ -6,6 +6,7 @@ import { MultaService } from '../multa.service';
 import { ClienteService } from '../../cliente/cliente.service';
 import { MedidorService } from '../../medidor/medidor.service';
 import { Router } from '../../../../../node_modules/@angular/router';
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-multa-create',
@@ -26,7 +27,8 @@ export class MultaCreateComponent implements OnInit {
     protected clienteService: ClienteService,
     protected medidorService: MedidorService,
     protected fb: FormBuilder,
-    protected router: Router) {
+    protected router: Router,
+    protected  toastr: ToastrService) {
     this.createForm();
 
     this.clienteService.listaClientes().subscribe(res => {
@@ -71,18 +73,26 @@ export class MultaCreateComponent implements OnInit {
     });
   }
   store() {
-    this.multaGroup.patchValue({
-      valor: parseFloat(this.multaGroup.value.valor)
-    });
-    this.multaService.store(this.multaGroup.value)
-      .subscribe(res => {
-        this.multaGroup.patchValue({
-          descripcion: '',
-          valor: '',
-          fecha: '',
-        });
-        this.successStatus = true;
-        this.router.navigate(['acceso/component/multas']);
+    const Ingfecha = this.multaGroup.value.fecha;
+    var f = new Date();
+    const Sisfecha = f.getFullYear() + "-" + (f.getMonth() +1) + "-" + f.getDate();
+    if( (new Date(Ingfecha).getTime() <= new Date(Sisfecha).getTime())) {
+      this.multaGroup.patchValue({
+        valor: parseFloat(this.multaGroup.value.valor)
       });
+      this.multaService.store(this.multaGroup.value)
+        .subscribe(res => {
+          this.multaGroup.patchValue({
+            descripcion: '',
+            valor: '',
+            fecha: '',
+          });
+          this.successStatus = true;
+          this.router.navigate(['acceso/component/multas']);
+          this.toastr.success("Multa Guardada","Ok");
+    });
+    }else{
+        this.toastr.error("La fecha ingresada es mayor a la fecha actual","Error Servicio");
+    }
   }
 }

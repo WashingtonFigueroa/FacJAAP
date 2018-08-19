@@ -1,24 +1,7 @@
-<ng-template #confirmModal let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title">Confirmar eliminación</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <p>Esta seguro de confirmar la eliminacion? &hellip;</p>
-  </div>
-  <div class="modal-footer">
-    <button class="btn btn-default" (click)="c('cerrar')">No</button>
-    <button class="btn btn-danger" (click)="c('si')">Esta bien</button>
-    <!--<button type="button" class="btn btn-secondary" >Close</button>-->
-  </div>
-</ng-template>
 <div class="card">
   <div class="card-body">
     <div class="container-fluid">
         <div class="row">
-          <i class="fa fa-search"></i>
           <div class="col-md-4">
             <input type="search" *ngIf="facturas !== null" (keypress)="buscar(search)" [(ngModel)]="search" placeholder="Buscar facturas.." class="form-control">
           </div>

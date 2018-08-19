@@ -17,7 +17,7 @@
                           <label for="observacion">
                             * Seleccione Observación
                           </label>
-                          <select class="form-control" id="observacion" formControlName="observacion" name="observacion" required>
+                          <select class="form-control" id="observacion" formControlName="observacion" name="observacion">
                             <option>Instalado</option>
                             <option>Bodega</option>
                             <option>Baja</option>
@@ -27,17 +27,18 @@
                           <label for="estado">
                             * Seleccione estado
                           </label>
-                          <select class="form-control" id="estado" formControlName="estado" name="estado" required>
+                          <select class="form-control" id="estado" formControlName="estado" name="estado">
                             <option>Activo</option>
                             <option>Pasivo</option>
                           </select>
                         </div>
-                        <hr>
-                        <button type="submit" class="btn btn-success">
-                            Actualizar
+
+                        <button [disabled]="medidorGroup.status === 'INVALID'" type="submit" class="btn btn-success">
+                          Actualizar
                         </button>
                       </div>
                       <div class="col-md-4" align="center">
+                        <h3>Gestión Medidores</h3>
                         <div class="col align-self-center">
                           <img alt="JAAP" src="\assets\images\icon\medidor.jpg" width="200" />
                         </div>

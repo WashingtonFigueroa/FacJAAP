@@ -4,6 +4,7 @@ import {ClienteService} from "../../cliente/cliente.service";
 import {MedidorService} from "../../medidor/medidor.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {LecturaService} from "../../lectura/lectura.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-factura-create',
@@ -40,7 +41,8 @@ export class FacturaCreateComponent implements OnInit {
   constructor(protected clienteService: ClienteService,
               protected medidorService: MedidorService,
               protected lecturaService: LecturaService,
-              protected fb: FormBuilder) {
+              protected fb: FormBuilder,
+              protected toastr: ToastrService) {
     this.createForm();
     
     this.clienteService.listaClientes().subscribe(res => {
@@ -48,12 +50,14 @@ export class FacturaCreateComponent implements OnInit {
             this.load(res);
         });
   }
+
   createForm() {
       this.facturaGroup = this.fb.group({
           'idcliente' : new FormControl(0, Validators.required),
           'idmedidor' : new FormControl(0, Validators.required)
       });
   }
+
   load(clientes) {
     this.clientesSearch = [
           CreateNewAutocompleteGroup(
@@ -89,7 +93,6 @@ export class FacturaCreateComponent implements OnInit {
 
     this.medidorService.servicioMedidor(this.facturaGroup.value.idmedidor)
         .subscribe((servicio: any) => {
-            console.log(servicio);
             this.datos.cuenta = servicio.idservicio
         });
 
@@ -102,8 +105,6 @@ export class FacturaCreateComponent implements OnInit {
   pagar(idlectura, index) {
       return this.lecturaService.pagar(idlectura)
                  .subscribe((res: any)=> {
-                     console.log(res);
-
                      this.factura.idfactura = res.idfactura;
                      this.factura.tarifa = res.tarifa;
                      this.factura.multa = res.multa;

@@ -1,86 +1,90 @@
 <div class="card">
-    <div class="card-body">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-12">
-            <form (submit)="store()" role="form" [formGroup]="clienteGroup">
-              <div class="row">
-                <div class="col-md-4">
-                  
-                  <div class="form-group">
-                    <label for="cedula">*Ingrese cédula </label>
-                    <div class="row">
-                      <div class="col-md-10">
-                        <input type="text" class="form-control" id="cedula" name="cedula" formControlName="cedula" maxlength="10" autofocus/>
-                      </div>
-                      <div class="col-md-2">
-                        <button (click)="consultacliente()" class="btn btn-success">
-                          <span class="fa fa-search"></span>
-                        </button>
-                      </div>
-                    </div>
-                    <!-- <button type="button" name="btn_verificar" id="btn_verificar" class="btn btn-primary btn-sm"
-                    onclick="angular.element(this).scope().cargadatos('estado')"><i class="ace-icon fa fa-search"></i></button> -->
-                  </div>
+  <div class="card-body">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <form (submit)="store()" role="form" [formGroup]="clienteGroup">
+            <div class="row">
 
-                  <div class="form-group">
-                    <label for="nombres"> *Ingrese nombres </label>
-                    <input type="text" class="form-control" id="nombres" name="nombres" formControlName="nombres" />
-                  </div>
-                  <div class="form-group">
-                    <label for="direccion">* Seleccione Sector </label>
-                    <select class="form-control" id="direccion" formControlName="direccion" name="direccion" required>
-                      <option>San José de Chorlaví</option>
-                      <option>San Agustin</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="observacion"> Ingrese dirección </label>
-                    <input type="text" class="form-control" id="observacion" name="observacion" formControlName="observacion" />
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="cedula">*Ingrese cédula </label>
+                  <div class="row">
+                    <div class="col-md-10">
+                      <input type="text" class="form-control" id="cedula" name="cedula" formControlName="cedula" placeholder="000000000-0" mask="000000000-0" autofocus/>
+                      <small class="alert-danger" *ngIf="clienteGroup.get('cedula').status ==='INVALID' && clienteGroup.get('cedula').dirty">Cédula invalida</small>
+                    </div>
+                    <div class="col-md-2">
+                      <button (click)="consultacliente()" class="btn btn-success">
+                        <span class="fa fa-search"></span>
+                      </button>
+                    </div>
                   </div>
                 </div>
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label for="email">
-                      Ingrese Correo
-                    </label>
-                    <input type="email" class="form-control" id="email" name="email" formControlName="email" />
-                  </div>
-                  <div class="form-group">
-                    <label for="telefono">
-                      Ingrese teléfono
-                    </label>
-                    <input type="text" class="form-control"
-                           id="telefono" name="telefono" formControlName="telefono"
-                           placeholder="000-000-0000"
-                           mask="000-000-0000"/>
-                    <small class="alert-danger"
-                           *ngIf="clienteGroup.get('telefono').status ==='INVALID' && clienteGroup.get('telefono').dirty">Telefono invalido</small>
-                  </div>
-                  <div class="form-group">
-                    <label for="referencia">
-                      Ingrese teléfono referencia
-                    </label>
-                    <input type="text" class="form-control" id="referencia" name="referencia" formControlName="referencia" OnlyNumber="true" maxlength="10" />
-                  </div>
-                  <hr>
-                  <button
-                    [disabled]="clienteGroup.status === 'INVALID'"
-                    type="submit" class="btn btn-primary">
-                    Guardar
-                  </button>
+                <div class="form-group">
+                  <label for="nombres"> *Ingrese nombres </label>
+                  <input type="text" class="form-control" id="nombres" name="nombres" formControlName="nombres" />
                 </div>
-                <div class="col-md-4" align="center">
-                  <div class="col align-self-center">
-                    <img alt="JAAP" src="\assets\images\icon\clientes.jpg" />
+                <div class="form-group">
+                  <label for="direccion">* Seleccione Sector </label>
+                  <select class="form-control" id="direccion" formControlName="direccion" name="direccion" required>
+                    <option>San José de Chorlaví</option>
+                    <option>San Agustin</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="observacion"> Ingrese dirección </label>
+                  <input type="text" class="form-control" id="observacion" name="observacion" formControlName="observacion" />
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="email">
+                    Ingrese Correo
+                  </label>
+                  <input type="email" class="form-control" id="email" name="email" formControlName="email" />
+                  <small class="alert-danger" *ngIf="clienteGroup.get('email').status ==='INVALID' && clienteGroup.get('email').dirty">Correo invalido</small>
+                </div>
+                <div class="form-group">
+                  <label for="telefono">
+                    Ingrese teléfono
+                  </label>
+                  <input type="text" class="form-control" id="telefono" name="telefono" formControlName="telefono" placeholder="000-000-0000" mask="000-000-0000" />
+                  <small class="alert-danger" *ngIf="clienteGroup.get('telefono').status ==='INVALID' && clienteGroup.get('telefono').dirty">Telefono invalido</small>
+                </div>
+                <div class="form-group">
+                  <label for="referencia">
+                    Ingrese teléfono referencia
+                  </label>
+                  <input type="text" class="form-control" id="referencia" name="referencia" formControlName="referencia" placeholder="000-000-0000" mask="000-000-0000" />
+                  <small class="alert-danger" *ngIf="clienteGroup.get('referencia').status ==='INVALID' && clienteGroup.get('referencia').dirty">Telefono invalido</small>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <button [disabled]="clienteGroup.status === 'INVALID'" type="submit" class="btn btn-primary" style="width: 150px">
+                      <span class="fa fa-save"></span>
+                      Guardar
+                    </button>
+                  </div>
+                  <div class="col-md-6">
+                    <button type="reset" class="btn btn-success" style="width: 150px">
+                      <span class="fa fa-file"></span>
+                      Nuevo
+                    </button>
                   </div>
                 </div>
               </div>
-            </form>
-            <div class="alert alert-success" role="alert" *ngIf="successStatus == true">
-              <strong>Datos guardados exitosamente :D</strong>
+
+              <div class="col-md-4" align="center">
+                <h2>Gestión de Clientes</h2>
+                <div class="col align-self-center">
+                  <img alt="JAAP" src="\assets\images\icon\clientes.jpg" />
+                </div>
+              </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
+  </div>

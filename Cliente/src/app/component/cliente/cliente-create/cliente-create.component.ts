@@ -34,50 +34,27 @@ export class ClienteCreateComponent implements OnInit
     {
         this.clienteGroup = this.fb.group(
             {
-                'cedula': new FormControl('', [Validators.required, Validators.pattern(/^\d{13}$/)]),
-                'nombres': new FormControl('', [Validators.required, Validators.pattern(/^[A-Za-z ]{10,100}$/)]),
+                'cedula': new FormControl('', [Validators.required, Validators.pattern(/^\d{10}$/)]),
+                'nombres': new FormControl('', [Validators.required]),
                 'direccion': new FormControl('', [Validators.required]),
-                'email': new FormControl('', [Validators.required]),
-                'telefono': new FormControl('', [Validators.required,
-                  Validators.pattern(/^\d{10}$/)]),
-                'referencia': new FormControl('', [Validators.required, Validators.pattern(/^\d{10}$/)]),
-                'observacion': new FormControl('', [Validators.required])
+                'email': new FormControl('', [Validators.pattern(/^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/)]),
+                'telefono': new FormControl('', [Validators.pattern(/^\d{10}$/)]),
+                'referencia': new FormControl('', [Validators.pattern(/^\d{10}$/)]),
+                'observacion': new FormControl()
             });
     }
 
     store() {
-        let x = 0;
-        if (!this.clienteGroup.value.cedula || this.clienteGroup.value.cedula.length != 10) {
-            x++;
-            this.toastr.error('Ingrese Cédula', 'Error de cliente');
-        }
-        if (!this.clienteGroup.value.nombres) {
-            x++;
-            this.toastr.error('Ingrese Nombres', 'Error de cliente');
-        }
-        if (!this.clienteGroup.value.direccion) {
-            x++;
-            this.toastr.error('Ingrese Dirección', 'Error de cliente');
-        }
-    console.log(this.clienteGroup.value.telefono.length);
-        if (this.clienteGroup.value.telefono.length != 0 || this.clienteGroup.value.telefono.length != 10)
-        {
-            x++;
-            this.toastr.error('Ingrese Telefono', 'Error de cliente');
-        }
-        if (x === 0)
-        {
-            this.clienteService.store(this.clienteGroup.value)
-                .subscribe((cliente: any) =>
-                {
-                    this.router.navigate(['acceso/component/clientes']);
-                }, (error) =>
-                {
-                    this.toastr.error('Cliente ya registrado', 'Error de cliente');
-                    this.clienteGroup.reset();
-                });
-        }
-
+        this.clienteService.store(this.clienteGroup.value)
+            .subscribe((cliente: any) =>
+            {
+                this.router.navigate(['acceso/component/clientes']);
+                this.toastr.success('Cliente Guardado', 'Ok');
+            }, (error) =>
+            {
+                this.toastr.error('Cliente ya registrado', 'Error de cliente');
+                this.clienteGroup.reset();
+            });
     }
 
     consultacliente()
@@ -89,6 +66,7 @@ export class ClienteCreateComponent implements OnInit
                 {
                     this.clienteGroup.patchValue(
                         {
+                            cedula: cliente.datosPersona.identity,
                             nombres: cliente.datosPersona.name
                         });
                 }

@@ -33,13 +33,13 @@ export class ClienteEditComponent implements OnInit {
 
   createForm(cliente) {
       this.clienteGroup = this.fb.group({
-          'cedula' : new FormControl(cliente.cedula, Validators.required),
+          'cedula' : new FormControl(cliente.cedula, [Validators.pattern(/^\d{10}$/)]),
           'nombres' : new FormControl(cliente.nombres, Validators.required),
           'direccion' : new FormControl(cliente.direccion, Validators.required),
-          'email' : new FormControl(cliente.email, Validators.required),
-          'telefono' : new FormControl(cliente.telefono, Validators.required),
-          'referencia' : new FormControl(cliente.referencia, Validators.required),
-          'observacion' : new FormControl(cliente.observacion, Validators.required)
+          'email' : new FormControl(cliente.email, [Validators.pattern(/^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/)]),
+          'telefono' : new FormControl(cliente.telefono, [Validators.pattern(/^\d{10}$/)]),
+          'referencia' : new FormControl(cliente.referencia, [Validators.pattern(/^\d{10}$/)]),
+          'observacion' : new FormControl(cliente.observacion)
       });
   }
 

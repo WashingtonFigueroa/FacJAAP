@@ -26,11 +26,12 @@
                               <input type="text" class="form-control" id="detalle" name="detalle" formControlName="detalle" />
                             </div>
                             <hr>
-                            <button type="submit" class="btn btn-success">
-                                Actualizar
-                            </button>
+                          <button [disabled]="parametroGroup.status === 'INVALID'" type="submit" class="btn btn-success">
+                              Actualizar
+                          </button>
                       </div>
                       <div class="col-md-4" align="center">
+                          <h3>Gestión Parametros</h3>
                         <div class="col align-self-center">
                             <img alt="JAAP" src="\assets\images\icon\parametros.jpg" width="200"/>
                         </div>

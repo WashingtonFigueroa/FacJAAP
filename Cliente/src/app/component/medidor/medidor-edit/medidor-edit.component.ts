@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MedidorService } from '../medidor.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-medidor-edit',
@@ -17,7 +18,9 @@ export class MedidorEditComponent implements OnInit {
   constructor(protected medidorService: MedidorService,
               protected fb: FormBuilder,
               protected route: ActivatedRoute,
-              protected router: Router) {
+              protected router: Router,
+              protected toastr: ToastrService
+) {
 
       this.route.params.subscribe(param => {
           this.idmedidor = param.id;
@@ -44,6 +47,10 @@ export class MedidorEditComponent implements OnInit {
       this.medidorService.update(this.medidorGroup.value, this.idmedidor)
           .subscribe(res => {
               this.router.navigate(['acceso/component/medidores']);
+              this.toastr.success('Medidor Actualizado', 'Ok');
+
+          }, (error) => {
+              this.toastr.error('Código Repetido ', 'Error de Medidor');
           });
   }
 }
