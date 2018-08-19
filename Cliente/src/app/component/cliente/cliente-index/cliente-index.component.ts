@@ -4,15 +4,17 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { Angular5Csv } from "angular5-csv/Angular5-csv";
 import { environment } from '../../../../environments/environment.prod';
-import {timeout} from 'rxjs/operators/timeout';
-
+import {Subject} from "rxjs";
+import {throttleTime} from "rxjs/operators";
 @Component({
   selector: 'app-cliente-index',
   templateUrl: './cliente-index.component.html',
   styleUrls: ['./cliente-index.component.css']
 })
+
 export class ClienteIndexComponent implements OnInit {
-  
+
+  public subject = new Subject<any>();
   clientes: any = [];
   index: number = null;
   idcliente: number = null;
@@ -21,13 +23,17 @@ export class ClienteIndexComponent implements OnInit {
 
   pages: any = [];
   prev_page: any = null;
-  next_page: any = null; 
+  next_page: any = null;
   environment = environment;
-
 
   constructor(protected clienteService: ClienteService,
               protected modalService: NgbModal,
-              protected router: Router) {}
+              protected router: Router) {
+    this.subject.pipe(
+          throttleTime(500)
+        )
+        .subscribe(() => this.buscar(this.search));
+  }
 
   ngOnInit() {
     this.clienteService.index().subscribe((res: any) => {
@@ -41,6 +47,7 @@ export class ClienteIndexComponent implements OnInit {
   buscar(search) {
     this.clienteService.buscarCliente({ search: search })
       .subscribe((res: any)  => {
+        console.log(res);
         this.clientes = res.data;
       });
   }
@@ -100,7 +107,7 @@ export class ClienteIndexComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
-  
+
   confirm(index, id, confirmModal) {
     this.index = index;
     this.idcliente = id;
