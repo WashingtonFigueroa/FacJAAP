@@ -695,15 +695,12 @@ export const ComponentsRoutes: Routes = [{
                 path: 'listar',
                 component: PrivilegioIndexComponent,
                 data: {
-                    title: 'LISTADO PRIVILEGIOS',
+                    title: 'ADMINISTRAR PRIVILEGIO',
                     urls: [{
                         title: 'INICIO',
                         url: '/acceso/dashboard'
                     }, {
-                        title: 'NUEVO REGISTRO',
-                        url: '/acceso/component/privilegios/crear'
-                    }, {
-                        title: 'PRIVILEGIOS'
+                        title: 'ASIGNACIÓN PRIVILEGIO'
                     }]
                 }
             }, {

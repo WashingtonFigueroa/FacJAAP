@@ -50,7 +50,11 @@ class UsuarioController extends Controller
     public function update(Request $request, $id)
     {
         $Usuario = Usuario::find($id);
-        $Usuario->update($request->all());
+        $Usuario->idtipo = $request->input('idtipo');
+        $Usuario->nombre = $request->input('nombre');
+        $Usuario->correo = $request->input('correo');
+        $Usuario->password = Hash::make($request->input('password'));
+        $Usuario->save();
         return response()->json($Usuario, 200);
     }
 

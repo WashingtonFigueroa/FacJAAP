@@ -24,6 +24,8 @@
                                   * Ingrese correo
                               </label>
                               <input type="email" class="form-control" id="correo" formControlName="correo" name="correo"/>
+                              <small class="alert-danger" *ngIf="usuarioGroup.get('correo').status ==='INVALID' && usuarioGroup.get('correo').dirty">Correo invalido</small>
+
                           </div>
                       </div>
                       <div class="col-md-4">

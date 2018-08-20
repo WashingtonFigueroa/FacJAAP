@@ -31,30 +31,31 @@ export class UsuarioCreateComponent implements OnInit {
     this.usuarioGroup = this.fb.group({
       'idtipo' : new FormControl(0, [Validators.required]),
       'nombre' : new FormControl('', [Validators.required]),
-      'correo' : new FormControl('', [Validators.required]),
+      'correo' : new FormControl('', [Validators.required, Validators.pattern(/^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/)]),
       'password' : new FormControl('', [Validators.required]),
       'password_confirmation' : new FormControl('', [Validators.required])
     });
   }
 
   store() {
-    this.usuarioService.store(this.usuarioGroup.value)
-        .subscribe((res: any) => {
-            if (res.error) {
+      const clave1 = this.usuarioGroup.value.password;
+      const clave2 = this.usuarioGroup.value.password_confirmation;
+    if (clave1 === clave2){
+        this.usuarioService.store(this.usuarioGroup.value)
+            .subscribe((res: any) => {
+                if (res.error) {
                     console.log(res.error);
-            } else {
-                this.usuarioGroup.patchValue({
-                    nombre: '',
-                    correo: '',
-                    password: '',
-                    password_confirmation: ''
-                });
-                this.router.navigate(['acceso/component/usuarios']);
-                this.toartr.success("Usuario Guardado", "Ok");
-            }
-        },error =>{
-            this.toartr.error("Usuaurio Registrado", "Error Usuario");
+                } else {
+                    this.router.navigate(['acceso/component/usuarios']);
+                    this.toartr.success("Usuario Guardado", "Ok");
+                }
+            },error =>{
+                this.toartr.error("Usuaurio Registrado", "Error Usuario");
             });
+    } else{
+        this.toartr.info("Contraseñas Incorrectas","Verificar");
+    }
+
   }
 
 }
