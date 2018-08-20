@@ -100,7 +100,7 @@ export class FacturaCreateComponent implements OnInit {
         .subscribe(res => {
             this.lecturas = res;
             if(this.lecturas.length === 0 ) {
-                alert("El cliente esta al dia con sus facturas");
+                this.toastr.info("El cliente esta al dia con sus pagos","Ok");
             }
         });
   }

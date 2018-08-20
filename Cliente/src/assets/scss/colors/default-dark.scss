@@ -1,9 +1,16 @@
+/*
+Template Name: Admin Press Admin
+Author: Themedesigner
+Email: niravjoshi87@gmail.com
+File: scss
+*/
+
 @import '../variable';
 $themecolor: #2e90ff;
 $themecolor-dark: #028ee1;
-$topbar:rgb(30, 120, 255);
-$sidebar:rgb(255, 255, 255);
-$sidebar-text: #585858;
+$topbar: rgba(0, 0, 0, 0.55);
+$sidebar:#242a33;
+$sidebar-text: #687384;
 $sidebar-icons: #424a56;
 $sidebar-dark: #1c2128;
 $sidebar-alt:#1c2128;
@@ -11,9 +18,9 @@ $themecolor-alt: #26c6da;
 $topbar-alt: #398bf7;
 
 .defaultdark {
-/*******************
-/*Top bar
-*******************/
+    /*******************
+    /*Top bar
+    *******************/
     .topbar {
         background: $topbar;
         .top-navbar .navbar-header .navbar-brand .light-logo {
@@ -26,14 +33,14 @@ $topbar-alt: #398bf7;
         }
         .navbar-light .navbar-nav .nav-item > {
             a.nav-link {
-                color: #011018;
+                color: #a6b7bf;
                 &:hover,
                 &:focus {
-                    color:#424a56!important;
+                    color:#242a33!important;
                 }
             }
         }
-        
+
     }
     .logo-center .topbar {
         .navbar-header {
@@ -46,13 +53,13 @@ $topbar-alt: #398bf7;
         }
         .top-navbar .navbar-header .navbar-brand .light-logo {
             display: inline-block;
-            color: rgba(0, 0, 0, 0.8);
+            color: rgba(255, 255, 255, 0.8);
         }
     }
 
-/*******************
-/*General Elements
-*******************/
+    /*******************
+    /*General Elements
+    *******************/
     a.link {
         &:hover,
         &:focus {
@@ -68,9 +75,9 @@ $topbar-alt: #398bf7;
         color: $themecolor!important;
     }
 
-/*******************
-/*Buttons
-*******************/
+    /*******************
+    /*Buttons
+    *******************/
     .btn-themecolor,
     .btn-themecolor.disabled {
         background: $themecolor;
@@ -86,10 +93,10 @@ $topbar-alt: #398bf7;
             background: $themecolor-dark;
         }
     }
-    
-/*******************
-/*sidebar navigation
-*******************/
+
+    /*******************
+    /*sidebar navigation
+    *******************/
     .left-sidebar,
     .card-no-border .left-sidebar,
     .card-no-border .sidebar-nav {
@@ -124,12 +131,11 @@ $topbar-alt: #398bf7;
         color: $sidebar-text;
     }
     @media (min-width: 768px) {
-    &.mini-sidebar .sidebar-nav #sidebarnav > li > ul {
-        background: $sidebar-alt;
-    }
-    &.mini-sidebar .sidebar-nav #sidebarnav > li:hover > a {
-        background: $sidebar-alt;
+        &.mini-sidebar .sidebar-nav #sidebarnav > li > ul {
+            background: $sidebar-alt;
+        }
+        &.mini-sidebar .sidebar-nav #sidebarnav > li:hover > a {
+            background: $sidebar-alt;
+        }
     }
 }
-}
-
