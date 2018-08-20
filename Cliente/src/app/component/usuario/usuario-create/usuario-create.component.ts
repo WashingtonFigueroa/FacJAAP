@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '../../../../../
 import { UsuarioService } from '../usuario.service';
 import { TipousuarioService } from '../../tipousuario/tipousuario.service';
 import { Router } from '../../../../../node_modules/@angular/router';
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-usuario-create',
@@ -17,7 +18,8 @@ export class UsuarioCreateComponent implements OnInit {
   constructor(protected usuarioService: UsuarioService,
               protected tipoService: TipousuarioService,
               protected fb: FormBuilder,
-              protected router: Router) {
+              protected router: Router,
+              protected toartr: ToastrService) {
     this.tipoService.listaCargos().subscribe(res => this.tipos = res);
     this.createForm();
   }
@@ -48,8 +50,11 @@ export class UsuarioCreateComponent implements OnInit {
                     password_confirmation: ''
                 });
                 this.router.navigate(['acceso/component/usuarios']);
+                this.toartr.success("Usuario Guardado", "Ok");
             }
-        });
+        },error =>{
+            this.toartr.error("Usuaurio Registrado", "Error Usuario");
+            });
   }
 
 }

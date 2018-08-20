@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TipousuarioService } from '../tipousuario.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from '../../../../../node_modules/@angular/forms';
 import { ActivatedRoute, Router } from '../../../../../node_modules/@angular/router';
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-tipousuario-edit',
@@ -16,7 +17,8 @@ export class TipousuarioEditComponent implements OnInit {
   constructor(protected tipoService: TipousuarioService,
               protected fb: FormBuilder,
               protected route: ActivatedRoute,
-              protected router: Router) {
+              protected router: Router,
+              protected toastr: ToastrService) {
 
       this.route.params.subscribe(param => {
           this.idtipo = param.id;
@@ -42,7 +44,7 @@ export class TipousuarioEditComponent implements OnInit {
       this.tipoService.update(this.tipoGroup.value, this.idtipo)
           .subscribe(res => {
               this.router.navigate(['acceso/component/tipousuarios']);
-              console.log('Tipo usuario Actualizado');
+              this.toastr.success("Cargo Actualizado","Ok")
           });
   }
 

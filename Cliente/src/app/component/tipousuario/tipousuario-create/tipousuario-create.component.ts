@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { TipousuarioService } from '../tipousuario.service';
 import { Router } from '../../../../../node_modules/@angular/router';
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-tipousuario-create',
@@ -13,7 +14,8 @@ export class TipousuarioCreateComponent implements OnInit {
 
   constructor(protected fb: FormBuilder,
               protected tipousuarioService: TipousuarioService,
-              protected router: Router) {
+              protected router: Router,
+              protected toastr: ToastrService) {
       this.createForm();
   }
 
@@ -31,6 +33,9 @@ export class TipousuarioCreateComponent implements OnInit {
       this.tipousuarioService.store(this.tipoGroup.value)
           .subscribe(res => {
               this.router.navigate(['acceso/component/tipousuarios']);
-            });
+              this.toastr.success("Cargo Guardado","Ok")
+            },(error => {
+                this.toastr.error("Cargo Registrado","Error Cargos");
+          }));
   }
 }

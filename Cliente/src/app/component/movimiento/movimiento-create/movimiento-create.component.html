@@ -42,10 +42,20 @@
                       <label for="documento">Seleccione documento </label>
                       <input type="file" class="form-control" #documento id="documento" name="documento" />
                     </div>
-                    <hr>
-                    <button type="submit" class="btn btn-primary">
-                      Guardar
-                    </button>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <button [disabled]="movimientoGroup.status === 'INVALID'" type="submit" class="btn btn-primary" style="width: 150px">
+                          <span class="fa fa-save"></span>
+                          Guardar
+                        </button>
+                      </div>
+                      <div class="col-md-6">
+                        <button type="reset" class="btn btn-success" style="width: 150px">
+                          <span class="fa fa-file"></span>
+                          Nuevo
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-4" align="center">

@@ -5,10 +5,27 @@
       <div class="col-md-12">
           <div class="card">
               <h5 class="card-header">
-                  PRESENTACIÓN DE INGRESOS Y EGRESOS MENSUALES
+                  PRESENTACIÓN DE INGRESOS Y EGRESOS
               </h5>
               <div class="card-footer">
-                  PRESENTACIÓN INGRESOS MENSUALES
+                  <table class="table table-striped">
+                      <thead>
+                      <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Ingresos</th>
+                          <th scope="col">Egresos</th>
+                          <th scope="col">Utilidad</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                          <th scope="row">1</th>
+                          <td>{{ total_ingresos | currency:"CAD":"symbol-narrow" }}</td>
+                          <td>{{ total_egresos | currency:"CAD":"symbol-narrow" }}</td>
+                          <td>{{total_ingresos - total_egresos | currency:"CAD":"symbol-narrow"}}</td>
+                      </tr>
+                      </tbody>
+                  </table>
               </div>
             </div>
         <div class="row">
@@ -31,32 +48,6 @@
               <plotly-plot [data]="ventas.data" [layout]="ventas.layout"></plotly-plot>
           </div>
         </div>
-        <div class="card">
-            <h5 class="card-header">
-                PRESENTACIÓN DE UTILIDAD
-            </h5>
-         </div>
-
-
-         <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Ingresos</th>
-                <th scope="col">Egresos</th>
-                <th scope="col">Utilidad</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>{{ total_ingresos | currency:"CAD":"symbol-narrow" }}</td>
-                <td>{{ total_egresos | currency:"CAD":"symbol-narrow" }}</td>
-                <td>{{total_ingresos - total_egresos | currency:"CAD":"symbol-narrow"}}</td>
-              </tr>
-            </tbody>
-          </table>
-
       </div>
     </div>
   </div>    

@@ -21,7 +21,6 @@
         <div class="row">
           <div class="col-md-12">
             <div class="row">
-              <i class="fa fa-search"></i>
               <div class="col-md-4">
                 <input type="search" *ngIf="tipos !== null" (keypress)="buscar(search)" [(ngModel)]="search" placeholder="Buscar cargo.." class="form-control">
               </div>
@@ -47,7 +46,7 @@
               <tbody>
                 <tr *ngFor="let tipo of tipos; let i = index">
                   <td>
-                    {{ i + 1 }}
+                    {{ tipo.idtipo }}
                   </td>
                   <td>
                     {{ tipo.nombre }}
@@ -55,7 +54,7 @@
                   <td>
                     {{ tipo.estado }}
                   </td>
-                  <td>
+                  <td align="center">
                     <button (click)="edit(tipo.idtipo)" type="button" class="btn btn-info">
                       <i class="fa fa-pencil-square" aria-hidden="true"></i>
                     </button>

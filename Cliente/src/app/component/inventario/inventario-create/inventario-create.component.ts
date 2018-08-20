@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '../../../../../
 import { InventarioService } from '../inventario.service';
 import { MaterialService } from '../../material/material.service';
 import { Router } from '../../../../../node_modules/@angular/router';
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-inventario-create',
@@ -17,7 +18,8 @@ export class InventarioCreateComponent implements OnInit {
   constructor(protected inventarioService: InventarioService,
               protected materialService: MaterialService,
               protected fb: FormBuilder,
-              protected router: Router) {
+              protected router: Router,
+              protected toastr: ToastrService) {
     this.materialService.listaMateriales().subscribe(res => this.materiales = res);
     this.createForm();
   }
@@ -36,22 +38,24 @@ export class InventarioCreateComponent implements OnInit {
     });
   }
 
-  store() {
-    this.inventarioService.store(this.inventarioGroup.value)
-        .subscribe((res: any) => {
-            if (res.error) {
-                    console.log(res.error);
-            } else {
-                this.inventarioGroup.patchValue({
-                    descripcion: '',
-                    cantidad: '',
-                    responsable: '',
-                    fecha: '',
-                    estado:''
+    store() {
+        const Ingfecha = this.inventarioGroup.value.fecha;
+        var f = new Date();
+        const Sisfecha = f.getFullYear() + "-" + (f.getMonth() +1) + "-" + f.getDate();
+        if( (new Date(Ingfecha).getTime() <= new Date(Sisfecha).getTime())) {
+            this.inventarioService.store(this.inventarioGroup.value)
+                .subscribe(res => {
+                    this.router.navigate(['acceso/component/materiales']);
+                    this.toastr.success("Registro Guardado", "Ok");
+                }, (error) => {
+                    this.toastr.error(' registrado', 'Error Materiales');
                 });
-                this.router.navigate(['acceso/component/inventarios']);
+        } else{
+                const message = 'La fecha ingresada es mayor a la fecha actual';
+                this.toastr.error(message, 'Error de ingreso de datos', {
+                    timeOut: 5000
+                });
             }
-        });
-  }
+    }
 
 }
