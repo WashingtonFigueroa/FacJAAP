@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule, LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import {HttpClientModule, HttpClient, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 
 import { FullComponent } from './layouts/full/full.component';
@@ -12,7 +12,7 @@ import { FullComponent } from './layouts/full/full.component';
 import { NavigationComponent } from './shared/header-navigation/navigation.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { BreadcrumbComponent } from './shared/breadcrumb/breadcrumb.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbModalModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
@@ -26,6 +26,7 @@ import {LoginService} from "./login/login.service";
 import {AuthGuard} from "./component/auth.guard";
 import {ToastrModule} from "ngx-toastr";
 import {NgxMaskModule} from 'ngx-mask'
+import {Interceptor} from "./interceptor";
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -53,10 +54,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     BrowserAnimationsModule,   
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
+      NgbModule.forRoot(),
+      HttpClientModule,
     ToastrModule.forRoot(),
-    NgbModule.forRoot(),
-    RouterModule.forRoot(Approutes, { useHash: false }),  
+    RouterModule.forRoot(Approutes, { useHash: false }),
     PerfectScrollbarModule
   ],
   providers: [
@@ -68,7 +69,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     },{
     provide: LocationStrategy,
     useClass: HashLocationStrategy
-  }],
+  },
+    { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

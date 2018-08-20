@@ -44,7 +44,7 @@ export class UsuarioIndexComponent implements OnInit {
                usuario.nombre.toLowerCase().indexOf(search) > -1 ||
                usuario.correo.toLowerCase().indexOf(search) > -1;
     })
-}
+  }
 
   getPages(last_page) {
     for (let i=1; i<=last_page; i++ ) {

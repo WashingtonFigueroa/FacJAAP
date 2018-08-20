@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { ClienteService } from '../cliente.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
@@ -14,6 +14,7 @@ import {throttleTime} from "rxjs/operators";
 
 export class ClienteIndexComponent implements OnInit {
 
+  @ViewChild('confirmModal') confirmModal;
   public subject = new Subject<any>();
   clientes: any = [];
   index: number = null;

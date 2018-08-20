@@ -32,6 +32,21 @@ class TipoUsuarioController extends Controller
             ], 500);
         } else {
             $TipoUsuario = TipoUsuario::create($request->all());
+            //buscar idtipo
+            $idtipo = TipoUsuario::where('nombre', $request->input('nombre'))
+                ->first()
+                ->idtipo;
+            //crear privilegios
+            $rutas = ['tipousuarios','usuarios','privilegios','materiales','inventarios','movimientos','estadisticas','parametros','clientes','medidores','servicios','multas','lecturas','facturas'];
+            for ($i = 1; $i<=1; $i++) {
+                foreach ($rutas as $ruta) {
+                    \App\Privilegios::create([
+                        'idtipo' =>  $idtipo,
+                        'ruta' => $ruta,
+                        'estado' => true
+                    ]);
+                }
+            }
             return response()->json($TipoUsuario, 201);
         }          
     }

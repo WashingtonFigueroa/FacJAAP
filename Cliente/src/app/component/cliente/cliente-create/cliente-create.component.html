@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <form (submit)="store()" role="form" [formGroup]="clienteGroup">
+          <form role="form" [formGroup]="clienteGroup">
             <div class="row">
 
               <div class="col-md-4">
@@ -62,7 +62,7 @@
                 </div>
                 <div class="row">
                   <div class="col-md-6">
-                    <button [disabled]="clienteGroup.status === 'INVALID'" type="submit" class="btn btn-primary" style="width: 150px">
+                    <button [disabled]="clienteGroup.status === 'INVALID'" (click)="store()" class="btn btn-primary" style="width: 150px">
                       <span class="fa fa-save"></span>
                       Guardar
                     </button>

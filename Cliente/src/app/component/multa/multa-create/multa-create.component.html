@@ -34,7 +34,11 @@
                     <label for="valor">
                       * Ingrese valor multa
                     </label>
-                    <input type="number" class="form-control" id="valor" formControlName="valor" name="valor" placeholder="$ 0.00" />
+                    <input type="text" class="form-control" id="valor" formControlName="valor" name="valor"
+                           [dropSpecialCharacters]="false"
+                           mask="0*.00"
+                           placeholder="$ 0.00" />
+                    {{ multaGroup.value.valor }}
                   </div>
                   <div class="row">
                     <div class="col-md-6">

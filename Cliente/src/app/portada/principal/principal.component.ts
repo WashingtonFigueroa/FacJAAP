@@ -47,7 +47,7 @@ export class PrincipalComponent implements OnInit {
     }
     createForm() {
         this.facturaGroup = this.fb.group({
-            'nombres' : new FormControl(0, Validators.required),
+            'nombres' : new FormControl('', Validators.required),
             'idcliente' : new FormControl(0, Validators.required),
             'idmedidor' : new FormControl(0, Validators.required)
         });

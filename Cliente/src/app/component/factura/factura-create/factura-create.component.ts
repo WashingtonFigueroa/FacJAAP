@@ -99,6 +99,9 @@ export class FacturaCreateComponent implements OnInit {
     this.medidorService.listaLecturas(this.facturaGroup.value.idmedidor)
         .subscribe(res => {
             this.lecturas = res;
+            if(this.lecturas.length === 0 ) {
+                alert("El cliente esta al dia con sus facturas");
+            }
         });
   }
 

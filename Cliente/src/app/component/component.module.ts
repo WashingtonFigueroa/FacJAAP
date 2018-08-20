@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JsonpModule } from '@angular/Http';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbModalModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { ComponentsRoutes } from './component.routing';
 import { TipousuarioComponent } from './tipousuario/tipousuario.component';
@@ -90,8 +90,9 @@ import {NgxMaskModule} from "ngx-mask";
     FormsModule,
     ReactiveFormsModule,
     JsonpModule,
-    NgbModule,
-    NgAutoCompleteModule,
+      NgbModalModule,
+
+      NgAutoCompleteModule,
     PlotlyModule,
     NgxMaskModule.forRoot()
   ],

@@ -3,6 +3,8 @@ import {TipousuarioService} from "../../tipousuario/tipousuario.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {PrivilegioService} from "../privilegio.service";
 import {LoginService} from "../../../login/login.service";
+import {ToastrService} from "ngx-toastr";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-privilegio-index',
@@ -32,10 +34,10 @@ export class PrivilegioIndexComponent implements OnInit {
     tipo_usuarios: any = null;
     constructor(protected tipoUsuarioService: TipousuarioService,
                 protected loginService: LoginService,
-                protected privilegioService: PrivilegioService) {
+                protected privilegioService: PrivilegioService,
+                protected toastr: ToastrService,
+                protected router: Router) {
         this.tipoUsuarioService.listaCargos().subscribe(res => this.tipo_usuarios = res);
-        console.log(this.loginService.getUsuario());
-
     }
 
     ngOnInit() {
@@ -44,7 +46,6 @@ export class PrivilegioIndexComponent implements OnInit {
     loadPrivilegios(idtipo) {
         this.tipoUsuarioService.listaPrivilegios(idtipo)
             .subscribe((privilegios: any) => {
-                console.log(privilegios);
                 const lista = privilegios;
                 lista.map(privilegio => {
                     switch (privilegio.ruta) {
@@ -67,7 +68,17 @@ export class PrivilegioIndexComponent implements OnInit {
             });
     }
     update() {
-        this.privilegioService.update(this.idtipo, this.privilegio)
-            .subscribe(res => console.log(res));
+
+        if (this.idtipo === 0){
+            this.toastr.info('Seleccione el usuario', 'Error de Privilegios');
+        }else{
+            this.privilegioService.update(this.idtipo, this.privilegio)
+                .subscribe(res => {
+                    this.router.navigate(['acceso/component/medidores']);
+                    this.toastr.success('Privilegios Guardados', 'Ok');
+                });
+        }
+
+
     }
 }
