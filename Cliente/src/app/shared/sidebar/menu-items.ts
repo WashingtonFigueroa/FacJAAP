@@ -14,7 +14,7 @@ submenu: [
 path: '', title: 'Administración', icon: 'mdi mdi-bullseye', class: 'has-arrow', label: '', labelClass: '', extralink: false,
 submenu: [
 { path: '/acceso/component/materiales', title: 'Inventario  ', icon: 'mdi mdi-watermark', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
-{ path: '/acceso/component/inventarios', title: 'Kardex  ', icon: 'mdi mdi-buffer', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
+{ path: '/acceso/component/inventarios', title: 'Bodega  ', icon: 'mdi mdi-buffer', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
 { path: '/acceso/component/movimientos', title: 'Contabilidad ', icon: 'mdi mdi-chart-line', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
 { path: '/acceso/component/estadisticas/listar', title: 'Estadisticas  ', icon: 'mdi mdi-poll', class: '', label: '', labelClass: '', extralink: false, submenu: [] }
 ]}

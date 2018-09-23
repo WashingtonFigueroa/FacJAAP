@@ -138,8 +138,12 @@ class LecturaController extends Controller
                 'total' => $totalPagar,
                 'lectura' => $lectura
             ];
-            Mail::send(new Factura($envio));
-            return response()->json($envio, 200);
+            $correo = $cliente->email;
+            if ($correo != null)
+            {
+                Mail::send(new Factura($envio));
+                return response()->json($envio, 200);
+            }
         }
     }
     public function getMes($fecha) {

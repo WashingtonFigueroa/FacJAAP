@@ -146,20 +146,20 @@ export const ComponentsRoutes: Routes = [{
                 redirectTo: 'listar',
                 pathMatch: 'full'      },
                 { path: 'listar', component: InventarioIndexComponent, data: {
-                        title: 'LISTA KARDEX',
+                        title: 'LISTA BODEGA',
                         urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
                             { title: 'NUEVO REGISTRO', url: '/acceso/component/inventarios/crear'},
-                            { title: 'KARDEX' }]
+                            { title: 'BODEGA' }]
                     }      },
                 { path: 'crear', component: InventarioCreateComponent, data: {
-                        title: 'MOVIMIENTO KARDEX',
+                        title: 'MOVIMIENTO BODEGA',
                         urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
                             { title: 'LISTADO', url: '/acceso/component/inventarios/listar'},
                             { title: 'NUEVO REGISTRO' }]
                     }
                 },
                 { path: 'editar/:id', component: InventarioEditComponent, data: {
-                        title: 'EDITAR KARDEX',
+                        title: 'EDITAR BODEGA',
                         urls: [{ title: 'INICIO', url: '/acceso/dashboard' },
                             { title: 'LISTADO', url: '/acceso/component/inventarios/listar'},
                             { title: 'MODIFICACIÓN' }]

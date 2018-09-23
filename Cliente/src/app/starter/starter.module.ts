@@ -9,7 +9,7 @@ import { StarterComponent } from './starter.component';
 const routes: Routes = [{
 	path: '',
 	data: {
-        title: 'BIENVENIDOS'
+        title: 'BIENVENIDO AL SISTEMA DE LA JAAP SAN JOSÉ DE CHORLAVI'
     },
 	component: StarterComponent
 }];

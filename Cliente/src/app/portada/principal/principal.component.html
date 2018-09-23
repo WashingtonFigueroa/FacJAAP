@@ -1,208 +1,124 @@
-<!--[if lt IE 7]>
-<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-<![endif]-->
-<!-- HEADER -->
-<header class="site-header">
-    <div class="container">
-        <div class="container-fluid">
+<link rel="stylesheet" href="assets/prin/assets/css/main.css" />
+<!-- Header -->
+<header id="header" style="background-image: url('assets/prin/images/2.png'); background-size: 100%;">
+    <div class="content">
+        <h1><a href="#">JAAP</a></h1>
+        <p>San José de Chorlavi<br />
+            Imbarura-Ibarra-Ecuador</p>
+    </div>
+    <div class="image phone"><div class="inner"><img src="assets/prin/images/screen.jpg" alt="" /></div></div>
+</header>
+
+<!-- One -->
+<section id="one" class="wrapper style2 special">
+    <header class="major">
+        <h2>Estimad@ Cliente:</h2>
+        <h4>La junta de agua potable San José de Chorlaví JAAP, <br>Trabaja cada día para servirle mejor, por este motivo le invita a formar parte de nuestro compromiso con el medio ambiente y
+            <br>le recuerda que puede recibir su comprobante de pago a su email.</h4>
+    </header>
+    <div class="col-md-12" style="background: #ffffff">
+        <form [formGroup]="facturaGroup">
             <div class="row">
                 <div class="col-md-12">
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                        <img src="assets/images/logo-icon.png" alt="" width="100">
-
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="navbar-nav">
-                                <li class="nav-item active">
-                                    JAAP SAN JOSE DE CHORLAVI
-                                </li>
-                            </ul>
-                            <ul class="navbar-nav ml-md-auto">
-                                <li class="nav-item active">
-                                    <button type="button" class="btn btn-info" routerLink="/acceso/login" style="color: #fff">
-                                        Ingreso Sistema
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-<!-- .site-header -->
-
-<!-- TOP CONTENT -->
-<div class="top-c">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-4">
-                        <br><br>
-                        <img src="assets/images/log.png" alt="" width="300">
-                    </div>
-                    <div class="col-md-4">
-
-                    </div>
-                    <div class="col-md-4">
-                        <h3 class="topc-title">SISTEMA JAAP </h3>
-                        <ul>
-                            <li><i class="fa fa-check"></i>Contribuir con.</li>
-                            <li><i class="fa fa-check"></i>Contribuir con.</li>
-                            <li><i class="fa fa-check"></i>Contribuir con.</li>
-                            <li><i class="fa fa-check"></i>Contribuir con.</li>
-                            <li><i class="fa fa-check"></i>Contribuir con.</li>
-                            <li><i class="fa fa-check"></i>Contribuir con.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-
-<!-- SERVICES -->
-<div class="content-section" id="services">
-    <div class="container" align="center">
-        <h3>-Más de la mitad de los grandes ríos de todo el mundo están seriamente contaminados y agotados, degradando y envenenando los ecosistemas que los rodean, amenazando la salud y sustento vital de personas que dependen de ella para regar, beber o
-            su uso industrial.-Ismail Serageldin.</h3>
-    </div>
-</div>
-<!-- #services -->
-
-
-<!-- PRODUCTS -->
-<div class="content-section" id="products">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>Consultar Planilla</h1>
-                <hr>
-                <form [formGroup]="facturaGroup">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <label>Ingrese nombres del cliente </label>
-                                    <input type="text" formControlName="nombres" name="clienteSearch"><br>
-                                    <br>
-                                    <label>* Seleccione Medidor</label>
-                                    <select (change)="listaLecturas()" name="idmedidor" formControlName="idmedidor" class="custom-select mr-sm-2" *ngIf="medidores != null">
-                                        <option [value]="medidor.idmedidor" *ngFor="let medidor of medidores">
-                                            {{ medidor.codigo }}
-                                        </option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4">
-                                    <label>.</label><br>
-                                    <button class="btn btn-primary" (click)="searchCliente()"><span class="fa fa-search"></span></button>
-                                </div>
-                                <div class="col-md-4">
-                                    <h3>Estimad@ Cliente:</h3>
-                                    <p>La junta de agua potable San José de Chorlaví JAAP, Trabaja cada día para servirle mejor, por este motivo le invita a formar parte de nuestro compromiso con el medio ambiente y le recuerda que puede recibir su comprobante de pago a su email.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
                     <hr>
                     <div class="row">
-                        <div class="col">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered" style="color: black">
-                                    <thead>
-                                    <tr>
-                                        <th>Fecha</th>
-                                        <th>Anterior</th>
-                                        <th>Actual</th>
-                                        <th>Consumo</th>
-                                        <th>Excedente</th>
-                                        <th>Tarifa</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr *ngFor="let lectura of lecturas; let i = index">
-                                        <td>{{ lectura.fecha }}</td>
-                                        <td>{{ lectura.anterior }}</td>
-                                        <td>{{ lectura.actual }}</td>
-                                        <td>{{ lectura.consumo }}</td>
-                                        <td>{{ lectura.excedente }}</td>
-                                        <td>{{ lectura.tarifa | currency:"CAD":"symbol-narrow" }}</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="col-md-4">
+                            <div class="image"><img src="assets/prin/images/pic04.jpg" alt="" /></div>
                         </div>
+                        <div class="col-md-3">
+                            <label>Ingrese nombres del cliente </label>
+                            <input type="text" formControlName="nombres" name="clienteSearch" >
+                        </div>
+                        <div class="col-md-1">
+                            <label>Buscar</label>
+                            <button class="btn btn-primary" (click)="searchCliente()"><span class="fa fa-search"></span></button>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Seleccione Medidor</label>
+                            <select (change)="listaLecturas()" name="idmedidor" formControlName="idmedidor" class="custom-select mr-sm-2" *ngIf="medidores != null">
+                                <option [value]="medidor.idmedidor" *ngFor="let medidor of medidores">
+                                    {{ medidor.codigo }}
+                                </option>
+                            </select>
+                        </div>
+
                     </div>
-
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- #products -->
-
-
-<!-- VIDEO FEATURe -->
-<div id="video" class="video-feature content-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="video embed-responsive embed-responsive-16by9">
-                    <iframe width="1759" height="663" src="https://www.youtube.com/embed/RJ6e_TFT1O8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </div>
             </div>
-            <!-- .col-md-8 -->
-        </div>
-        <!-- .row -->
-    </div>
-    <!-- .container -->
-</div>
-<!-- .video-feature -->
 
 
-<!-- CONTACT -->
-<div class="content-section" id="contact">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center section-header">
-                <h2 class="section-title">CONTACTOS</h2>
-                <p>“Olvidamos que el ciclo del agua y el ciclo de la vida son uno mismo”</p>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered" style="color: black">
+                            <thead>
+                            <tr align="center">
+                                <th>Fecha</th>
+                                <th>Anterior</th>
+                                <th>Actual</th>
+                                <th>Consumo</th>
+                                <th>Excedente</th>
+                                <th>Tarifa</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let lectura of lecturas; let i = index">
+                                <td>{{ lectura.fecha }}</td>
+                                <td>{{ lectura.anterior }}</td>
+                                <td>{{ lectura.actual }}</td>
+                                <td>{{ lectura.consumo }}</td>
+                                <td>{{ lectura.excedente }}</td>
+                                <td>{{ lectura.tarifa | currency:"CAD":"symbol-narrow" }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 contact-info">
-                 <ul>
-                    <li><i class="fa fa-phone"></i> 090-080-0980</li>
-                    <li><i class="fa fa-map-marker"></i>Chorlavi-Ibarra-Ecuador</li>
-                    <li><i class="fa fa-envelope"></i>sanjosedechorlavi@gmail.com</li>
-                </ul>
-            </div>
-            <!-- .col-md-5 -->
 
-        </div>
-        <!-- .row -->
+        </form>
     </div>
-    <!-- .container -->
-</div>
-<!-- #contact -->
-
-
-<!-- FOOTER -->
-<footer class="site-footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-right">
-                <p>Copyright &copy; 2018 UTN / Washington Figueroa</p>
+</section>
+<!-- Two -->
+<section id="two" class="wrapper">
+    <div class="inner alt">
+        <section class="spotlight">
+            <div class="image"><img src="assets/prin/images/pic01.jpg" alt="" /></div>
+            <div class="content">
+                <h3>Leonardo da Vinci</h3>
+                <p>-El agua es la fuerza que mueve a la naturaleza.</p>
             </div>
-            <!-- .col-md-12 -->
-        </div>
-        <!-- .row -->
+        </section>
+        <section class="spotlight">
+            <div class="image"><img src="assets/prin/images/pic02.jpg" alt="" /></div>
+            <div class="content">
+                <h3>Lloyd Axworthy</h3>
+                <p>-El agua se ha convertido en un recurso muy preciado. Hay lugares en los que un barril de agua cuesta más que un barril de petróleo.</p>
+            </div>
+        </section>
+        <section class="spotlight">
+            <div class="image"><img src="assets/prin/images/pic03.jpg" alt="" /></div>
+            <div class="content">
+                <h3>Ismail Serageldin</h3>
+                <p>Más de la mitad de los grandes ríos de todo el mundo están seriamente contaminados y agotados, degradando y envenenando los ecosistemas que los rodean, amenazando la salud y sustento vital de personas que dependen de ella para regar, beber o su uso industrial.</p>
+            </div>
+        </section>
     </div>
-    <!-- .container -->
+</section>
+
+<!-- Three -->
+<section id="three" class="wrapper style2 special">
+    <header class="major">
+        <h2>JAAP</h2>
+           </header>
+    <button type="button" class="btn btn-primary" routerLink="/acceso/login" style="color: #fff">
+        Ingreso Sistema
+    </button>
+</section>
+
+<!-- Footer -->
+<footer id="footer">
+    <h5>Copyright &copy; 2018 UTN / Washington Figueroa</h5>
 </footer>
-<!-- .site-footer -->
+

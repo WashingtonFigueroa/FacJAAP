@@ -90,9 +90,8 @@ import {NgxMaskModule} from "ngx-mask";
     FormsModule,
     ReactiveFormsModule,
     JsonpModule,
-      NgbModalModule,
-
-      NgAutoCompleteModule,
+    NgbModalModule,
+    NgAutoCompleteModule,
     PlotlyModule,
     NgxMaskModule.forRoot()
   ],
