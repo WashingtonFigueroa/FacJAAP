@@ -4,6 +4,7 @@ import { MultaService } from '../multa.service';
 import { NgbModal, ModalDismissReasons } from '../../../../../node_modules/@ng-bootstrap/ng-bootstrap';
 import { ServicioService } from '../../servicio/servicio.service';
 import { Router } from '../../../../../node_modules/@angular/router';
+import { Angular5Csv } from "angular5-csv/Angular5-csv";
 
 @Component({
   selector: 'app-multa-index',
@@ -114,6 +115,17 @@ export class MultaIndexComponent implements OnInit {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
+
+    export() {
+        const date = new Date();
+        const now = date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate();
+        this.multaService.exporarExcel_multas().subscribe(servicios => {
+            const csv = new Angular5Csv(servicios, 'multas-' + now , {
+                fieldSeparator: ';',
+                headers: ["Numero Servicio", "Nombres del Usuario", "Descripcion", "Valor"]
+            });
+        });
+    }
 
 
 }

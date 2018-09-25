@@ -11,6 +11,9 @@ export class LecturaService {
   index() {
     return this.http.get(this.base + 'lecturas');
   }
+    exporarExcel_lecturas() {
+        return this.http.get(this.base + 'exporarExcel_lecturas');
+    }
   indexPerPage(url) {
     return this.http.get( url );
 }

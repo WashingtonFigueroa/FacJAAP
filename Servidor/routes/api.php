@@ -44,6 +44,11 @@ Route::resource('inventarios', 'InventarioController');
 Route::get('factura_compras_documento/{id}', 'FacturaCompraController@getDocumento');
 Route::get('medidores_activos', 'MedidorController@medidoresActivos');
 Route::get('lista_servicios', 'ServicioController@listaServicios');
+//exportar excel
+Route::get('exporarExcel_servicios', 'ServicioController@exporarExcel');
+Route::get('exporarExcel_multas', 'MultaController@exporarExcel');
+Route::get('exporarExcel_lecturas', 'LecturaController@exporarExcel');
+
 Route::get('lista_clientes', 'ContribuyenteController@listaContribuyentes');
 
 Route::get('lista_cargos', 'TipoUsuarioController@listaCargos');
@@ -67,3 +72,5 @@ Route::get('search_lectura_anterior/{idmedidor}', 'LecturaController@searchLectu
 Route::get('generar_backup', 'BackupController@generarBackup');
 
 Route::post('buscar_cliente', 'ContribuyenteController@buscarContribuyente');
+//Buscar doc
+Route::get('ver_documento/{id}','MovimientoController@ver_documento');

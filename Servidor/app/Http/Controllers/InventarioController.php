@@ -20,13 +20,13 @@ class InventarioController extends Controller
         $material = material::where('idmaterial', $idmaterial)->first();
         $stock = $material->stock;
         $cantidad = $request->input('cantidad');
-        $estado = $request->input('estado');        
+        $estado = $request->input('estado');
             if ($estado === 'Ingreso' ) {
                 $material->stock = $stock + $cantidad;
                 $material->save();
                 $inventario = inventario::create($request->all());
             }
-            if ($estado == 'Salida' && $stock > $cantidad ) {
+            if ($estado == 'Salida' && $stock >= $cantidad ) {
                 $material->stock = $stock - $cantidad;
                 $material->save();
                 $inventario = inventario::create($request->all());

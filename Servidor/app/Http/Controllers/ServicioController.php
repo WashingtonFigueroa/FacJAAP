@@ -6,6 +6,7 @@ use App\Medidor;
 use App\Parametro;
 use App\Servicio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ServicioController extends Controller
 {
@@ -17,8 +18,15 @@ class ServicioController extends Controller
                     200); 
     }
 
+    public function exporarExcel()
+    {
+        return response()->json(DB::table('servicios')
+            ->join('clientes','clientes.idcliente','=','servicios.idcliente')
+            ->join('medidores','medidores.idmedidor','=','servicios.idmedidor')
+            ->select('servicios.idservicio','clientes.nombres as contribuyente','medidores.codigo as numero')
+            ->get(), 200);
+    }
     
-
     public function store(Request $request)
     {
         $parametro = Parametro::where('descripcion', 'like', '%' . 'Servicio' . '%' )

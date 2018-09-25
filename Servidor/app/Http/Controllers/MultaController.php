@@ -5,7 +5,7 @@ use App\Servicio;
 use App\Contribuyente;
 use App\Multa;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpKernel\Client;
+use Illuminate\Support\Facades\DB;
 
 class MultaController extends Controller
 {
@@ -15,6 +15,16 @@ class MultaController extends Controller
             ->orderBy('idmulta', 'desc')
             ->paginate(10), 200); 
    }
+
+    public function exporarExcel()
+    {
+        return response()->json(DB::table('multas')
+            ->join('servicios','servicios.idservicio','=','multas.idservicio')
+            ->join('clientes','clientes.idcliente','=','servicios.idcliente')
+            ->select('multas.idservicio','clientes.nombres as cliente','multas.descripcion','multas.valor')
+            ->where('multas.estado','=','Deber')
+            ->get(), 200);
+    }
 
     public function store(Request $request)
     {

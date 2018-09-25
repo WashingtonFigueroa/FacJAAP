@@ -34,9 +34,6 @@
                 <thead>
                   <tr>
                     <th>
-                      #
-                    </th>
-                    <th>
                       Tipo
                     </th>
                     <th>
@@ -52,6 +49,9 @@
                       Recibo #
                     </th>
                     <th>
+                      Doc
+                    </th>
+                    <th>
                       Valor
                     </th>
                     <th>
@@ -61,9 +61,6 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let movimiento of movimientos; let i = index">
-                    <td>
-                      {{ movimiento.idmovimiento }}
-                    </td>
                     <td>
                       {{ movimiento.tipo }}
                     </td>
@@ -78,6 +75,9 @@
                     </td>
                     <td>
                       {{ movimiento.numfac }}
+                    </td>
+                    <td>
+                      <a href="{{environment.base}}{{environment.ver_documento}}{{movimiento.idmovimiento}}" target="_blank" ><i class="fa fa-fw fa-file-archive-o"></i></a>
                     </td>
                     <td>
                       {{ movimiento.valor | currency:"CAD":"symbol-narrow" }}

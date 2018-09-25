@@ -13,10 +13,8 @@ use App\Servicio;
 use App\Movimiento;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use PhpParser\Node\Expr\AssignOp\Mul;
-use Symfony\Component\HttpKernel\Client;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use Illuminate\Support\Facades\DB;
 
 class LecturaController extends Controller
 {
@@ -26,6 +24,15 @@ class LecturaController extends Controller
             ->orderBy('idlectura', 'desc')
             ->paginate(10),
             200);
+    }
+
+    public function exporarExcel()
+    {
+        return response()->json(DB::table('lecturas')
+            ->join('servicios','servicios.idservicio','=','lecturas.idservicio')
+            ->join('clientes','clientes.idcliente','=','servicios.idcliente')
+            ->select('lecturas.idservicio','clientes.nombres as cliente','lecturas.observacion','lecturas.fecha','lecturas.anterior','lecturas.actual','lecturas.consumo','lecturas.excedente','lecturas.tarifa','lecturas.estado')
+            ->get(), 200);
     }
 
     public function store(Request $request)
@@ -44,10 +51,20 @@ class LecturaController extends Controller
                                 ->first()
                                 ->idservicio;
 
+        $lugar = Contribuyente::where('idcliente', $idcliente)
+                                    ->first()
+                                    ->direccion;
+
         $baseM3 = Parametro::where('descripcion', 'like', '%'.'Base M3'.'%')->first();
-        $valorbase = Parametro::where('descripcion', 'like', '%'.'Base M3 Chorlavi'.'%')->first();
-        $metroCubicoAgua = Parametro::where('descripcion', 'like', '%'.'M3 Agua Chorlavi'.'%')->first();
-        
+        if ($lugar === "San José de Chorlaví")
+        {
+            $valorbase = Parametro::where('descripcion', 'like', '%'.'Base M3 Chorlavi'.'%')->first();
+            $metroCubicoAgua = Parametro::where('descripcion', 'like', '%'.'M3 Agua Chorlavi'.'%')->first();
+        }else {
+            $valorbase = Parametro::where('descripcion', 'like', '%'.'Base M3 San Agustin'.'%')->first();
+            $metroCubicoAgua = Parametro::where('descripcion', 'like', '%'.'M3 Agua San Agustin'.'%')->first();
+        }
+
         $lectura = new Lectura();
         $lectura->idservicio = $idservicio;
         $lectura->observacion = $request->input('observacion');
@@ -139,11 +156,11 @@ class LecturaController extends Controller
                 'lectura' => $lectura
             ];
             $correo = $cliente->email;
-            if ($correo != null)
+            if ($correo !== '')
             {
                 Mail::send(new Factura($envio));
-                return response()->json($envio, 200);
             }
+            return response()->json($envio, 200);
         }
     }
     public function getMes($fecha) {

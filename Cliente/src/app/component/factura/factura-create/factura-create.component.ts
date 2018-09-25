@@ -119,7 +119,7 @@ export class FacturaCreateComponent implements OnInit {
 
   getMesGestion(fecha_lectura) {
     const fecha = new Date(fecha_lectura);
-    const mes_numero = fecha.getMonth()+1;
+    const mes_numero = fecha.getMonth();
     const gestion = fecha.getFullYear();
     let mes = '';
     switch(mes_numero) {

@@ -12,6 +12,9 @@ export class ServicioService {
   index() {
     return this.http.get(this.base + 'servicios');
   }
+    exporarExcel_servicios() {
+        return this.http.get(this.base + 'exporarExcel_servicios');
+    }
   indexPerPage(url) {
     return this.http.get( url );
   }

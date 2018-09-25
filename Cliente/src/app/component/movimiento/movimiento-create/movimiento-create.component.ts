@@ -52,7 +52,7 @@ export class MovimientoCreateComponent implements OnInit {
             form.append('valor', this.movimientoGroup.value.valor);         
         }else{
         form.append('tipo', this.movimientoGroup.value.tipo);
-        form.append('fecha', this.movimientoGroup.value.fecha);m
+        form.append('fecha', this.movimientoGroup.value.fecha);
         form.append('detalle', this.movimientoGroup.value.detalle);
         form.append('intermediario', this.movimientoGroup.value.intermediario);
         form.append('numfac', this.movimientoGroup.value.numfac);

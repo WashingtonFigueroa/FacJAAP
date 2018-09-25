@@ -7,6 +7,7 @@ use App\FacturaVenta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use phpDocumentor\Reflection\Types\Null_;
 
 class MovimientoController extends Controller
 {
@@ -97,6 +98,14 @@ class MovimientoController extends Controller
         $Movimiento = Movimiento::find($id);
         return response()->file(storage_path('app/' . $Movimiento->documento));
         //return response()->download(storage_path('app/' . $Movimiento->documento));
+    }
+
+    public function ver_documento($id) {
+        $documento = Movimiento::find($id)->documento;
+        if($documento !== null)
+        {
+            return response()->file(storage_path('app/' . $documento));
+        }
     }
 
 }

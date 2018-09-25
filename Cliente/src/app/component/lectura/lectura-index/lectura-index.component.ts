@@ -4,6 +4,7 @@ import { LecturaService } from '../lectura.service';
 import { NgbModal, ModalDismissReasons } from '../../../../../node_modules/@ng-bootstrap/ng-bootstrap';
 import { Router } from '../../../../../node_modules/@angular/router';
 import {ServicioService} from "../../servicio/servicio.service";
+import { Angular5Csv } from "angular5-csv/Angular5-csv";
 
 @Component({
   selector: 'app-lectura-index',
@@ -115,5 +116,15 @@ export class LecturaIndexComponent implements OnInit {
     });
   }
 
+    export() {
+        const date = new Date();
+        const now = date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate();
+        this.lecturaService.exporarExcel_lecturas().subscribe(servicios => {
+            const csv = new Angular5Csv(servicios, 'lecturas-' + now , {
+                fieldSeparator: ';',
+                headers: ["Numero Servicio", "Nombres del Usuario", "observación","Fecha","Lectura Anterior","Lectura Actual","Consumo","Excedente","Tarifa","Estado"]
+            });
+        });
+    }
 
 }

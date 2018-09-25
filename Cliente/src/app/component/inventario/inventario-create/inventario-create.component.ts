@@ -48,7 +48,7 @@ export class InventarioCreateComponent implements OnInit {
                     this.router.navigate(['acceso/component/materiales']);
                     this.toastr.success("Registro Guardado", "Ok");
                 }, (error) => {
-                    this.toastr.error(' registrado', 'Error Materiales');
+                    this.toastr.error('No cuenta en Bodega', 'Error Materiales');
                 });
         } else{
                 const message = 'La fecha ingresada es mayor a la fecha actual';

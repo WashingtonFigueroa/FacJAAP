@@ -11,6 +11,9 @@ export class MultaService {
   index() {
     return this.http.get(this.base + 'multas');
   }
+    exporarExcel_multas() {
+        return this.http.get(this.base + 'exporarExcel_multas');
+    }
    indexPerPage(url) {
      return this.http.get( url );
    }

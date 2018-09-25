@@ -3,6 +3,7 @@ import { ServicioService } from '../servicio.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { environment } from '../../../../environments/environment.prod';
+import { Angular5Csv } from "angular5-csv/Angular5-csv";
 
 @Component({
   selector: 'app-servicio-index',
@@ -112,5 +113,15 @@ export class ServicioIndexComponent implements OnInit {
     });
   }
 
+    export() {
+        const date = new Date();
+        const now = date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate();
+        this.servicioService.exporarExcel_servicios().subscribe(servicios => {
+            const csv = new Angular5Csv(servicios, 'servicios-' + now , {
+                fieldSeparator: ';',
+                headers: ["Numero Servicio", "Nombres del Usuario", "Código del Medidor"]
+            });
+        });
+    }
 
 }

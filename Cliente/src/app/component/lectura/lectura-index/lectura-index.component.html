@@ -22,9 +22,13 @@
           <div class="col-md-12">
             <div style="overflow-x:auto;">
               <div class="row">
-                <i class="fa fa-search"></i>
                 <div class="col-md-4">
                   <input type="search" *ngIf="lecturas !== null" (keypress)="buscar(search)" [(ngModel)]="search" placeholder="Buscar lecturas.." class="form-control">
+                </div>
+                <div class="col-md-8 text-right">
+                  <button class="btn btn-primary" (click)="export()">
+                    <span class="fa fa-save"></span>
+                  </button>
                 </div>
               </div>
               <br>
