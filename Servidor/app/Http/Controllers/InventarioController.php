@@ -49,6 +49,20 @@ class InventarioController extends Controller
     public function destroy($id)
     {
         $inventario = inventario::find($id);
+        $idmaterial = $inventario->idmaterial;
+        $material = material::where('idmaterial', $idmaterial)->first();
+        $stock = $material->stock;
+        $cantidad = $inventario->cantidad;
+        $estado = $inventario->estado;
+
+        if ($estado === 'Ingreso' ) {
+            $material->stock = $stock - $cantidad;
+            $material->save();
+        }
+        if ($estado == 'Salida') {
+            $material->stock = $stock + $cantidad;
+            $material->save();
+        }
         $inventario->delete();
         return response()->json([
             'eliminado' => 'Inventario ' . $inventario->idmovimiento

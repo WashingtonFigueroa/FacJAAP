@@ -83,10 +83,6 @@
                       {{ movimiento.valor | currency:"CAD":"symbol-narrow" }}
                     </td>
                     <td align="center">
-                      <button (click)="edit(movimiento.idmovimiento)" type="button" [disabled]="movimiento.tipo === 'Ingreso'" class="btn btn-info">
-                        <i class="fa fa-pencil-square" aria-hidden="true"></i>
-                      </button>
-                      &nbsp;
                       <button type="button" class="btn btn-danger" (click)="confirm(i, movimiento.idmovimiento,confirmModal)" [disabled]="movimiento.tipo === 'Ingreso'">
                         <i class="fa fa-eraser" aria-hidden="true"></i>
                       </button>

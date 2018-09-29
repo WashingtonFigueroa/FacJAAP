@@ -5,6 +5,7 @@ import {MedidorService} from "../../medidor/medidor.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {LecturaService} from "../../lectura/lectura.service";
 import {ToastrService} from "ngx-toastr";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-factura-create',
@@ -42,6 +43,7 @@ export class FacturaCreateComponent implements OnInit {
               protected medidorService: MedidorService,
               protected lecturaService: LecturaService,
               protected fb: FormBuilder,
+              protected router: Router,
               protected toastr: ToastrService) {
     this.createForm();
     
@@ -82,6 +84,7 @@ export class FacturaCreateComponent implements OnInit {
       this.medidorService.listaMedidoresCliente(item.item.original.idcliente)
           .subscribe(res => {
               this.medidores = res;
+              this.toastr.info("Seleccione Numero Medidor","Ok");
           });
   }
 
@@ -194,4 +197,10 @@ export class FacturaCreateComponent implements OnInit {
     
    popupWin.document.close();
 }
+
+    Actualizar() {
+
+        this.router.navigate(['acceso/component/facturas/listar']);
+  }
+
 }

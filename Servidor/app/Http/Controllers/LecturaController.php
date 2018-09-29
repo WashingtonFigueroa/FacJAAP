@@ -156,7 +156,7 @@ class LecturaController extends Controller
                 'lectura' => $lectura
             ];
             $correo = $cliente->email;
-            if ($correo !== '')
+            if (strlen($correo) > 0)
             {
                 Mail::send(new Factura($envio));
             }
@@ -227,9 +227,20 @@ class LecturaController extends Controller
         $idservicio = Servicio::where('idmedidor', $idmedidor)
                                 ->first()
                                 ->idservicio;
-        $lectura = Lectura::where('idservicio', $idservicio)
+        $cantidad_lectura = Lectura::where('idservicio', $idservicio)
                             ->orderBy('idlectura', 'desc')
-                            ->first();
+                            ->count();
+        if($cantidad_lectura > 1){
+            $lectura = Lectura::where('idservicio', $idservicio)
+                ->orderBy('idlectura', 'desc')
+                ->first();
+        }else{
+            $lectura = Lectura::where('idservicio', $idservicio)
+                ->orderBy('idlectura', 'desc')
+                ->first()->toArray();
+            $lectura["anterior"] = $lectura["actual"];
+        }
+
 
         return response()->json($lectura, 200);
     }

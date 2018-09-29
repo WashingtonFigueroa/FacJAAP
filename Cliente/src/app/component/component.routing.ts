@@ -693,18 +693,6 @@ export const ComponentsRoutes: Routes = [{
                 pathMatch: 'full'
             }, {
                 path: 'listar',
-                component: PrivilegioIndexComponent,
-                data: {
-                    title: 'ADMINISTRAR PRIVILEGIO',
-                    urls: [{
-                        title: 'INICIO',
-                        url: '/acceso/dashboard'
-                    }, {
-                        title: 'ASIGNACIÓN PRIVILEGIO'
-                    }]
-                }
-            }, {
-                path: 'crear',
                 component: PrivilegioCreateComponent,
                 data: {
                     title: 'ADMINISTRAR PRIVILEGIO',
@@ -713,21 +701,6 @@ export const ComponentsRoutes: Routes = [{
                         url: '/acceso/dashboard'
                     }, {
                         title: 'ASIGNACIÓN PRIVILEGIO'
-                    }]
-                }
-            }, {
-                path: 'editar/:id',
-                component: PrivilegioEditComponent,
-                data: {
-                    title: 'EDITAR PRIVILEGIO',
-                    urls: [{
-                        title: 'INICIO',
-                        url: '/acceso/dashboard'
-                    }, {
-                        title: 'LISTADO',
-                        url: '/acceso/component/privilegios/listar'
-                    }, {
-                        title: 'MODIFICACIÓN'
                     }]
                 }
             }]

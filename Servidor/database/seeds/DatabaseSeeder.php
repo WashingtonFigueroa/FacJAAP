@@ -48,7 +48,22 @@ class DatabaseSeeder extends Seeder
             'valor' => 300.00,
             'detalle' => 'Valor instalación',
             'estado' => 'Activo',
-        ]);*/
+        ]);
+
+         \App\Parametro::create([
+                    'descripcion' => 'Base M3 San Agustin',
+                    'valor' => 3.00,
+                    'detalle' => 'Valor instalación',
+                    'estado' => 'Activo',
+                ]);
+
+         \App\Parametro::create([
+                    'descripcion' => 'M3 Agua San Agustin',
+                    'valor' => 0.40,
+                    'detalle' => 'Valor instalación',
+                    'estado' => 'Activo',
+                ]);
+        */
         $rutas = ['tipousuarios','usuarios','privilegios','materiales','inventarios','movimientos','estadisticas','parametros','clientes','medidores','servicios','multas','lecturas','facturas'];
         for ($i = 1; $i<=1; $i++) {
             foreach ($rutas as $ruta) {

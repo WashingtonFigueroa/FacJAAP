@@ -1,18 +1,18 @@
 <div class="card">
     <div class="card-body">
 
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-12">
+      <div class="container-fluid" style="background-color: rgba(16,23,32,0.36)#6bc4ff; color: black">
+        <div class="row" >
+          <div class="col-md-12" >
                   <form [formGroup]="facturaGroup">
                   <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="col" *ngIf="clientesSearch !== null">
-                            <label>* Seleccione cliente </label><br>
+                            <label>* Seleccione cliente </label>
                             <ng-autocomplete class="col-sm-12 col-form-label" (selected)="Selected($event)" [classes]="['']" [group]="clientesSearch"></ng-autocomplete>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="col">
                             <label>* SeleccioneMedidor</label><br>
                             <select (change)="listaLecturas()" name="idmedidor" formControlName="idmedidor" class="custom-select mr-sm-2" *ngIf="medidores != null">
@@ -22,7 +22,7 @@
                             </select>
                           </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="col">
                             <label>Mes facturado:</label>&nbsp;&nbsp;&nbsp;&nbsp;
                             <label>{{ datos.mes_facturado }}</label>
@@ -32,6 +32,12 @@
                             <label>{{direccion}}</label>
                           </div>
                     </div>
+                      <div class="col-md-3" align="center">
+                          <div class="col">
+                              <button (click)="Actualizar()" class="btn btn-info">Nueva Consulta
+                              </button>&nbsp;
+                          </div>
+                      </div>
                   </div>
                   <hr>
               <div class="row">

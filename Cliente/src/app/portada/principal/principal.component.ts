@@ -63,12 +63,15 @@ export class PrincipalComponent implements OnInit {
 
         this.medidorService.servicioMedidor(this.facturaGroup.value.idmedidor)
             .subscribe((servicio: any) => {
-                this.datos.cuenta = servicio.idservicio
+                this.datos.cuenta = servicio.idservicio;
             });
 
         this.medidorService.listaLecturas(this.facturaGroup.value.idmedidor)
             .subscribe(res => {
                 this.lecturas = res;
+                if(this.lecturas.length === 0 ) {
+                    this.toastr.info("El cliente esta al dia con sus pagos","Ok");
+                }
             });
     }
 
@@ -77,6 +80,9 @@ export class PrincipalComponent implements OnInit {
         .subscribe(res => {
           this.medidores = res;
             this.toastr.info('Seleccione Medidor', 'ok');
+        }, (error) => {
+            this.toastr.info('Cliente no Registardo', 'JAAP');
+            this.facturaGroup.reset();
         });
     }
 
