@@ -56,11 +56,14 @@ class LecturaController extends Controller
                                     ->direccion;
 
         $baseM3 = Parametro::where('descripcion', 'like', '%'.'Base M3'.'%')->first();
-        if ($lugar === "San José de Chorlaví")
+
+        if ($lugar === "San Jose de Chorlavi")
         {
             $valorbase = Parametro::where('descripcion', 'like', '%'.'Base M3 Chorlavi'.'%')->first();
             $metroCubicoAgua = Parametro::where('descripcion', 'like', '%'.'M3 Agua Chorlavi'.'%')->first();
-        }else {
+        }
+        if ($lugar === "San Agustin")
+         {
             $valorbase = Parametro::where('descripcion', 'like', '%'.'Base M3 San Agustin'.'%')->first();
             $metroCubicoAgua = Parametro::where('descripcion', 'like', '%'.'M3 Agua San Agustin'.'%')->first();
         }
@@ -155,11 +158,11 @@ class LecturaController extends Controller
                 'total' => $totalPagar,
                 'lectura' => $lectura
             ];
-            $correo = $cliente->email;
-            if (strlen($correo) > 0)
-            {
-                Mail::send(new Factura($envio));
-            }
+           // $correo = $cliente->email;
+            //if (strlen($correo) > 0)
+            //{
+             //   Mail::send(new Factura($envio));
+            //}
             return response()->json($envio, 200);
         }
     }
