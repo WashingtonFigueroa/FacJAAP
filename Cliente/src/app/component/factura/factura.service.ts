@@ -17,6 +17,11 @@ export class FacturaService {
   index() {
     return this.http.get(this.base + 'factura_ventas');
   }
+
+    exporarExcel_lecturas() {
+        return this.http.get(this.base + 'exporarExcel_factura_ventas');
+    }
+
   indexPerPage(url) {
     return this.http.get( url );
   }

@@ -48,6 +48,7 @@ Route::get('lista_servicios', 'ServicioController@listaServicios');
 Route::get('exporarExcel_servicios', 'ServicioController@exporarExcel');
 Route::get('exporarExcel_multas', 'MultaController@exporarExcel');
 Route::get('exporarExcel_lecturas', 'LecturaController@exporarExcel');
+Route::get('exporarExcel_factura_ventas', 'FacturaVentaController@exporarExcel');
 
 Route::get('lista_clientes', 'ContribuyenteController@listaContribuyentes');
 

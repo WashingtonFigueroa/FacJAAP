@@ -5,6 +5,11 @@
           <div class="col-md-4">
             <input type="search" *ngIf="facturas !== null" (keypress)="buscar(search)" [(ngModel)]="search" placeholder="Buscar facturas.." class="form-control">
           </div>
+          <div class="col-md-8 text-right">
+            <button class="btn btn-primary" (click)="export()">
+              <span class="fa fa-save"></span>
+            </button>
+          </div>
         </div>
       <br>
       <div class="row">

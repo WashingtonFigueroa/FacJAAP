@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\FacturaVenta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FacturaVentaController extends Controller
 {
@@ -11,6 +12,15 @@ class FacturaVentaController extends Controller
     {
         return response()->json(FacturaVenta::orderBy('idfacturaventa', 'desc')->paginate(10), 200);
 
+    }
+
+    public function exporarExcel()
+    {
+        return response()->json(DB::table('factura_ventas')
+            ->join('servicios','servicios.idservicio','=','factura_ventas.idservicio')
+            ->join('clientes','clientes.idcliente','=','servicios.idcliente')
+            ->select('factura_ventas.idservicio','clientes.nombres as cliente','factura_ventas.fecha','factura_ventas.valor','factura_ventas.responsable')
+            ->get(), 200);
     }
 
     public function store(Request $request)

@@ -3,6 +3,7 @@ import { environment } from '../../../../environments/environment.prod';
 import { FacturaService } from '../factura.service';
 import { NgbModal, ModalDismissReasons } from '../../../../../node_modules/@ng-bootstrap/ng-bootstrap';
 import { Router } from '../../../../../node_modules/@angular/router';
+import {Angular5Csv} from "../../../../../node_modules/angular5-csv/Angular5-csv";
 
 @Component({
   selector: 'app-factura-index',
@@ -116,5 +117,16 @@ export class FacturaIndexComponent implements OnInit {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
+
+    export() {
+        const date = new Date();
+        const now = date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate();
+        this.facturaservice.exporarExcel_lecturas().subscribe(servicios => {
+            const csv = new Angular5Csv(servicios, 'Factura_Ventas-' + now , {
+                fieldSeparator: ';',
+                headers: ["Numero Servicio", "Nombres del Usuario","Fecha","Valor","Responsable"]
+            });
+        });
+    }
 
 }
